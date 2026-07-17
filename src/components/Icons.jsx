@@ -72,3 +72,7 @@ export function StarIcon({ size = 18, className = '' }) {
 export function TrophyIcon(props) {
   return <SvgIcon {...props}><path d="M8 4h8v4.5c0 3-1.6 5-4 5s-4-2-4-5V4Z" /><path d="M8 6H4.5v2c0 2 1.3 3.5 3.7 3.7M16 6h3.5v2c0 2-1.3 3.5-3.7 3.7M12 13.5V18m-4 3h8m-6-3h4" /></SvgIcon>
 }
+
+export function CheckIcon(props) {
+  return <SvgIcon {...props}><path d="m5 12.5 4.2 4.2L19 7" /></SvgIcon>
+}

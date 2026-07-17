@@ -3,6 +3,9 @@ import '../src/styles.css'
 export const metadata = {
   title: 'UGBZ',
   description: 'UGBZ – der Spielstand für euren Spieleabend.',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export const viewport = {

@@ -58,6 +58,7 @@ function migrateLegacyGame(value) {
 
 export const gameRepository = {
   load() {
+    if (typeof window === 'undefined') return null
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY)
       if (stored) {
@@ -77,6 +78,7 @@ export const gameRepository = {
   },
 
   save(game) {
+    if (typeof window === 'undefined') return false
     try {
       const storedGame = { ...game, updatedAt: new Date().toISOString() }
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(storedGame))
@@ -87,6 +89,7 @@ export const gameRepository = {
   },
 
   clear() {
+    if (typeof window === 'undefined') return false
     try {
       window.localStorage.removeItem(STORAGE_KEY)
       window.localStorage.removeItem(LEGACY_KEY)

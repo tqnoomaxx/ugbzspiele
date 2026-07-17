@@ -9,16 +9,78 @@ export function buildRounds(deckSize, playerCount, mode) {
   return [...ascending, ...ascending.slice(0, -1).reverse()]
 }
 
+export function getGamePlan(deckSize, playerCount, mode) {
+  const rounds = buildRounds(deckSize, playerCount, mode)
+  const maximumCards = Math.max(...rounds)
+  const estimatedMinutes = rounds.length * (1.4 + playerCount * 0.25)
+  const minimumMinutes = Math.max(5, Math.round(estimatedMinutes / 5) * 5)
+  const maximumMinutes = Math.max(
+    minimumMinutes + 5,
+    Math.round((estimatedMinutes * 1.35) / 5) * 5,
+  )
+
+  return {
+    rounds,
+    roundCount: rounds.length,
+    maximumCards,
+    durationLabel: `ca. ${minimumMinutes}–${maximumMinutes} Min.`,
+    sequenceLabel: mode === 'both'
+      ? `1 → ${maximumCards} → 1 Karten`
+      : `1 → ${maximumCards} Karten`,
+  }
+}
+
 export function calculateDelta(bid, result) {
   if (bid === result) return 5 + result
   return -5 - Math.abs(bid - result)
 }
 
-export function validatePlayerNames(names) {
-  const cleanNames = names.map((name) => name.trim()).filter(Boolean)
+export function describeScore(bid, result) {
+  const delta = calculateDelta(bid, result)
+  if (bid === result) {
+    return {
+      delta,
+      label: 'Ansage getroffen',
+      calculation: `5 + ${result} = +${delta}`,
+    }
+  }
 
-  if (cleanNames.length === 0) {
+  const difference = Math.abs(bid - result)
+  return {
+    delta,
+    label: `Um ${difference} ${difference === 1 ? 'Stich' : 'Stiche'} verfehlt`,
+    calculation: `−5 − ${difference} = ${delta}`,
+  }
+}
+
+export function buildRanking(players, scores) {
+  const sorted = players
+    .map((player, playerIndex) => ({ ...player, playerIndex, score: scores[playerIndex] }))
+    .sort((first, second) => second.score - first.score || first.playerIndex - second.playerIndex)
+
+  let previousScore = null
+  let previousRank = 0
+
+  return sorted.map((player, index) => {
+    const rank = player.score === previousScore ? previousRank : index + 1
+    previousScore = player.score
+    previousRank = rank
+    return { ...player, rank, isWinner: rank === 1 }
+  })
+}
+
+export function validatePlayerNames(names) {
+  const cleanNames = names.map((name) => name.trim())
+
+  if (cleanNames.length === 0 || cleanNames.every((name) => !name)) {
     return { valid: false, message: 'Trage mindestens einen Namen ein.' }
+  }
+
+  if (cleanNames.some((name) => !name)) {
+    return {
+      valid: false,
+      message: 'Fülle alle angelegten Spielplätze aus oder entferne leere Zeilen.',
+    }
   }
 
   const normalized = cleanNames.map((name) => name.toLocaleLowerCase('de-DE'))
@@ -59,15 +121,22 @@ export function createGame({ names, deckSize, mode }) {
   }
 }
 
-export function changeEntry(game, playerIndex, amount) {
+export function setEntry(game, playerIndex, value) {
   if (game.phase !== 'bid' && game.phase !== 'result') return game
 
   const field = game.phase === 'bid' ? 'bids' : 'results'
   const cards = game.rounds[game.roundIndex]
+  const numericValue = Number.isFinite(Number(value)) ? Math.trunc(Number(value)) : 0
   const nextValues = [...game[field]]
-  nextValues[playerIndex] = Math.min(cards, Math.max(0, nextValues[playerIndex] + amount))
+  nextValues[playerIndex] = Math.min(cards, Math.max(0, numericValue))
 
   return { ...game, [field]: nextValues }
+}
+
+export function changeEntry(game, playerIndex, amount) {
+  const field = game.phase === 'bid' ? 'bids' : 'results'
+  if (!field || !Array.isArray(game[field])) return game
+  return setEntry(game, playerIndex, game[field][playerIndex] + amount)
 }
 
 export function confirmBids(game) {
