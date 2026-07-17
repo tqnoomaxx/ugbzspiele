@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { CloseIcon, PlusIcon, UndoIcon, UserIcon } from '../components/Icons.jsx'
@@ -14,7 +14,7 @@ function newPlayer() {
 }
 
 export default function CardGameSetupPage() {
-  const navigate = useNavigate()
+  const router = useRouter()
   const [players, setPlayers] = useState(() => [newPlayer(), newPlayer()])
   const [deckSize, setDeckSize] = useState(32)
   const [mode, setMode] = useState('both')
@@ -49,11 +49,11 @@ export default function CardGameSetupPage() {
 
     const game = createGame({ names: validation.names, deckSize, mode })
     gameRepository.save(game)
-    navigate('/kartenspiel/spielen')
+    router.push('/kartenspiel/spielen')
   }
 
   function resumeGame() {
-    if (gameRepository.load()) navigate('/kartenspiel/spielen')
+    if (gameRepository.load()) router.push('/kartenspiel/spielen')
   }
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import {
@@ -146,7 +146,7 @@ function FinalScore({ game, onNewGame, onHome }) {
 }
 
 export default function CardGamePage() {
-  const navigate = useNavigate()
+  const router = useRouter()
   const [game, setGame] = useState(() => gameRepository.load())
   const [error, setError] = useState('')
 
@@ -154,18 +154,28 @@ export default function CardGamePage() {
     if (game) gameRepository.save(game)
   }, [game])
 
-  if (!game) return <Navigate replace to="/kartenspiel" />
+  useEffect(() => {
+    if (!game) router.replace('/kartenspiel')
+  }, [game, router])
+
+  if (!game) {
+    return (
+      <main className="route-loader" aria-live="polite">
+        <span className="route-loader__mark">UGBZ</span>
+      </main>
+    )
+  }
 
   function startNewGame() {
     gameRepository.clear()
-    navigate('/kartenspiel')
+    router.push('/kartenspiel')
   }
 
   if (game.phase === 'complete') {
     return (
       <div className="page page--game">
         <AppHeader home />
-        <FinalScore game={game} onHome={() => navigate('/')} onNewGame={startNewGame} />
+        <FinalScore game={game} onHome={() => router.push('/')} onNewGame={startNewGame} />
       </div>
     )
   }

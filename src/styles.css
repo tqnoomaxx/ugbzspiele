@@ -1026,6 +1026,9 @@ button:disabled {
   }
 
   .page--game .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     color: #f0d49a;
     border-bottom-color: var(--brass);
     background: var(--green);

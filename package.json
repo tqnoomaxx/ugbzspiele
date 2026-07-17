@@ -4,20 +4,26 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vinext dev",
+    "build": "vinext build",
+    "preview": "vinext start",
     "test": "vitest run",
     "check": "npm run test && npm run build"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "latest",
-    "vite": "latest"
+    "vinext": "latest"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-rsc": "latest",
+    "next": "latest",
+    "react-server-dom-webpack": "latest",
+    "vite": "latest",
     "vitest": "latest"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }

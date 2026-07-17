@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import AppHeader from '../components/AppHeader.jsx'
 import { ArrowRightIcon, DoorIcon } from '../components/Icons.jsx'
 import { games, roomFeature } from '../games/registry.js'
@@ -15,7 +14,7 @@ export default function HomePage() {
           <p>Wähle ein Spiel und leg direkt los.</p>
         </section>
 
-        <Link className="game-feature" to={game.path}>
+        <a className="game-feature" href={game.path}>
           <div className="game-feature__art" aria-hidden="true">
             <img src={game.artwork} alt="" />
           </div>
@@ -27,7 +26,7 @@ export default function HomePage() {
               <ArrowRightIcon size={23} />
             </span>
           </div>
-        </Link>
+        </a>
 
         <section className="room-preview" aria-disabled="true">
           <span className="room-preview__icon"><DoorIcon size={34} /></span>
