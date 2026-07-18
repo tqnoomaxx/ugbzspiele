@@ -56,10 +56,10 @@ function broadcast(code, type = 'room-updated') {
   channel.close()
 }
 
-function mirrorRoom(room) {
+function mirrorRoom(room, { notify = true } = {}) {
   if (!isValidRoom(room)) return false
   const saved = writeJson(ROOMS_KEY, { ...readRooms(), [normalizeCode(room.code)]: room })
-  if (saved) broadcast(room.code)
+  if (saved && notify) broadcast(room.code)
   return saved
 }
 
@@ -171,7 +171,7 @@ function clearPending(code) {
 async function mirrorOnline(action) {
   setSyncState('syncing')
   const room = await action()
-  if (room) mirrorRoom(room)
+  if (room) mirrorRoom(room, { notify: false })
   if (room?.code) clearPending(room.code)
   setSyncState('saved')
   return room
@@ -245,7 +245,7 @@ export const kniffelRoomRepository = {
       const room = entry.needsCreate
         ? await baseRepository.create(entry.room)
         : await baseRepository.mutate(code, () => entry.room)
-      mirrorRoom(room)
+      mirrorRoom(room, { notify: false })
       clearPending(code)
       setSyncState('saved')
       return true
