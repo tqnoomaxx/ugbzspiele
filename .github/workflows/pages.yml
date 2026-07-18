@@ -41,6 +41,19 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
+      - name: Vinext-Assets fuer den Pages-Unterpfad normalisieren
+        shell: bash
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          base_directory="${PAGES_BASE_PATH#/}"
+          nested_assets="dist/client/$base_directory/_next"
+
+          if [[ -n "$base_directory" && -d "$nested_assets" ]]; then
+            mv "$nested_assets" dist/client/_next
+            rmdir "dist/client/$base_directory"
+          fi
+
       - name: Unterseiten fuer GitHub Pages vorbereiten
         shell: bash
         run: |
