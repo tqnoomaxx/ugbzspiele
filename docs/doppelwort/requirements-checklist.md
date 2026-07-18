@@ -18,7 +18,7 @@ Stand: 18. Juli 2026. „Erfüllt“ bezeichnet im Frontend ausführbar oder dur
 | 100+ deutsche Wortpaare | Erfüllt | 120, testgesichert |
 | 100+ englische Wortpaare | Erfüllt | 120, testgesichert |
 | Kategorien/optionaler Hint | Erfüllt | sechs Kategorien, Filter, deaktivierbar |
-| Desktop, Tablet, Smartphone | Erfüllt | responsive CSS; finale Browser-QA vor Deployment ausführen |
+| Desktop, Tablet, Smartphone | Erfüllt | Browser-QA bei 1505×1045 und 390×844 ohne Overflow oder Overlay bestanden |
 | WebSocket-Realtime | Teilweise erfüllt | Realtime-Tabelle, RLS, Events, Reconnectvertrag; nicht verbunden |
 | Reconnect/Heartbeat/Latenzausgleich | Teilweise erfüllt | API-/Betriebskonzept vollständig; Online-Adapter fehlt |
 | Hostrechte und Hostwechsel | Erfüllt | Start/Fortschritt/Kick lokal, Engine-Hosttransfer und Backendmodell |
@@ -39,7 +39,7 @@ Stand: 18. Juli 2026. „Erfüllt“ bezeichnet im Frontend ausführbar oder dur
 | REST-Endpunkte/WebSocket-Events dokumentiert | Erfüllt | Requests, Antworten, Fehler, Beispiele, Events |
 | Security Controls | Teilweise erfüllt | RLS/Constraints/Locks/Threat Model vorhanden; Securitytest gegen echtes Staging fehlt |
 | Unit Tests | Erfüllt | Engine, Wörter, Phasen, Sieg, Timer, Punkte, Hostwechsel |
-| Integration-/E2E-/Last-/Securitytests | Teilweise erfüllt | lokaler Browser-Smoke-Test ausstehend; Online-/Last-/Securitytests benötigen Backend |
+| Integration-/E2E-/Last-/Securitytests | Teilweise erfüllt | kompletter lokaler E2E-Fluss und Zwei-Tab-Sync bestanden; Online-/Last-/Securitytests benötigen Backend |
 | Deployment/Monitoring/Logging/Recovery/Backups | Teilweise erfüllt | Runbook/SLO/Jobs vorhanden; externe Dienste nicht provisioniert |
 | CI/CD | Teilweise erfüllt | lokaler `npm run check`; GitHub-Pipeline noch nicht eingerichtet |
 | TypeScript Strict | Teilweise erfüllt | UGBZ bleibt auf ausdrücklichen Wunsch JS; Edge Functions sollen Strict TS nutzen |
