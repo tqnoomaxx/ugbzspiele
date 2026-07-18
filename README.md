@@ -21,6 +21,10 @@ UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstan
 
 ## Lokal starten
 
+Auf macOS kann die Datei `UGBZ-starten.command` doppelt angeklickt werden. Sie startet den Produktionsbuild und öffnet automatisch `http://127.0.0.1:3000`.
+
+Alternativ im Terminal:
+
 ```bash
 npm install
 npm run dev
