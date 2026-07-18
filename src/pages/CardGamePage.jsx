@@ -409,16 +409,17 @@ export default function CardGamePage() {
             <Button className="round-confirm" onClick={handleConfirm} type="button">
               {game.phase === 'bid' ? 'Ansagen bestätigen' : 'Runde auswerten'}
             </Button>
-            <Button
-              className="round-undo"
-              disabled={!canUndo}
-              onClick={handleUndo}
-              type="button"
-              variant="outline"
-            >
-              <UndoIcon size={21} />
-              {undoLabel}
-            </Button>
+            {canUndo ? (
+              <Button
+                className="round-undo"
+                onClick={handleUndo}
+                type="button"
+                variant="outline"
+              >
+                <UndoIcon size={21} />
+                {undoLabel}
+              </Button>
+            ) : null}
           </div>
         </section>
 

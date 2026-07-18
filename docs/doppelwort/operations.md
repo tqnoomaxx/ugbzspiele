@@ -31,7 +31,7 @@ Server-Geheimnisse gehören nur in die Function-/Hosting-Secret-Verwaltung, nie 
 
 ## CI/CD
 
-Empfohlene Pipeline auf Pull Requests: `npm ci`, Unit-/Integrationstests, Build, Migration-Lint in einer temporären Postgres-Instanz, Playwright Desktop/Mobil, Dependency-/Secret-Scan. Auf `main`: Staging deployen, Smoke-Test, Migration mit Backup, Production deployen, Healthcheck und bei Fehler automatisches Frontend-Rollback. Datenbankmigrationen sind vorwärtskompatibel; destruktive Änderungen erfolgen in zwei Releases.
+`.github/workflows/ci.yml` führt bei Pushes und Pull Requests reproduzierbar `npm ci` sowie `npm run check` aus. Vor einer produktiven Online-Freigabe wird diese Basis um Migration-Lint in einer temporären Postgres-Instanz, Playwright Desktop/Mobil sowie Dependency- und Secret-Scans erweitert. Auf `main`: Staging deployen, Smoke-Test, Migration mit Backup, Production deployen, Healthcheck und bei Fehler automatisches Frontend-Rollback. Datenbankmigrationen sind vorwärtskompatibel; destruktive Änderungen erfolgen in zwei Releases.
 
 ## Monitoring und SLO
 

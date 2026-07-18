@@ -4,7 +4,7 @@ export const games = [
     title: 'Kartenspiel',
     description: 'Stiche ansagen, Runden werten, Spielstand behalten.',
     path: '/kartenspiel',
-    artwork: '/assets/cards-on-felt.png',
+    artwork: '/assets/cards-on-felt.webp',
     available: true,
   },
   {

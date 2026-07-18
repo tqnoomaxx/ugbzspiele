@@ -14,7 +14,10 @@ UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstan
 - 120 deutsche und 120 englische Wortpaare in sechs Kategorien
 - Vollständiger Rollen-, Reveal-, Rede-, Meeting-, Abstimmungs-, Punkte- und Ergebnisfluss
 - Pass-and-Play sowie Tab-Synchronisierung über ein versioniertes Raum-Repository
+- Unterbrechbare laufende Doppelwort-Sitzungen mit sichtbarer Wiederaufnahme auf dem Homescreen
+- Punktefreier Modus ohne irreführenden Gesamtstand sowie Meetings ohne erzwungenen Timer
 - Vorbereitetes Supabase-Postgres-/Realtime-Schema inklusive RLS, API- und Betriebsdokumentation
+- Automatische Tests und Produktionsbuilds über die GitHub-Actions-Pipeline
 
 ## Lokal starten
 

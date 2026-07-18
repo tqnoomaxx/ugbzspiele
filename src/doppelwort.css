@@ -691,6 +691,21 @@
   background: rgb(10 34 36 / 74%);
 }
 
+.dw-result-score--disabled {
+  align-content: start;
+}
+
+.dw-result-score--disabled > p {
+  margin: 22px 0 0;
+  color: var(--dw-muted);
+  line-height: 1.65;
+}
+
+.dw-complete-no-score {
+  margin: 0 0 28px;
+  color: var(--dw-muted);
+}
+
 .dw-player-panel,
 .dw-rule-card {
   padding: 28px;

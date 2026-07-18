@@ -56,7 +56,7 @@ export const doppelwortRoomRepository = {
 
   listPublic() {
     return Object.values(readRooms())
-      .filter((room) => room.visibility === 'public' && room.status !== 'closed')
+      .filter((room) => room.visibility === 'public' && room.status === 'lobby')
       .map(getRoomSummary)
       .sort((first, second) => Date.parse(second.updatedAt) - Date.parse(first.updatedAt))
   },
@@ -65,7 +65,7 @@ export const doppelwortRoomRepository = {
     if (!isValidRoom(room)) return false
     const rooms = readRooms()
     const stored = rooms[room.code]
-    if (stored && stored.revision > room.revision) return false
+    if (stored && stored.revision >= room.revision) return false
     const saved = writeRooms({ ...rooms, [room.code]: room })
     if (saved) broadcast(room.code)
     return saved

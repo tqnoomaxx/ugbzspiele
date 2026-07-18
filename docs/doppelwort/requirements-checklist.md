@@ -7,12 +7,12 @@ Stand: 18. Juli 2026. „Erfüllt“ bezeichnet im Frontend ausführbar oder dur
 | Eigenständiges Wort-/Imposter-Prinzip | Erfüllt | Name, Regeln und Salon-Design sind eigenständig |
 | Öffentliche und private Raumoberfläche | Erfüllt | lokale Raumliste, Code/Link, Sichtbarkeit, Passwortoption |
 | Echter geräteübergreifender Raumbeitritt | Fehlt | Supabase-Projekt und Frontend-Online-Adapter anschließen |
-| Rollen- und Wortverteilung | Erfüllt | Engine, zufällige Auswahl, 17 Tests insgesamt |
+| Rollen- und Wortverteilung | Erfüllt | Engine, zufällige Auswahl und automatisierte Tests |
 | Geheimhaltung im lokalen Test | Teilweise erfüllt | Pass-and-Play schützt visuell; Local Storage ist kein Trust Boundary |
 | Geheimhaltung produktiv | Teilweise erfüllt | server-only Schema/RLS/Eventmodell vorhanden; Edge Function noch nicht deployt |
 | Automatische Sprechreihenfolge | Erfüllt | zufällig, Timer, manuell fertig, automatischer Wechsel |
 | Kein Chat/Aufgaben/Karte/Bewegung/Eliminierung | Erfüllt | bewusst nicht vorhanden |
-| Meeting und Abstimmung mit Skip | Erfüllt | Timer, geheime Geräteübergabe, Mehrfachwahl bis Imposter-Anzahl |
+| Meeting und Abstimmung mit Skip | Erfüllt | optionaler Timer (inklusive offenem Meeting), geheime Geräteübergabe, Mehrfachwahl bis Imposter-Anzahl |
 | Eindeutige Sieglogik | Erfüllt | Engine, Unit Tests, Benutzer-/Architekturdokumentation |
 | Alle Raumoptionen mit Defaults | Teilweise erfüllt | alle konfigurierbar; Zuschauer erst mit Online-Adapter aktiv |
 | 100+ deutsche Wortpaare | Erfüllt | 120, testgesichert |
@@ -32,16 +32,16 @@ Stand: 18. Juli 2026. „Erfüllt“ bezeichnet im Frontend ausführbar oder dur
 | Cookie-Einwilligung | Teilweise erfüllt | aktuell keine nicht notwendigen Cookies; bei späterem Tracking Consent ergänzen |
 | Impressum/Datenschutzerklärung | Fehlt | reale Betreiber- und Hostingangaben fehlen, siehe `legal-todo.md` |
 | Moderne minimalistische Dark-Mode-UI | Erfüllt | vier Designkonzepte, eigenes Token-/Komponentensystem |
-| Barrierearme Bedienung | Teilweise erfüllt | semantische Formulare, Fokus, 48px-Ziele, Reduced Motion; Screenreader-Audit fehlt |
+| Barrierearme Bedienung | Teilweise erfüllt | semantische Formulare, tastaturbedienbare Tabs, Fokus, mindestens 44px große Ziele, Reduced Motion; Screenreader-Audit fehlt |
 | Lade-/Leer-/Fehler-/Erfolgszustände | Erfüllt | Routenloader, leere Raumliste, Inlinefehler, Ergebniszustände |
 | Frontend/Backend/DB/API/WebSockets | Teilweise erfüllt | Frontend/Engine/DB/API-Vertrag vorhanden; deployte Backend-Functions fehlen |
 | Datenmodell mit ERD | Erfüllt | Migration plus Mermaid-ERD |
 | REST-Endpunkte/WebSocket-Events dokumentiert | Erfüllt | Requests, Antworten, Fehler, Beispiele, Events |
-| Security Controls | Teilweise erfüllt | RLS/Constraints/Locks/Threat Model vorhanden; Securitytest gegen echtes Staging fehlt |
-| Unit Tests | Erfüllt | Engine, Wörter, Phasen, Sieg, Timer, Punkte, Hostwechsel |
+| Security Controls | Teilweise erfüllt | Least-Privilege-Grants, RLS, Constraints, Indizes, serverseitig validierte Phasen und Threat Model vorhanden; Securitytest gegen echtes Staging fehlt |
+| Unit Tests | Erfüllt | Engine, Wörter, Phasen, Sieg, Timer, Punkte, Hostwechsel, Raumfilter und Revisionskonflikte |
 | Integration-/E2E-/Last-/Securitytests | Teilweise erfüllt | kompletter lokaler E2E-Fluss und Zwei-Tab-Sync bestanden; Online-/Last-/Securitytests benötigen Backend |
 | Deployment/Monitoring/Logging/Recovery/Backups | Teilweise erfüllt | Runbook/SLO/Jobs vorhanden; externe Dienste nicht provisioniert |
-| CI/CD | Teilweise erfüllt | lokaler `npm run check`; GitHub-Pipeline noch nicht eingerichtet |
+| CI/CD | Teilweise erfüllt | GitHub-Pipeline für reproduzierbare Installation, Unit Tests und Produktionsbuild; Staging-/Produktionsdeploy fehlt |
 | TypeScript Strict | Teilweise erfüllt | UGBZ bleibt auf ausdrücklichen Wunsch JS; Edge Functions sollen Strict TS nutzen |
 | SOLID/DRY/KISS/Clean Boundaries | Erfüllt | pure Engine, Adapter, Seiten und Design getrennt |
 | Vollständige Dokumentation | Erfüllt | README, Architektur, ERD, API, Security, Betrieb, User, Admin, Developer, Checkliste |

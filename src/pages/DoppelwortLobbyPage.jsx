@@ -77,6 +77,25 @@ export default function DoppelwortLobbyPage() {
   })
   const [error, setError] = useState('')
 
+  const selectMode = (nextMode, { focus = false } = {}) => {
+    setMode(nextMode)
+    setError('')
+    if (focus) window.requestAnimationFrame(() => document.querySelector(`#dw-tab-${nextMode}`)?.focus())
+  }
+
+  const handleTabKeyDown = (event) => {
+    const nextMode = ['ArrowLeft', 'ArrowRight'].includes(event.key)
+      ? (mode === 'join' ? 'create' : 'join')
+      : event.key === 'Home'
+        ? 'join'
+        : event.key === 'End'
+          ? 'create'
+          : null
+    if (!nextMode) return
+    event.preventDefault()
+    selectMode(nextMode, { focus: true })
+  }
+
   const categories = useMemo(
     () => DOPPELWORT_CATEGORIES[createForm.options.language],
     [createForm.options.language],
@@ -90,7 +109,7 @@ export default function DoppelwortLobbyPage() {
     const inviteCode = new URLSearchParams(window.location.search).get('code')
     if (inviteCode) {
       setJoinForm((current) => ({ ...current, code: inviteCode.toUpperCase() }))
-      setMode('join')
+      selectMode('join')
     }
     return unsubscribe
   }, [])
@@ -108,7 +127,7 @@ export default function DoppelwortLobbyPage() {
 
   const openRoom = (code) => {
     setJoinForm((current) => ({ ...current, code }))
-    setMode('join')
+    selectMode('join')
     document.querySelector('#dw-access-panel')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
@@ -124,8 +143,11 @@ export default function DoppelwortLobbyPage() {
 
       const playerId = createDoppelwortId('player')
       const nextRoom = addPlayer(room, joinForm.name, { id: playerId })
-      if (!doppelwortRoomRepository.save(nextRoom)) throw new Error('Der Raum konnte nicht aktualisiert werden.')
-      doppelwortRoomRepository.saveSession(code, playerId)
+      if (!doppelwortRoomRepository.saveSession(code, playerId)) throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
+      if (!doppelwortRoomRepository.save(nextRoom)) {
+        doppelwortRoomRepository.clearSession()
+        throw new Error('Der Raum konnte nicht aktualisiert werden.')
+      }
       window.location.assign('/doppelwort/raum')
     } catch (joinError) {
       setError(joinError.message)
@@ -136,14 +158,21 @@ export default function DoppelwortLobbyPage() {
     event.preventDefault()
     setError('')
     try {
-      const room = createRoom({
-        roomName: createForm.roomName,
-        hostName: createForm.name,
-        options: createForm.options,
-        password: createForm.password,
-      })
-      if (!doppelwortRoomRepository.save(room)) throw new Error('Der Raum konnte nicht gespeichert werden.')
-      doppelwortRoomRepository.saveSession(room.code, room.hostId)
+      let room = null
+      for (let attempt = 0; attempt < 5 && !room; attempt += 1) {
+        const candidate = createRoom({
+          roomName: createForm.roomName,
+          hostName: createForm.name,
+          options: createForm.options,
+          password: createForm.password,
+        })
+        if (!doppelwortRoomRepository.load(candidate.code) && doppelwortRoomRepository.save(candidate)) room = candidate
+      }
+      if (!room) throw new Error('Der Raum konnte nicht gespeichert werden. Bitte versuche es erneut.')
+      if (!doppelwortRoomRepository.saveSession(room.code, room.hostId)) {
+        doppelwortRoomRepository.remove(room.code)
+        throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
+      }
       window.location.assign('/doppelwort/raum')
     } catch (createError) {
       setError(createError.message)
@@ -174,12 +203,12 @@ export default function DoppelwortLobbyPage() {
 
           <section className="dw-access-panel" id="dw-access-panel" aria-labelledby="access-title">
             <div className="dw-tab-list" role="tablist" aria-label="Raumzugang">
-              <button aria-selected={mode === 'join'} className={mode === 'join' ? 'is-active' : ''} onClick={() => { setMode('join'); setError('') }} role="tab" type="button">Beitreten</button>
-              <button aria-selected={mode === 'create'} className={mode === 'create' ? 'is-active' : ''} onClick={() => { setMode('create'); setError('') }} role="tab" type="button">Raum erstellen</button>
+              <button aria-controls="dw-panel-join" aria-selected={mode === 'join'} className={mode === 'join' ? 'is-active' : ''} id="dw-tab-join" onClick={() => selectMode('join')} onKeyDown={handleTabKeyDown} role="tab" tabIndex={mode === 'join' ? 0 : -1} type="button">Beitreten</button>
+              <button aria-controls="dw-panel-create" aria-selected={mode === 'create'} className={mode === 'create' ? 'is-active' : ''} id="dw-tab-create" onClick={() => selectMode('create')} onKeyDown={handleTabKeyDown} role="tab" tabIndex={mode === 'create' ? 0 : -1} type="button">Raum erstellen</button>
             </div>
 
             {mode === 'join' ? (
-              <form className="dw-form" onSubmit={handleJoin}>
+              <form aria-labelledby="dw-tab-join" className="dw-form" id="dw-panel-join" onSubmit={handleJoin} role="tabpanel">
                 <div className="dw-form__heading">
                   <span className="dw-kicker">Einladung</span>
                   <h2 id="access-title">Tritt einer Runde bei</h2>
@@ -202,7 +231,7 @@ export default function DoppelwortLobbyPage() {
                 <Button className="dw-submit" type="submit">Raum betreten <ArrowRightIcon size={21} /></Button>
               </form>
             ) : (
-              <form className="dw-form dw-form--create" onSubmit={handleCreate}>
+              <form aria-labelledby="dw-tab-create" className="dw-form dw-form--create" id="dw-panel-create" onSubmit={handleCreate} role="tabpanel">
                 <div className="dw-form__heading">
                   <span className="dw-kicker">Spielleitung</span>
                   <h2 id="access-title">Richte den Salon ein</h2>

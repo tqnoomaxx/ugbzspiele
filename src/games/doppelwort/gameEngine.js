@@ -306,12 +306,17 @@ export function finishSpeakingTurn(room, actorId, now = Date.now()) {
 
   const nextIndex = room.game.currentSpeakerIndex + 1
   const finished = nextIndex >= room.game.speakingOrder.length
+  const meetingEndsAt = room.options.meetingSeconds > 0
+    ? timestamp(now + room.options.meetingSeconds * 1000)
+    : null
   const game = {
     ...room.game,
     currentSpeakerIndex: finished ? room.game.currentSpeakerIndex : nextIndex,
     phase: finished ? 'meeting' : 'speaking',
     phaseStartedAt: timestamp(now),
-    phaseEndsAt: timestamp(now + (finished ? room.options.meetingSeconds : room.options.speakingSeconds) * 1000),
+    phaseEndsAt: finished
+      ? meetingEndsAt
+      : timestamp(now + room.options.speakingSeconds * 1000),
   }
 
   return touch({ ...room, game }, now)

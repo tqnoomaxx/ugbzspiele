@@ -197,9 +197,20 @@ create table public.app_settings (
 
 create index rooms_public_lobby_idx on public.rooms (updated_at desc)
   where visibility = 'public' and status = 'lobby';
+create index rooms_host_guest_idx on public.rooms (host_guest_id);
+create index games_room_idx on public.games (room_id);
 create index room_members_guest_idx on public.room_members (guest_id, room_id);
 create index room_members_heartbeat_idx on public.room_members (room_id, last_heartbeat_at)
   where connection_status <> 'kicked';
+create index rounds_word_pair_idx on public.rounds (word_pair_id);
+create index votes_voter_guest_idx on public.votes (voter_guest_id);
+create index room_actions_guest_idx on public.room_actions (guest_id);
+create index bans_guest_idx on public.bans (guest_id);
+create index bans_created_by_idx on public.bans (created_by);
+create index reports_room_idx on public.reports (room_id);
+create index reports_reporter_idx on public.reports (reporter_guest_id);
+create index reports_reported_idx on public.reports (reported_guest_id);
+create index app_settings_updated_by_idx on public.app_settings (updated_by);
 
 -- Security-definer membership helpers prevent recursive room_members policies.
 create or replace function public.is_room_member(target_room_id uuid)
@@ -212,7 +223,7 @@ as $$
   select exists (
     select 1 from public.room_members
     where room_id = target_room_id
-      and guest_id = auth.uid()
+      and guest_id = (select auth.uid())
       and connection_status <> 'kicked'
   );
 $$;
@@ -226,7 +237,7 @@ set search_path = public, pg_temp
 as $$
   select exists (
     select 1 from public.admin_users
-    where user_id = auth.uid()
+    where user_id = (select auth.uid())
       and case minimum_role
         when 'owner' then role = 'owner'
         when 'admin' then role in ('admin', 'owner')
@@ -255,35 +266,42 @@ alter table public.admin_users enable row level security;
 alter table public.audit_logs enable row level security;
 alter table public.app_settings enable row level security;
 
-create policy guests_read_self on public.guests for select to authenticated using (id = auth.uid() or public.is_admin());
-create policy guests_insert_self on public.guests for insert to authenticated with check (id = auth.uid());
-create policy guests_update_self on public.guests for update to authenticated using (id = auth.uid()) with check (id = auth.uid());
+create policy guests_read_self on public.guests for select to authenticated using (id = (select auth.uid()) or (select public.is_admin()));
+create policy guests_insert_self on public.guests for insert to authenticated with check (id = (select auth.uid()));
+create policy guests_update_self on public.guests for update to authenticated using (id = (select auth.uid())) with check (id = (select auth.uid()));
 
 -- Regular clients never select rooms directly because that row also contains password_hash.
 -- Public metadata uses the deliberately narrow view below; member snapshots come from an Edge Function.
-create policy rooms_read_admin on public.rooms for select to authenticated using (public.is_admin());
+create policy rooms_read_admin on public.rooms for select to authenticated using ((select public.is_admin()));
 create policy room_members_read_room on public.room_members for select to authenticated
-  using (guest_id = auth.uid() or public.is_room_member(room_id) or public.is_admin());
+  using (guest_id = (select auth.uid()) or public.is_room_member(room_id) or (select public.is_admin()));
 create policy games_read_member on public.games for select to authenticated
-  using (public.is_room_member(room_id) or public.is_admin());
+  using (public.is_room_member(room_id) or (select public.is_admin()));
 create policy room_events_read_member on public.room_events for select to authenticated
   using (
-    (public.is_room_member(room_id) and (recipient_guest_id is null or recipient_guest_id = auth.uid()))
-    or public.is_admin()
+    (public.is_room_member(room_id) and (recipient_guest_id is null or recipient_guest_id = (select auth.uid())))
+    or (select public.is_admin())
   );
 
 create policy reports_insert_member on public.reports for insert to authenticated
-  with check (reporter_guest_id = auth.uid() and (room_id is null or public.is_room_member(room_id)));
+  with check (reporter_guest_id = (select auth.uid()) and (room_id is null or public.is_room_member(room_id)));
 create policy reports_read_own_or_admin on public.reports for select to authenticated
-  using (reporter_guest_id = auth.uid() or public.is_admin());
+  using (reporter_guest_id = (select auth.uid()) or (select public.is_admin()));
 
 create policy admins_read_self_or_admin on public.admin_users for select to authenticated
-  using (user_id = auth.uid() or public.is_admin('admin'));
-create policy audit_read_admin on public.audit_logs for select to authenticated using (public.is_admin());
-create policy settings_read_admin on public.app_settings for select to authenticated using (public.is_admin());
+  using (user_id = (select auth.uid()) or (select public.is_admin('admin')));
+create policy audit_read_admin on public.audit_logs for select to authenticated using ((select public.is_admin()));
+create policy settings_read_admin on public.app_settings for select to authenticated using ((select public.is_admin()));
+
+-- Browser clients receive only the privileges backed by the policies above.
+revoke all on all tables in schema public from anon, authenticated;
+grant select, insert, update on public.guests to authenticated;
+grant select on public.rooms, public.room_members, public.games, public.room_events to authenticated;
+grant select, insert on public.reports to authenticated;
+grant select on public.admin_users, public.audit_logs, public.app_settings to authenticated;
 
 -- The client may read sanitized room metadata, never password hashes or options containing secrets.
-create view public.public_room_directory as
+create view public.public_room_directory with (security_barrier = true) as
 select
   r.id,
   r.code,
@@ -322,6 +340,9 @@ as $$
 declare
   v_room public.rooms%rowtype;
   v_revision bigint;
+  v_current_phase text;
+  v_duration_seconds integer;
+  v_phase_ends_at timestamptz;
 begin
   if not public.is_room_member(p_room_id) then
     raise exception 'not_authorized' using errcode = '42501';
@@ -331,7 +352,7 @@ begin
 
   select * into v_room from public.rooms where id = p_room_id for update;
   if not found then raise exception 'room_not_found' using errcode = 'P0002'; end if;
-  if v_room.host_guest_id <> auth.uid() then
+  if v_room.host_guest_id <> (select auth.uid()) then
     raise exception 'host_required' using errcode = '42501';
   end if;
 
@@ -343,19 +364,56 @@ begin
     raise exception 'revision_conflict' using errcode = '40001';
   end if;
 
+  select r.phase into v_current_phase
+  from public.rounds r
+  join public.games g on g.id = r.game_id and g.room_id = p_room_id and g.status = 'playing'
+  where r.id = p_round_id and r.room_id = p_room_id
+  for update of r;
+  if not found then raise exception 'active_round_not_found' using errcode = 'P0002'; end if;
+  if v_current_phase <> p_from_phase then
+    raise exception 'invalid_phase_transition' using errcode = '22023';
+  end if;
+
+  if not (
+    (p_from_phase = 'reveal' and p_to_phase = 'speaking')
+    or (p_from_phase = 'speaking' and p_to_phase = 'meeting')
+    or (p_from_phase = 'meeting' and p_to_phase = 'voting')
+    or (p_from_phase = 'voting' and p_to_phase = 'result')
+    or (p_from_phase = 'result' and p_to_phase = 'complete')
+  ) then
+    raise exception 'transition_not_allowed' using errcode = '22023';
+  end if;
+
+  -- p_phase_ends_at remains in the signature for API compatibility but is never trusted.
+  case p_to_phase
+    when 'speaking' then
+      v_duration_seconds := greatest(10, least(180, coalesce((v_room.options ->> 'speakingSeconds')::integer, 30)));
+      v_phase_ends_at := now() + make_interval(secs => v_duration_seconds);
+    when 'meeting' then
+      v_duration_seconds := greatest(0, least(300, coalesce((v_room.options ->> 'meetingSeconds')::integer, 45)));
+      v_phase_ends_at := case when v_duration_seconds = 0 then null else now() + make_interval(secs => v_duration_seconds) end;
+    when 'voting' then
+      v_duration_seconds := greatest(15, least(300, coalesce((v_room.options ->> 'votingSeconds')::integer, 45)));
+      v_phase_ends_at := now() + make_interval(secs => v_duration_seconds);
+    when 'result' then
+      v_phase_ends_at := case when coalesce((v_room.options ->> 'autoNextRound')::boolean, false) then now() + interval '8 seconds' else null end;
+    else
+      v_phase_ends_at := null;
+  end case;
+
   update public.rounds
-  set phase = p_to_phase, phase_started_at = now(), phase_ends_at = p_phase_ends_at
-  where id = p_round_id and room_id = p_room_id and phase = p_from_phase;
+  set phase = p_to_phase, phase_started_at = now(), phase_ends_at = v_phase_ends_at
+  where id = p_round_id and room_id = p_room_id and phase = v_current_phase;
   if not found then raise exception 'invalid_phase_transition' using errcode = '22023'; end if;
 
   update public.rooms set revision = revision + 1, updated_at = now()
   where id = p_room_id returning revision into v_revision;
 
   insert into public.room_actions (room_id, action_id, guest_id, action_type, resulting_revision)
-  values (p_room_id, p_action_id, auth.uid(), p_from_phase || '_to_' || p_to_phase, v_revision);
+  values (p_room_id, p_action_id, (select auth.uid()), p_from_phase || '_to_' || p_to_phase, v_revision);
 
   insert into public.room_events (room_id, revision, event_type, public_payload)
-  values (p_room_id, v_revision, 'phase_changed', jsonb_build_object('phase', p_to_phase, 'phaseEndsAt', p_phase_ends_at));
+  values (p_room_id, v_revision, 'phase_changed', jsonb_build_object('phase', p_to_phase, 'phaseEndsAt', v_phase_ends_at));
 
   return v_revision;
 end;

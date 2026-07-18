@@ -128,6 +128,29 @@ describe('Doppelwort room and round engine', () => {
     expect(Object.keys(room.game.votes)).toHaveLength(4)
   })
 
+  it('keeps a meeting without a timer open until the host starts voting', () => {
+    let room = startGame(roomWithPlayers(3, { meetingSeconds: 0 }), 'player-1', { rng: () => 0, now: 2000 })
+    room = revealAll(room)
+    room.game.speakingOrder.forEach((playerId, index) => {
+      room = finishSpeakingTurn(room, playerId, 3000 + index)
+    })
+
+    expect(room.game.phase).toBe('meeting')
+    expect(room.game.phaseEndsAt).toBeNull()
+    expect(advanceExpiredPhase(room, 999_999)).toBe(room)
+  })
+
+  it('does not award points when the room disables the overall score', () => {
+    let room = startGame(roomWithPlayers(3, { pointsEnabled: false }), 'player-1', { rng: () => 0, now: 2000 })
+    room = reachVoting(room)
+    room.game.playerIds.forEach((voterId, index) => {
+      room = submitVote(room, voterId, [], 5000 + index)
+    })
+
+    expect(room.game.phase).toBe('result')
+    expect(room.players.every((player) => player.score === 0)).toBe(true)
+  })
+
   it('awards points, advances rounds and transfers the host safely', () => {
     let room = startGame(roomWithPlayers(3, { roundCount: 2 }), 'player-1', { rng: () => 0, now: 2000 })
     room = reachVoting(room)

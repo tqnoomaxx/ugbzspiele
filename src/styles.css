@@ -114,6 +114,9 @@ button:disabled {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--serif);
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1;

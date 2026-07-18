@@ -6,7 +6,7 @@
 - `design/ugbz-setup-concept.png` — game setup, 1505 × 1045
 - `design/ugbz-game-concept.png` — active round and scoreboard, 1504 × 1046
 - `design/ugbz-mobile-concept.png` — responsive direction, 1491 × 1055
-- `public/assets/cards-on-felt.png` — production landing artwork, 1536 × 1024
+- `public/assets/cards-on-felt.webp` — optimiertes Produktionsmotiv, 1536 × 1024
 
 ## Copy lock
 

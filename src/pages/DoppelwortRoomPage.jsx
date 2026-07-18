@@ -351,10 +351,17 @@ function ResultPhase({ actorId, onAction, room }) {
             )
           })}
         </div>
-        <div className="dw-result-score">
-          <div className="dw-panel-heading"><h2>Gesamtstand</h2><span>nach Runde {room.game.roundNumber}</span></div>
-          <ScoreTable room={room} />
-        </div>
+        {room.options.pointsEnabled ? (
+          <div className="dw-result-score">
+            <div className="dw-panel-heading"><h2>Gesamtstand</h2><span>nach Runde {room.game.roundNumber}</span></div>
+            <ScoreTable room={room} />
+          </div>
+        ) : (
+          <div className="dw-result-score dw-result-score--disabled">
+            <div className="dw-panel-heading"><h2>Ohne Punkte</h2><span>reines Deduktionsspiel</span></div>
+            <p>Diese Partie wird ohne Gesamtwertung gespielt. Entscheidend ist nur, welches Team die Runde gewinnt.</p>
+          </div>
+        )}
       </div>
 
       {isHost ? (
@@ -371,13 +378,14 @@ function CompletePhase({ actorId, onAction, room }) {
   const isHost = actorId === room.hostId
   const highScore = Math.max(...room.players.map((player) => player.score))
   const winners = room.players.filter((player) => player.score === highScore).map((player) => player.name)
+  const winnerLabel = `${winners.join(' & ')} ${winners.length === 1 ? 'gewinnt' : 'gewinnen'}.`
   return (
     <section className="dw-phase dw-phase--complete">
       <TrophyIcon className="dw-complete-trophy" size={62} />
       <span className="dw-kicker">Der Salon schließt</span>
-      <h1>{winners.join(' & ')} {winners.length === 1 ? 'gewinnt' : 'gewinnen'}.</h1>
+      <h1>{room.options.pointsEnabled ? winnerLabel : 'Partie beendet.'}</h1>
       <p>{room.options.roundCount} {room.options.roundCount === 1 ? 'Runde' : 'Runden'}, zwei Wörter und eine Menge verdächtiger Hinweise.</p>
-      <ScoreTable room={room} />
+      {room.options.pointsEnabled ? <ScoreTable room={room} /> : <p className="dw-complete-no-score">Ihr habt bewusst ohne Gesamtwertung gespielt.</p>}
       <div className="dw-complete-actions">
         {isHost ? <Button onClick={() => onAction((current) => returnToLobby(current, actorId))}>Neue Partie im Raum</Button> : null}
         <a className="button button--outline" href="/">Alle Spiele</a>
@@ -451,7 +459,12 @@ export default function DoppelwortRoomPage() {
   }
 
   const leaveRoom = () => {
-    if (room?.status === 'lobby' && session?.playerId) {
+    if (room?.status !== 'lobby') {
+      window.location.assign('/')
+      return
+    }
+
+    if (session?.playerId) {
       try {
         const nextRoom = removePlayer(room, session.playerId, { actorId: session.playerId })
         if (nextRoom.status === 'closed') doppelwortRoomRepository.remove(room.code)
@@ -495,7 +508,7 @@ export default function DoppelwortRoomPage() {
         {phase === 'result' ? <ResultPhase actorId={session.playerId} onAction={applyAction} room={room} /> : null}
         {phase === 'complete' ? <CompletePhase actorId={session.playerId} onAction={applyAction} room={room} /> : null}
 
-        <button className="dw-leave-room" onClick={leaveRoom} type="button">{room.status === 'lobby' ? 'Raum verlassen' : 'Lokale Sitzung verlassen'}</button>
+        <button className="dw-leave-room" onClick={leaveRoom} type="button">{room.status === 'lobby' ? 'Raum verlassen' : 'Später weiterspielen'}</button>
       </main>
     </div>
   )
