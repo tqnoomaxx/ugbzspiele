@@ -1,0 +1,72 @@
+name: UGBZ auf GitHub Pages veroeffentlichen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Abhaengigkeiten installieren
+        run: npm ci
+
+      - name: Tests und Produktionsbuild ausfuehren
+        run: npm run check
+
+      - name: Unterseiten fuer GitHub Pages vorbereiten
+        shell: bash
+        run: |
+          find dist/client -type f -name '*.html' \
+            ! -name 'index.html' \
+            ! -name '404.html' \
+            -print0 |
+          while IFS= read -r -d '' file; do
+            relative="${file#dist/client/}"
+            route="${relative%.html}"
+            mkdir -p "dist/client/$route"
+            cp "$file" "dist/client/$route/index.html"
+          done
+
+          touch dist/client/.nojekyll
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Website hochladen
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/client
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Website veroeffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
