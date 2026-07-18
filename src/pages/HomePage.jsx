@@ -5,7 +5,6 @@ import AppHeader from '../components/AppHeader.jsx'
 import { ArrowRightIcon } from '../components/Icons.jsx'
 import { games } from '../games/registry.js'
 import { gameRepository } from '../games/card-game/gameRepository.js'
-import { doppelwortRoomRepository } from '../games/doppelwort/roomRepository.js'
 
 function GameFeature({ game, saved }) {
   const isCardGame = game.id === 'card-game'
@@ -57,12 +56,20 @@ export default function HomePage() {
   const [savedGames, setSavedGames] = useState({})
 
   useEffect(() => {
+    let active = true
     const cardGame = gameRepository.load()
-    const roomSession = doppelwortRoomRepository.loadSession()
-    const doppelwortRoom = roomSession
-      ? doppelwortRoomRepository.load(roomSession.roomCode)
-      : null
-    setSavedGames({ 'card-game': cardGame, doppelwort: doppelwortRoom })
+    setSavedGames({ 'card-game': cardGame })
+
+    import('../games/doppelwort/roomRepository.js').then(({ doppelwortRoomRepository }) => {
+      if (!active) return
+      const roomSession = doppelwortRoomRepository.loadSession()
+      const doppelwortRoom = roomSession
+        ? doppelwortRoomRepository.load(roomSession.roomCode)
+        : null
+      setSavedGames((current) => ({ ...current, doppelwort: doppelwortRoom }))
+    })
+
+    return () => { active = false }
   }, [])
 
   return (

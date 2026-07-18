@@ -2,10 +2,10 @@
 
 ## Konzepte
 
-- Lobby: `design/doppelwort-lobby-concept.png`
-- Spiel: `design/doppelwort-game-concept.png`
-- Meeting: `design/doppelwort-meeting-concept.png`
-- Mobile: `design/doppelwort-mobile-concept.png`
+- Lobby: `design/doppelwort-lobby-concept.webp`
+- Spiel: `design/doppelwort-game-concept.webp`
+- Meeting: `design/doppelwort-meeting-concept.webp`
+- Mobile: `design/doppelwort-mobile-concept.webp`
 
 ## Visuelle Richtung
 
@@ -50,5 +50,4 @@ Schriften: Georgia als charakterstarke Display-Schrift, System-Sans für Bediene
 
 ## Code-native Inhalte
 
-Alle Texte, Timer, Formulare, Zustände, Spielerlisten und Abstimmungen bleiben HTML/React. Das generierte Bild `public/assets/doppelwort-table.png` wird ausschließlich als Spielauswahl-Motiv genutzt.
-
+Alle Texte, Timer, Formulare, Zustände, Spielerlisten und Abstimmungen bleiben HTML/React. Das generierte Bild `public/assets/doppelwort-table.webp` wird ausschließlich als Spielauswahl-Motiv genutzt.

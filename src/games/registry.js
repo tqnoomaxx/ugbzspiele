@@ -12,7 +12,7 @@ export const games = [
     title: 'Doppelwort',
     description: 'Hinweise geben, das andere Wort wittern und Imposter enttarnen.',
     path: '/doppelwort',
-    artwork: '/assets/doppelwort-table.png',
+    artwork: '/assets/doppelwort-table.webp',
     available: true,
     theme: 'night',
   },
