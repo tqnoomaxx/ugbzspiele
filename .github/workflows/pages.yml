@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Repository laden
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Node.js einrichten
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
@@ -52,7 +52,7 @@ jobs:
           touch dist/client/.nojekyll
 
       - name: GitHub Pages konfigurieren
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Website hochladen
         uses: actions/upload-pages-artifact@v4
