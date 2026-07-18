@@ -10,6 +10,8 @@ npm run dev
 
 Ohne Backend läuft Doppelwort bewusst im sichtbaren Pass-and-Play-Modus. `localStorage` hält versionierte Räume, `sessionStorage` die Identität des Tabs, `BroadcastChannel` synchronisiert Tabs desselben Browsers.
 
+Die generierten Konzept- und Auswahlbilder liegen als WebP vor; dadurch bleibt das deploybare Vinext-Artefakt trotz zusätzlichem Spiel kleiner als die zuvor stabile UGBZ-Version.
+
 ## Produktives Backend anschließen
 
 1. Neues Supabase-Projekt in einer passenden EU-Region erstellen.
