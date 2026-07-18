@@ -154,23 +154,26 @@ function Lobby({ actorId, onAction, room }) {
   )
 }
 
-function DigitalTurn({ actorId, canAct, onAction, onRoll, room }) {
+function DigitalTurn({ actorId, canAct, onAction, onRoll, onRollingChange, room }) {
   const [rolling, setRolling] = useState(false)
   const active = room.players.find((player) => player.id === room.game.activePlayerId)
+  useEffect(() => () => onRollingChange(false), [onRollingChange])
   useEffect(() => {
     if (canAct || room.game.rollCount === 0) return undefined
     setRolling(true)
-    const timeout = window.setTimeout(() => setRolling(false), 920)
+    onRollingChange(true)
+    const timeout = window.setTimeout(() => { setRolling(false); onRollingChange(false) }, 920)
     return () => window.clearTimeout(timeout)
-  }, [canAct, room.game.rollCount])
+  }, [canAct, onRollingChange, room.game.rollCount])
   const roll = async () => {
     if (rolling) return
     setRolling(true)
+    onRollingChange(true)
     haptic([18, 28, 16])
     const startedAt = Date.now()
     await onRoll()
     const remaining = Math.max(0, 920 - (Date.now() - startedAt))
-    window.setTimeout(() => setRolling(false), remaining)
+    window.setTimeout(() => { setRolling(false); onRollingChange(false) }, remaining)
   }
   return (
     <section className={`kf-turn-stage ${rolling ? 'is-rolling' : ''}`}>
@@ -228,6 +231,7 @@ export default function KniffelGamePage() {
   const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
   const [celebration, setCelebration] = useState(null)
+  const [diceRolling, setDiceRolling] = useState(false)
 
   const loadRoom = useCallback(async () => {
     const currentSession = kniffelRoomRepository.loadSession()
@@ -316,7 +320,7 @@ export default function KniffelGamePage() {
       <div className="kf-room-bar"><div><span>{room.options.deviceMode === 'separate' ? 'Online-Raum' : 'Gemeinsamer Tisch'}</span><strong>{room.name}</strong></div><button onClick={copyInvite} type="button"><small>{copied ? 'Link kopiert' : 'Raumcode'}</small><b>{room.code}</b></button><SyncBadge state={syncState} /><button className="kf-export" onClick={exportGame} type="button">Sicherung exportieren</button></div>
       {error ? <div aria-live="polite" className="kf-game-error">{error}<button onClick={() => setError('')} type="button"><CloseIcon size={17} /></button></div> : null}
       {room.status === 'lobby' ? <main className="kf-game-shell kf-game-shell--lobby"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={selectedId} /><Lobby actorId={actorId} onAction={onAction} room={room} /></main> : null}
-      {room.status === 'playing' ? <main className="kf-game-shell"><PlayerRail activeId={activeId} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} />{room.options.playMode === 'digital' ? <DigitalTurn actorId={actorId} canAct={canAct} key={`digital-${room.game.turnIndex}`} onAction={onAction} onRoll={onRoll} room={room} /> : <ManualTurn actorId={actorId} canAct={canAct} key={`manual-${room.game.turnIndex}`} onAction={onAction} onCelebrate={celebrateScore} room={room} />}<ScoreSheet canScore={canAct && viewedPlayer.id === activeId} onScore={scoreCategory} player={viewedPlayer} room={room} />{actorId === room.hostId && room.game.history.length ? <button className="kf-undo" onClick={() => onAction((current) => undoLastKniffelTurn(current, actorId))} type="button"><UndoIcon size={17} /> Letzten Zug rückgängig</button> : null}</main> : null}
+      {room.status === 'playing' ? <main className="kf-game-shell"><PlayerRail activeId={activeId} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} />{room.options.playMode === 'digital' ? <DigitalTurn actorId={actorId} canAct={canAct} key={`digital-${room.game.turnIndex}`} onAction={onAction} onRoll={onRoll} onRollingChange={setDiceRolling} room={room} /> : <ManualTurn actorId={actorId} canAct={canAct} key={`manual-${room.game.turnIndex}`} onAction={onAction} onCelebrate={celebrateScore} room={room} />}<ScoreSheet canScore={canAct && viewedPlayer.id === activeId && !diceRolling} onScore={scoreCategory} player={viewedPlayer} room={room} />{actorId === room.hostId && room.game.history.length ? <button className="kf-undo" onClick={() => onAction((current) => undoLastKniffelTurn(current, actorId))} type="button"><UndoIcon size={17} /> Letzten Zug rückgängig</button> : null}</main> : null}
       {room.status === 'complete' ? <main className="kf-game-shell kf-game-shell--complete"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} /><CompleteGame actorId={actorId} onUndo={() => onAction((current) => undoLastKniffelTurn(current, actorId))} room={room} /><ScoreSheet canScore={false} onScore={() => {}} player={viewedPlayer} room={room} /></main> : null}
     </div>
   )
