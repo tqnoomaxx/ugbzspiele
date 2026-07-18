@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { ArrowRightIcon, DoorIcon, PlusIcon, UserIcon } from '../components/Icons.jsx'
@@ -148,7 +149,7 @@ export default function DoppelwortLobbyPage() {
         doppelwortRoomRepository.clearSession()
         throw new Error('Der Raum konnte nicht aktualisiert werden.')
       }
-      window.location.assign('/doppelwort/raum')
+      window.location.assign(appPath('/doppelwort/raum'))
     } catch (joinError) {
       setError(joinError.message)
     }
@@ -173,7 +174,7 @@ export default function DoppelwortLobbyPage() {
         doppelwortRoomRepository.remove(room.code)
         throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
       }
-      window.location.assign('/doppelwort/raum')
+      window.location.assign(appPath('/doppelwort/raum'))
     } catch (createError) {
       setError(createError.message)
     }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import {
@@ -280,7 +281,7 @@ export default function CardGamePage() {
   }, [game, loaded])
 
   useEffect(() => {
-    if (loaded && !game) window.location.replace('/kartenspiel')
+    if (loaded && !game) window.location.replace(appPath('/kartenspiel'))
   }, [game, loaded])
 
   if (!loaded || !game) {
@@ -293,7 +294,7 @@ export default function CardGamePage() {
 
   function startNewGame() {
     gameRepository.clear()
-    window.location.assign('/kartenspiel')
+    window.location.assign(appPath('/kartenspiel'))
   }
 
   function correctFinalRound() {

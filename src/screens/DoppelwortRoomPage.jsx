@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { ArrowRightIcon, CheckIcon, CloseIcon, DoorIcon, EnvelopeIcon, PlusIcon, TrophyIcon, UserIcon } from '../components/Icons.jsx'
@@ -427,7 +428,7 @@ function CompletePhase({ actorId, onAction, room }) {
       {room.options.pointsEnabled ? <ScoreTable room={room} /> : <p className="dw-complete-no-score">Ihr habt bewusst ohne Gesamtwertung gespielt.</p>}
       <div className="dw-complete-actions">
         {isHost ? <Button onClick={() => onAction((current) => returnToLobby(current, actorId))}>Neue Partie im Raum</Button> : null}
-        <a className="button button--outline" href="/">Alle Spiele</a>
+        <a className="button button--outline" href={appPath('/')}>Alle Spiele</a>
       </div>
     </section>
   )
@@ -484,7 +485,7 @@ export default function DoppelwortRoomPage() {
   }, [refresh, session?.roomCode])
 
   const invitationUrl = useMemo(() => (
-    typeof window === 'undefined' || !room ? '' : `${window.location.origin}/doppelwort?code=${room.code}`
+    typeof window === 'undefined' || !room ? '' : `${window.location.origin}${appPath('/doppelwort')}?code=${room.code}`
   ), [room])
 
   const copyInvitation = async () => {
@@ -513,7 +514,7 @@ export default function DoppelwortRoomPage() {
       }
     }
     doppelwortRoomRepository.clearSession()
-    window.location.assign('/doppelwort')
+    window.location.assign(appPath('/doppelwort'))
   }
 
   if (!session || !room || !playerById(room, session.playerId)) {
@@ -524,7 +525,7 @@ export default function DoppelwortRoomPage() {
           <span><DoorIcon size={46} /></span>
           <h1>Keine aktive Raumsitzung</h1>
           <p>Öffne eine Einladung oder erstelle einen neuen Raum.</p>
-          <a className="button button--primary" href="/doppelwort">Zur Raumliste</a>
+          <a className="button button--primary" href={appPath('/doppelwort')}>Zur Raumliste</a>
         </main>
       </div>
     )

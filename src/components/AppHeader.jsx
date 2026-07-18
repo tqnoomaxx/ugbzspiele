@@ -1,18 +1,19 @@
 import { ArrowLeftIcon, HomeIcon } from './Icons.jsx'
+import { appPath } from '../basePath.js'
 
 export default function AppHeader({ variant = 'light', backTo, backLabel = 'Zurück', home = false }) {
   return (
     <header className={`app-header app-header--${variant}`}>
       <div className="app-header__inner">
-        <a className="brand" href="/" aria-label="UGBZ Startseite">UGBZ</a>
+        <a className="brand" href={appPath('/')} aria-label="UGBZ Startseite">UGBZ</a>
         {backTo ? (
-          <a className="header-link" href={backTo}>
+          <a className="header-link" href={appPath(backTo)}>
             <ArrowLeftIcon size={21} />
             <span>{backLabel}</span>
           </a>
         ) : null}
         {home ? (
-          <a className="header-link" href="/">
+          <a className="header-link" href={appPath('/')}>
             <HomeIcon size={21} />
             <span>Home</span>
           </a>

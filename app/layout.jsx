@@ -1,10 +1,11 @@
 import '../src/styles.css'
+import { appPath } from '../src/basePath.js'
 
 export const metadata = {
   title: 'UGBZ',
   description: 'UGBZ – der Spielstand für euren Spieleabend.',
   icons: {
-    icon: '/icon.svg',
+    icon: appPath('/icon.svg'),
   },
 }
 

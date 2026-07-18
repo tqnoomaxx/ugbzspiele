@@ -23,6 +23,10 @@ jobs:
       - name: Repository laden
         uses: actions/checkout@v6
 
+      - name: GitHub Pages konfigurieren
+        id: pages
+        uses: actions/configure-pages@v6
+
       - name: Node.js einrichten
         uses: actions/setup-node@v6
         with:
@@ -34,6 +38,8 @@ jobs:
 
       - name: Tests und Produktionsbuild ausfuehren
         run: npm run check
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - name: Unterseiten fuer GitHub Pages vorbereiten
         shell: bash
@@ -50,9 +56,6 @@ jobs:
           done
 
           touch dist/client/.nojekyll
-
-      - name: GitHub Pages konfigurieren
-        uses: actions/configure-pages@v6
 
       - name: Website hochladen
         uses: actions/upload-pages-artifact@v4

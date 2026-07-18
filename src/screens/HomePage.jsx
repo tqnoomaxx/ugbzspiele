@@ -5,11 +5,12 @@ import AppHeader from '../components/AppHeader.jsx'
 import { ArrowRightIcon } from '../components/Icons.jsx'
 import { games } from '../games/registry.js'
 import { gameRepository } from '../games/card-game/gameRepository.js'
+import { appPath } from '../basePath.js'
 
 function GameFeature({ game, saved }) {
   const isCardGame = game.id === 'card-game'
   const href = saved
-    ? (isCardGame ? '/kartenspiel/spielen' : '/doppelwort/raum')
+    ? appPath(isCardGame ? '/kartenspiel/spielen' : '/doppelwort/raum')
     : game.path
   let resumeTitle = ''
   let resumeDetail = ''

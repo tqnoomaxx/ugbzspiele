@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { CloseIcon, PlusIcon, UserIcon } from '../components/Icons.jsx'
@@ -77,11 +78,11 @@ export default function CardGameSetupPage() {
     }
 
     setSavedGame(null)
-    window.location.assign('/kartenspiel/spielen')
+    window.location.assign(appPath('/kartenspiel/spielen'))
   }
 
   function resumeGame() {
-    if (gameRepository.load()) window.location.assign('/kartenspiel/spielen')
+    if (gameRepository.load()) window.location.assign(appPath('/kartenspiel/spielen'))
   }
 
   const savedRound = savedGame
