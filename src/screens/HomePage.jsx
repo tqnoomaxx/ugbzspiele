@@ -5,13 +5,10 @@ import AppHeader from '../components/AppHeader.jsx'
 import { ArrowRightIcon } from '../components/Icons.jsx'
 import { games } from '../games/registry.js'
 import { gameRepository } from '../games/card-game/gameRepository.js'
-import { appPath } from '../basePath.js'
 
 function GameFeature({ game, saved }) {
   const isCardGame = game.id === 'card-game'
-  const href = saved
-    ? appPath(isCardGame ? '/kartenspiel/spielen' : '/imposter/raum')
-    : game.path
+  const href = saved ? game.resumePath : game.path
   let resumeTitle = ''
   let resumeDetail = ''
 
@@ -23,11 +20,11 @@ function GameFeature({ game, saved }) {
     resumeTitle = saved.game
       ? `${saved.game.phase === 'complete' ? 'Gesamtwertung' : `Runde ${saved.game.roundNumber}`} · ${saved.name}`
       : `Lobby · ${saved.name}`
-    resumeDetail = `${saved.players.length}/${saved.options.maxPlayers} am Tisch · Code ${saved.code}`
+    resumeDetail = `${saved.players.length} am Tisch · Code ${saved.code}`
   }
 
   return (
-    <section className={`game-feature ${game.theme === 'night' ? 'game-feature--night' : ''}`}>
+    <section className={`game-feature ${game.theme ? `game-feature--${game.theme}` : ''}`}>
       <div className="game-feature__art" aria-hidden="true">
         <img src={game.artwork} alt="" />
       </div>
@@ -68,6 +65,13 @@ export default function HomePage() {
         ? await doppelwortRoomRepository.load(roomSession.roomCode).catch(() => null)
         : null
       setSavedGames((current) => ({ ...current, doppelwort: doppelwortRoom }))
+    })
+
+    import('../games/kniffel/roomRepository.js').then(async ({ kniffelRoomRepository }) => {
+      if (!active) return
+      const session = kniffelRoomRepository.loadSession()
+      const room = session ? await kniffelRoomRepository.load(session.roomCode).catch(() => null) : null
+      setSavedGames((current) => ({ ...current, kniffel: room }))
     })
 
     return () => { active = false }

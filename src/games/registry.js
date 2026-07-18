@@ -9,6 +9,7 @@ export const games = [
     artwork: appPath('/assets/cards-on-felt.webp'),
     available: true,
     rooms: null,
+    resumePath: appPath('/kartenspiel/spielen'),
   },
   {
     id: 'doppelwort',
@@ -19,5 +20,17 @@ export const games = [
     available: true,
     rooms: { gameKey: 'doppelwort', localFallback: true, realtime: true },
     theme: 'night',
+    resumePath: appPath('/imposter/raum'),
+  },
+  {
+    id: 'kniffel',
+    title: 'Kniffel',
+    description: 'Klassisch würfeln – komplett digital oder mit echtem Würfel und sicherem Punkteblock.',
+    path: appPath('/kniffel'),
+    artwork: appPath('/assets/kniffel-table.webp'),
+    available: true,
+    rooms: { gameKey: 'kniffel', localFallback: true, realtime: true },
+    theme: 'wine',
+    resumePath: appPath('/kniffel/spiel'),
   },
 ]

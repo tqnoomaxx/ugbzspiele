@@ -1,6 +1,6 @@
 # UGBZ
 
-UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstand und dem sozialen Wortspiel **Imposter**.
+UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter** und klassischem **Kniffel**.
 
 ## Enthalten
 
@@ -17,6 +17,11 @@ UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstan
 - Unterbrechbare laufende Imposter-Sitzungen mit sichtbarer Wiederaufnahme auf dem Homescreen
 - Punktefreier Modus ohne irreführenden Gesamtstand sowie Meetings ohne erzwungenen Timer
 - Wiederverwendbare Supabase-Raumschicht für Imposter und spätere Spiele inklusive RLS, RPCs und Realtime
+- Kniffel wahlweise komplett digital oder mit echten Würfeln und gemeinsamem Punkteblock
+- Solo, Pass-and-Play oder synchrone Online-Räume mit öffentlichen, privaten und passwortgeschützten Tischen
+- Klassische 13 Kategorien, obere Bonuswertung, Kniffel-Bonus/Joker, Rückgängig und Rangliste
+- Ausfallsichere Kniffel-Speicherung mit Cloud-Autosave, lokalem Spiegel, Wiederholungs-Sync und JSON-Export
+- Autoritative digitale Online-Würfe direkt aus der Datenbank
 - Automatische Tests und Produktionsbuilds über die GitHub-Actions-Pipeline
 
 ## Lokal starten
@@ -43,7 +48,7 @@ npm start
 npm run check
 ```
 
-Kartenspiel speichert den Spielstand lokal. Imposter verwendet ohne Konfiguration denselben lokalen Fallback und wechselt mit den dokumentierten Supabase-Variablen automatisch in den geräteübergreifenden Online-Modus.
+Kartenspiel speichert den Spielstand lokal. Imposter und Kniffel verwenden ohne Konfiguration einen lokalen Fallback und wechseln mit den dokumentierten Supabase-Variablen automatisch in den geräteübergreifenden Online-Modus.
 
 ## Imposter-Dokumentation
 

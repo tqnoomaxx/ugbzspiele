@@ -13,7 +13,7 @@ create table public.platform_rooms (
   host_player_id text not null,
   state jsonb not null check (jsonb_typeof(state) = 'object'),
   revision bigint not null default 1 check (revision > 0),
-  max_players smallint not null check (max_players between 2 and 32),
+  max_players integer not null check (max_players >= 1),
   password_protected boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -132,7 +132,7 @@ begin
     v_host_player_id,
     p_room_state - 'password',
     v_revision,
-    greatest(2, least(32, coalesce((p_room_state #>> '{options,maxPlayers}')::smallint, 8))),
+    greatest(1, coalesce((p_room_state #>> '{options,maxPlayers}')::integer, 8)),
     nullif(p_password, '') is not null
   )
   returning id into v_room_id;
@@ -257,7 +257,7 @@ begin
     visibility = coalesce(v_state ->> 'visibility', visibility),
     status = coalesce(v_state ->> 'status', status),
     host_player_id = coalesce(v_state ->> 'hostId', host_player_id),
-    max_players = greatest(2, least(32, coalesce((v_state #>> '{options,maxPlayers}')::smallint, max_players))),
+    max_players = greatest(1, coalesce((v_state #>> '{options,maxPlayers}')::integer, max_players)),
     state = v_state,
     revision = v_revision,
     updated_at = now()

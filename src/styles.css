@@ -213,6 +213,14 @@ button:disabled {
   background: #071b1d;
 }
 
+.game-feature--wine {
+  background: #351018;
+}
+
+.game-feature--wine .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #351018);
+}
+
 .game-feature--night .game-feature__art::after {
   background: linear-gradient(90deg, transparent, #071b1d);
 }
