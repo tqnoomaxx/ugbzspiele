@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import {
@@ -265,7 +264,6 @@ function FinalScore({ game, onCorrect, onNewGame, onHome }) {
 }
 
 export default function CardGamePage() {
-  const router = useRouter()
   const [game, setGame] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState('')
@@ -282,8 +280,8 @@ export default function CardGamePage() {
   }, [game, loaded])
 
   useEffect(() => {
-    if (loaded && !game) router.replace('/kartenspiel')
-  }, [game, loaded, router])
+    if (loaded && !game) window.location.replace('/kartenspiel')
+  }, [game, loaded])
 
   if (!loaded || !game) {
     return (
@@ -295,7 +293,7 @@ export default function CardGamePage() {
 
   function startNewGame() {
     gameRepository.clear()
-    router.push('/kartenspiel')
+    window.location.assign('/kartenspiel')
   }
 
   function correctFinalRound() {
@@ -311,7 +309,7 @@ export default function CardGamePage() {
         <FinalScore
           game={game}
           onCorrect={correctFinalRound}
-          onHome={() => router.push('/')}
+          onHome={() => window.location.assign('/')}
           onNewGame={startNewGame}
         />
       </div>

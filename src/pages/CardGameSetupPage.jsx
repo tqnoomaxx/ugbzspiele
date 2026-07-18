@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { CloseIcon, PlusIcon, UserIcon } from '../components/Icons.jsx'
@@ -21,7 +20,6 @@ function newPlayer() {
 }
 
 export default function CardGameSetupPage() {
-  const router = useRouter()
   const [players, setPlayers] = useState(() => [newPlayer(), newPlayer()])
   const [deckSize, setDeckSize] = useState(32)
   const [mode, setMode] = useState('both')
@@ -79,11 +77,11 @@ export default function CardGameSetupPage() {
     }
 
     setSavedGame(null)
-    router.push('/kartenspiel/spielen')
+    window.location.assign('/kartenspiel/spielen')
   }
 
   function resumeGame() {
-    if (gameRepository.load()) router.push('/kartenspiel/spielen')
+    if (gameRepository.load()) window.location.assign('/kartenspiel/spielen')
   }
 
   const savedRound = savedGame
