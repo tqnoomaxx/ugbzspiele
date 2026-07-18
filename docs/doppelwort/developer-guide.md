@@ -5,13 +5,16 @@
 - `src/games/doppelwort/gameEngine.js`: reine, deterministische Zustandsmaschine; keine DOM-, Netzwerk- oder Speicherzugriffe.
 - `defaults.js`: sämtliche Standardoptionen und Kategorien.
 - `wordPairs.js`: 240 integrierte Paare mit stabilen IDs.
-- `roomRepository.js`: lokaler Adapter für versionierte Räume, Tab-Sync und Tab-Sitzung.
+- `roomRepository.js`: Doppelwort-Adapter mit identischem lokalem und Online-Vertrag.
+- `src/platform/supabaseRoomRepository.js`: generische Räume, Revisionsschutz, Realtime und Sitzungen für alle Spiele.
+- `src/platform/supabaseClient.js`: genau eine lazy geladene anonyme Supabase-Session.
 - `DoppelwortLobbyPage.jsx`: Verzeichnis, Beitritt und Konfiguration.
 - `DoppelwortRoomPage.jsx`: Renderer/Controller für alle Phasen.
 - `src/doppelwort.css`: route-spezifisches Designsystem und responsive Zustände.
 - `supabase/migrations/001_doppelwort.sql`: produktives Datenmodell, Indizes, RLS, Realtime-Events und atomare Basistransition.
+- `supabase/migrations/002_platform_rooms.sql`: sofort nutzbare gemeinsame Raumtransport-Schicht für Doppelwort und spätere Spiele.
 
-Die UI mutiert Räume nie direkt. Sie ruft eine Engine-Funktion innerhalb `roomRepository.mutate` auf. Jede erfolgreiche Engine-Mutation erhöht `revision`. Der produktive Adapter behält dieselbe Absichtsschnittstelle, sendet sie aber als Command mit `actionId` und `expectedRevision` an eine Edge Function und ersetzt den lokalen Snapshot durch die Serverantwort.
+Die UI mutiert Räume nie direkt. Sie ruft eine Engine-Funktion innerhalb `roomRepository.mutate` auf. Jede erfolgreiche Engine-Mutation erhöht `revision`. Lokal wird der Snapshot gespeichert; online schreibt ein revisionsgesicherter Postgres-RPC und Realtime fordert alle anderen Geräte zum Nachladen auf.
 
 ## Zustände ergänzen
 

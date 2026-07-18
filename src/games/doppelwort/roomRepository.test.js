@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createRoom } from './gameEngine.js'
-import { doppelwortRoomRepository } from './roomRepository.js'
+import { localDoppelwortRoomRepository as doppelwortRoomRepository } from './roomRepository.js'
 
 class MemoryStorage {
   constructor() {
@@ -57,5 +57,18 @@ describe('Doppelwort local room repository', () => {
     expect(doppelwortRoomRepository.loadSession()).toMatchObject({ roomCode: 'ABCDE', playerId: 'player-1' })
     expect(doppelwortRoomRepository.clearSession()).toBe(true)
     expect(doppelwortRoomRepository.loadSession()).toBeNull()
+  })
+
+  it('uses the same semantic create and join contract as the online adapter', () => {
+    const room = createRoom({ hostName: 'Ada', password: 'salon' })
+    expect(doppelwortRoomRepository.create(room)).toEqual(room)
+
+    const joined = doppelwortRoomRepository.join(room.code, 'Grace', {
+      id: 'player-grace',
+      password: 'salon',
+    })
+
+    expect(joined.players.map((player) => player.name)).toEqual(['Ada', 'Grace'])
+    expect(doppelwortRoomRepository.load(room.code).revision).toBe(joined.revision)
   })
 })

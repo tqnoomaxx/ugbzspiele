@@ -40,6 +40,9 @@ jobs:
         run: npm run check
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_ROOM_MODE: ${{ vars.NEXT_PUBLIC_ROOM_MODE }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
       - name: Vinext-Assets fuer den Pages-Unterpfad normalisieren
         shell: bash

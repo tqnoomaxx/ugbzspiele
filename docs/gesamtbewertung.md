@@ -2,6 +2,8 @@
 
 Stand: 18. Juli 2026
 
+> Update: Nach dieser Bewertung wurde eine wiederverwendbare Supabase-Online-Beta integriert (`002_platform_rooms.sql`, anonyme Sessions, RPC-Revisionsschutz, Realtime und lokaler Fallback). B-01 ist damit technisch teilweise umgesetzt, aber erst nach Bereitstellung eines Supabase-Projekts tatsächlich aktiv. Die im Dokument geforderte serverautoritative Geheimnis- und Command-Schicht bleibt für öffentliche Wettbewerbsräume weiterhin offen.
+
 ## Kurzurteil
 
 UGBZ ist als **lokaler Spieleabend-Begleiter** bereits überzeugend: visuell eigenständig, auf Mobilgeräten gut bedienbar, schnell verständlich und in den getesteten Hauptabläufen stabil. Das Kartenspiel funktioniert als hochwertiger digitaler Spielleiter für ein physisches Stichspiel. Doppelwort funktioniert vollständig als Pass-and-Play-Spiel auf einem Gerät und zwischen Tabs desselben Browsers.

@@ -1,4 +1,5 @@
-import { DOPPELWORT_SCHEMA_VERSION, getRoomSummary } from './gameEngine.js'
+import { addPlayer, DOPPELWORT_SCHEMA_VERSION, getRoomSummary } from './gameEngine.js'
+import { createGameRoomRepository } from '../../platform/supabaseRoomRepository.js'
 
 const ROOMS_KEY = 'ugbz:doppelwort:rooms:v1'
 const SESSION_KEY = 'ugbz:doppelwort:session:v1'
@@ -48,7 +49,10 @@ function broadcast(code, type = 'room-updated') {
   channel.close()
 }
 
-export const doppelwortRoomRepository = {
+export const localDoppelwortRoomRepository = {
+  mode: 'local',
+  isOnline: false,
+
   load(code) {
     if (!code) return null
     return readRooms()[String(code).toUpperCase()] ?? null
@@ -69,6 +73,27 @@ export const doppelwortRoomRepository = {
     const saved = writeRooms({ ...rooms, [room.code]: room })
     if (saved) broadcast(room.code)
     return saved
+  },
+
+  create(room) {
+    if (this.load(room.code)) throw new Error('Der Raumcode ist bereits vergeben.')
+    if (!this.save(room)) throw new Error('Der Raum konnte nicht gespeichert werden.')
+    return room
+  },
+
+  join(code, name, { id, password = '' } = {}) {
+    const room = this.load(code)
+    if (!room) throw new Error('Unter diesem Code wurde in diesem Browser kein Raum gefunden.')
+    if (room.status !== 'lobby') throw new Error('Diese Runde läuft bereits.')
+    if (room.password && room.password !== password) throw new Error('Das Raumpasswort stimmt nicht.')
+    const nextRoom = addPlayer(room, name, { id })
+    if (!this.save(nextRoom)) throw new Error('Der Raum konnte nicht aktualisiert werden.')
+    return nextRoom
+  },
+
+  leave(code, nextRoom) {
+    if (nextRoom.status === 'closed') return this.remove(code)
+    return this.save(nextRoom)
   },
 
   mutate(code, mutation) {
@@ -141,3 +166,10 @@ export const doppelwortRoomRepository = {
     }
   },
 }
+
+export const doppelwortRoomRepository = createGameRoomRepository({
+  gameKey: 'doppelwort',
+  localRepository: localDoppelwortRoomRepository,
+  summarize: getRoomSummary,
+  sessionKey: SESSION_KEY,
+})

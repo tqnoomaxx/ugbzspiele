@@ -10,13 +10,13 @@ UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstan
 - Korrektur von Ansagen, letzter Wertung und Schlussrunde
 - Mobiler Spielleitermodus mit festem Bestätigungsbutton und kompaktem Zwischenstand
 - Automatisches lokales Speichern, sichtbares Fortsetzen und Überschreibschutz
-- Doppelwort mit öffentlicher/lokaler Raumliste, Einladungscode und konfigurierbarer Lobby
+- Doppelwort mit öffentlicher Raumliste, Einladungscode und konfigurierbarer Lobby
 - 120 deutsche und 120 englische Wortpaare in sechs Kategorien
 - Vollständiger Rollen-, Reveal-, Rede-, Meeting-, Abstimmungs-, Punkte- und Ergebnisfluss
-- Pass-and-Play sowie Tab-Synchronisierung über ein versioniertes Raum-Repository
+- Pass-and-Play, Tab-Synchronisierung und optionaler geräteübergreifender Supabase-Realtime-Modus
 - Unterbrechbare laufende Doppelwort-Sitzungen mit sichtbarer Wiederaufnahme auf dem Homescreen
 - Punktefreier Modus ohne irreführenden Gesamtstand sowie Meetings ohne erzwungenen Timer
-- Vorbereitetes Supabase-Postgres-/Realtime-Schema inklusive RLS, API- und Betriebsdokumentation
+- Wiederverwendbare Supabase-Raumschicht für Doppelwort und spätere Spiele inklusive RLS, RPCs und Realtime
 - Automatische Tests und Produktionsbuilds über die GitHub-Actions-Pipeline
 
 ## Lokal starten
@@ -43,11 +43,12 @@ npm start
 npm run check
 ```
 
-Kartenspiel und Doppelwort speichern den Spielstand lokal. Doppelwort kennzeichnet diesen Modus in der Oberfläche: Mehrere Tabs desselben Browsers synchronisieren sich, echte Geräte benötigen den dokumentierten Supabase-Adapter.
+Kartenspiel speichert den Spielstand lokal. Doppelwort verwendet ohne Konfiguration denselben lokalen Fallback und wechselt mit den dokumentierten Supabase-Variablen automatisch in den geräteübergreifenden Online-Modus.
 
 ## Doppelwort-Dokumentation
 
 - [Vollständige Bewertung und priorisierte Kritik](docs/gesamtbewertung.md)
+- [Online-Modus einrichten und für neue Spiele verwenden](docs/online-modus.md)
 - [Architektur und Entscheidungen](docs/doppelwort/architecture.md)
 - [Datenmodell/ERD](docs/doppelwort/erd.md)
 - [REST und Realtime](docs/doppelwort/api.md)

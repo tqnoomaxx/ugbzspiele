@@ -51,11 +51,11 @@ function Timer({ endsAt, now, label }) {
   )
 }
 
-function RoomTopbar({ room, now, onCopy, copied }) {
+function RoomTopbar({ copied, now, onCopy, online, room }) {
   return (
     <div className="dw-room-topbar">
       <div>
-        <span className="dw-room-topbar__label">Raum</span>
+        <span className="dw-room-topbar__label">{online ? 'Online-Raum' : 'Raum'}</span>
         <strong>{room.name}</strong>
       </div>
       <button className="dw-room-code" onClick={onCopy} type="button">
@@ -168,12 +168,12 @@ function SealedEnvelope({ name, onOpen, opening }) {
   )
 }
 
-function RevealPhase({ onAction, room }) {
+function RevealPhase({ actorId, online, onAction, room }) {
   const [secretShown, setSecretShown] = useState(false)
   const [envelopeOpening, setEnvelopeOpening] = useState(false)
   const revealPlayerId = getCurrentRevealPlayerId(room)
   const player = playerById(room, revealPlayerId)
-  const privateView = getPrivatePlayerView(room, revealPlayerId)
+  const privateView = getPrivatePlayerView(room, online ? actorId : revealPlayerId)
   const progress = room.game.revealedPlayerIds.length + 1
 
   useEffect(() => {
@@ -186,6 +186,14 @@ function RevealPhase({ onAction, room }) {
     setEnvelopeOpening(true)
     const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
     window.setTimeout(() => setSecretShown(true), reducedMotion ? 0 : 440)
+  }
+
+  if (online && actorId !== revealPlayerId) {
+    return (
+      <section className="dw-phase dw-phase--reveal">
+        <div className="dw-waiting-note"><i /><span>{player.name} öffnet gerade den eigenen Umschlag.</span></div>
+      </section>
+    )
   }
 
   return (
@@ -269,7 +277,7 @@ function MeetingPhase({ actorId, now, onAction, room }) {
   )
 }
 
-function VotingPhase({ onAction, room }) {
+function VotingPhase({ actorId, online, onAction, room }) {
   const nextVoterId = room.game.playerIds.find((playerId) => !(playerId in room.game.votes))
   const voter = playerById(room, nextVoterId)
   const [ready, setReady] = useState(false)
@@ -293,6 +301,13 @@ function VotingPhase({ onAction, room }) {
   }
 
   if (!voter) return null
+  if (online && actorId !== nextVoterId) {
+    return (
+      <section className="dw-phase dw-phase--voting">
+        <div className="dw-waiting-note"><i /><span>{voter.name} stimmt gerade auf dem eigenen Gerät ab.</span></div>
+      </section>
+    )
+  }
 
   return (
     <section className="dw-phase dw-phase--voting">
@@ -441,29 +456,33 @@ export default function DoppelwortRoomPage() {
   const [error, setError] = useState('')
   const [copied, setCopied] = useState(false)
 
-  const refresh = useCallback(() => {
+  const refresh = useCallback(async () => {
     const currentSession = doppelwortRoomRepository.loadSession()
     setSession(currentSession)
-    setRoom(currentSession ? doppelwortRoomRepository.load(currentSession.roomCode) : null)
+    try {
+      setRoom(currentSession ? await doppelwortRoomRepository.load(currentSession.roomCode) : null)
+    } catch (loadError) {
+      setError(loadError.message)
+    }
   }, [])
 
   useEffect(() => {
     refresh()
-    return doppelwortRoomRepository.subscribe((event) => {
+    return doppelwortRoomRepository.subscribe(async (event) => {
       const currentSession = doppelwortRoomRepository.loadSession()
-      if (!event.code || event.code === currentSession?.roomCode) refresh()
+      if (!event.code || event.code === currentSession?.roomCode) await refresh()
     })
   }, [refresh])
 
   useEffect(() => {
     if (!session?.roomCode) return undefined
-    const interval = window.setInterval(() => {
+    const interval = window.setInterval(async () => {
       const currentNow = Date.now()
       setNow(currentNow)
       try {
-        const current = doppelwortRoomRepository.load(session.roomCode)
+        const current = await doppelwortRoomRepository.load(session.roomCode)
         const advanced = current ? advanceExpiredPhase(current, currentNow) : current
-        if (advanced && advanced !== current) doppelwortRoomRepository.save(advanced)
+        if (advanced && advanced !== current) await doppelwortRoomRepository.save(advanced)
       } catch {
         // A second local tab may win the transition race; the subscription refreshes this view.
       }
@@ -471,16 +490,16 @@ export default function DoppelwortRoomPage() {
     return () => window.clearInterval(interval)
   }, [session?.roomCode])
 
-  const applyAction = useCallback((mutation) => {
+  const applyAction = useCallback(async (mutation) => {
     if (!session?.roomCode) return
     setError('')
     try {
-      const nextRoom = doppelwortRoomRepository.mutate(session.roomCode, mutation)
+      const nextRoom = await doppelwortRoomRepository.mutate(session.roomCode, mutation)
       setRoom(nextRoom)
       setNow(Date.now())
     } catch (actionError) {
       setError(actionError.message)
-      refresh()
+      await refresh()
     }
   }, [refresh, session?.roomCode])
 
@@ -498,17 +517,16 @@ export default function DoppelwortRoomPage() {
     }
   }
 
-  const leaveRoom = () => {
+  const leaveRoom = async () => {
     if (room?.status !== 'lobby') {
-      window.location.assign('/')
+      window.location.assign(appPath('/'))
       return
     }
 
     if (session?.playerId) {
       try {
         const nextRoom = removePlayer(room, session.playerId, { actorId: session.playerId })
-        if (nextRoom.status === 'closed') doppelwortRoomRepository.remove(room.code)
-        else doppelwortRoomRepository.save(nextRoom)
+        await doppelwortRoomRepository.leave(room.code, nextRoom)
       } catch {
         // Clearing the local session still gives the user a deterministic exit.
       }
@@ -537,14 +555,14 @@ export default function DoppelwortRoomPage() {
     <div className={`dw-page dw-page--room ${phase ? `dw-page--${phase}` : ''}`}>
       <AppHeader variant="dark" home />
       <main className="dw-game-shell">
-        <RoomTopbar copied={copied} now={now} onCopy={copyInvitation} room={room} />
+        <RoomTopbar copied={copied} now={now} onCopy={copyInvitation} online={doppelwortRoomRepository.isOnline} room={room} />
         {error ? <div className="dw-inline-error" role="alert">{error}<button aria-label="Meldung schließen" onClick={() => setError('')} type="button"><CloseIcon size={17} /></button></div> : null}
 
         {!phase ? <LobbyPhase actorId={session.playerId} onAction={applyAction} room={room} /> : null}
-        {phase === 'reveal' ? <RevealPhase onAction={applyAction} room={room} /> : null}
+        {phase === 'reveal' ? <RevealPhase actorId={session.playerId} online={doppelwortRoomRepository.isOnline} onAction={applyAction} room={room} /> : null}
         {phase === 'speaking' ? <SpeakingPhase actorId={session.playerId} now={now} onAction={applyAction} room={room} /> : null}
         {phase === 'meeting' ? <MeetingPhase actorId={session.playerId} now={now} onAction={applyAction} room={room} /> : null}
-        {phase === 'voting' ? <VotingPhase onAction={applyAction} room={room} /> : null}
+        {phase === 'voting' ? <VotingPhase actorId={session.playerId} online={doppelwortRoomRepository.isOnline} onAction={applyAction} room={room} /> : null}
         {phase === 'result' ? <ResultPhase actorId={session.playerId} onAction={applyAction} room={room} /> : null}
         {phase === 'complete' ? <CompletePhase actorId={session.playerId} onAction={applyAction} room={room} /> : null}
 

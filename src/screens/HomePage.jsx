@@ -61,11 +61,11 @@ export default function HomePage() {
     const cardGame = gameRepository.load()
     setSavedGames({ 'card-game': cardGame })
 
-    import('../games/doppelwort/roomRepository.js').then(({ doppelwortRoomRepository }) => {
+    import('../games/doppelwort/roomRepository.js').then(async ({ doppelwortRoomRepository }) => {
       if (!active) return
       const roomSession = doppelwortRoomRepository.loadSession()
       const doppelwortRoom = roomSession
-        ? doppelwortRoomRepository.load(roomSession.roomCode)
+        ? await doppelwortRoomRepository.load(roomSession.roomCode).catch(() => null)
         : null
       setSavedGames((current) => ({ ...current, doppelwort: doppelwortRoom }))
     })

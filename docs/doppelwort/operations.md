@@ -15,16 +15,14 @@ Die generierten Konzept- und Auswahlbilder liegen als WebP vor; dadurch bleibt d
 ## Produktives Backend anschließen
 
 1. Neues Supabase-Projekt in einer passenden EU-Region erstellen.
-2. Supabase CLI installieren, Projekt verknüpfen und `supabase db push` ausführen.
-3. Die 240 geprüften Paare aus `src/games/doppelwort/wordPairs.js` per einmaligem Admin-Seed in `word_pairs` importieren.
-4. Edge Functions für die in `api.md` beschriebenen Befehle deployen. Sie verwenden ausschließlich `SUPABASE_SERVICE_ROLE_KEY` serverseitig und hashen Raumpasswörter mit Argon2id.
-5. Anonymous Sign-ins aktivieren; CAPTCHA für auffällige Join-/Session-Raten konfigurieren.
-6. Frontend-Adapter auf Supabase umstellen und setzen:
+2. Supabase CLI installieren, Projekt verknüpfen und `supabase db push` ausführen. Migration `002_platform_rooms.sql` aktiviert die gemeinsame Online-Raumschicht.
+3. Anonymous Sign-ins aktivieren; CAPTCHA für auffällige Join-/Session-Raten konfigurieren.
+4. Frontendvariablen setzen:
 
 ```dotenv
 NEXT_PUBLIC_SUPABASE_URL=https://PROJECT.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-NEXT_PUBLIC_DOPPELWORT_MODE=online
+NEXT_PUBLIC_ROOM_MODE=online
 ```
 
 Server-Geheimnisse gehören nur in die Function-/Hosting-Secret-Verwaltung, nie in `.env` mit `NEXT_PUBLIC_`, Git oder Browser-Bundles.
@@ -59,4 +57,4 @@ Server-Geheimnisse gehören nur in die Function-/Hosting-Secret-Verwaltung, nie 
 
 ## Aktueller Hosting-Status
 
-Das vorhandene ChatGPT-Sites-Projekt kann das statische Vinext-Frontend veröffentlichen, stellt in diesem Workspace aber keinen verbundenen Postgres-/Realtime-Dienst bereit. Deshalb bleibt `NEXT_PUBLIC_DOPPELWORT_MODE=local` der ehrliche Auslieferungsmodus, bis URL und Anon Key eines realen Projekts vorliegen.
+Die öffentliche GitHub-Page liest Online-Konfiguration aus Repository Variables und Secrets. Solange diese fehlen, bleibt automatisch der lokale Pass-and-Play-Modus aktiv.

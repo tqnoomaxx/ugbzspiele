@@ -6,7 +6,7 @@ import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { ArrowRightIcon, DoorIcon, PlusIcon, UserIcon } from '../components/Icons.jsx'
 import { DEFAULT_DOPPELWORT_OPTIONS, DOPPELWORT_CATEGORIES } from '../games/doppelwort/defaults.js'
-import { addPlayer, createDoppelwortId, createRoom } from '../games/doppelwort/gameEngine.js'
+import { createDoppelwortId, createRoom, sanitizePlayerName } from '../games/doppelwort/gameEngine.js'
 import { doppelwortRoomRepository } from '../games/doppelwort/roomRepository.js'
 
 const timerOptions = {
@@ -28,15 +28,15 @@ function Toggle({ checked, label, description, onChange }) {
   )
 }
 
-function PublicRooms({ rooms, onSelect }) {
+function PublicRooms({ online, rooms, onSelect }) {
   return (
     <section className="dw-room-list" aria-labelledby="open-rooms-title">
       <div className="dw-section-heading">
         <div>
-          <span className="dw-kicker">In diesem Browser</span>
+          <span className="dw-kicker">{online ? 'Online verfügbar' : 'In diesem Browser'}</span>
           <h2 id="open-rooms-title">Offene Spielräume</h2>
         </div>
-        <span className="dw-live-mark"><i /> lokal synchron</span>
+        <span className="dw-live-mark"><i /> {online ? 'geräteübergreifend' : 'lokal synchron'}</span>
       </div>
 
       {rooms.length ? (
@@ -77,6 +77,8 @@ export default function DoppelwortLobbyPage() {
     options: { ...DEFAULT_DOPPELWORT_OPTIONS },
   })
   const [error, setError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const online = doppelwortRoomRepository.isOnline
 
   const selectMode = (nextMode, { focus = false } = {}) => {
     setMode(nextMode)
@@ -103,7 +105,15 @@ export default function DoppelwortLobbyPage() {
   )
 
   useEffect(() => {
-    const refreshRooms = () => setPublicRooms(doppelwortRoomRepository.listPublic())
+    let active = true
+    const refreshRooms = async () => {
+      try {
+        const rooms = await doppelwortRoomRepository.listPublic()
+        if (active) setPublicRooms(rooms)
+      } catch (loadError) {
+        if (active) setError(loadError.message)
+      }
+    }
     refreshRooms()
     const unsubscribe = doppelwortRoomRepository.subscribe(refreshRooms)
 
@@ -112,7 +122,10 @@ export default function DoppelwortLobbyPage() {
       setJoinForm((current) => ({ ...current, code: inviteCode.toUpperCase() }))
       selectMode('join')
     }
-    return unsubscribe
+    return () => {
+      active = false
+      unsubscribe()
+    }
   }, [])
 
   const updateOption = (key, value) => {
@@ -132,32 +145,29 @@ export default function DoppelwortLobbyPage() {
     document.querySelector('#dw-access-panel')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
-  const handleJoin = (event) => {
+  const handleJoin = async (event) => {
     event.preventDefault()
     setError('')
+    setSubmitting(true)
     try {
       const code = joinForm.code.replace(/\s/g, '').toUpperCase()
-      const room = doppelwortRoomRepository.load(code)
-      if (!room) throw new Error('Unter diesem Code wurde in diesem Browser kein Raum gefunden.')
-      if (room.status !== 'lobby') throw new Error('Diese Runde läuft bereits. Reconnect folgt über die bestehende Sitzung.')
-      if (room.password && room.password !== joinForm.password) throw new Error('Das Raumpasswort stimmt nicht.')
-
       const playerId = createDoppelwortId('player')
-      const nextRoom = addPlayer(room, joinForm.name, { id: playerId })
+      await doppelwortRoomRepository.join(code, sanitizePlayerName(joinForm.name), {
+        id: playerId,
+        password: joinForm.password,
+      })
       if (!doppelwortRoomRepository.saveSession(code, playerId)) throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
-      if (!doppelwortRoomRepository.save(nextRoom)) {
-        doppelwortRoomRepository.clearSession()
-        throw new Error('Der Raum konnte nicht aktualisiert werden.')
-      }
       window.location.assign(appPath('/doppelwort/raum'))
     } catch (joinError) {
       setError(joinError.message)
+      setSubmitting(false)
     }
   }
 
-  const handleCreate = (event) => {
+  const handleCreate = async (event) => {
     event.preventDefault()
     setError('')
+    setSubmitting(true)
     try {
       let room = null
       for (let attempt = 0; attempt < 5 && !room; attempt += 1) {
@@ -167,16 +177,21 @@ export default function DoppelwortLobbyPage() {
           options: createForm.options,
           password: createForm.password,
         })
-        if (!doppelwortRoomRepository.load(candidate.code) && doppelwortRoomRepository.save(candidate)) room = candidate
+        try {
+          room = await doppelwortRoomRepository.create(candidate)
+        } catch (createError) {
+          if (attempt === 4) throw createError
+        }
       }
       if (!room) throw new Error('Der Raum konnte nicht gespeichert werden. Bitte versuche es erneut.')
       if (!doppelwortRoomRepository.saveSession(room.code, room.hostId)) {
-        doppelwortRoomRepository.remove(room.code)
+        await doppelwortRoomRepository.remove(room.code)
         throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
       }
       window.location.assign(appPath('/doppelwort/raum'))
     } catch (createError) {
       setError(createError.message)
+      setSubmitting(false)
     }
   }
 
@@ -193,14 +208,14 @@ export default function DoppelwortLobbyPage() {
           <div className="dw-mode-note" role="note">
             <span className="dw-mode-note__dot" />
             <div>
-              <strong>Vorbereiteter lokaler Testmodus</strong>
-              <p>Pass-and-Play und mehrere Tabs dieses Browsers funktionieren jetzt. Für echte Geräte wird der vorbereitete Realtime-Dienst angeschlossen.</p>
+              <strong>{online ? 'Online-Modus aktiv' : 'Lokaler Spielmodus'}</strong>
+              <p>{online ? 'Räume werden in Echtzeit zwischen Smartphones, Tablets und Computern synchronisiert.' : 'Pass-and-Play und mehrere Tabs funktionieren. Mit Supabase-Konfiguration wechselt UGBZ automatisch online.'}</p>
             </div>
           </div>
         </section>
 
         <div className="dw-lobby-grid">
-          <PublicRooms rooms={publicRooms} onSelect={openRoom} />
+          <PublicRooms online={online} rooms={publicRooms} onSelect={openRoom} />
 
           <section className="dw-access-panel" id="dw-access-panel" aria-labelledby="access-title">
             <div className="dw-tab-list" role="tablist" aria-label="Raumzugang">
@@ -222,14 +237,12 @@ export default function DoppelwortLobbyPage() {
                   <span>Raumcode</span>
                   <input autoCapitalize="characters" className="dw-code-input" maxLength={6} onChange={(event) => setJoinForm({ ...joinForm, code: event.target.value.toUpperCase() })} placeholder="ABCDE" required value={joinForm.code} />
                 </label>
-                {doppelwortRoomRepository.load(joinForm.code)?.password ? (
-                  <label className="dw-field">
-                    <span>Passwort</span>
-                    <input onChange={(event) => setJoinForm({ ...joinForm, password: event.target.value })} required type="password" value={joinForm.password} />
-                  </label>
-                ) : null}
+                <label className="dw-field">
+                  <span>Passwort <small>optional</small></span>
+                  <input onChange={(event) => setJoinForm({ ...joinForm, password: event.target.value })} type="password" value={joinForm.password} />
+                </label>
                 <p aria-live="polite" className="dw-form-error">{error}</p>
-                <Button className="dw-submit" type="submit">Raum betreten <ArrowRightIcon size={21} /></Button>
+                <Button className="dw-submit" disabled={submitting} type="submit">{submitting ? 'Verbindung wird aufgebaut …' : 'Raum betreten'} <ArrowRightIcon size={21} /></Button>
               </form>
             ) : (
               <form aria-labelledby="dw-tab-create" className="dw-form dw-form--create" id="dw-panel-create" onSubmit={handleCreate} role="tabpanel">
@@ -269,7 +282,7 @@ export default function DoppelwortLobbyPage() {
                 {createForm.options.passwordEnabled ? <label className="dw-field"><span>Raumpasswort</span><input minLength={4} onChange={(event) => setCreateForm({ ...createForm, password: event.target.value })} required type="password" value={createForm.password} /></label> : null}
 
                 <p aria-live="polite" className="dw-form-error">{error}</p>
-                <Button className="dw-submit" type="submit"><PlusIcon size={21} /> Raum eröffnen</Button>
+                <Button className="dw-submit" disabled={submitting} type="submit"><PlusIcon size={21} /> {submitting ? 'Raum wird erstellt …' : 'Raum eröffnen'}</Button>
               </form>
             )}
           </section>

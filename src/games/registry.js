@@ -8,6 +8,7 @@ export const games = [
     path: appPath('/kartenspiel'),
     artwork: appPath('/assets/cards-on-felt.webp'),
     available: true,
+    rooms: null,
   },
   {
     id: 'doppelwort',
@@ -16,6 +17,7 @@ export const games = [
     path: appPath('/doppelwort'),
     artwork: appPath('/assets/doppelwort-table.webp'),
     available: true,
+    rooms: { gameKey: 'doppelwort', localFallback: true, realtime: true },
     theme: 'night',
   },
 ]
