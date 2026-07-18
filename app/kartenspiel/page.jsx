@@ -1,4 +1,4 @@
-import CardGameSetupPage from '../../src/pages/CardGameSetupPage.jsx'
+import CardGameSetupPage from '../../src/screens/CardGameSetupPage.jsx'
 
 export const dynamic = 'force-static'
 

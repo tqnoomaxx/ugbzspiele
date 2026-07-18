@@ -1,4 +1,4 @@
-import DoppelwortLobbyPage from '../../src/pages/DoppelwortLobbyPage.jsx'
+import DoppelwortLobbyPage from '../../src/screens/DoppelwortLobbyPage.jsx'
 
 export const dynamic = 'force-static'
 

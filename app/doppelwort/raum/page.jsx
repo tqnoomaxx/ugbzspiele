@@ -1,4 +1,4 @@
-import DoppelwortRoomPage from '../../../src/pages/DoppelwortRoomPage.jsx'
+import DoppelwortRoomPage from '../../../src/screens/DoppelwortRoomPage.jsx'
 
 export const dynamic = 'force-static'
 
