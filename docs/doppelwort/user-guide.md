@@ -9,7 +9,7 @@
 
 ## Runde
 
-Das Gerät wird bei jeder geheimen Karte an die genannte Person gegeben. Diese merkt sich Rolle und Wort und verbirgt die Karte. Danach nennt jede Person in der angezeigten Reihenfolge genau einen kurzen Hinweis zum eigenen Wort – das Wort selbst darf nicht genannt werden.
+Das Gerät wird für jeden versiegelten Umschlag an die genannte Person gegeben. Nur sie öffnet den Umschlag, merkt sich Rolle und Wort und schließt ihn wieder. Danach nennt jede Person in der angezeigten Reihenfolge genau einen kurzen Hinweis zum eigenen Wort – das Wort selbst darf nicht genannt werden.
 
 Nach der Hinweisrunde besprecht ihr, wer ein anderes Wort haben könnte. Bei der geheimen Abstimmung wird das Gerät wieder weitergegeben. Jede Person wählt höchstens so viele Verdächtige, wie Imposter eingestellt sind, oder überspringt (falls erlaubt).
 

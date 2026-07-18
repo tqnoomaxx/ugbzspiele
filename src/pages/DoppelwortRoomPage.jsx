@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
-import { ArrowRightIcon, CheckIcon, CloseIcon, DoorIcon, PlusIcon, TrophyIcon, UserIcon } from '../components/Icons.jsx'
+import { ArrowRightIcon, CheckIcon, CloseIcon, DoorIcon, EnvelopeIcon, PlusIcon, TrophyIcon, UserIcon } from '../components/Icons.jsx'
 import {
   addPlayer,
   advanceExpiredPhase,
@@ -143,38 +143,77 @@ function LobbyPhase({ actorId, onAction, room }) {
   )
 }
 
+function SealedEnvelope({ name, onOpen, opening }) {
+  return (
+    <div className="dw-envelope-stage">
+      <button
+        aria-busy={opening}
+        aria-label={`${name}s versiegelten Umschlag öffnen`}
+        className={`dw-envelope ${opening ? 'is-opening' : ''}`}
+        onClick={onOpen}
+        type="button"
+      >
+        <span aria-hidden="true" className="dw-envelope__paper">
+          <span className="dw-envelope__back" />
+          <span className="dw-envelope__letter" />
+          <span className="dw-envelope__flap" />
+          <span className="dw-envelope__recipient">Nur für {name}</span>
+          <span className="dw-envelope__pocket" />
+          <span className="dw-envelope__seal">DW</span>
+        </span>
+        <span className="dw-envelope__action"><EnvelopeIcon size={19} /> {opening ? 'Wird geöffnet …' : 'Umschlag öffnen'}</span>
+      </button>
+    </div>
+  )
+}
+
 function RevealPhase({ onAction, room }) {
   const [secretShown, setSecretShown] = useState(false)
+  const [envelopeOpening, setEnvelopeOpening] = useState(false)
   const revealPlayerId = getCurrentRevealPlayerId(room)
   const player = playerById(room, revealPlayerId)
   const privateView = getPrivatePlayerView(room, revealPlayerId)
   const progress = room.game.revealedPlayerIds.length + 1
 
-  useEffect(() => setSecretShown(false), [revealPlayerId])
+  useEffect(() => {
+    setSecretShown(false)
+    setEnvelopeOpening(false)
+  }, [revealPlayerId])
+
+  const openEnvelope = () => {
+    if (envelopeOpening) return
+    setEnvelopeOpening(true)
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    window.setTimeout(() => setSecretShown(true), reducedMotion ? 0 : 440)
+  }
 
   return (
     <section className="dw-phase dw-phase--reveal">
       <div className="dw-reveal-progress" aria-label={`Person ${progress} von ${room.game.revealOrder.length}`}>
-        {room.game.revealOrder.map((id, index) => <i className={index < progress - 1 ? 'is-done' : index === progress - 1 ? 'is-current' : ''} key={id} />)}
+        {room.game.revealOrder.map((id, index) => (
+          <span aria-hidden="true" className={index < progress - 1 ? 'is-done' : index === progress - 1 ? 'is-current' : ''} key={id}>
+            <EnvelopeIcon size={16} />
+          </span>
+        ))}
       </div>
 
       {!secretShown ? (
-        <div className="dw-pass-card">
-          <span className="dw-pass-card__icon"><UserIcon size={34} /></span>
-          <span className="dw-kicker">Gerät weitergeben</span>
-          <h1>{player.name}, du bist dran.</h1>
-          <p>Nur du darfst jetzt auf den Bildschirm schauen. Dein Wort bleibt danach wieder verborgen.</p>
-          <Button onClick={() => setSecretShown(true)}>Mein Wort ansehen</Button>
+        <div className="dw-pass-card dw-pass-card--envelope">
+          <span className="dw-kicker">Versiegelte Nachricht</span>
+          <h1>{player.name}, dein Umschlag.</h1>
+          <p>Gib das Gerät weiter. Erst wenn {player.name} allein auf den Bildschirm schaut, darf der Umschlag geöffnet werden.</p>
+          <SealedEnvelope name={player.name} onOpen={openEnvelope} opening={envelopeOpening} />
         </div>
       ) : (
         <div className={`dw-secret-card dw-secret-card--${privateView.secret.role}`}>
+          <span className="dw-secret-card__opened"><EnvelopeIcon size={18} /> Umschlag geöffnet</span>
           <span className="dw-secret-card__eyebrow">{privateView.secret.role === 'crew' ? 'Du gehörst zur Crew' : 'Du bist Imposter'}</span>
-          <p>Dein geheimes Wort lautet</p>
+          <p>In deinem Umschlag steht</p>
           <h1>{privateView.secret.word}</h1>
           {privateView.secret.hint ? <span className="dw-secret-card__hint">Kategorie · {privateView.secret.hint}</span> : null}
           <div className="dw-secret-card__rule" />
           <p className="dw-secret-card__help">Merke es dir gut. Nenne später einen Hinweis, der passt – aber verrate das Wort nicht.</p>
-          <Button onClick={() => onAction((current) => markPlayerRevealed(current, revealPlayerId))}>Gemerkt & verbergen <CheckIcon size={20} /></Button>
+          <Button onClick={() => onAction((current) => markPlayerRevealed(current, revealPlayerId))}>Wort gemerkt · Umschlag schließen <CheckIcon size={20} /></Button>
         </div>
       )}
     </section>

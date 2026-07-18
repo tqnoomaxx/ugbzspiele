@@ -952,22 +952,30 @@
 .dw-reveal-progress {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   margin-bottom: 24px;
 }
 
-.dw-reveal-progress i {
-  width: 26px;
-  height: 4px;
-  border-radius: 99px;
-  background: #29413d;
+.dw-reveal-progress span {
+  display: grid;
+  width: 31px;
+  height: 27px;
+  color: #5a7069;
+  border: 1px solid #29413d;
+  border-radius: 6px;
+  background: rgb(10 34 36 / 70%);
+  place-items: center;
 }
 
-.dw-reveal-progress i.is-current {
-  background: var(--dw-brass-light);
+.dw-reveal-progress span.is-current {
+  color: var(--dw-brass-light);
+  border-color: var(--dw-brass);
+  background: rgb(184 137 63 / 12%);
 }
 
-.dw-reveal-progress i.is-done {
+.dw-reveal-progress span.is-done {
+  color: #d9f0e2;
+  border-color: var(--dw-emerald);
   background: var(--dw-emerald);
 }
 
@@ -1011,6 +1019,203 @@
   line-height: 1.6;
 }
 
+.dw-pass-card--envelope {
+  padding-block: clamp(34px, 5vw, 54px);
+}
+
+.dw-pass-card--envelope h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+}
+
+.dw-pass-card--envelope > p {
+  margin-bottom: 23px;
+}
+
+.dw-envelope-stage {
+  display: grid;
+  justify-items: center;
+}
+
+.dw-envelope {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 410px);
+  min-height: 44px;
+  padding: 0;
+  color: var(--dw-paper-light);
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dw-envelope__paper {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.62;
+  filter: drop-shadow(0 24px 22px rgb(0 0 0 / 30%));
+  perspective: 900px;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.dw-envelope__back,
+.dw-envelope__letter,
+.dw-envelope__flap,
+.dw-envelope__recipient,
+.dw-envelope__pocket,
+.dw-envelope__seal {
+  position: absolute;
+}
+
+.dw-envelope__back {
+  inset: 0;
+  border: 1px solid #c79a51;
+  border-radius: 8px;
+  background:
+    linear-gradient(115deg, rgb(255 255 255 / 13%), transparent 35%, rgb(97 58 20 / 9%)),
+    #d8b879;
+}
+
+.dw-envelope__letter {
+  top: 8%;
+  left: 10%;
+  z-index: 1;
+  width: 80%;
+  height: 68%;
+  border: 1px solid rgb(107 74 33 / 26%);
+  border-radius: 5px 5px 0 0;
+  background: #f5e8c7;
+  box-shadow: 0 -5px 14px rgb(70 41 14 / 10%);
+  transition: transform 390ms cubic-bezier(.22, .8, .28, 1) 60ms;
+}
+
+.dw-envelope__recipient {
+  top: 15%;
+  left: 50%;
+  z-index: 4;
+  max-width: 72%;
+  overflow: hidden;
+  color: #6b4b24;
+  font-family: var(--serif);
+  font-size: clamp(.96rem, 3.4vw, 1.35rem);
+  font-weight: 760;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: opacity 130ms ease, transform 180ms ease;
+}
+
+.dw-envelope__flap {
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 63%;
+  border-radius: 7px 7px 0 0;
+  background:
+    linear-gradient(170deg, rgb(255 255 255 / 17%), transparent 48%),
+    #e0c184;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: 50% 0;
+  transition: transform 360ms cubic-bezier(.48, .05, .25, 1), filter 220ms ease;
+  backface-visibility: hidden;
+}
+
+.dw-envelope__pocket {
+  inset: 0;
+  z-index: 2;
+  border: 1px solid #c79a51;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgb(101 65 25 / 18%) 50%, transparent 50.7%),
+    linear-gradient(225deg, transparent 49.5%, rgb(101 65 25 / 18%) 50%, transparent 50.7%),
+    linear-gradient(150deg, #d6b16d, #e4c78d);
+  clip-path: polygon(0 37%, 50% 76%, 100% 37%, 100% 100%, 0 100%);
+}
+
+.dw-envelope__seal {
+  top: 48%;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  width: 51px;
+  height: 51px;
+  color: #f1cf8a;
+  border: 2px solid #6c1732;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 36% 30%, #a94560, #76203d 58%, #551126);
+  box-shadow: 0 5px 10px rgb(47 12 23 / 35%), inset 0 0 0 3px rgb(255 215 159 / 12%);
+  font-family: var(--serif);
+  font-size: .79rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  transition: opacity 150ms ease, transform 180ms ease;
+}
+
+.dw-envelope__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  gap: 9px;
+  margin-top: 19px;
+  padding: 10px 19px;
+  border: 1px solid rgb(184 137 63 / 58%);
+  border-radius: 7px;
+  background: rgb(184 137 63 / 9%);
+  font-size: .88rem;
+  font-weight: 780;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.dw-envelope:hover .dw-envelope__paper {
+  filter: drop-shadow(0 28px 25px rgb(0 0 0 / 36%));
+  transform: translateY(-4px) rotate(-.4deg);
+}
+
+.dw-envelope:hover .dw-envelope__action,
+.dw-envelope:focus-visible .dw-envelope__action {
+  color: #081b1a;
+  border-color: var(--dw-brass-light);
+  background: var(--dw-brass-light);
+}
+
+.dw-envelope:focus-visible .dw-envelope__paper {
+  outline: 3px solid rgb(228 184 105 / 42%);
+  outline-offset: 5px;
+}
+
+.dw-envelope.is-opening {
+  cursor: wait;
+}
+
+.dw-envelope.is-opening .dw-envelope__paper {
+  transform: translateY(6px);
+}
+
+.dw-envelope.is-opening .dw-envelope__flap {
+  filter: brightness(.88);
+  transform: rotateX(178deg);
+}
+
+.dw-envelope.is-opening .dw-envelope__letter {
+  transform: translateY(-48%);
+}
+
+.dw-envelope.is-opening .dw-envelope__seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.62);
+}
+
+.dw-envelope.is-opening .dw-envelope__recipient {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+}
+
 .dw-secret-card {
   position: relative;
   overflow: hidden;
@@ -1041,6 +1246,23 @@
 @keyframes dw-card-reveal {
   from { opacity: 0; transform: rotateX(7deg) translateY(8px); }
   to { opacity: 1; transform: none; }
+}
+
+.dw-secret-card__opened {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 17px;
+  color: #71542d;
+  font-size: .66rem;
+  font-weight: 820;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.dw-secret-card__opened + .dw-secret-card__eyebrow {
+  display: block;
 }
 
 .dw-secret-card__eyebrow {
@@ -1705,6 +1927,10 @@
     padding: 38px 23px;
   }
 
+  .dw-pass-card--envelope {
+    padding: 33px 16px;
+  }
+
   .dw-pass-card h1,
   .dw-secret-card h1 {
     font-size: clamp(2.7rem, 15vw, 4.3rem);
@@ -1715,8 +1941,18 @@
     gap: 5px;
   }
 
-  .dw-reveal-progress i {
-    width: min(20px, 6vw);
+  .dw-reveal-progress span {
+    width: min(30px, 8vw);
+    height: min(26px, 7vw);
+  }
+
+  .dw-envelope {
+    width: min(100%, 335px);
+  }
+
+  .dw-envelope__seal {
+    width: 45px;
+    height: 45px;
   }
 
   .dw-speak-stage h1,

@@ -61,6 +61,10 @@ export function DoorIcon(props) {
   return <SvgIcon {...props}><path d="M5 21V4h11v17M8 21V7l8-2v16" /><circle cx="13.5" cy="13" r=".6" fill="currentColor" stroke="none" /><path d="M3 21h16" /></SvgIcon>
 }
 
+export function EnvelopeIcon(props) {
+  return <SvgIcon {...props}><rect height="14" rx="1.8" width="18" x="3" y="5" /><path d="m4 7 8 6 8-6M4 18l5.5-6.5M20 18l-5.5-6.5" /></SvgIcon>
+}
+
 export function StarIcon({ size = 18, className = '' }) {
   return (
     <svg aria-hidden="true" className={className} height={size} viewBox="0 0 24 24" width={size}>
