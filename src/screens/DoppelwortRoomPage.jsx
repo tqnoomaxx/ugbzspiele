@@ -160,7 +160,7 @@ function SealedEnvelope({ name, onOpen, opening }) {
           <span className="dw-envelope__flap" />
           <span className="dw-envelope__recipient">Nur für {name}</span>
           <span className="dw-envelope__pocket" />
-          <span className="dw-envelope__seal">DW</span>
+          <span className="dw-envelope__seal">IM</span>
         </span>
         <span className="dw-envelope__action"><EnvelopeIcon size={19} /> {opening ? 'Wird geöffnet …' : 'Umschlag öffnen'}</span>
       </button>
@@ -219,7 +219,7 @@ function RevealPhase({ actorId, online, onAction, room }) {
           <span className="dw-secret-card__eyebrow">{privateView.secret.role === 'crew' ? 'Du gehörst zur Crew' : 'Du bist Imposter'}</span>
           <p>In deinem Umschlag steht</p>
           <h1>{privateView.secret.word}</h1>
-          {privateView.secret.hint ? <span className="dw-secret-card__hint">Kategorie · {privateView.secret.hint}</span> : null}
+          {privateView.secret.hint ? <span className="dw-secret-card__hint">Grober Tipp · {privateView.secret.hint}</span> : null}
           <div className="dw-secret-card__rule" />
           <p className="dw-secret-card__help">Merke es dir gut. Nenne später einen Hinweis, der passt – aber verrate das Wort nicht.</p>
           <Button onClick={() => onAction((current) => markPlayerRevealed(current, revealPlayerId))}>Wort gemerkt · Umschlag schließen <CheckIcon size={20} /></Button>
@@ -279,14 +279,29 @@ function MeetingPhase({ actorId, now, onAction, room }) {
 
 function VotingPhase({ actorId, online, onAction, room }) {
   const nextVoterId = room.game.playerIds.find((playerId) => !(playerId in room.game.votes))
-  const voter = playerById(room, nextVoterId)
+  const actorHasVoted = actorId in room.game.votes
+  const pendingLocalGuestId = room.game.playerIds.find((playerId) => (
+    playerById(room, playerId)?.isDemo && !(playerId in room.game.votes)
+  ))
+  const voterId = online
+    ? (!actorHasVoted && room.game.playerIds.includes(actorId)
+        ? actorId
+        : actorId === room.hostId
+          ? pendingLocalGuestId
+          : null)
+    : nextVoterId
+  const voter = playerById(room, voterId)
+  const submittedVotes = Object.keys(room.game.votes).length
+  const remainingVotes = room.game.playerIds.length - submittedVotes
   const [ready, setReady] = useState(false)
   const [selectedIds, setSelectedIds] = useState([])
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     setReady(false)
     setSelectedIds([])
-  }, [nextVoterId])
+    setSubmitting(false)
+  }, [room.game.phaseStartedAt, voterId])
 
   const toggleTarget = (playerId) => {
     setSelectedIds((current) => {
@@ -296,27 +311,36 @@ function VotingPhase({ actorId, online, onAction, room }) {
     })
   }
 
-  const confirmVote = () => {
-    onAction((current) => submitVote(current, nextVoterId, selectedIds))
+  const confirmVote = async () => {
+    if (!voterId || submitting) return
+    setSubmitting(true)
+    await onAction((current) => submitVote(current, voterId, selectedIds))
+    setSubmitting(false)
   }
 
-  if (!voter) return null
-  if (online && actorId !== nextVoterId) {
+  if (!voter) {
     return (
       <section className="dw-phase dw-phase--voting">
-        <div className="dw-waiting-note"><i /><span>{voter.name} stimmt gerade auf dem eigenen Gerät ab.</span></div>
+        <div className="dw-pass-card dw-pass-card--vote">
+          <span className="dw-kicker">Deine Stimme ist abgegeben</span>
+          <h1>Alle stimmen gleichzeitig ab.</h1>
+          <p>Deine Auswahl bleibt verborgen. Die Auflösung startet automatisch, sobald alle fertig sind.</p>
+          <span className="dw-vote-progress">Noch {remainingVotes} von {room.game.playerIds.length} {remainingVotes === 1 ? 'Stimme fehlt' : 'Stimmen fehlen'}</span>
+        </div>
       </section>
     )
   }
+
+  const passAndPlay = !online || voter.isDemo
 
   return (
     <section className="dw-phase dw-phase--voting">
       {!ready ? (
         <div className="dw-pass-card dw-pass-card--vote">
-          <span className="dw-kicker">Geheime Abstimmung</span>
-          <h1>{voter.name}, übernimm.</h1>
-          <p>Gib das Gerät weiter. Deine Auswahl wird nach dem Bestätigen verborgen.</p>
-          <span className="dw-vote-progress">{Object.keys(room.game.votes).length} von {room.game.playerIds.length} Stimmen abgegeben</span>
+          <span className="dw-kicker">Geheime Abstimmung · gleichzeitig</span>
+          <h1>{voter.name}, dein Stimmzettel.</h1>
+          <p>{passAndPlay ? `Gib das Gerät an ${voter.name}. Die Auswahl wird nach dem Bestätigen verborgen.` : 'Alle öffnen jetzt gleichzeitig ihren eigenen Stimmzettel. Deine Auswahl bleibt geheim.'}</p>
+          <span className="dw-vote-progress">{submittedVotes} von {room.game.playerIds.length} Stimmen abgegeben</span>
           <Button onClick={() => setReady(true)}>Stimmzettel öffnen</Button>
         </div>
       ) : (
@@ -328,7 +352,7 @@ function VotingPhase({ actorId, online, onAction, room }) {
           </div>
 
           <div className="dw-ballot-grid">
-            {room.game.playerIds.filter((playerId) => playerId !== nextVoterId).map((playerId) => {
+            {room.game.playerIds.filter((playerId) => playerId !== voterId).map((playerId) => {
               const player = playerById(room, playerId)
               const selected = selectedIds.includes(playerId)
               return (
@@ -344,9 +368,9 @@ function VotingPhase({ actorId, online, onAction, room }) {
           <div className="dw-sticky-action dw-sticky-action--ballot">
             <div><strong>{selectedIds.length}/{room.options.imposterCount} gewählt</strong><span>Nach dem Bestätigen ist keine Änderung möglich.</span></div>
             {selectedIds.length === 0 && room.options.skipAllowed ? (
-              <Button onClick={confirmVote} variant="outline">Überspringen</Button>
+              <Button disabled={submitting} onClick={confirmVote} variant="outline">{submitting ? 'Wird gesendet …' : 'Überspringen'}</Button>
             ) : (
-              <Button disabled={selectedIds.length === 0} onClick={confirmVote}>Stimme bestätigen <CheckIcon size={19} /></Button>
+              <Button disabled={selectedIds.length === 0 || submitting} onClick={confirmVote}>{submitting ? 'Wird gesendet …' : 'Stimme bestätigen'} <CheckIcon size={19} /></Button>
             )}
           </div>
         </div>
@@ -504,7 +528,7 @@ export default function DoppelwortRoomPage() {
   }, [refresh, session?.roomCode])
 
   const invitationUrl = useMemo(() => (
-    typeof window === 'undefined' || !room ? '' : `${window.location.origin}${appPath('/doppelwort')}?code=${room.code}`
+    typeof window === 'undefined' || !room ? '' : `${window.location.origin}${appPath('/imposter')}?code=${room.code}`
   ), [room])
 
   const copyInvitation = async () => {
@@ -532,18 +556,18 @@ export default function DoppelwortRoomPage() {
       }
     }
     doppelwortRoomRepository.clearSession()
-    window.location.assign(appPath('/doppelwort'))
+    window.location.assign(appPath('/imposter'))
   }
 
   if (!session || !room || !playerById(room, session.playerId)) {
     return (
       <div className="dw-page">
-        <AppHeader variant="dark" backTo="/doppelwort" backLabel="Zur Raumliste" />
+        <AppHeader variant="dark" backTo="/imposter" backLabel="Zur Raumliste" />
         <main className="dw-missing-room">
           <span><DoorIcon size={46} /></span>
           <h1>Keine aktive Raumsitzung</h1>
           <p>Öffne eine Einladung oder erstelle einen neuen Raum.</p>
-          <a className="button button--primary" href={appPath('/doppelwort')}>Zur Raumliste</a>
+          <a className="button button--primary" href={appPath('/imposter')}>Zur Raumliste</a>
         </main>
       </div>
     )

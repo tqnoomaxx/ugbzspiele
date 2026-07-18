@@ -12,9 +12,9 @@ export const games = [
   },
   {
     id: 'doppelwort',
-    title: 'Doppelwort',
-    description: 'Hinweise geben, das andere Wort wittern und Imposter enttarnen.',
-    path: appPath('/doppelwort'),
+    title: 'Imposter',
+    description: 'Hinweise geben, bluffen und den Imposter enttarnen.',
+    path: appPath('/imposter'),
     artwork: appPath('/assets/doppelwort-table.webp'),
     available: true,
     rooms: { gameKey: 'doppelwort', localFallback: true, realtime: true },

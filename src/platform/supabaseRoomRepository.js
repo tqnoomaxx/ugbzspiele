@@ -1,6 +1,7 @@
 import { ensureSupabaseSession, getSupabaseClient, hasSupabaseConfig } from './supabaseClient.js'
 
 const onlineRequested = process.env.NEXT_PUBLIC_ROOM_MODE === 'online'
+const MAX_CONCURRENT_MUTATION_ATTEMPTS = 12
 
 function normalizeCode(code) {
   return String(code ?? '').replace(/\s/g, '').toUpperCase()
@@ -13,6 +14,15 @@ function mapError(error, fallback) {
   if (/full|max_players/i.test(message)) return new Error('Der Raum ist bereits voll.')
   if (/not found|room_missing/i.test(message)) return new Error('Der Raum wurde nicht gefunden.')
   return new Error(message)
+}
+
+function isRevisionConflict(error) {
+  return /revision|raum hat sich geändert/i.test(error?.message ?? '')
+}
+
+function waitForRetry(attempt) {
+  const delay = 25 + attempt * 15 + Math.floor(Math.random() * 40)
+  return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
 function readSession(sessionKey) {
@@ -34,6 +44,7 @@ export function createSupabaseRoomRepository({ gameKey, summarize, sessionKey })
     await ensureSupabaseSession()
     const { data, error } = await getSupabaseClient().rpc(name, parameters)
     if (error) throw mapError(error, fallback)
+    if (data?.__platformError) throw mapError(new Error(data.__platformError), fallback)
     return data
   }
 
@@ -114,16 +125,25 @@ export function createSupabaseRoomRepository({ gameKey, summarize, sessionKey })
     },
 
     async mutate(code, mutation) {
-      const current = await this.load(code)
-      if (!current) throw new Error('Der Raum wurde nicht gefunden.')
-      const next = mutation(current)
-      if (next === current) return current
-      return rpc('platform_update_room', {
-        p_game_key: gameKey,
-        p_code: normalizeCode(code),
-        p_expected_revision: current.revision,
-        p_room_state: next,
-      }, 'Die Raumänderung konnte nicht gespeichert werden.')
+      for (let attempt = 0; attempt < MAX_CONCURRENT_MUTATION_ATTEMPTS; attempt += 1) {
+        const current = await this.load(code)
+        if (!current) throw new Error('Der Raum wurde nicht gefunden.')
+        const next = mutation(current)
+        if (next === current) return current
+
+        try {
+          return await rpc('platform_update_room', {
+            p_game_key: gameKey,
+            p_code: normalizeCode(code),
+            p_expected_revision: current.revision,
+            p_room_state: next,
+          }, 'Die Raumänderung konnte nicht gespeichert werden.')
+        } catch (error) {
+          if (!isRevisionConflict(error) || attempt === MAX_CONCURRENT_MUTATION_ATTEMPTS - 1) throw error
+          await waitForRetry(attempt)
+        }
+      }
+      throw new Error('Die Raumänderung konnte nicht gespeichert werden.')
     },
 
     async remove(code) {

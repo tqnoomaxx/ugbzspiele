@@ -228,6 +228,7 @@ function buildRound(room, roundNumber, rng, now) {
   }
 
   const pair = choosePair(room, rng)
+  const pairReversed = rng() >= 0.5
   const playerIds = eligiblePlayers.map((player) => player.id)
   const roleOrder = shuffle(playerIds, rng)
   const imposterIds = roleOrder.slice(0, room.options.imposterCount)
@@ -242,10 +243,11 @@ function buildRound(room, roundNumber, rng, now) {
     phaseStartedAt: timestamp(now),
     phaseEndsAt: null,
     pairId: pair.id,
+    pairReversed,
     category: pair.category,
     categoryLabel: pair.categoryLabel,
-    crewWord: pair.crew,
-    imposterWord: pair.imposter,
+    crewWord: pairReversed ? pair.imposter : pair.crew,
+    imposterWord: pairReversed ? pair.crew : pair.imposter,
     hint: room.options.hintsEnabled ? pair.hint : null,
     assignments,
     playerIds,

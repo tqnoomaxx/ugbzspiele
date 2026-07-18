@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
@@ -13,15 +13,20 @@ import {
 } from '../games/card-game/gameEngine.js'
 import { gameRepository } from '../games/card-game/gameRepository.js'
 
-let playerId = 0
+const DECK_OPTIONS = [
+  { size: 32, label: 'Skatblatt', detail: '32 Karten' },
+  { size: 52, label: 'Standard', detail: '52 Karten' },
+  { size: 54, label: 'Mit Jokern', detail: '54 Karten' },
+]
 
-function newPlayer() {
-  playerId += 1
-  return { id: `setup-player-${playerId}`, name: '' }
-}
+const INITIAL_PLAYERS = [
+  { id: 'setup-player-1', name: '' },
+  { id: 'setup-player-2', name: '' },
+]
 
 export default function CardGameSetupPage() {
-  const [players, setPlayers] = useState(() => [newPlayer(), newPlayer()])
+  const [players, setPlayers] = useState(() => INITIAL_PLAYERS.map((player) => ({ ...player })))
+  const nextPlayerId = useRef(INITIAL_PLAYERS.length + 1)
   const [deckSize, setDeckSize] = useState(32)
   const [mode, setMode] = useState('both')
   const [error, setError] = useState('')
@@ -45,9 +50,12 @@ export default function CardGameSetupPage() {
   }
 
   function addPlayer() {
-    setPlayers((current) => (
-      current.length < MAX_PLAYERS ? [...current, newPlayer()] : current
-    ))
+    setPlayers((current) => {
+      if (current.length >= MAX_PLAYERS) return current
+      const player = { id: `setup-player-${nextPlayerId.current}`, name: '' }
+      nextPlayerId.current += 1
+      return [...current, player]
+    })
     setConfirmOverwrite(false)
   }
 
@@ -160,8 +168,8 @@ export default function CardGameSetupPage() {
           <div className="setup-column setup-column--options">
             <fieldset className="choice-group">
               <legend>Kartendeck</legend>
-              <div className="segmented-control">
-                {[32, 54].map((size) => (
+              <div className="segmented-control segmented-control--decks">
+                {DECK_OPTIONS.map(({ detail, label, size }) => (
                   <button
                     aria-pressed={deckSize === size}
                     className={deckSize === size ? 'is-selected' : ''}
@@ -169,10 +177,12 @@ export default function CardGameSetupPage() {
                     onClick={() => setDeckSize(size)}
                     type="button"
                   >
-                    {size} Karten
+                    <strong>{label}</strong>
+                    <small>{detail}</small>
                   </button>
                 ))}
               </div>
+              <p className="deck-explanation">Ein Skatblatt hat 32 Karten (7 bis Ass). Das vollständige französische Blatt hat 52 Karten – mit zwei Jokern sind es 54.</p>
             </fieldset>
 
             <fieldset className="choice-group">

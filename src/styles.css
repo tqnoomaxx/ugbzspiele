@@ -659,6 +659,35 @@ button:disabled {
   background: #fffdfa;
 }
 
+.segmented-control--decks {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.segmented-control--decks button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.segmented-control--decks button strong {
+  font-size: .92rem;
+}
+
+.segmented-control--decks button small {
+  font-size: .72rem;
+  font-weight: 600;
+  opacity: .75;
+}
+
+.deck-explanation {
+  margin: 10px 2px 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
 .segmented-control button {
   min-height: 62px;
   padding: 12px 15px;

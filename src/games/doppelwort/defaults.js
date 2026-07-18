@@ -30,6 +30,8 @@ export const DOPPELWORT_CATEGORIES = {
     { id: 'sports', label: 'Sport' },
     { id: 'jobs', label: 'Berufe' },
     { id: 'nature', label: 'Natur' },
+    { id: 'social', label: 'Internet & Social Media' },
+    { id: 'memes', label: 'Memes & Netzkultur' },
   ],
   en: [
     { id: 'all', label: 'All categories' },
@@ -39,6 +41,7 @@ export const DOPPELWORT_CATEGORIES = {
     { id: 'sports', label: 'Sports' },
     { id: 'jobs', label: 'Jobs' },
     { id: 'nature', label: 'Nature' },
+    { id: 'social', label: 'Internet & Social Media' },
+    { id: 'memes', label: 'Memes & Internet Culture' },
   ],
 }
-

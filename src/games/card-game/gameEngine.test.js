@@ -18,6 +18,7 @@ describe('card game engine', () => {
   it('builds one-way and return round sequences', () => {
     expect(buildRounds(32, 4, 'one')).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
     expect(buildRounds(32, 4, 'both')).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1])
+    expect(buildRounds(52, 4, 'one')).toHaveLength(13)
   })
 
   it('keeps the original scoring formula', () => {

@@ -47,16 +47,21 @@ function reachVoting(room) {
   return beginVoting(result, result.hostId, 4000)
 }
 
-describe('Doppelwort word library', () => {
-  it('contains at least 100 pairs in both languages and filters by category', () => {
-    expect(WORD_PAIRS.de.length).toBeGreaterThanOrEqual(100)
-    expect(WORD_PAIRS.en.length).toBeGreaterThanOrEqual(100)
+describe('Imposter word library', () => {
+  it('contains broad, recognizable categories in both languages', () => {
+    expect(WORD_PAIRS.de.length).toBeGreaterThanOrEqual(160)
+    expect(WORD_PAIRS.en.length).toBeGreaterThanOrEqual(160)
     expect(getWordPairs('de', 'animals')).toHaveLength(20)
     expect(getWordPairs('en', 'food').every((pair) => pair.category === 'food')).toBe(true)
+    expect(getWordPairs('de', 'social')).toHaveLength(20)
+    expect(getWordPairs('de', 'memes')).toHaveLength(20)
+    expect(getWordPairs('de', 'social').some((pair) => [pair.crew, pair.imposter].includes('TikTok'))).toBe(true)
+    expect(getWordPairs('de', 'memes').some((pair) => [pair.crew, pair.imposter].includes('Doge'))).toBe(true)
+    expect(getWordPairs('de', 'animals')[0].hint).toBe('Lebewesen')
   })
 })
 
-describe('Doppelwort room and round engine', () => {
+describe('Imposter room and round engine', () => {
   it('creates a room with safe defaults and unique players', () => {
     let room = roomWithPlayers(3)
     expect(room.code).toHaveLength(5)
@@ -78,6 +83,19 @@ describe('Doppelwort room and round engine', () => {
     expect(view.password).toBeUndefined()
   })
 
+  it('randomizes which side of a pair belongs to the crew', () => {
+    const regular = startGame(roomWithPlayers(), 'player-1', { rng: () => 0, now: 2000 })
+    const rngValues = [0, 0.9]
+    const reversed = startGame(roomWithPlayers(), 'player-1', {
+      rng: () => rngValues.shift() ?? 0,
+      now: 2000,
+    })
+
+    expect(regular.game.pairId).toBe(reversed.game.pairId)
+    expect(regular.game.crewWord).toBe(reversed.game.imposterWord)
+    expect(regular.game.imposterWord).toBe(reversed.game.crewWord)
+  })
+
   it('moves through reveal, speaking, meeting and voting', () => {
     let room = startGame(roomWithPlayers(), 'player-1', { rng: () => 0.2, now: 2000 })
     room = revealAll(room)
@@ -88,6 +106,20 @@ describe('Doppelwort room and round engine', () => {
     expect(room.game.phase).toBe('meeting')
     room = beginVoting(room, room.hostId, 4000)
     expect(room.game.phase).toBe('voting')
+  })
+
+  it('accepts votes from every player independently of a turn order', () => {
+    let room = startGame(roomWithPlayers(), 'player-1', { rng: () => 0.2, now: 2000 })
+    room = reachVoting(room)
+    const votingOrder = [...room.game.playerIds].reverse()
+
+    votingOrder.forEach((voterId, index) => {
+      const targetId = room.game.playerIds.find((playerId) => playerId !== voterId)
+      room = submitVote(room, voterId, [targetId], 5000 + index)
+    })
+
+    expect(room.game.phase).toBe('result')
+    expect(Object.keys(room.game.votes)).toHaveLength(votingOrder.length)
   })
 
   it('lets the crew win only when every imposter has an absolute majority and no crew does', () => {

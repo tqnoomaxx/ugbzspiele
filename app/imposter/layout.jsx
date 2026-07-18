@@ -11,6 +11,6 @@ export const viewport = {
   initialScale: 1,
 }
 
-export default function DoppelwortLayout({ children }) {
+export default function ImposterLayout({ children }) {
   return children
 }

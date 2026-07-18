@@ -10,7 +10,7 @@ import { appPath } from '../basePath.js'
 function GameFeature({ game, saved }) {
   const isCardGame = game.id === 'card-game'
   const href = saved
-    ? appPath(isCardGame ? '/kartenspiel/spielen' : '/doppelwort/raum')
+    ? appPath(isCardGame ? '/kartenspiel/spielen' : '/imposter/raum')
     : game.path
   let resumeTitle = ''
   let resumeDetail = ''

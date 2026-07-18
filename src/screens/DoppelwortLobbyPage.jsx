@@ -157,7 +157,7 @@ export default function DoppelwortLobbyPage() {
         password: joinForm.password,
       })
       if (!doppelwortRoomRepository.saveSession(code, playerId)) throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
-      window.location.assign(appPath('/doppelwort/raum'))
+      window.location.assign(appPath('/imposter/raum'))
     } catch (joinError) {
       setError(joinError.message)
       setSubmitting(false)
@@ -188,7 +188,7 @@ export default function DoppelwortLobbyPage() {
         await doppelwortRoomRepository.remove(room.code)
         throw new Error('Die lokale Sitzung konnte nicht gespeichert werden.')
       }
-      window.location.assign(appPath('/doppelwort/raum'))
+      window.location.assign(appPath('/imposter/raum'))
     } catch (createError) {
       setError(createError.message)
       setSubmitting(false)
@@ -201,9 +201,9 @@ export default function DoppelwortLobbyPage() {
       <main className="dw-lobby-shell">
         <section className="dw-lobby-hero">
           <div>
-            <span className="dw-kicker">Ein Wort. Zwei Wahrheiten.</span>
-            <h1>Doppelwort</h1>
-            <p>Gebt kluge Hinweise, hört genau hin und enttarnt die Person mit dem anderen Wort.</p>
+            <span className="dw-kicker">Ein Begriff. Eine Person blufft.</span>
+            <h1>Imposter</h1>
+            <p>Gebt kluge Hinweise, hört genau hin und enttarnt den Imposter.</p>
           </div>
           <div className="dw-mode-note" role="note">
             <span className="dw-mode-note__dot" />
@@ -269,7 +269,7 @@ export default function DoppelwortLobbyPage() {
                 </div>
 
                 <div className="dw-toggle-list">
-                  <Toggle checked={createForm.options.hintsEnabled} label="Kategorie als Hinweis" onChange={(value) => updateOption('hintsEnabled', value)} />
+                  <Toggle checked={createForm.options.hintsEnabled} label="Groben Tipp anzeigen" description="Absichtlich allgemeiner als die Kategorie" onChange={(value) => updateOption('hintsEnabled', value)} />
                   <Toggle checked={createForm.options.skipAllowed} label="Überspringen erlauben" onChange={(value) => updateOption('skipAllowed', value)} />
                   <Toggle checked={createForm.options.pointsEnabled} label="Punkte über Runden" onChange={(value) => updateOption('pointsEnabled', value)} />
                   <Toggle checked={createForm.options.autoNextRound} label="Nächste Runde automatisch" description="Nach acht Sekunden" onChange={(value) => updateOption('autoNextRound', value)} />

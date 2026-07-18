@@ -241,7 +241,9 @@ begin
 
   if not found then raise exception 'ROOM_NOT_FOUND'; end if;
   if not public.is_platform_room_member(v_room.id) then raise exception 'NOT_AUTHORIZED'; end if;
-  if v_room.revision <> p_expected_revision then raise exception 'REVISION_CONFLICT'; end if;
+  if v_room.revision <> p_expected_revision then
+    return jsonb_build_object('__platformError', 'REVISION_CONFLICT');
+  end if;
   if jsonb_typeof(p_room_state) <> 'object' then raise exception 'INVALID_STATE'; end if;
 
   v_revision := v_room.revision + 1;
