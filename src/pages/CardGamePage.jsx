@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
@@ -264,20 +266,26 @@ function FinalScore({ game, onCorrect, onNewGame, onHome }) {
 
 export default function CardGamePage() {
   const router = useRouter()
-  const [game, setGame] = useState(() => gameRepository.load())
+  const [game, setGame] = useState(null)
+  const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState('')
   const [saveStatus, setSaveStatus] = useState('saved')
 
   useEffect(() => {
-    if (!game) return
-    setSaveStatus(gameRepository.save(game) ? 'saved' : 'error')
-  }, [game])
+    setGame(gameRepository.load())
+    setLoaded(true)
+  }, [])
 
   useEffect(() => {
-    if (!game) router.replace('/kartenspiel')
-  }, [game, router])
+    if (!loaded || !game) return
+    setSaveStatus(gameRepository.save(game) ? 'saved' : 'error')
+  }, [game, loaded])
 
-  if (!game) {
+  useEffect(() => {
+    if (loaded && !game) router.replace('/kartenspiel')
+  }, [game, loaded, router])
+
+  if (!loaded || !game) {
     return (
       <main className="route-loader" aria-live="polite">
         <span className="route-loader__mark">UGBZ</span>

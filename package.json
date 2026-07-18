@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build && node scripts/copy-hosting-config.js",
+    "start": "vinext start",
     "preview": "vinext start",
     "test": "vitest run",
     "check": "npm run test && npm run build"

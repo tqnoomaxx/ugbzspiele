@@ -26,6 +26,13 @@ npm install
 npm run dev
 ```
 
+Danach ist die Website unter [http://localhost:3000](http://localhost:3000) erreichbar. Für einen Test des statischen Produktionsbuilds:
+
+```bash
+npm run build
+npm start
+```
+
 ## Prüfen
 
 ```bash

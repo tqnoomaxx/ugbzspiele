@@ -1,4 +1,6 @@
-import { useMemo, useState } from 'react'
+'use client'
+
+import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
@@ -24,12 +26,16 @@ export default function CardGameSetupPage() {
   const [deckSize, setDeckSize] = useState(32)
   const [mode, setMode] = useState('both')
   const [error, setError] = useState('')
-  const [savedGame, setSavedGame] = useState(() => gameRepository.load())
+  const [savedGame, setSavedGame] = useState(null)
   const [confirmOverwrite, setConfirmOverwrite] = useState(false)
   const plan = useMemo(
     () => getGamePlan(deckSize, players.length, mode),
     [deckSize, mode, players.length],
   )
+
+  useEffect(() => {
+    setSavedGame(gameRepository.load())
+  }, [])
 
   function updatePlayer(id, name) {
     setPlayers((current) => current.map((player) => (
