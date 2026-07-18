@@ -201,6 +201,23 @@ button:disabled {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
+.games-list {
+  display: grid;
+  gap: 30px;
+}
+
+.game-feature--night {
+  background: #071b1d;
+}
+
+.game-feature--night .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #071b1d);
+}
+
+.game-feature--night .game-feature__art img {
+  object-position: center;
+}
+
 .game-feature:hover {
   border-color: #d2ad66;
   box-shadow: 0 16px 38px rgb(38 29 16 / 18%);

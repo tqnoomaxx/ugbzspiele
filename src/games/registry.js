@@ -7,11 +7,13 @@ export const games = [
     artwork: '/assets/cards-on-felt.png',
     available: true,
   },
+  {
+    id: 'doppelwort',
+    title: 'Doppelwort',
+    description: 'Hinweise geben, das andere Wort wittern und Imposter enttarnen.',
+    path: '/doppelwort',
+    artwork: '/assets/doppelwort-table.png',
+    available: true,
+    theme: 'night',
+  },
 ]
-
-export const roomFeature = {
-  id: 'rooms',
-  title: 'Spielräume',
-  description: 'Gemeinsam spielen – folgt später.',
-  available: false,
-}

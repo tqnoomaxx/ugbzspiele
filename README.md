@@ -1,6 +1,6 @@
 # UGBZ
 
-UGBZ ist eine responsive Spielstand-App für Stichkartenspiele. Die Startseite ist für weitere Spiele und spätere Spielräume vorbereitet.
+UGBZ ist eine responsive Spieleplattform mit einem lokalen Stichkarten-Spielstand und dem sozialen Imposter-Wortspiel **Doppelwort**.
 
 ## Enthalten
 
@@ -10,6 +10,11 @@ UGBZ ist eine responsive Spielstand-App für Stichkartenspiele. Die Startseite i
 - Korrektur von Ansagen, letzter Wertung und Schlussrunde
 - Mobiler Spielleitermodus mit festem Bestätigungsbutton und kompaktem Zwischenstand
 - Automatisches lokales Speichern, sichtbares Fortsetzen und Überschreibschutz
+- Doppelwort mit öffentlicher/lokaler Raumliste, Einladungscode und konfigurierbarer Lobby
+- 120 deutsche und 120 englische Wortpaare in sechs Kategorien
+- Vollständiger Rollen-, Reveal-, Rede-, Meeting-, Abstimmungs-, Punkte- und Ergebnisfluss
+- Pass-and-Play sowie Tab-Synchronisierung über ein versioniertes Raum-Repository
+- Vorbereitetes Supabase-Postgres-/Realtime-Schema inklusive RLS, API- und Betriebsdokumentation
 
 ## Lokal starten
 
@@ -24,4 +29,16 @@ npm run dev
 npm run check
 ```
 
-Die aktuelle Version speichert den Spielstand lokal und kapselt den Zugriff über ein versioniertes Repository. Eine Cloud- oder Spielraum-Synchronisierung kann dieses Repository später ersetzen.
+Kartenspiel und Doppelwort speichern den Spielstand lokal. Doppelwort kennzeichnet diesen Modus in der Oberfläche: Mehrere Tabs desselben Browsers synchronisieren sich, echte Geräte benötigen den dokumentierten Supabase-Adapter.
+
+## Doppelwort-Dokumentation
+
+- [Architektur und Entscheidungen](docs/doppelwort/architecture.md)
+- [Datenmodell/ERD](docs/doppelwort/erd.md)
+- [REST und Realtime](docs/doppelwort/api.md)
+- [Sicherheit und Datenschutz](docs/doppelwort/security.md)
+- [Deployment und Betrieb](docs/doppelwort/operations.md)
+- [Entwicklerhandbuch](docs/doppelwort/developer-guide.md)
+- [Benutzerhandbuch](docs/doppelwort/user-guide.md)
+- [Adminhandbuch](docs/doppelwort/admin-guide.md)
+- [Vollständigkeitscheck](docs/doppelwort/requirements-checklist.md)

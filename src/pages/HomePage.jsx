@@ -2,21 +2,68 @@
 
 import { useEffect, useState } from 'react'
 import AppHeader from '../components/AppHeader.jsx'
-import { ArrowRightIcon, DoorIcon } from '../components/Icons.jsx'
-import { games, roomFeature } from '../games/registry.js'
+import { ArrowRightIcon } from '../components/Icons.jsx'
+import { games } from '../games/registry.js'
 import { gameRepository } from '../games/card-game/gameRepository.js'
+import { doppelwortRoomRepository } from '../games/doppelwort/roomRepository.js'
+
+function GameFeature({ game, saved }) {
+  const isCardGame = game.id === 'card-game'
+  const href = saved
+    ? (isCardGame ? '/kartenspiel/spielen' : '/doppelwort/raum')
+    : game.path
+  let resumeTitle = ''
+  let resumeDetail = ''
+
+  if (saved && isCardGame) {
+    const savedRound = Math.min(saved.roundIndex + 1, saved.rounds.length)
+    resumeTitle = saved.phase === 'complete' ? 'Endergebnis ist bereit' : `Runde ${savedRound} von ${saved.rounds.length}`
+    resumeDetail = saved.players.map((player) => player.name).join(' · ')
+  } else if (saved) {
+    resumeTitle = saved.game
+      ? `${saved.game.phase === 'complete' ? 'Gesamtwertung' : `Runde ${saved.game.roundNumber}`} · ${saved.name}`
+      : `Lobby · ${saved.name}`
+    resumeDetail = `${saved.players.length}/${saved.options.maxPlayers} am Tisch · Code ${saved.code}`
+  }
+
+  return (
+    <section className={`game-feature ${game.theme === 'night' ? 'game-feature--night' : ''}`}>
+      <div className="game-feature__art" aria-hidden="true">
+        <img src={game.artwork} alt="" />
+      </div>
+      <div className="game-feature__content">
+        {saved ? <span className="game-feature__status">Aktives Spiel</span> : null}
+        <h2>{game.title}</h2>
+        <p>{game.description}</p>
+        {saved ? (
+          <div className="game-feature__resume">
+            <strong>{resumeTitle}</strong>
+            <span>{resumeDetail}</span>
+          </div>
+        ) : null}
+        <div className="game-feature__actions">
+          <a className="game-feature__action" href={href}>
+            {saved ? 'Spiel fortsetzen' : 'Spiel öffnen'}
+            <ArrowRightIcon size={23} />
+          </a>
+          {saved ? <a className="game-feature__new" href={game.path}>Zur Spielübersicht</a> : null}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function HomePage() {
-  const game = games[0]
-  const [savedGame, setSavedGame] = useState(null)
+  const [savedGames, setSavedGames] = useState({})
 
   useEffect(() => {
-    setSavedGame(gameRepository.load())
+    const cardGame = gameRepository.load()
+    const roomSession = doppelwortRoomRepository.loadSession()
+    const doppelwortRoom = roomSession
+      ? doppelwortRoomRepository.load(roomSession.roomCode)
+      : null
+    setSavedGames({ 'card-game': cardGame, doppelwort: doppelwortRoom })
   }, [])
-
-  const savedRound = savedGame
-    ? Math.min(savedGame.roundIndex + 1, savedGame.rounds.length)
-    : 0
 
   return (
     <div className="page page--home">
@@ -27,45 +74,9 @@ export default function HomePage() {
           <p>Wähle ein Spiel und leg direkt los.</p>
         </section>
 
-        <section className="game-feature">
-          <div className="game-feature__art" aria-hidden="true">
-            <img src={game.artwork} alt="" />
-          </div>
-          <div className="game-feature__content">
-            {savedGame ? <span className="game-feature__status">Aktives Spiel</span> : null}
-            <h2>{game.title}</h2>
-            <p>{game.description}</p>
-            {savedGame ? (
-              <div className="game-feature__resume">
-                <strong>
-                  {savedGame.phase === 'complete'
-                    ? 'Endergebnis ist bereit'
-                    : `Runde ${savedRound} von ${savedGame.rounds.length}`}
-                </strong>
-                <span>{savedGame.players.map((player) => player.name).join(' · ')}</span>
-              </div>
-            ) : null}
-            <div className="game-feature__actions">
-              <a className="game-feature__action" href={savedGame ? '/kartenspiel/spielen' : game.path}>
-                {savedGame
-                  ? savedGame.phase === 'complete' ? 'Ergebnis ansehen' : 'Spiel fortsetzen'
-                  : 'Spiel öffnen'}
-                <ArrowRightIcon size={23} />
-              </a>
-              {savedGame ? (
-                <a className="game-feature__new" href={game.path}>Neue Runde einrichten</a>
-              ) : null}
-            </div>
-          </div>
-        </section>
-
-        <section className="room-preview" aria-disabled="true">
-          <span className="room-preview__icon"><DoorIcon size={34} /></span>
-          <div>
-            <h2>{roomFeature.title}</h2>
-            <p>{roomFeature.description}</p>
-          </div>
-        </section>
+        <div className="games-list">
+          {games.map((game) => <GameFeature game={game} key={game.id} saved={savedGames[game.id]} />)}
+        </div>
       </main>
     </div>
   )
