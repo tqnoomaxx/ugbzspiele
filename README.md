@@ -47,6 +47,7 @@ Kartenspiel und Doppelwort speichern den Spielstand lokal. Doppelwort kennzeichn
 
 ## Doppelwort-Dokumentation
 
+- [Vollständige Bewertung und priorisierte Kritik](docs/gesamtbewertung.md)
 - [Architektur und Entscheidungen](docs/doppelwort/architecture.md)
 - [Datenmodell/ERD](docs/doppelwort/erd.md)
 - [REST und Realtime](docs/doppelwort/api.md)
