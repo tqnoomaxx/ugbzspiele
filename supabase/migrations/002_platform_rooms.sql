@@ -140,7 +140,10 @@ begin
   insert into public.platform_room_secrets (room_id, password_hash)
   values (
     v_room_id,
-    case when nullif(p_password, '') is null then null else crypt(p_password, gen_salt('bf')) end
+    case
+      when nullif(p_password, '') is null then null
+      else extensions.crypt(p_password, extensions.gen_salt('bf'))
+    end
   );
 
   insert into public.platform_room_members (room_id, user_id, player_id)
@@ -184,7 +187,9 @@ begin
 
   select password_hash into v_password_hash
   from public.platform_room_secrets where room_id = v_room.id;
-  if v_password_hash is not null and crypt(coalesce(p_password, ''), v_password_hash) <> v_password_hash then
+  if v_password_hash is not null
+    and extensions.crypt(coalesce(p_password, ''), v_password_hash) <> v_password_hash
+  then
     raise exception 'PASSWORD_INVALID';
   end if;
 
