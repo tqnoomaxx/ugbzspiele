@@ -468,6 +468,7 @@
   .kf-finale { width: 100%; min-height: auto; padding: 30px 15px; }
   .kf-turn-heading h1 { font-size: 3rem; }
   .kf-dice-tray { width: 100%; gap: 6px; margin: 36px auto 29px; padding: 13px 9px 8px; border-radius: 12px; }
+  .kf-dice-tray { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .kf-die__face { border-radius: 13%; }
   .kf-die small { visibility: hidden; height: 12px; margin-top: 3px; }
   .kf-die.is-held .kf-die__face { outline-width: 3px; transform: translateY(-5px); }
@@ -476,7 +477,9 @@
   .kf-score-sheet { width: 100%; }
   .kf-score-sheet tbody { display: table-row-group; }
   .kf-score-sheet tr { display: table-row; }
-  .kf-score-scroll { max-height: 460px; }
+  .kf-score-scroll { max-height: none; overflow: visible; }
+  .kf-score-sheet td button { justify-content: center; }
+  .kf-score-sheet td button small { display: none; }
   .kf-score-sheet__head { position: sticky; top: 0; }
   .kf-waiting-room { grid-template-columns: 1fr; gap: 25px; }
   .kf-waiting-copy h1 { font-size: 3.5rem; }
