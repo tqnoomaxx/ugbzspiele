@@ -10,6 +10,8 @@ function normalizeCode(code) {
 function mapError(error, fallback) {
   const message = error?.message || fallback
   if (/password/i.test(message)) return new Error('Das Raumpasswort stimmt nicht.')
+  if (/rate_limited/i.test(message)) return new Error('Zu viele Aktionen auf einmal. Bitte warte einen kurzen Moment.')
+  if (/immutable|identities/i.test(message)) return new Error('Diese Raumänderung ist aus Sicherheitsgründen nicht erlaubt.')
   if (/revision/i.test(message)) return new Error('Der Raum hat sich geändert. Bitte versuche es erneut.')
   if (/full|max_players/i.test(message)) return new Error('Der Raum ist bereits voll.')
   if (/not found|room_missing/i.test(message)) return new Error('Der Raum wurde nicht gefunden.')
@@ -25,14 +27,22 @@ function waitForRetry(attempt) {
   return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
-function readSession(sessionKey) {
-  if (typeof window === 'undefined' || !window.sessionStorage) return null
+function recoveryKey(sessionKey) {
+  return `${sessionKey}:recovery`
+}
+
+function readStoredSession(storage, key) {
+  if (!storage) return null
   try {
-    const session = JSON.parse(window.sessionStorage.getItem(sessionKey) ?? 'null')
+    const session = JSON.parse(storage.getItem(key) ?? 'null')
     return session?.roomCode && session?.playerId ? session : null
-  } catch {
-    return null
-  }
+  } catch { return null }
+}
+
+function readSession(sessionKey) {
+  if (typeof window === 'undefined') return null
+  return readStoredSession(window.sessionStorage, sessionKey)
+    ?? readStoredSession(window.localStorage, recoveryKey(sessionKey))
 }
 
 export function hasSupabaseRoomConfig() {
@@ -169,24 +179,25 @@ export function createSupabaseRoomRepository({ gameKey, summarize, sessionKey })
     },
 
     saveSession(roomCode, playerId) {
-      if (typeof window === 'undefined' || !window.sessionStorage) return false
-      try {
-        window.sessionStorage.setItem(sessionKey, JSON.stringify({
-          gameKey,
-          roomCode: normalizeCode(roomCode),
-          playerId,
-          updatedAt: new Date().toISOString(),
-        }))
-        return true
-      } catch {
-        return false
-      }
+      if (typeof window === 'undefined') return false
+      const serialized = JSON.stringify({
+        gameKey,
+        roomCode: normalizeCode(roomCode),
+        playerId,
+        updatedAt: new Date().toISOString(),
+      })
+      let saved = false
+      try { window.sessionStorage?.setItem(sessionKey, serialized); saved = true } catch { /* Try recovery storage. */ }
+      try { window.localStorage?.setItem(recoveryKey(sessionKey), serialized); saved = true } catch { /* Session storage may still work. */ }
+      return saved
     },
 
     clearSession() {
-      if (typeof window === 'undefined' || !window.sessionStorage) return false
-      window.sessionStorage.removeItem(sessionKey)
-      return true
+      if (typeof window === 'undefined') return false
+      let cleared = false
+      try { window.sessionStorage?.removeItem(sessionKey); cleared = true } catch { /* Continue with recovery storage. */ }
+      try { window.localStorage?.removeItem(recoveryKey(sessionKey)); cleared = true } catch { /* Session storage may already be clear. */ }
+      return cleared
     },
 
     subscribe(listener) {

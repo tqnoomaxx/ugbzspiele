@@ -14,13 +14,14 @@ import {
   LOWER_CATEGORIES,
   recordManualScore,
   removeKniffelPlayer,
+  restartKniffelGame,
   scoreDigitalCategory,
   startKniffelGame,
   toggleHeldDie,
   undoLastKniffelTurn,
   UPPER_CATEGORIES,
 } from '../games/kniffel/gameEngine.js'
-import { kniffelRoomRepository } from '../games/kniffel/roomRepository.js'
+import { createKniffelBackup, kniffelRoomRepository } from '../games/kniffel/roomRepository.js'
 
 const PIP_POSITIONS = {
   1: ['mc'], 2: ['tl', 'br'], 3: ['tl', 'mc', 'br'],
@@ -69,8 +70,8 @@ function Celebration({ event }) {
   )
 }
 
-function SyncBadge({ state }) {
-  const labels = { saved: 'Gespeichert', syncing: 'Wird synchronisiert', local: 'Nur lokal gesichert' }
+function SyncBadge({ online, state }) {
+  const labels = { saved: online ? 'Cloud gespeichert' : 'Lokal gespeichert', syncing: 'Wird synchronisiert', local: 'Offline gesichert' }
   return <span className={`kf-sync kf-sync--${state}`}><i /> {labels[state] ?? labels.saved}</span>
 }
 
@@ -83,7 +84,7 @@ function PlayerRail({ activeId, onSelect, room, selectedId }) {
         {rankings.map((player, index) => (
           <button className={`${player.id === activeId ? 'is-active' : ''} ${player.id === selectedId ? 'is-selected' : ''}`} key={player.id} onClick={() => onSelect(player.id)} type="button">
             <b>{room.game ? (player.rank ?? index + 1) : index + 1}</b>
-            <span><strong>{player.name}</strong><small>{player.id === activeId ? 'Jetzt am Zug' : room.game ? `${player.total} Punkte` : player.isHost ? 'Spielleitung' : player.isDemo ? 'Lokaler Gast' : 'Verbunden'}</small></span>
+            <span><strong>{player.name}</strong><small>{player.id === activeId ? 'Jetzt am Zug' : room.game ? `${player.total} Punkte` : player.isHost ? 'Spielleitung' : player.isDemo ? 'Lokaler Gast' : 'Im Raum'}</small></span>
             {player.isHost ? <em>Leitung</em> : null}
           </button>
         ))}
@@ -131,7 +132,7 @@ function ScoreSheet({ canScore, onScore, player, room }) {
   )
 }
 
-function Lobby({ actorId, onAction, room }) {
+function Lobby({ actorId, onAction, onClose, onLeave, room }) {
   const [name, setName] = useState('')
   const host = actorId === room.hostId
   const shared = room.options.deviceMode === 'shared'
@@ -148,7 +149,7 @@ function Lobby({ actorId, onAction, room }) {
           <div key={player.id}><span><UserIcon size={20} /></span><strong>{player.name}</strong><small>{player.isHost ? 'Spielleitung' : player.isDemo ? 'Lokal' : 'Online'}</small>{host && player.id !== room.hostId ? <button aria-label={`${player.name} entfernen`} onClick={() => onAction((current) => removeKniffelPlayer(current, player.id, actorId))} type="button"><CloseIcon size={17} /></button> : null}</div>
         ))}</div>
         {host && shared ? <form className="kf-add-player" onSubmit={addLocal}><input maxLength={28} onChange={(event) => setName(event.target.value)} placeholder="Nächster Name" value={name} /><Button variant="outline" type="submit"><PlusIcon size={18} /> Hinzufügen</Button></form> : null}
-        {host ? <Button className="kf-start" onClick={() => onAction((current) => startKniffelGame(current, actorId))}>Partie starten <ArrowRightIcon size={20} /></Button> : <p className="kf-host-wait">Die Spielleitung startet gleich.</p>}
+        {host ? <><Button className="kf-start" onClick={() => onAction((current) => startKniffelGame(current, actorId))}>Partie starten <ArrowRightIcon size={20} /></Button><button className="kf-table-exit" onClick={onClose} type="button">Tisch schließen</button></> : <><p className="kf-host-wait">Die Spielleitung startet gleich.</p><button className="kf-table-exit" onClick={onLeave} type="button">Tisch verlassen</button></>}
       </div>
     </section>
   )
@@ -211,13 +212,13 @@ function ManualTurn({ actorId, canAct, onAction, onCelebrate, room }) {
   )
 }
 
-function CompleteGame({ actorId, onUndo, room }) {
+function CompleteGame({ actorId, onClose, onRestart, onUndo, room }) {
   const ranking = getKniffelRanking(room)
   return (
     <section className="kf-finale">
       <TrophyIcon size={52} /><span className="kf-kicker">Partie beendet</span><h1>{ranking[0].name} gewinnt!</h1>
       <div className="kf-ranking">{ranking.map((player) => <div key={player.id}><b>{player.rank}</b><span><strong>{player.name}</strong><small>{player.filled} Felder · Bonus {player.upperBonus + player.kniffelBonus}</small></span><em>{player.total}</em></div>)}</div>
-      {actorId === room.hostId ? <Button onClick={onUndo} variant="outline"><UndoIcon size={19} /> Letzten Eintrag zurücknehmen</Button> : null}
+      {actorId === room.hostId ? <div className="kf-finale-actions"><Button onClick={onRestart}>Neue Partie <ArrowRightIcon size={19} /></Button><Button onClick={onUndo} variant="outline"><UndoIcon size={19} /> Letzten Eintrag zurücknehmen</Button><button className="kf-table-exit" onClick={onClose} type="button">Tisch schließen</button></div> : null}
     </section>
   )
 }
@@ -278,10 +279,31 @@ export default function KniffelGamePage() {
   }
 
   const exportGame = () => {
-    const blob = new Blob([JSON.stringify(room, null, 2)], { type: 'application/json' })
+    const backup = createKniffelBackup(room, session.playerId)
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
-    const anchor = document.createElement('a'); anchor.href = url; anchor.download = `kniffel-${room.code}.json`; anchor.click()
-    URL.revokeObjectURL(url)
+    const anchor = document.createElement('a'); anchor.href = url; anchor.download = `ugbz-kniffel-${room.code}.json`; document.body.append(anchor); anchor.click(); anchor.remove()
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
+  }
+
+  const closeTable = async () => {
+    if (!window.confirm('Diesen Kniffeltisch wirklich schließen? Eine exportierte Sicherung bleibt weiterhin nutzbar.')) return
+    setError('')
+    try {
+      await kniffelRoomRepository.remove(room.code)
+      kniffelRoomRepository.clearSession()
+      window.location.assign(appPath('/'))
+    } catch (closeError) { setError(closeError.message) }
+  }
+
+  const leaveTable = async () => {
+    setError('')
+    try {
+      const nextRoom = removeKniffelPlayer(room, session.playerId, session.playerId)
+      await kniffelRoomRepository.leave(room.code, nextRoom)
+      kniffelRoomRepository.clearSession()
+      window.location.assign(appPath('/'))
+    } catch (leaveError) { setError(leaveError.message) }
   }
 
   const celebrateScore = (categoryId, score, bonus = 0) => {
@@ -317,11 +339,11 @@ export default function KniffelGamePage() {
     <div className="kf-page kf-page--game">
       <Celebration event={celebration} />
       <AppHeader variant="dark" home />
-      <div className="kf-room-bar"><div><span>{room.options.deviceMode === 'separate' ? 'Online-Raum' : 'Gemeinsamer Tisch'}</span><strong>{room.name}</strong></div><button onClick={copyInvite} type="button"><small>{copied ? 'Link kopiert' : 'Raumcode'}</small><b>{room.code}</b></button><SyncBadge state={syncState} /><button className="kf-export" onClick={exportGame} type="button">Sicherung exportieren</button></div>
+      <div className="kf-room-bar"><div><span>{room.options.deviceMode === 'separate' ? 'Online-Raum' : 'Gemeinsamer Tisch'}</span><strong>{room.name}</strong></div>{room.options.deviceMode === 'separate' ? <button className="kf-invite" onClick={copyInvite} type="button"><small>{copied ? 'Link kopiert' : 'Raumcode'}</small><b>{room.code}</b></button> : <span className="kf-device-badge">Ein Gerät</span>}<SyncBadge online={kniffelRoomRepository.isOnline} state={syncState} />{actorId === room.hostId ? <button className="kf-export" onClick={exportGame} type="button">Sicherung exportieren</button> : null}</div>
       {error ? <div aria-live="polite" className="kf-game-error">{error}<button onClick={() => setError('')} type="button"><CloseIcon size={17} /></button></div> : null}
-      {room.status === 'lobby' ? <main className="kf-game-shell kf-game-shell--lobby"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={selectedId} /><Lobby actorId={actorId} onAction={onAction} room={room} /></main> : null}
+      {room.status === 'lobby' ? <main className="kf-game-shell kf-game-shell--lobby"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={selectedId} /><Lobby actorId={actorId} onAction={onAction} onClose={closeTable} onLeave={leaveTable} room={room} /></main> : null}
       {room.status === 'playing' ? <main className="kf-game-shell"><PlayerRail activeId={activeId} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} />{room.options.playMode === 'digital' ? <DigitalTurn actorId={actorId} canAct={canAct} key={`digital-${room.game.turnIndex}`} onAction={onAction} onRoll={onRoll} onRollingChange={setDiceRolling} room={room} /> : <ManualTurn actorId={actorId} canAct={canAct} key={`manual-${room.game.turnIndex}`} onAction={onAction} onCelebrate={celebrateScore} room={room} />}<ScoreSheet canScore={canAct && viewedPlayer.id === activeId && !diceRolling} onScore={scoreCategory} player={viewedPlayer} room={room} />{actorId === room.hostId && room.game.history.length ? <button className="kf-undo" onClick={() => onAction((current) => undoLastKniffelTurn(current, actorId))} type="button"><UndoIcon size={17} /> Letzten Zug rückgängig</button> : null}</main> : null}
-      {room.status === 'complete' ? <main className="kf-game-shell kf-game-shell--complete"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} /><CompleteGame actorId={actorId} onUndo={() => onAction((current) => undoLastKniffelTurn(current, actorId))} room={room} /><ScoreSheet canScore={false} onScore={() => {}} player={viewedPlayer} room={room} /></main> : null}
+      {room.status === 'complete' ? <main className="kf-game-shell kf-game-shell--complete"><PlayerRail activeId={null} onSelect={setSelectedId} room={room} selectedId={viewedPlayer.id} /><CompleteGame actorId={actorId} onClose={closeTable} onRestart={() => onAction((current) => restartKniffelGame(current, actorId))} onUndo={() => onAction((current) => undoLastKniffelTurn(current, actorId))} room={room} /><ScoreSheet canScore={false} onScore={() => {}} player={viewedPlayer} room={room} /></main> : null}
     </div>
   )
 }

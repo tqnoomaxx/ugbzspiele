@@ -15,6 +15,27 @@ const timerOptions = {
   votingSeconds: [30, 45, 60, 90, 120],
 }
 
+const ROOM_PRESETS = [
+  {
+    id: 'quick',
+    label: 'Schnell',
+    detail: '1 Runde · kurze Timer',
+    options: { roundCount: 1, speakingSeconds: 15, meetingSeconds: 30, votingSeconds: 30, pointsEnabled: false, autoNextRound: false },
+  },
+  {
+    id: 'classic',
+    label: 'Klassisch',
+    detail: '3 Runden · ausgewogen',
+    options: { ...DEFAULT_DOPPELWORT_OPTIONS },
+  },
+  {
+    id: 'group',
+    label: 'Große Runde',
+    detail: '5 Runden · 2 Imposter',
+    options: { roundCount: 5, maxPlayers: 12, imposterCount: 2, speakingSeconds: 30, meetingSeconds: 60, votingSeconds: 60, pointsEnabled: true },
+  },
+]
+
 function Toggle({ checked, label, description, onChange }) {
   return (
     <label className="dw-toggle">
@@ -33,7 +54,7 @@ function PublicRooms({ online, rooms, onSelect }) {
     <section className="dw-room-list" aria-labelledby="open-rooms-title">
       <div className="dw-section-heading">
         <div>
-          <span className="dw-kicker">{online ? 'Online verfügbar' : 'In diesem Browser'}</span>
+          <span className="dw-kicker">{online ? 'Online · Freunde-Beta' : 'In diesem Browser'}</span>
           <h2 id="open-rooms-title">Offene Spielräume</h2>
         </div>
         <span className="dw-live-mark"><i /> {online ? 'geräteübergreifend' : 'lokal synchron'}</span>
@@ -78,6 +99,7 @@ export default function DoppelwortLobbyPage() {
   })
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [ready, setReady] = useState(false)
   const online = doppelwortRoomRepository.isOnline
 
   const selectMode = (nextMode, { focus = false } = {}) => {
@@ -105,6 +127,7 @@ export default function DoppelwortLobbyPage() {
   )
 
   useEffect(() => {
+    setReady(true)
     let active = true
     const refreshRooms = async () => {
       try {
@@ -137,6 +160,22 @@ export default function DoppelwortLobbyPage() {
         ...(key === 'language' ? { category: 'all' } : {}),
       },
     }))
+  }
+
+  const applyPreset = (preset) => {
+    setCreateForm((current) => ({
+      ...current,
+      options: {
+        ...current.options,
+        ...preset.options,
+        visibility: current.options.visibility,
+        passwordEnabled: current.options.passwordEnabled,
+        language: current.options.language,
+        category: current.options.category,
+        spectatorsAllowed: false,
+      },
+    }))
+    setError('')
   }
 
   const openRoom = (code) => {
@@ -208,13 +247,13 @@ export default function DoppelwortLobbyPage() {
           <div className="dw-mode-note" role="note">
             <span className="dw-mode-note__dot" />
             <div>
-              <strong>{online ? 'Online-Modus aktiv' : 'Lokaler Spielmodus'}</strong>
-              <p>{online ? 'Räume werden in Echtzeit zwischen Smartphones, Tablets und Computern synchronisiert.' : 'Pass-and-Play und mehrere Tabs funktionieren. Mit Supabase-Konfiguration wechselt UGBZ automatisch online.'}</p>
+              <strong>{online ? 'Online-Modus für Freundesrunden' : 'Lokaler Spielmodus'}</strong>
+              <p>{online ? 'Räume werden in Echtzeit synchronisiert. Für öffentliche Wettbewerbe ist diese Beta noch nicht gedacht.' : 'Pass-and-Play und mehrere Tabs funktionieren. Mit Supabase-Konfiguration wechselt UGBZ automatisch online.'}</p>
             </div>
           </div>
         </section>
 
-        <div className="dw-lobby-grid">
+        <div aria-busy={!ready} className="dw-lobby-grid" inert={ready ? undefined : true}>
           <PublicRooms online={online} rooms={publicRooms} onSelect={openRoom} />
 
           <section className="dw-access-panel" id="dw-access-panel" aria-labelledby="access-title">
@@ -251,35 +290,57 @@ export default function DoppelwortLobbyPage() {
                   <h2 id="access-title">Richte den Salon ein</h2>
                 </div>
 
-                <div className="dw-form-grid">
+                <div className="dw-form-grid dw-form-grid--identity">
                   <label className="dw-field"><span>Dein Name</span><input maxLength={28} onChange={(event) => setCreateForm({ ...createForm, name: event.target.value })} placeholder="Spielleitung" required value={createForm.name} /></label>
                   <label className="dw-field"><span>Raumname</span><input maxLength={48} onChange={(event) => setCreateForm({ ...createForm, roomName: event.target.value })} placeholder="Freitagssalon" value={createForm.roomName} /></label>
-                  <label className="dw-field"><span>Sichtbarkeit</span><select onChange={(event) => updateOption('visibility', event.target.value)} value={createForm.options.visibility}><option value="private">Privat · per Code</option><option value="public">Öffentlich gelistet</option></select></label>
+                </div>
+
+                <fieldset className="dw-presets">
+                  <legend>Spielstil</legend>
+                  <div>{ROOM_PRESETS.map((preset) => (
+                    <button key={preset.id} onClick={() => applyPreset(preset)} type="button">
+                      <strong>{preset.label}</strong><small>{preset.detail}</small>
+                    </button>
+                  ))}</div>
+                </fieldset>
+
+                <div className="dw-form-grid">
+                  <label className="dw-field"><span>Sichtbarkeit</span><select onChange={(event) => updateOption('visibility', event.target.value)} value={createForm.options.visibility}><option value="private">Privat · per Code</option><option value="public">Öffentlich · Freunde-Beta</option></select></label>
                   <label className="dw-field"><span>Maximale Spieler</span><select onChange={(event) => updateOption('maxPlayers', Number(event.target.value))} value={createForm.options.maxPlayers}>{Array.from({ length: 10 }, (_, index) => index + 3).map((count) => <option key={count} value={count}>{count}</option>)}</select></label>
-                  <label className="dw-field"><span>Sprache</span><select onChange={(event) => updateOption('language', event.target.value)} value={createForm.options.language}><option value="de">Deutsch</option><option value="en">English</option></select></label>
+                  <label className="dw-field"><span>Wortsprache</span><select onChange={(event) => updateOption('language', event.target.value)} value={createForm.options.language}><option value="de">Deutsch</option><option value="en">English</option></select></label>
                   <label className="dw-field"><span>Kategorie</span><select onChange={(event) => updateOption('category', event.target.value)} value={createForm.options.category}>{categories.map((category) => <option key={category.id} value={category.id}>{category.label}</option>)}</select></label>
                   <label className="dw-field"><span>Imposter</span><select onChange={(event) => updateOption('imposterCount', Number(event.target.value))} value={createForm.options.imposterCount}>{Array.from({ length: Math.min(3, createForm.options.maxPlayers - 1) }, (_, index) => index + 1).map((count) => <option key={count} value={count}>{count}</option>)}</select></label>
                   <label className="dw-field"><span>Runden</span><select onChange={(event) => updateOption('roundCount', Number(event.target.value))} value={createForm.options.roundCount}>{[1, 3, 5, 7, 10].map((count) => <option key={count} value={count}>{count}</option>)}</select></label>
-                  {Object.entries(timerOptions).map(([key, values]) => (
-                    <label className="dw-field" key={key}>
-                      <span>{key === 'speakingSeconds' ? 'Redezeit' : key === 'meetingSeconds' ? 'Besprechung' : 'Abstimmung'}</span>
-                      <select onChange={(event) => updateOption(key, Number(event.target.value))} value={createForm.options[key]}>{values.map((seconds) => <option key={seconds} value={seconds}>{seconds === 0 ? 'Ohne Timer' : `${seconds} Sek.`}</option>)}</select>
-                    </label>
-                  ))}
                 </div>
 
-                <div className="dw-toggle-list">
-                  <Toggle checked={createForm.options.hintsEnabled} label="Groben Tipp anzeigen" description="Absichtlich allgemeiner als die Kategorie" onChange={(value) => updateOption('hintsEnabled', value)} />
-                  <Toggle checked={createForm.options.skipAllowed} label="Überspringen erlauben" onChange={(value) => updateOption('skipAllowed', value)} />
-                  <Toggle checked={createForm.options.pointsEnabled} label="Punkte über Runden" onChange={(value) => updateOption('pointsEnabled', value)} />
-                  <Toggle checked={createForm.options.autoNextRound} label="Nächste Runde automatisch" description="Nach acht Sekunden" onChange={(value) => updateOption('autoNextRound', value)} />
-                  <Toggle checked={createForm.options.autoWordRotation} label="Wörter nicht wiederholen" onChange={(value) => updateOption('autoWordRotation', value)} />
-                  <Toggle checked={createForm.options.randomHostOnLeave} label="Spielleitung automatisch übertragen" onChange={(value) => updateOption('randomHostOnLeave', value)} />
-                  <Toggle checked={createForm.options.spectatorsAllowed} label="Zuschauer vorbereiten" description="Wird mit dem Online-Adapter aktiv" onChange={(value) => updateOption('spectatorsAllowed', value)} />
-                  <Toggle checked={createForm.options.passwordEnabled} label="Raum mit Passwort" onChange={(value) => updateOption('passwordEnabled', value)} />
+                {createForm.options.visibility === 'public' ? <p className="dw-beta-note">Öffentliche Räume sind für bekannte Freundesgruppen gedacht. Teile dort keine persönlichen Informationen.</p> : null}
+
+                <div className="dw-access-options">
+                  <Toggle checked={createForm.options.passwordEnabled} label="Raum mit Passwort" description="Zusätzlicher Schutz neben dem Raumcode" onChange={(value) => updateOption('passwordEnabled', value)} />
+                  {createForm.options.passwordEnabled ? <label className="dw-field"><span>Raumpasswort</span><input minLength={4} onChange={(event) => setCreateForm({ ...createForm, password: event.target.value })} required type="password" value={createForm.password} /></label> : null}
                 </div>
 
-                {createForm.options.passwordEnabled ? <label className="dw-field"><span>Raumpasswort</span><input minLength={4} onChange={(event) => setCreateForm({ ...createForm, password: event.target.value })} required type="password" value={createForm.password} /></label> : null}
+                <details className="dw-advanced-options">
+                  <summary><span>Erweiterte Regeln</span><small>Timer, Punkte und Automatik</small></summary>
+                  <div className="dw-advanced-options__body">
+                    <div className="dw-form-grid">
+                      {Object.entries(timerOptions).map(([key, values]) => (
+                        <label className="dw-field" key={key}>
+                          <span>{key === 'speakingSeconds' ? 'Redezeit' : key === 'meetingSeconds' ? 'Besprechung' : 'Abstimmung'}</span>
+                          <select onChange={(event) => updateOption(key, Number(event.target.value))} value={createForm.options[key]}>{values.map((seconds) => <option key={seconds} value={seconds}>{seconds === 0 ? 'Ohne Timer' : `${seconds} Sek.`}</option>)}</select>
+                        </label>
+                      ))}
+                    </div>
+                    <div className="dw-toggle-list">
+                      <Toggle checked={createForm.options.hintsEnabled} label="Groben Tipp anzeigen" description="Bewusst nur eine allgemeine Richtung" onChange={(value) => updateOption('hintsEnabled', value)} />
+                      <Toggle checked={createForm.options.skipAllowed} label="Überspringen erlauben" onChange={(value) => updateOption('skipAllowed', value)} />
+                      <Toggle checked={createForm.options.pointsEnabled} label="Punkte über Runden" onChange={(value) => updateOption('pointsEnabled', value)} />
+                      <Toggle checked={createForm.options.autoNextRound} label="Nächste Runde automatisch" description="Nach acht Sekunden" onChange={(value) => updateOption('autoNextRound', value)} />
+                      <Toggle checked={createForm.options.autoWordRotation} label="Wörter nicht wiederholen" onChange={(value) => updateOption('autoWordRotation', value)} />
+                      <Toggle checked={createForm.options.randomHostOnLeave} label="Spielleitung automatisch übertragen" onChange={(value) => updateOption('randomHostOnLeave', value)} />
+                    </div>
+                  </div>
+                </details>
 
                 <p aria-live="polite" className="dw-form-error">{error}</p>
                 <Button className="dw-submit" disabled={submitting} type="submit"><PlusIcon size={21} /> {submitting ? 'Raum wird erstellt …' : 'Raum eröffnen'}</Button>

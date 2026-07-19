@@ -217,8 +217,32 @@ button:disabled {
   background: #351018;
 }
 
+.game-feature--ocean {
+  background: #0a3140;
+}
+
+.game-feature--moon {
+  background: #171923;
+}
+
+.game-feature--memory {
+  background: #3d2853;
+}
+
 .game-feature--wine .game-feature__art::after {
   background: linear-gradient(90deg, transparent, #351018);
+}
+
+.game-feature--ocean .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #0a3140);
+}
+
+.game-feature--moon .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #171923);
+}
+
+.game-feature--memory .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #3d2853);
 }
 
 .game-feature--night .game-feature__art::after {
@@ -544,6 +568,58 @@ button:disabled {
   color: var(--ink);
   border-color: #d2ad66;
   background: #d2ad66;
+}
+
+.save-recovery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 20px;
+  padding: 20px 24px;
+  color: #5d2a23;
+  border: 1px solid #c98d82;
+  border-radius: 14px;
+  background: #fbede9;
+  box-shadow: var(--shadow-sm);
+}
+
+.save-recovery h2 {
+  margin: 3px 0 5px;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+}
+
+.save-recovery p {
+  max-width: 760px;
+  margin: 0;
+  color: #76534d;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.save-recovery__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.save-recovery__actions button {
+  min-height: 44px;
+  padding: 9px 13px;
+  color: #6d2e27;
+  border: 1px solid #c98d82;
+  border-radius: 8px;
+  background: #fffaf7;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.save-recovery__actions button:last-child {
+  color: #fff;
+  background: #8b2f2f;
 }
 
 .setup-column {
@@ -1658,6 +1734,19 @@ button:disabled {
     align-items: stretch;
     flex-direction: column;
     padding: 18px;
+  }
+
+  .save-recovery {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .save-recovery__actions {
+    justify-content: stretch;
+  }
+
+  .save-recovery__actions button {
+    flex: 1 1 180px;
   }
 
   .active-game-banner .button {

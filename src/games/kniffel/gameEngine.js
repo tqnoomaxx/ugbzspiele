@@ -299,6 +299,12 @@ export function startKniffelGame(room, actorId, now = Date.now()) {
   }, now)
 }
 
+export function restartKniffelGame(room, actorId, now = Date.now()) {
+  requireHost(room, actorId)
+  if (room.status !== 'complete') throw new Error('Eine neue Partie kann erst nach dem Ergebnis gestartet werden.')
+  return startKniffelGame({ ...room, status: 'lobby', game: null }, actorId, now)
+}
+
 export function generateDiceRoll(rng = Math.random) {
   return Array.from({ length: 5 }, () => randomIndex(6, rng) + 1)
 }

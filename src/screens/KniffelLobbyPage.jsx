@@ -32,7 +32,7 @@ function ModeCard({ active, children, description, disabled, onClick, title }) {
 function OpenRooms({ rooms, onSelect }) {
   return (
     <section className="kf-public-rooms">
-      <div className="kf-section-title"><span>Online</span><h2>Öffentliche Tische</h2></div>
+      <div className="kf-section-title"><span>Online · Freunde-Beta</span><h2>Öffentliche Tische</h2></div>
       {rooms.length ? rooms.map((room) => (
         <button className="kf-public-room" key={room.code} onClick={() => onSelect(room.code)} type="button">
           <i><DoorIcon size={22} /></i>
@@ -51,7 +51,29 @@ export default function KniffelLobbyPage() {
   const [rooms, setRooms] = useState([])
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
+  const [ready, setReady] = useState(false)
   const online = kniffelRoomRepository.isOnline
+
+  useEffect(() => setReady(true), [])
+
+  const selectTab = (nextTab, { focus = false } = {}) => {
+    setTab(nextTab)
+    setError('')
+    if (focus) window.requestAnimationFrame(() => document.querySelector(`#kf-tab-${nextTab}`)?.focus())
+  }
+
+  const handleTabKeyDown = (event) => {
+    const nextTab = ['ArrowLeft', 'ArrowRight'].includes(event.key)
+      ? (tab === 'create' ? 'join' : 'create')
+      : event.key === 'Home'
+        ? 'create'
+        : event.key === 'End'
+          ? 'join'
+          : null
+    if (!nextTab) return
+    event.preventDefault()
+    selectTab(nextTab, { focus: true })
+  }
 
   useEffect(() => {
     let active = true
@@ -102,6 +124,18 @@ export default function KniffelLobbyPage() {
     } catch (joinError) { setError(joinError.message); setBusy(false) }
   }
 
+  const importBackup = async (event) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+    setBusy(true); setError('')
+    try {
+      const restored = await kniffelRoomRepository.restoreBackup(await file.text())
+      if (!restored) throw new Error('Die Sicherung konnte nicht wiederhergestellt werden.')
+      window.location.assign(appPath('/kniffel/spiel'))
+    } catch (importError) { setError(importError.message); setBusy(false) }
+  }
+
   const openRoom = (code) => { setJoin((current) => ({ ...current, code })); setTab('join'); window.scrollTo({ top: 0, behavior: 'smooth' }) }
 
   return (
@@ -113,14 +147,19 @@ export default function KniffelLobbyPage() {
           <div className="kf-cloud-note"><i /><span><strong>{online ? 'Cloud-Speicherung aktiv' : 'Lokale Speicherung aktiv'}</strong><small>Der Spielstand wird laufend gesichert und kann nicht durch einen falschen Tipp verloren gehen.</small></span></div>
         </section>
 
-        <section className="kf-setup-card">
-          <div className="kf-tabs" role="tablist">
-            <button className={tab === 'create' ? 'is-active' : ''} onClick={() => { setTab('create'); setError('') }} type="button">Neuen Tisch einrichten</button>
-            <button className={tab === 'join' ? 'is-active' : ''} onClick={() => { setTab('join'); setError('') }} type="button">Mit Code beitreten</button>
+        <section aria-busy={!ready} className="kf-setup-card" inert={ready ? undefined : true}>
+          <div aria-label="Kniffeltisch öffnen" className="kf-tabs" role="tablist">
+            <button aria-controls="kf-panel-create" aria-selected={tab === 'create'} className={tab === 'create' ? 'is-active' : ''} id="kf-tab-create" onClick={() => selectTab('create')} onKeyDown={handleTabKeyDown} role="tab" tabIndex={tab === 'create' ? 0 : -1} type="button">Neuen Tisch einrichten</button>
+            <button aria-controls="kf-panel-join" aria-selected={tab === 'join'} className={tab === 'join' ? 'is-active' : ''} id="kf-tab-join" onClick={() => selectTab('join')} onKeyDown={handleTabKeyDown} role="tab" tabIndex={tab === 'join' ? 0 : -1} type="button">Mit Code beitreten</button>
+          </div>
+
+          <div className="kf-backup-import">
+            <span><strong>Spielstand wiederherstellen</strong><small>Eine zuvor exportierte Kniffel-Sicherung einlesen.</small></span>
+            <label className={busy ? 'is-disabled' : ''}><input accept="application/json,.json" disabled={busy || !ready} onChange={importBackup} type="file" /> Sicherung auswählen</label>
           </div>
 
           {tab === 'create' ? (
-            <form className="kf-setup-form" onSubmit={createRoom}>
+            <form aria-labelledby="kf-tab-create" className="kf-setup-form" id="kf-panel-create" onSubmit={createRoom} role="tabpanel">
               <div className="kf-form-head"><span>01</span><div><h2>Wie möchtet ihr spielen?</h2><p>Beide Varianten nutzen die klassischen 13 Kniffel-Felder.</p></div></div>
               <div className="kf-mode-grid">
                 <ModeCard active={form.playMode === 'digital'} description="Würfeln, Halten und Werten direkt in UGBZ." onClick={() => selectPlayMode('digital')} title="Komplett digital" />
@@ -140,9 +179,10 @@ export default function KniffelLobbyPage() {
               </div>
 
               {form.deviceMode === 'separate' ? <div className="kf-online-options">
-                <label><span>Sichtbarkeit</span><select onChange={(event) => patchForm({ visibility: event.target.value })} value={form.visibility}><option value="private">Privat · nur mit Code</option><option value="public">Öffentlich gelistet</option></select></label>
+                <label><span>Sichtbarkeit</span><select onChange={(event) => patchForm({ visibility: event.target.value })} value={form.visibility}><option value="private">Privat · nur mit Code</option><option value="public">Öffentlich · Freunde-Beta</option></select></label>
                 <label className="kf-check"><input checked={form.passwordEnabled} onChange={(event) => patchForm({ passwordEnabled: event.target.checked })} type="checkbox" /><span>Zusätzlich mit Passwort schützen</span></label>
                 {form.passwordEnabled ? <label><span>Raumpasswort</span><input minLength={4} onChange={(event) => patchForm({ password: event.target.value })} required type="password" value={form.password} /></label> : null}
+                {form.visibility === 'public' ? <p className="kf-beta-note">Für bekannte Freundesrunden: Teile im öffentlichen Raumnamen keine persönlichen Informationen.</p> : null}
               </div> : null}
 
               <p aria-live="polite" className="kf-error">{error}</p>
@@ -150,7 +190,7 @@ export default function KniffelLobbyPage() {
               <p className="kf-no-limit">Ohne festes Spielerlimit · klassisches Regelwerk · automatisches Speichern</p>
             </form>
           ) : (
-            <form className="kf-join-form" onSubmit={joinRoom}>
+            <form aria-labelledby="kf-tab-join" className="kf-join-form" id="kf-panel-join" onSubmit={joinRoom} role="tabpanel">
               <div className="kf-section-title"><span>Einladung</span><h2>An einem Onlinetisch Platz nehmen</h2></div>
               <label><span>Dein Name</span><input maxLength={28} onChange={(event) => setJoin({ ...join, name: event.target.value })} required value={join.name} /></label>
               <label><span>Raumcode</span><input className="kf-code-input" maxLength={6} onChange={(event) => setJoin({ ...join, code: event.target.value.toUpperCase() })} placeholder="ABCDE" required value={join.code} /></label>

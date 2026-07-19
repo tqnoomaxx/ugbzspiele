@@ -1,7 +1,7 @@
-import DoppelwortLobbyPage from '../../src/screens/DoppelwortLobbyPage.jsx'
+import LegacyGameRedirect from '../../src/screens/LegacyGameRedirect.jsx'
 
 export const dynamic = 'force-static'
 
 export default function DoppelwortLobbyRoute() {
-  return <DoppelwortLobbyPage />
+  return <LegacyGameRedirect target="/imposter" />
 }

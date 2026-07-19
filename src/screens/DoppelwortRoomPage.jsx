@@ -69,10 +69,10 @@ function RoomTopbar({ copied, now, onCopy, online, room }) {
 
 function PlayerPill({ active = false, detail, player }) {
   return (
-    <div className={`dw-player-pill ${active ? 'is-active' : ''} ${!player.connected && !player.isDemo ? 'is-offline' : ''}`}>
+    <div className={`dw-player-pill ${active ? 'is-active' : ''}`}>
       <span><UserIcon size={19} /></span>
       <div><strong>{player.name}</strong>{detail ? <small>{detail}</small> : null}</div>
-      {player.isHost ? <em>Leitung</em> : player.isDemo ? <em>Lokal</em> : <i aria-label={player.connected ? 'Verbunden' : 'Offline'} />}
+      {player.isHost ? <em>Leitung</em> : player.isDemo ? <em>Lokal</em> : <em>Online</em>}
     </div>
   )
 }
@@ -94,7 +94,7 @@ function LobbyPhase({ actorId, onAction, room }) {
       <div className="dw-phase-heading">
         <span className="dw-kicker">Der Salon füllt sich</span>
         <h1>Wartet auf eure Runde</h1>
-        <p>Teile den Code. Für den Test auf einem Gerät kannst du lokale Gäste ergänzen.</p>
+        <p>Teile den Code oder ergänze Mitspieler, wenn ihr gemeinsam auf einem Gerät spielt.</p>
       </div>
 
       <div className="dw-lobby-room-grid">

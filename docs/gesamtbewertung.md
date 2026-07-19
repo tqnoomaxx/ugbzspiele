@@ -1,595 +1,342 @@
-# UGBZ – vollständige Bewertung und Kritik
+# UGBZ – aktuelle Gesamtbewertung, Reviews und Kritik
 
-Stand: 18. Juli 2026
+Stand: 19. Juli 2026
 
-> Update: Nach dieser Bewertung wurde eine wiederverwendbare Supabase-Online-Beta integriert (`002_platform_rooms.sql`, anonyme Sessions, RPC-Revisionsschutz, Realtime und lokaler Fallback). B-01 ist damit technisch teilweise umgesetzt, aber erst nach Bereitstellung eines Supabase-Projekts tatsächlich aktiv. Die im Dokument geforderte serverautoritative Geheimnis- und Command-Schicht bleibt für öffentliche Wettbewerbsräume weiterhin offen.
+Geprüfter Stand: aktueller Arbeitsstand nach der Verbesserungsrunde
+
+Live: <https://tqnoomaxx.github.io/ugbzspiele/>
 
 ## Kurzurteil
 
-UGBZ ist als **lokaler Spieleabend-Begleiter** bereits überzeugend: visuell eigenständig, auf Mobilgeräten gut bedienbar, schnell verständlich und in den getesteten Hauptabläufen stabil. Das Kartenspiel funktioniert als hochwertiger digitaler Spielleiter für ein physisches Stichspiel. Doppelwort funktioniert vollständig als Pass-and-Play-Spiel auf einem Gerät und zwischen Tabs desselben Browsers.
+UGBZ ist inzwischen ein **sehr guter digitaler Begleiter für einen Spieleabend**. Die drei Spiele sehen eigenständig aus, funktionieren auf Smartphones und Desktop und überleben die normalen Hauptabläufe. Navigation, Save-Recovery, Starter, Kniffel-Backups und die wichtigsten Browserabläufe wurden nach diesem Review direkt verbessert.
 
-UGBZ ist aber noch **kein produktionsreifes Online-Multiplayer-Produkt**. Geräteübergreifende Räume, autoritative Serverlogik, Reconnect, Adminbereich, Moderation, dauerhafte öffentliche Bereitstellung, Monitoring und Rechtstexte sind nur entworfen oder vorbereitet. Der aktuelle öffentliche Quick-Tunnel ist ein Übergang, kein belastbares Hosting.
-
-Zwei getrennte Gesamturteile sind deshalb ehrlicher als eine einzige Durchschnittsnote:
+Der Online-Modus funktioniert technisch und synchronisiert Räume. Er ist jedoch als **Freunde-Beta** zu verstehen: Mitglieder erhalten den vollständigen Raumzustand und können über die gemeinsame Update-Funktion theoretisch beliebige Zustände einreichen. Bei Imposter liegen dadurch auch Rollen und Wörter im geladenen Raumzustand. Reconnect, Host-Wiederherstellung, echte Anwesenheit, Moderation und automatische Datenbereinigung fehlen ebenfalls.
 
 | Zielbild | Bewertung | Urteil |
 |---|---:|---|
-| Lokaler Spieleabend auf einem Gerät | **8,1/10** | gut spielbar und vorzeigbar |
-| Vollständiges öffentliches Online-Produkt | **3,5/10** | gute Grundlage, zentrale Produktionsschicht fehlt |
+| Gemeinsamer Spieleabend auf einem Gerät | **9,0/10** | stabil, wiederherstellbar und vorzeigbar |
+| Online mit vertrauenswürdigen Freunden | **7,7/10** | gute Beta mit dauerhafter Sitzungs-Recovery und zusätzlichen Guardrails |
+| Öffentliche Räume mit unbekannten Personen | **5,8/10** | klar als Freunde-Beta markiert; private Spielzustände bleiben der Hauptblocker |
+| Gesamtprodukt im aktuellen Umfang | **8,1/10** | starke, getestete Spieleplattform mit klar begrenzter Online-Beta |
+
+## Umgesetzte Verbesserungen
+
+- Kartenspiel-Ende respektiert den GitHub-Pages-Unterpfad; der bestätigte Live-404 ist behoben.
+- Der macOS-Starter erkennt einen veralteten UGBZ-Prozess, baut den aktuellen Stand und weicht auf einen freien Port aus.
+- Kartenspiel-Saves werden vollständig strukturell geprüft; beschädigte Daten lassen sich herunterladen oder gezielt entfernen.
+- Imposter besitzt drei Presets, einen eingeklappten Regelbereich und keine sichtbare Zuschaueroption ohne Funktion.
+- Alte `/doppelwort`-Links leiten inklusive Einladungscode auf `/imposter` weiter.
+- Lokale und Online-Kniffel-Sitzungen sind nach einem geschlossenen Tab wiederauffindbar.
+- Kniffel-Sicherungen sind versioniert, validiert und wieder importierbar; Gäste können keine Host-Sicherung erzeugen.
+- Lokale Kniffeltische zeigen keinen nutzlosen Raumcode mehr und unterscheiden lokale, Cloud- und Offline-Sicherung.
+- Kniffel hat vollständige ARIA-Tabs, „Neue Partie“, „Tisch verlassen“ und „Tisch schließen“.
+- Öffentliche Imposter- und Kniffel-Räume sind sichtbar als „Freunde-Beta“ gekennzeichnet.
+- Die neue Datenbankmigration `006_room_state_guardrails.sql` schützt unveränderliche Raumfelder und Spieleridentitäten, begrenzt sehr schnelle Mutationen und stellt eine Cleanup-Funktion bereit.
+- Home-Bilder werden priorisiert beziehungsweise lazy geladen; technische Produkttexte sind klarer.
+- Fünf Playwright-Flows laufen in CI: Produktrouten/Legacy-Link, komplettes Kartenspiel, Kniffel inklusive Export/Import, Imposter-Raumerstellung und mobile Overflow-Prüfung.
 
 ## Bewertungsgrundlage
 
-Die Bewertung basiert auf:
+- Sichtprüfung der Startseite und aller drei Spiele auf Desktop und Mobil
+- Kartenspiel vom Setup bis zum Endergebnis inklusive Korrektur und Reload
+- Imposter von Lobby über Umschläge, Hinweise und Abstimmung bis zur Gesamtwertung
+- Imposter-Synchronisierung zwischen zwei Tabs im lokalen Fallback
+- Kniffel digital und mit echtem Würfel/Punkteblock inklusive Halten, Werten, Undo und Reload
+- Reduced-Motion-, Fokus-, Touchziel- und Overflow-Prüfung
+- Read-only-Prüfung aller veröffentlichten GitHub-Pages-Routen
+- Review der Engines, Repositories, React-Oberflächen, Styles, Supabase-RPCs, RLS, Migrationen, CI und Dokumentation
+- Unit Tests, Produktionsbuild und Dependency-Audit
 
-- Abgleich mit dem ursprünglichen Kartenspiel und dem vollständigen Doppelwort-Master-Prompt
-- Sichtprüfung der Startseite und repräsentativer Spielzustände
-- vollständigem Kartenspielablauf bis zum Endergebnis
-- vollständiger Doppelwort-Runde von Lobby bis Gesamtwertung
-- Pass-and-Play- und Zwei-Tab-Test
-- Desktop-, Mobil-, Touch- und Reduced-Motion-Prüfung
-- Tastatur- und Fokusprüfung
-- Review von Engines, Repositories, React-Seiten, Styles, CI, Supabase-Migration, API-, Security- und Betriebsdokumentation
-- Abhängigkeits- und Buildprüfung
-- gezielten Randfalltests für Wortverteilung, abgelaufene Timer, Kick während einer Runde und beschädigte Spielstände
+Das Browser-Plugin war nicht installiert. Die gerenderte Prüfung erfolgte deshalb mit Playwright und Google Chrome.
 
-Technische Nachweise:
+## Technische Ergebnisse
 
 | Prüfung | Ergebnis |
 |---|---|
-| Automatisierter Browser-Playtest | **38/38 bestanden** |
-| Browserfehler, Console-Warnungen, fehlerhafte Requests | **0** im normalen Hauptablauf |
-| Unit Tests | **22/22 bestanden** |
-| Produktionsbuild | **5 Produkt-Routen plus 404 statisch erzeugt** |
-| Horizontaler Overflow bei 390 × 844 | **nicht vorhanden** |
-| sichtbare Touch-Ziele auf der mobilen Startseite | **mindestens 44 × 44 px** |
-| `npm audit`, inklusive Entwicklungsabhängigkeiten | **0 bekannte Schwachstellen** |
-| anonymer Quick-Tunnel-Aufruf | **HTTP 200** |
-| anonymer permanenter ChatGPT-Sites-Aufruf | **HTTP 401 wegen Workspace-Regel** |
+| Unit Tests | **41/41 bestanden** |
+| Unit-Testdateien | **7/7 bestanden** |
+| Playwright-Browserflows | **5/5 bestanden** |
+| Produktionsbuild | **bestanden** |
+| Statisch erzeugte Produkt-Routen | **9** plus Fehlerseite |
+| `npm audit` | **0 bekannte Schwachstellen** |
+| Normaler Browserablauf | keine relevanten Console- oder Frameworkfehler |
+| Mobile Breite 390 × 844 | kein horizontaler Overflow |
+| Touchziele auf der mobilen Startseite | mindestens 44 × 44 px |
+| Live-Startseite, Imposter und Kniffel | HTTP 200, aktueller Stand sichtbar |
+| Online-Konfiguration im Live-Build | aktiv |
 
-Das Browser-Plugin war nicht verfügbar. Die gerenderte Prüfung erfolgte mit lokalem Playwright und Google Chrome.
+Nicht erneut mutativ gegen die Produktionsdatenbank getestet wurden künstliche Verbindungsabbrüche, sehr große Räume, Host-Verlust und konkurrierende Manipulationsversuche. Der zuletzt ausgeführte Zwei-Geräte-Test für Kniffel auf demselben Commit bestätigte Join, serverseitige Würfe, Zugwechsel und Realtime-Animationen.
 
 ## Teilbewertungen
 
 | Bereich | Note | Einordnung |
 |---|---:|---|
-| Visuelles Design und Markenwirkung | 8,7/10 | eigenständig, hochwertig, konsistent |
-| Startseite und Spielauswahl | 8,2/10 | klar und erweiterbar angelegt, aber noch nicht wirklich modular |
-| Kartenspiel – lokale Spielbarkeit | 8,4/10 | sehr guter Spielleiter, kein eigenständiges Kartenspiel |
-| Doppelwort – lokales Pass-and-Play | 7,7/10 | vollständiger Ablauf, gute Dramaturgie, mehrere Korrektur- und Fairnesslücken |
-| Responsive Bedienung | 8,6/10 | Desktop und Mobil stabil, keine Überläufe |
-| Barrierearmut | 6,8/10 | gute Basis, Screenreader- und Fokusübergänge unvollständig |
-| Code- und Zustandsarchitektur | 7,2/10 | saubere Engines, aber große Komponenten und lokale Sonderlogik |
-| Automatisierte Qualitätssicherung | 6,5/10 | gute Unit-Basis, E2E nicht im Repository oder CI |
-| Sicherheit im aktuellen lokalen Modus | 5,5/10 | für Pass-and-Play ausreichend, keine echte Vertrauensgrenze |
-| Vorbereitete Produktionsarchitektur | 7,4/10 | durchdacht dokumentiert, aber überwiegend noch nicht implementiert |
-| Tatsächliche Online-Fähigkeit | 2,0/10 | kein geräteübergreifender Multiplayer |
-| Öffentliche Betriebsreife | 2,5/10 | kein dauerhaft anonym erreichbares Hosting, Monitoring oder rechtliche Freigabe |
+| Markenwirkung und visuelles Design | **8,8/10** | hochwertig, eigenständig und klar thematisiert |
+| Startseite und Spielauswahl | **7,9/10** | verständlich, aber bild- und scrolllastig |
+| Kartenspiel | **7,7/10** | sehr guter Punkteblock, als Spielbezeichnung zu unklar |
+| Imposter lokal | **8,2/10** | vollständiger und dramaturgisch guter Gruppenablauf |
+| Imposter online | **6,6/10** | synchron, aber Geheimnisse und Aktionen nicht serverautoritativ |
+| Kniffel lokal | **8,9/10** | derzeit das rundeste und angenehmste Spiel |
+| Kniffel online | **7,4/10** | gute Realtime-Basis, aber Recovery und Berechtigungen fehlen |
+| Responsive Bedienung | **8,6/10** | stabil auf Desktop und Mobil |
+| Barrierearmut | **7,1/10** | gute Basis, einzelne ARIA- und Screenreader-Lücken |
+| Code und Erweiterbarkeit | **7,2/10** | gute Engines, aber große Screens, CSS-Monolithen und Zustandsduplikation |
+| Automatisierte Qualitätssicherung | **8,4/10** | Unit-, Build- und reale Browserflows laufen in CI; Lint und automatisches A11y-Audit fehlen noch |
+| Online-Integrität und Sicherheit | **5,8/10** | zusätzliche Guardrails vorhanden; private Imposter-Daten sind noch nicht serverseitig projiziert |
+| Dokumentationsstand | **7,4/10** | zentrale Review- und Online-Dokumente sind aktuell; ältere Imposter-Unterlagen brauchen noch Pflege |
 
-## Die größten Stärken
+## Spielerreviews
 
-### 1. Sehr starke visuelle Identität
+### Review 1: Neuling
 
-Die Startseite wirkt nicht wie ein generisches Dashboard. Kartenfilz, Umschläge, Papier-, Messing- und Salontöne geben beiden Spielen einen klaren Charakter. Die beiden Spiele haben unterschiedliche Stimmungen, bleiben aber als Teil derselben Plattform erkennbar.
+**8,0/10**
 
-Besonders gelungen:
+Die Startseite wirkt sofort wie eine Spieleplattform und nicht wie ein Technikprojekt. Die Primäraktionen sind klar. Kniffel versteht man unmittelbar. Imposter führt gut durch Lobby, Geheimnis und Abstimmung. Beim Kartenspiel bleibt zunächst offen, welches physische Stichspiel gemeint ist und welche vollständigen Regeln gelten.
 
-- großzügige Typografie und eindeutige Hierarchie
-- hochwertige Bildmotive statt austauschbarer Stock-UI
-- klare Primäraktionen
-- gute mobile Neuanordnung der Spielkarten
-- sichtbare Fokusrahmen
-- passende Dark-Mode-Atmosphäre bei Doppelwort
-- der versiegelte Umschlag als verständlicher und spielerischer Geheimnis-Mechanismus
+Größte Hürde: Imposter zeigt beim Erstellen sehr viele Entscheidungen gleichzeitig. Ohne Erfahrung ist nicht klar, welche davon wichtig sind.
 
-### 2. Hauptabläufe funktionieren zuverlässig
+### Review 2: Spielleitung am gemeinsamen Tisch
 
-Im normalen Zustand wurden keine Blocker gefunden. Beide Spiele überleben Reloads und können von Anfang bis Ende gespielt werden. Fehler wie doppelte Namen, leere Namen und ungültige Stichsummen werden verständlich abgefangen.
+**8,7/10**
 
-### 3. Gute Trennung von Spiellogik und Oberfläche
+Speichern, Fortsetzen, Undo, klare aktive Person und große mobile Aktionen sind stark. Das Kartenspiel funktioniert als Spielleiter zuverlässig. Kniffel mit einem gemeinsamen Handy ist besonders gelungen. Imposter erlaubt lokale Gäste und funktioniert vollständig als Pass-and-Play.
 
-Die Engines unter `src/games/` sind weitgehend reine Zustandsfunktionen. Das erleichtert Unit Tests, spätere Backend-Übertragung und reproduzierbare Fehleranalyse. Rendering, Speicherung und Spielregeln sind besser getrennt als in der ursprünglichen einzelnen HTML-Datei.
+Störend sind technische Formulierungen wie „für den Test“, lokale Raumcodes ohne praktischen Nutzen bei Kniffel und ein Export, der nicht wieder importiert werden kann.
 
-### 4. Kartenspiel wurde sinnvoll professionalisiert
+### Review 3: Online-Gast
 
-Gegenüber dem ursprünglichen Stand wurden wichtige Alltagsschwächen gelöst:
+**6,8/10**
 
-- verständlicher Spielplan vor dem Start
-- direkte Zahleneingabe zusätzlich zu Plus/Minus
-- validierte Stichsumme
-- sichtbarer Starter
-- auditierbarer Verlauf
-- erklärte Punkteberechnung
-- faire Gleichstände
-- Korrektur der letzten und finalen Runde
-- automatisches Speichern und Überschreibschutz
-- kompakter mobiler Zwischenstand
+Codebeitritt, Realtime-Zugwechsel und getrennte Geräte sind verständlich. Der Gast sieht, wann er an der Reihe ist. Bei einem geschlossenen Tab oder verlorenem Session-Speicher fehlt aber ein sauberer Wiedereinstieg in den vorhandenen Platz. Der alte Name kann weiterhin als belegt gelten. Eine echte Verbindungs- oder Anwesenheitsanzeige existiert nicht.
 
-### 5. Doppelwort hat einen vollständigen lokalen Spielfluss
+### Review 4: Wiederkehrende und ehrgeizige Gruppe
 
-Lobby, Rollenverteilung, geheime Wörter, Sprechreihenfolge, Timer, Meeting, geheime Abstimmung, Sieglogik, Punkte, mehrere Runden und Gesamtwertung sind vorhanden. Die Oberfläche führt deutlich besser durch den Ablauf als ein bloßes technisches Demo.
+**6,5/10**
 
-### 6. Dokumentation ist ungewöhnlich ehrlich
+Die Kernregeln tragen mehrere Abende. Imposter profitiert von 160 deutschen und 160 englischen Paaren und der zufälligen Umkehrung der Wortrollen. Die Paarqualität schwankt allerdings stark: Manche Begriffe sind sehr ähnlich, manche nur grob derselben Kategorie zuzuordnen. Dadurch variiert die Schwierigkeit unkontrolliert.
 
-Die vorhandenen Dokumente behaupten nicht, dass lokaler Browser-Speicher echter Multiplayer sei. Architektur, Datenmodell, API, Security, Betrieb und rechtliche Restarbeiten sind sauber getrennt. Das ist eine gute Grundlage für die nächste Entwicklungsstufe.
+Für Wettbewerb fehlen serverautoritativ geprüfte Aktionen, Manipulationsschutz, Rundenarchive, Reconnect und eine verlässliche Historie der Online-Aktionen.
 
-## Priorisierte Kritikpunkte
+### Review 5: Technische Betreuung
 
-### Blocker – vor einer öffentlichen Online-Freigabe
+**6,9/10**
 
-#### B-01: Echter Online-Multiplayer fehlt
+Der statische Build und GitHub Pages sind angenehm einfach, die Spiellogik ist überwiegend von React getrennt und die Abhängigkeiten sind klein. Problematisch sind der Beta-Unterbau mit Vinext, fehlende E2E-Tests in CI, doppelte Builds und ein universeller Raum-RPC, der jedem Mitglied den gesamten Zustand anvertraut.
 
-**Was Nutzer sehen:** Ein Raumcode oder Einladungslink funktioniert nur im selben Browser-Speicher. Auf einem anderen Smartphone oder Computer existiert der Raum nicht.
+## Größte Stärken
 
-**Nachweis:** Das Frontend verwendet ausschließlich `localStorage`, `sessionStorage` und `BroadcastChannel`. Es gibt keinen Supabase-Client, keinen Online-Adapter und keine Verwendung von `NEXT_PUBLIC_DOPPELWORT_MODE` im Anwendungscode.
+### 1. Starke visuelle Identität
 
-**Warum kritisch:** Dies widerspricht dem zentralen Ziel „Online-Multiplayer in Echtzeit“. Öffentliche Räume, Reconnect, Heartbeat, Latenzausgleich und geräteübergreifende Geheimnisse sind damit nicht verfügbar.
+Grüner Kartentisch, nächtlicher Imposter-Salon und burgunderfarbener Kniffel-Tisch sind klar unterscheidbar und wirken trotzdem wie eine Plattform. Typografie, Messingakzente, Papierflächen und Bilder funktionieren auf Desktop und Mobil.
 
-**Verantwortlich:** Backend, Realtime, Frontend-Adapter, Deployment.
+### 2. Gute mobile Grundbedienung
 
-**Empfehlung:** Supabase-Projekt provisionieren, Migration ausführen, Edge Functions implementieren, autoritativen Repository-Adapter anschließen und mit mindestens drei echten Geräten testen.
+Die Hauptaktionen sind groß, es gibt keine horizontalen Überläufe, wichtige Spielaktionen bleiben gut erreichbar und Reduced Motion wird berücksichtigt. Der Kartenspiel-Bestätigungsbutton ist mobil sinnvoll fixiert.
 
-**Aufwand:** XL.
+### 3. Kniffel ist bereits sehr rund
 
-#### B-02: Keine dauerhafte anonyme öffentliche Bereitstellung
+Digitale Würfel, Halten, klassische Kategorien, Bonus/Joker, echter Punkteblock, Solo, gemeinsame Geräte, Onlinegeräte, Autosave, Undo, Ranking und Animationen ergeben einen vollständigen Ablauf.
 
-**Was Nutzer sehen:** Der permanente `chatgpt.site`-Link liefert anonym HTTP 401. Der funktionierende `trycloudflare.com`-Link endet, sobald Mac, lokaler Server oder Tunnel beendet werden.
+### 4. Imposter besitzt einen echten Spannungsbogen
 
-**Ursache:** Der aktuelle Workspace erlaubt laut Sites-API kein „Publishing Sites to the internet“.
+Umschläge, geheime Rollen, Sprechreihenfolge, Meeting, gleichzeitige Online-Abstimmung und Auflösung fühlen sich nach einem Spiel an und nicht nach einer Formularabfolge.
 
-**Warum kritisch:** Das Produkt ist nicht zuverlässig teilbar und besitzt keine Uptime-Garantie.
+### 5. Kernlogik ist testbar getrennt
 
-**Verantwortlich:** Hosting/Workspace-Administration.
+Die Engines unter `src/games/` sind weitgehend deterministisch und ohne DOM-Abhängigkeit. Das erleichtert Unit Tests und eine spätere serverautoritativ ausgeführte Spiellogik.
 
-**Empfehlung:** Öffentliche Sites-Freigabe administrativ aktivieren oder das statische Frontend dauerhaft auf Netlify, Vercel, Cloudflare Pages oder GitHub Pages veröffentlichen. Danach Domain, TLS, Cache-Regeln und Healthcheck prüfen.
+## Kritische und hohe Ausgangsfindings
 
-**Aufwand:** M; teilweise externe Freigabe nötig.
+### B-01: „Zur Startseite“ endet nach dem Kartenspiel live auf einer 404-Seite
 
-#### B-03: Produktionsfunktionen existieren größtenteils nur als Vertrag
+**Status: behoben.** Die Navigation nutzt jetzt durchgängig `appPath('/')` und ist Teil des kompletten Playwright-Kartenspielflows.
 
-**Betroffen:** Adminpanel, Moderation, Reports, Ban, Lock, serverseitige Rollenverteilung, Passwort-Hashing, Rate Limits, Cleanup-Jobs, Monitoring, Backups und Restore.
+**Reproduktion:** Kartenspiel auf GitHub Pages abschließen und im Endergebnis „Zur Startseite“ wählen.
 
-**Nachweis:** Schema und Dokumentation sind vorhanden, aber keine Edge Functions, kein Admin-Frontend und kein deployter Backend-Dienst.
+**Ergebnis:** Navigation von `/ugbzspiele/kartenspiel/spielen` zu `https://tqnoomaxx.github.io/`, dort 404.
 
-**Warum kritisch:** Ein gutes Datenmodell ist noch kein laufendes System. Die Checkliste darf diese Bereiche nicht als praktisch verfügbar erscheinen lassen.
+**Ursache:** `CardGamePage.jsx` verwendet an dieser Stelle `window.location.assign('/')` statt `appPath('/')`.
 
-**Empfehlung:** Funktionen als eigene Release-Etappen implementieren und jede Stufe gegen Staging testen.
+**Priorität:** sofort beheben.
 
-**Aufwand:** XL.
+### B-02: Online-Raumzustand ist nicht gegen Mitspieler abgesichert
 
-#### B-04: Rechtliche Freigabe fehlt
+**Status: teilweise verbessert, nicht abgeschlossen.** Migration 006 sperrt Raumidentität, Host, Optionen und Spieleridentitäten gegen generische Mutationen und begrenzt sehr schnelle Schreibfolgen. Rollen, Wörter und regelentscheidende Aktionen müssen für unbekannte Mitspieler weiterhin in private Tabellen und spielbezogene Command-RPCs verschoben werden.
 
-Impressum, Datenschutzerklärung, Betreiberangaben, Hosting-Verträge und juristische Prüfung fehlen bewusst. Eine anonyme öffentliche Produktion darf daher nicht als DSGVO-konform oder vollständig freigegeben beworben werden.
+`platform_rooms.state` enthält den vollständigen Spielzustand. Jedes Raum-Mitglied darf diesen Zustand lesen und über `platform_update_room` als vollständiges JSON ersetzen. Der RPC prüft Mitgliedschaft und Revision, aber nicht:
 
-**Aufwand:** extern abhängig.
+- welche Person die konkrete Aktion ausführt,
+- ob nur erlaubte Felder geändert wurden,
+- ob Punkte, Rollen, Host oder Phase regelkonform sind,
+- ob bei Imposter fremde Geheimnisse verborgen bleiben.
 
-### Hoch – Spielintegrität und robuste Kernlogik
+Bei Imposter befinden sich `assignments`, `crewWord`, `imposterWord` und `imposterIds` im gemeinsamen Zustand. Die React-Oberfläche erzeugt zwar eine private Sicht, ein technisch versierter Spieler kann den geladenen Zustand trotzdem untersuchen.
 
-#### H-01: Wortpaare haben immer dieselbe Rollenrichtung
+**Folge:** Für Freunde akzeptabel, für öffentliche oder wettbewerbliche Räume ein Release-Blocker.
 
-**Was Nutzer sehen:** „Pizza“ ist immer Crew, „Burger“ immer Imposter; „Katze“ ist immer Crew, „Tiger“ immer Imposter.
+**Empfehlung:** Command-RPCs pro Spiel verwenden. Der Server lädt den Zustand, prüft Auth-User und Player-ID, führt die Engine-Aktion serverseitig aus und gibt nur eine private beziehungsweise öffentliche Projektion zurück.
 
-**Reproduktion:** 20 gestartete Testpartien wurden mit unterschiedlichen Zufallswerten geprüft. In **20/20 Fällen** blieb `pair.crew` das Crew-Wort und `pair.imposter` das Imposter-Wort.
+### B-03: Reconnect und Host-Wiederherstellung fehlen
 
-**Warum wichtig:** Wiederkehrende Spieler können ihre Rolle aus dem Wort lernen. Das beschädigt die zentrale Deduktionsmechanik, auch wenn die Rollen selbst zufällig verteilt werden.
+**Status: teilweise behoben.** Online-Identitäten und lokale Kniffel-Tische werden zusätzlich dauerhaft im Browser gesichert. Ein echter Rejoin-Token für ein anderes Gerät, Heartbeat und Host-Timeout fehlen weiterhin.
 
-**Verantwortlich:** `src/games/doppelwort/gameEngine.js`, `wordPairs.js`.
+Die Spielerzuordnung liegt in `sessionStorage`. Nach dem Schließen eines Tabs kann der Raum in Cloud oder `localStorage` weiter existieren, die lokale Spieleridentität aber fehlen. Derselbe Name ist anschließend bereits belegt; eine sichere Rückübernahme des Platzes gibt es nicht.
 
-**Empfehlung:** Nach Auswahl eines Paares per Zufall entscheiden, welches der beiden Wörter Crew- beziehungsweise Imposter-Wort wird. Die Orientierung muss Teil des serverautoritativ gespeicherten Rundenstands sein und durch Tests abgesichert werden.
+Zusätzlich werden `connected` und `last_seen_at` nicht zuverlässig gepflegt. Anzeigen wie „Verbunden“ können daher falsch sein. Ein verlorener Host kann den Raum dauerhaft blockieren.
 
-**Aufwand:** S.
+**Empfehlung:** Rejoin-Token, Mitgliedschafts-Recovery anhand der anonymen Auth-ID, Heartbeat, Host-Timeout und klaren Offlinezustand implementieren.
 
-#### H-02: Kick während einer laufenden Runde erzeugt inkonsistenten Zustand
+### H-01: Der lokale Starter kann einen veralteten Server öffnen
 
-**Reproduktion:** Ein Spieler wurde nach `startGame` durch den Host entfernt. Danach war er nicht mehr in `room.players`, blieb aber in `game.playerIds`.
+**Status: behoben.** Der Starter prüft jetzt mehrere aktuelle Routen und verwendet bei einem fremden oder alten Prozess einen freien Port.
 
-**Auswirkung:** Reveal-, Sprech- oder Abstimmungsphasen können auf eine nicht mehr vorhandene Person warten; Ergebnis- und Imposterlogik können widersprüchlich werden.
+`UGBZ-starten.command` prüft nur, ob Port 3000 irgendeine erfolgreiche Startseite liefert. Läuft dort ein alter UGBZ-Prozess, wird er geöffnet und der neue Build nicht gestartet. Bei der Prüfung lief dadurch ein alter Stand ohne Kniffel; direkte neue Routen lieferten 404.
 
-**Aktuelle Oberfläche:** Der lokale Host zeigt den Entfernen-Button nur in der Lobby. Die dokumentierte Online-Moderation soll Kick aber auch produktiv unterstützen und benötigt deshalb eine definierte laufende-Runde-Strategie.
+**Empfehlung:** Prozessdatei oder Build-ID prüfen, alten eigenen Prozess kontrolliert beenden oder einen freien Port verwenden und die tatsächlich gestartete URL öffnen.
 
-**Empfehlung:** Festlegen: laufende Person als ausgeschieden/offline markieren und Stimme automatisch als Enthaltung behandeln, oder Runde kontrolliert abbrechen/neu aufbauen. Niemals nur aus `room.players` löschen.
+### H-02: Die bisherige Dokumentation war nicht mehr aktuell
 
-**Aufwand:** M.
+**Status: zentral behoben.** Diese Gesamtbewertung und `docs/online-modus.md` bilden den neuen Stand ab. Die älteren Detaildokumente unter `docs/doppelwort/` bleiben als nächste Dokumentationsrunde offen.
 
-#### H-03: Timer holen lange Ausfälle nicht korrekt auf
+Die alte Gesamtbewertung nannte 22 Tests, fünf Routen und keinen echten Online-Modus. In mehreren `docs/doppelwort/`-Dateien steht weiterhin „Doppelwort“, obwohl die UI „Imposter“ heißt. Einige Checklisten beschreiben den Online-Adapter noch als fehlend.
 
-**Reproduktion:** Eine Sprechphase mit drei Personen wurde zehn Minuten nach Ablauf erneut verarbeitet. Die Engine wechselte nur von Sprecherindex 0 auf 1 und blieb in `speaking`.
+**Empfehlung:** Dokumentation pro Release aktualisieren, veraltete Architekturentwürfe klar als historisch markieren und Benutzertexte auf Imposter umstellen.
 
-**Auswirkung:** Bei Hintergrund-Tab-Throttling, Reconnect oder serverseitigem Minutenjob können Phasen deutlich länger dauern als eingestellt. Der dokumentierte Wartungsjob „jede Minute“ würde bei zwölf Spielern schlimmstenfalls nur eine Person pro Minute fortschalten.
+### H-03: Keine echte Browser-Teststrecke in Repository oder CI
 
-**Empfehlung:** Catch-up-Schleife mit Obergrenze oder serverseitige nächste Transition exakt auf `phase_ends_at` planen. Jede Transition muss idempotent und revisionssicher bleiben.
+**Status: behoben.** Playwright liegt unter `e2e/`, prüft fünf reale Abläufe und läuft sowohl bei Pull Requests als auch vor dem Pages-Deployment.
 
-**Aufwand:** M.
+Die aktuellen Playwright-Prüfungen liegen nur als temporäre Review-Skripte vor. CI führt Unit Tests und Build aus, aber keinen echten Browserablauf. Navigation, Base Path, Realtime, mobile Überläufe und der bestätigte 404-Fehler bleiben dadurch unentdeckt.
 
-#### H-04: Aktueller öffentlicher Betrieb liefert keine Security Header
+**Empfehlung:** Mindestens folgende E2E-Flows committen:
 
-Im lokalen Server und über den Quick-Tunnel fehlten bei der Prüfung:
+1. Home → Kartenspiel → Ende → Home.
+2. Imposter-Lobby → Pass-and-Play-Runde → Ergebnis.
+3. Kniffel → Würfeln → Halten → Werten → Reload.
+4. Ein Live-/Staging-Zwei-Geräte-Smoke-Test für Realtime.
 
-- Content-Security-Policy
-- HSTS am öffentlichen Endpunkt
-- `X-Content-Type-Options`
-- `Referrer-Policy`
-- `Permissions-Policy`
-- `X-Frame-Options` beziehungsweise `frame-ancestors`
-- explizite Cache-Regeln
+### H-04: Kniffel-Backup ist nur ein Export
 
-**Auswirkung:** Für das heutige statische Spiel ist das Risiko begrenzt, für Login, Gast-Tokens und Realtime wäre es nicht akzeptabel.
+**Status: behoben.** Export und Import verwenden ein versioniertes Format mit struktureller Prüfung; ein manipulierter oder unvollständiger Stand wird abgelehnt.
 
-**Empfehlung:** Header im dauerhaften Hosting setzen und in CI beziehungsweise Deployment-Smoke-Tests prüfen.
+„Sicherung exportieren“ erzeugt JSON, aber es gibt keinen Import. Das vermittelt mehr Wiederherstellbarkeit, als die Oberfläche tatsächlich bietet.
 
-**Aufwand:** S.
+**Empfehlung:** Import mit Schema-Prüfung und Konfliktentscheidung ergänzen oder die Aktion bis dahin als „Diagnosedaten herunterladen“ benennen.
 
-### Mittel – Spielerlebnis, Recovery und Qualitätssicherung
+### H-05: Öffentliche Räume benötigen Betrieb und Moderation
 
-#### M-01: Beschädigter lokaler Spielstand hat keinen Selbstheilungsweg
+**Status: teilweise verbessert.** Eine nur für den Service-Role aufrufbare Cleanup-Funktion und Mutationsdrosselung sind vorbereitet. Reports, Moderation, belastbare Presence, Aufbewahrungsentscheidung und Rechtstexte bleiben offen.
 
-**Reproduktion:** Ein formal passender, aber unvollständiger `ugbz:card-game:v1`-Eintrag wurde gespeichert. Die Spielroute zeigte nur „This page couldn’t load – Reload / Back“. Reload wiederholt denselben Fehler.
+Es fehlen automatische Löschung alter Räume, Rate Limits, Reports, Sperren, Adminoberfläche, belastbare Presence und dokumentierte Aufbewahrungsfristen. Rechtstexte und die Marken-/Lizenzfrage für öffentlich angebotenes „Kniffel“ müssen vor einem größeren öffentlichen Start geprüft werden.
 
-**Ursache:** `isValidGame` prüft nur wenige Top-Level-Felder und nicht Phase, Zählerlängen, Rundengrenzen oder Historienstruktur.
+## Mittlere Findings
 
-**Empfehlung:** Vollständiges Schema validieren, fehlerhafte Daten quarantänisieren, einen sichtbaren „Defekten Spielstand löschen“-Weg anbieten und optional Export/Import ergänzen.
+### M-01: Beschädigte Kartenspiel-Saves besitzen keinen Recovery-Weg
 
-**Aufwand:** S–M.
+**Status: behoben.** Ungültige Saves werden nicht gestartet, sondern sichtbar quarantänisiert und können als Rohdaten exportiert oder einzeln entfernt werden.
 
-#### M-02: Keine Korrektur für Doppelwort-Stimmen oder Phasen
+Die Schema-Prüfung kontrolliert nur wenige Top-Level-Felder. Ein formal passender, aber unvollständiger Save öffnet die generische Seite „This page couldn’t load“. Reload wiederholt den Fehler; ein sichtbarer Reset oder Quarantäne-Export fehlt.
 
-Eine versehentlich bestätigte Stimme ist endgültig. Ebenso gibt es keinen Host-Befehl für „letzten Schritt zurück“, „Timer neu starten“ oder „Runde abbrechen“.
+### M-02: Imposter-Setup ist zu voll
 
-**Warum wichtig:** Pass-and-Play wird häufig auf kleinen Bildschirmen und in lebhaften Gruppen gespielt. Fehlbedienung ist normal und sollte nicht die gesamte Runde ruinieren.
+**Status: behoben.** Presets decken den schnellen Einstieg ab; Timer und Spezialregeln liegen unter „Erweiterte Regeln“.
 
-**Empfehlung:** Vor Bestätigung kurze Zusammenfassung, optional dreisekündiges Undo und ein revisionsgesichertes Host-Korrekturmenü.
+Spielerlimit, Sprache, Kategorie, Imposterzahl, Runden, drei Timer und acht Schalter erscheinen gleichzeitig. Für erfahrene Hosts ist das mächtig, für neue Gruppen unnötige Entscheidungslast.
 
-**Aufwand:** M.
+**Empfehlung:** Presets „Schnell“, „Klassisch“ und „Große Runde“ plus einklappbares „Erweitert“.
 
-#### M-03: Das Kartenspiel erklärt den Zähler, aber nicht das eigentliche Kartenspiel
+### M-03: Die Qualität der Imposter-Wortpaare schwankt
 
-Die Oberfläche erklärt Ansagen und Punkte. Sie erklärt nicht, welches physische Spiel gemeint ist, wie Karten gegeben werden, ob es Trumpf/Farbenregeln gibt oder was genau ein Stich ist.
+Beispiele reichen von sehr nah (`Katze/Tiger`) bis nur thematisch oder gegensätzlich (`Ozean/Wüste`). Meme-Begriffe setzen außerdem stark unterschiedliches Vorwissen voraus.
 
-**Auswirkung:** Für bestehende Gruppen ist das völlig ausreichend. Neue Nutzer können „Kartenspiel“ aber mit einem vollständigen digitalen Spiel verwechseln.
+**Empfehlung:** Schwierigkeit pro Paar pflegen, Paarbewertungen sammeln und Kategorien nicht nur nach Thema, sondern auch nach Bekanntheit filtern.
 
-**Empfehlung:** Auf Home und Setup klar „Spielleiter für euer physisches Stichspiel“ schreiben, das Spiel benennen oder eine kurze vollständige Regelhilfe verlinken.
+### M-04: Kniffel zeigt im lokalen gemeinsamen Modus unnötige Raumtechnik
 
-**Aufwand:** S.
+**Status: behoben.** Ein gemeinsames Gerät zeigt nur noch die passende Gerätekennzeichnung; Code und Link erscheinen nur bei getrennten Geräten.
 
-#### M-04: Doppelwort-Konfiguration ist für neue Hosts überladen
+Raumcode und Einladungslink werden auch am gemeinsamen lokalen Tisch gezeigt, obwohl Online-Beitreten in diesem Build deaktiviert ist. Das ist verwirrend und nimmt auf Mobil Platz ein.
 
-Die Raum-Erstellung zeigt gleichzeitig Identität, Sichtbarkeit, Spielerlimit, Sprache, Kategorie, Imposter, Runden, drei Timer und acht Schalter. Die Optionen sind vollständig, aber die erste Entscheidungslast ist hoch.
+### M-05: Kniffel bietet keinen klaren Raumabschluss
 
-**Empfehlung:** Drei Presets anbieten, etwa „Schnelle Runde“, „Klassisch“ und „Große Gruppe“. Nur die wichtigsten Optionen offen zeigen; den Rest unter „Erweitert“ zusammenfassen.
+**Status: behoben.** Lobby und Ergebnis besitzen eindeutige Verlassen-/Schließen-Aktionen; nach dem Ergebnis kann dieselbe Gruppe sofort eine neue Partie starten.
 
-**Aufwand:** M.
+Im Spiel gibt es Home und Undo, aber keinen sichtbaren „Raum verlassen“, „Tisch schließen“ oder „Neue Partie“-Ablauf. Abgeschlossene und verlassene Räume können dadurch in der Datenbank bestehen bleiben.
 
-#### M-05: Einige sichtbare Optionen sind im aktuellen Modus wirkungslos oder missverständlich
+### M-06: Kniffel-Tabs sind semantisch unvollständig
 
-- „Öffentlich gelistet“ bedeutet nur „in diesem Browser gelistet“.
-- Zuschauer können aktiviert werden, besitzen aber kein Verhalten.
-- Passwortschutz ist lokal und liegt als Klartext im gemeinsamen Browserzustand.
-- Englisch ändert Wörter und Kategorien, nicht die deutsche Oberfläche.
+**Status: behoben.** Tabs besitzen Rollen, Zustände, Panel-Zuordnung, Roving-Tabindex sowie Pfeil-, Home- und End-Tastatursteuerung.
 
-Die Hinweise sind teilweise ehrlich, dennoch können Nutzer Funktionen erwarten, die noch nicht existieren.
+Der Container hat `role="tablist"`, die beiden Buttons besitzen aber kein `role="tab"`, `aria-selected`, `aria-controls` oder roving `tabIndex`. Imposter löst dasselbe Muster bereits korrekt.
 
-**Empfehlung:** Im lokalen Modus inaktive Produktionsoptionen deaktivieren oder klar mit „Noch nicht verfügbar“ markieren. UI-Lokalisierung separat von der Wortsprache benennen.
+### M-07: Das Kartenspiel bleibt zu generisch erklärt
 
-**Aufwand:** S–M.
+**Status: teilweise verbessert.** Die Startseite bezeichnet es nun ausdrücklich als digitalen Punkteblock für ein physisches Stichspiel. Eine vollständig benannte Regelvariante bleibt eine Produktentscheidung.
 
-#### M-06: Kein Rundenarchiv bei Doppelwort
+„Kartenspiel“ sagt nicht, dass UGBZ nur Ansagen, Stiche und Punkte für ein physisches Spiel verwaltet. Regeln zu Geben, Ausspielen, Trumpf oder Kartenrang fehlen bewusst, werden aber von Neulingen erwartet.
 
-Nach mehreren Runden sieht man den Gesamtstand, aber keine Historie der vergangenen Wortpaare, Gewinnerteams, Rollen oder Stimmen. Dadurch lassen sich Punkte und strittige Runden nicht nachvollziehen.
+**Empfehlung:** Auf Home „Stichspiel-Punkteblock“ ergänzen und eine vollständige Regelvariante benennen oder verlinken.
 
-**Empfehlung:** Unveränderliche öffentliche Rundenergebnisse speichern und in einer einklappbaren Historie anzeigen.
+### M-08: Die Startseite lädt mehr als nötig
 
-**Aufwand:** M.
+**Status: behoben.** Nur das erste Hero-Bild wird priorisiert; weitere Spielbilder laden lazy und werden asynchron dekodiert.
 
-#### M-07: Kein Sound oder haptisches Feedback
+Alle drei großen Bilder werden ohne `loading="lazy"` eingebunden. Die Karten sind visuell stark, aber für eine reine Auswahl sehr hoch; mobil sind rund 1.850 Pixel Scrollweg nötig.
 
-Timerende, Sprecherwechsel, neue geheime Übergabe und Abstimmungsabschluss werden nur visuell vermittelt. Bei einem Partyspiel schauen nicht immer alle auf den Bildschirm.
+### M-09: „Unbegrenzte“ Kniffel-Räume sind technisch wirklich nahezu unbegrenzt
 
-**Empfehlung:** optionale, standardmäßig dezente Audio-/Vibrationssignale mit Mute-Schalter und Reduced-Motion-/Accessibility-Rücksicht.
+`maxPlayers` wird als 2.147.483.647 gespeichert. Das erfüllt die gewünschte Oberfläche ohne sichtbares Limit, ist aber für JSON-Raumzustand, Punkteblöcke und 13 Runden pro Person nicht belastbar.
 
-**Aufwand:** S–M.
+**Empfehlung:** Kein kleines sichtbares Spielerlimit erzwingen, aber einen hohen technischen Schutzwert setzen und UI ab großen Gruppen virtualisieren oder warnen.
 
-#### M-08: E2E-Tests sind nicht Teil des Projekts oder der CI
+### M-10: Große Dateien bremsen Änderungen
 
-Die aktuellen Playwright-Abläufe bestehen, liegen aber nur als temporäre Prüfskripte außerhalb des Repositorys. `.github/workflows/ci.yml` führt ausschließlich Unit Tests und Build aus.
+- `DoppelwortRoomPage.jsx`: 597 Zeilen
+- `CardGamePage.jsx`: 437 Zeilen
+- `doppelwort.css`: 2.005 Zeilen
+- `styles.css`: 1.841 Zeilen
+- `kniffel.css`: 768 Zeilen
 
-**Risiko:** Navigation, Hydration, Umschlag, mobile Layouts und kompletter Spielfluss können regressieren, ohne dass ein Pull Request fehlschlägt.
+Das funktioniert, erhöht aber die Gefahr von Seiteneffekten. Phasen, Scoreboards und Lobbybereiche sollten schrittweise in eigenständige Komponenten und Styles zerlegt werden.
 
-**Empfehlung:** Playwright-Konfiguration und die wichtigsten Flows committen; Desktop und Mobil in CI ausführen. Mindestens ein Kartenspielabschluss und eine Doppelwort-Runde sollten automatisiert bleiben.
+## Was überflüssig oder derzeit zu früh ist
 
-**Aufwand:** M.
-
-#### M-09: Keine automatisierte Datenbank-, RLS- oder API-Prüfung
-
-Die Supabase-Migration ist umfangreich und durchdacht, wird aber weder gegen eine temporäre Datenbank ausgeführt noch durch RLS-Matrix-Tests geprüft. Die API ist ein Vertrag, keine laufende Implementierung.
-
-**Empfehlung:** Supabase CLI in CI, Migration-Lint, Seed, RLS-Integrationstests und Edge-Function-Vertragstests ergänzen.
-
-**Aufwand:** L.
-
-#### M-10: Große Komponenten und Styles erschweren weitere Spiele
-
-Aktuelle Größen:
-
-- `DoppelwortRoomPage.jsx`: 554 Zeilen
-- `DoppelwortLobbyPage.jsx`: 279 Zeilen
-- `CardGamePage.jsx`: 436 Zeilen
-- `doppelwort.css`: 2005 Zeilen
-- `styles.css`: 1804 Zeilen
-
-Die Trennung ist heute noch nachvollziehbar, aber Änderungen an neuen Phasen, Themes oder Spielen werden zunehmend riskant.
-
-**Empfehlung:** Phasen, Ergebnisansichten und Formbereiche in fokussierte Komponenten aufteilen; Styles pro Surface oder Feature strukturieren.
-
-**Aufwand:** M.
-
-#### M-11: Die Spielregistrierung ist nur teilweise erweiterbar
-
-`src/games/registry.js` macht das Hinzufügen einer Spielkarte einfach. `HomePage.jsx` unterscheidet gespeicherte Zustände aber hart zwischen Kartenspiel und Doppelwort. Jedes dritte Spiel benötigt neue Sonderlogik in der Startseite.
-
-**Empfehlung:** Registry um optionale Adapter erweitern, zum Beispiel `getResumeState`, `resumePath`, `formatResumeTitle`, `formatResumeDetail` und Feature-Flags. Dann bleibt Home unabhängig von konkreten Spielen.
-
-**Aufwand:** M.
-
-#### M-12: Barrierefreiheit ist eine gute Basis, aber nicht vollständig geprüft
-
-Positiv sind semantische Labels, Tastatur-Tabs, `aria-pressed`, sichtbarer Fokus, große Touch-Ziele und Reduced Motion. Offen bleiben:
-
-- Fokus wird nach automatischen Phasenwechseln nicht gezielt auf die neue Überschrift gesetzt.
-- Timer- und Sprecherwechsel werden nicht zuverlässig per Live-Region angekündigt.
-- Ein vollständiger Screenreader-Test fehlt.
-- Ein automatisierter WCAG-/Axe-Test fehlt.
-- Bei englischen Wörtern bleibt das Dokument auf `lang="de"`.
-- Lange Formulare besitzen keinen Skip-Link und nur begrenzte Gruppierung.
-
-**Empfehlung:** NVDA/VoiceOver-Pass, Axe in CI, Fokusmanager pro Phase, höfliche Live-Regionen und sprachlich markierte englische Geheimwörter.
-
-**Aufwand:** M.
-
-### Niedrig – Politur und langfristige Qualität
-
-#### L-01: Keine installierbare App/PWA
-
-Es gibt kein Manifest, keinen Service Worker und keinen Offline-Installationspfad. Für einen Spieleabend wäre „Zum Home-Bildschirm hinzufügen“ und Offline-Funktion besonders passend.
-
-#### L-02: Wenig Produktkontext auf der Startseite
-
-„UGBZ“ wird nicht erklärt. Ein kurzer Untertitel, Hilfe/Über-die-Plattform und die Kennzeichnung „lokal spielbar“ würden neuen Nutzern Orientierung geben.
-
-#### L-03: Keine dauerhafte Spielstandssicherung
-
-Spielstände existieren nur im Browser. Gerätewechsel, Browserdaten-Löschung oder privater Modus verlieren sie. Export/Import als JSON wäre für das Kartenspiel eine günstige Absicherung.
-
-#### L-04: Keine Lint-/Format-Stufe in CI
-
-Der Build prüft Syntax und Bundling, aber kein ESLint/Oxlint, keine Formatkontrolle und keine statische Zustandsvalidierung. Das wird bei mehr Spielen relevanter.
-
-#### L-05: Keine Produktbeobachtung
-
-Es gibt bewusst kein Tracking. Für eine öffentliche Beta wären datensparsame technische Metriken zu Fehlerquote, Ladezeit und abgebrochenen Phasen hilfreich, sofern Datenschutz und Einwilligung sauber gelöst werden.
-
-## Bewertung der Startseite
-
-### Was gut ist
-
-- Der erste Bildschirm beantwortet sofort „Was wird gespielt?“.
-- Zwei große, klar unterscheidbare Spiele sind ohne Suche verständlich.
-- Der komplette Kartenbereich ist visuell als Einheit lesbar.
-- Aktive Spiele werden wieder aufnehmbar angezeigt.
-- Die Registry ist ein guter erster Schritt für weitere Spiele.
-
-### Was verbessert werden sollte
-
-- Bei mehr als vier Spielen werden Suche, Kategorien, Status und kompaktere Karten nötig.
-- Resume-Logik muss aus `HomePage` in Spieladapter wandern.
-- Die Karte sollte klar unterscheiden zwischen „vollständiges Browser-Spiel“ und „Spielleiter für physische Karten“.
-- Ein öffentliches/onlinefähiges Spiel sollte seinen Betriebsstatus zeigen.
-- Später angekündigte Spiele sollten als deaktivierte Einträge mit klarer Kennzeichnung möglich sein.
-
-## Bewertung des Kartenspiels
-
-### Spielerperspektive
-
-Für eine Gruppe, die das zugrunde liegende Stichspiel bereits kennt, ist der Ablauf sehr gut. Die Spielleitung sieht immer Runde, Kartenanzahl, Phase, Starter und Punkte. Direkte Eingaben sind schneller als nur Plus/Minus. Fehlerhafte Ergebnissummen werden verhindert. Der Verlauf macht die Wertung nachvollziehbar.
-
-### Wichtigste Kritik
-
-1. Es ist ein Spielleiter, nicht das eigentliche Spiel; dies sollte klarer benannt werden.
-2. Nur die letzte Runde ist korrigierbar; ältere Fehler benötigen einen Neustart oder manuelle Datenänderung.
-3. Spielstand bleibt an einen Browser gebunden.
-4. Beschädigte Speicherstände werden zu schwach validiert.
-5. Ein echter Pausen-/Sperrmodus fehlt, ist für einen Scorekeeper aber nicht kritisch.
-6. Bei sieben Spielern und langen Namen wird die Informationsdichte hoch, auch wenn das Layout technisch stabil bleibt.
-
-### Gesamturteil Kartenspiel
-
-Als lokaler digitaler Spielleiter **klar gut**. Mit vollständiger Regelhilfe, Export/Import und stärkerer Recovery wäre es sehr nahe an einem kleinen produktionsreifen Einzelprodukt.
-
-## Bewertung von Doppelwort
-
-### Spielerperspektive
-
-Die Dramaturgie ist die größte Stärke: Salon-Lobby, versiegelte Umschläge, klare Sprechreihenfolge, Beratung, geheime Stimmzettel und Auflösung erzeugen einen echten Spielbogen. Pass-and-Play ist verständlich und die Geheimnisse werden visuell besser geschützt als bei einer einfachen Textkarte.
-
-### Wichtigste Kritik
-
-1. Keine echte Verbindung zwischen Geräten.
-2. Feste Crew-/Imposter-Richtung der Wortpaare ermöglicht Meta-Cheating.
-3. Viele Optionen vor dem ersten Spiel überfordern Hosts.
-4. Kein Undo bei Fehlstimmen.
-5. Keine Rundengeschichte.
-6. Keine Audio-/Haptiksignale.
-7. Timer-Recovery ist bei langen Unterbrechungen falsch.
-8. Kick/Offline-Verhalten während laufender Runden ist nicht abschließend definiert.
-9. Lokale Geheimnisse und Passwörter sind technisch vollständig im Browser lesbar.
-10. Die englische Option ist keine vollständige Lokalisierung.
-
-### Gesamturteil Doppelwort
-
-Als lokales Partyspiel **gut und vorzeigbar**, mit einer wichtigen Fairnesskorrektur bei der Wortrichtung. Als Online-Multiplayer ist es derzeit eine **Frontend-/Engine-Demo mit ausgearbeiteter Backend-Spezifikation**, kein fertiger Dienst.
-
-## Architektur- und Codebewertung
-
-### Positiv
-
-- reine Engines ohne React-Abhängigkeit
-- versionierte lokale Repositories
-- optimistische Revisionen für Tab-Konflikte
-- statischer Export aller Routen
-- kleine auslieferbare Clientgröße von rund 1,1 MB inklusive Bilder
-- nachvollziehbare Datenmodell- und API-Grenzen
-- Least-Privilege-Idee für Supabase/RLS
-- keine bekannten npm-Schwachstellen zum Prüfzeitpunkt
-- CI nutzt reproduzierbares `npm ci`
-
-### Kritisch
-
-- Backend-Grenze ist dokumentiert, aber noch nicht implementiert
-- Client- und Serverzustandsmodelle können auseinanderlaufen
-- keine gemeinsamen Runtime-Schemas für Browser, API und Datenbank
-- JavaScript reduziert Refactor-Sicherheit; dies ist eine bewusste Projektentscheidung, bleibt aber ein technischer Trade-off
-- lokale Repository-Validierung ist zu oberflächlich
-- kein Error-Telemetriepfad
-- keine E2E- oder Datenbanktests in CI
-- Monolithen in Room-/Game-Komponenten und Styles
-
-## Sicherheitsbewertung
-
-### Aktueller lokaler Modus
-
-Für Freunde auf einem Gerät ist das Modell akzeptabel, solange klar bleibt, dass es keine Cheating-Sicherheit gibt. Alle Rollen, beide Wörter, Stimmen und lokale Passwörter liegen im Browserzustand. Jeder mit DevTools-Zugriff kann sie sehen oder verändern.
-
-### Zielarchitektur
-
-Die Dokumentation adressiert RLS, idempotente Aktionen, Revisionen, Passwort-Hashing, Rate Limits, Replay-Schutz, Reconnect und Admin-Audit sinnvoll. Das Schema trennt private Rundeninformationen von öffentlichen Events. Positiv ist insbesondere, dass normale Clients keine SELECT-Rechte auf `rounds.private_payload` erhalten sollen.
-
-### Offene Produktionsrisiken
-
-- keine ausgeführten RLS-Tests
-- keine implementierten Edge Functions
-- keine Secret-Leak-Tests
-- keine CSP und weiteren Security Header
-- keine Rate Limits
-- keine MFA-Adminoberfläche
-- keine Audit-/Moderationspraxis
-- keine reale Schlüsselrotation oder Incident-Übung
-
-## Test- und Qualitätsbewertung
-
-### Heute gut abgedeckt
-
-- Rundenfolgen, Punkte und Gleichstände
-- Eingabegrenzen und Ergebnissummen
-- letzte/finale Korrektur
-- Wortanzahl und Kategorien
-- Rollenanzahl und private Ansicht
-- Phasenübergänge
-- Mehrheit und mehrere Imposter
-- Timerablauf im normalen Einzelschritt
-- punktefreier Modus
-- Hosttransfer
-- lokale Revisionen und Tab-Sitzung
-- vollständige Hauptabläufe per Playwright während dieses Reviews
-
-### Heute nicht ausreichend abgedeckt
-
-- feste oder zufällige Wortrichtung
-- Kick/Leave/Offline in jeder laufenden Phase
-- Catch-up nach langen Timerunterbrechungen
-- beschädigte oder alte Speicherstände
-- maximale 12-Personen-Partie im vollständigen UI-Fluss
-- Browser Safari/Firefox
-- Screenreader
-- Zwischenbreiten, Landscape und Notch/Safe Area
-- Datenbankmigration und RLS
-- Online-Reconnect, Parallelstart und Doppelstimme gegen echten Server
-- Last-, Flood-, Security- und Restoretests
-
-## Anforderungsstatus in Kurzform
-
-| Anforderung | Status | Kommentar |
+| Element | Urteil | Empfehlung |
 |---|---|---|
-| Landingpage/Homescreen | Erfüllt | visuell stark, zwei Spiele |
-| weitere Spiele leicht ergänzen | Teilweise | Registry vorhanden, Resume-Logik noch hart gekoppelt |
-| Kartenspiel solo und mit Spielleitung | Erfüllt | lokaler Scorekeeper |
-| Räume vorbereitet | Erfüllt | lokales Modell und Produktionsschema |
-| Räume geräteübergreifend nutzen | Fehlt | kein Online-Adapter |
-| echter synchroner Multiplayer | Fehlt | keine laufende Realtime-Schicht |
-| kostenlos betreibbar | Teilweise | lokal/Quick-Tunnel ja, dauerhafte öffentliche Plattform ungeklärt |
-| Desktop, Tablet, Smartphone | Erfüllt | responsive Hauptabläufe bestanden |
-| modernes App-Design | Erfüllt | hohe visuelle Qualität |
-| deutsche und englische Wortpaare | Erfüllt | je 120 |
-| vollständige englische Oberfläche | Fehlt | nur Wörter/Kategorien wechseln |
-| Adminpanel | Fehlt | nur Schema und Handbuch |
-| Moderation und Reports | Teilweise | Datenmodell/API-Vertrag, keine laufende Funktion |
-| Reconnect/Heartbeat/Latenzausgleich | Teilweise | dokumentiert, nicht implementiert |
-| Security Controls | Teilweise | gutes Konzept, nicht als laufender Dienst belegt |
-| Unit Tests | Erfüllt | 22 bestanden |
-| E2E in CI | Fehlt | temporäre Tests bestehen, sind nicht versioniert |
-| dauerhafte öffentliche Website | Fehlt | Workspace blockiert anonymes Sites-Publishing |
-| Impressum/Datenschutzfreigabe | Fehlt | Betreiberangaben ausstehend |
+| Sichtbarer Zuschauer-Schalter bei Imposter | ohne Verhalten überflüssig | **umgesetzt:** ausgeblendet |
+| Alle acht Imposter-Schalter im Standardformular | zu viel auf einmal | **umgesetzt:** unter „Erweiterte Regeln“ |
+| Raumcode beim rein lokalen Kniffel-Tisch | ohne Beitrittsweg nutzlos | **umgesetzt:** nur bei getrennten Geräten |
+| Backup-Export ohne Import | halbfertig | **umgesetzt:** validierter Import ergänzt |
+| `/doppelwort` und `/doppelwort/raum` als vollständige Doppelrouten | doppelte öffentliche Oberfläche | **umgesetzt:** Kompatibilitätsweiterleitung |
+| Status „Verbunden“ ohne Heartbeat | Scheingenauigkeit | **umgesetzt:** neutral formuliert; echte Presence bleibt offen |
+| Zwei vollständige Test-/Build-Jobs bei jedem Push auf `main` | CI-Arbeit doppelt | **umgesetzt:** Quality nur für Pull Requests, Pages für `main` |
+| Weitere Kniffel-Animationen | aktuell kein Engpass | erst Zuverlässigkeit und Recovery verbessern |
+| Mehr Imposter-Kategorien | aktuell weniger wichtig als Paarqualität | vorhandene Paare bewerten und staffeln |
+| Chat, Accounts oder Profilbilder | für den Kernablauf nicht nötig | erst nach sicherer Command-Schicht und Reconnect |
+| Komplettes Umbenennen aller internen `doppelwort`-Dateien | geringer Nutzwert, hohes Änderungsrauschen | intern vorerst behalten; nur öffentliche Texte und Docs korrigieren |
 
-## Empfohlene Roadmap
+Die Concept-Bilder unter `design/` und `docs/design/` werden nicht zur Laufzeit geladen. Sie sind keine Performance-Belastung der Website und können als Designquellen im Repository bleiben.
 
-### P0 – Spielintegrität und ehrlicher Betrieb
+## Empfohlene Reihenfolge
 
-1. Wortrichtung pro Runde zufällig tauschen und testen.
-2. Lokale Produktionsoptionen, die noch nichts tun, deaktivieren oder eindeutig markieren.
-3. Beschädigte Speicherstände vollständig validieren und zurücksetzbar machen.
-4. Dauerhafte öffentliche Hostingentscheidung treffen.
-5. Rechtliche Betreiberangaben klären, bevor anonym veröffentlicht wird.
+### Nächster Release – Online-Verlässlichkeit
 
-### P1 – Echter Online-Multiplayer
+1. Migration 006 im verknüpften Supabase-Projekt ausrollen und die Cleanup-Funktion regelmäßig ausführen lassen.
+2. Spielaktionen als serverautoritativ geprüfte Commands umsetzen.
+3. Imposter-Geheimnisse in private Datenhaltung und empfängerbezogene Projektionen verschieben.
+4. Rejoin-Token, Host-Wiederherstellung und echte Presence mit Heartbeat ergänzen.
+5. Moderation, Reports und verbindliche Aufbewahrungsregeln für öffentliche Räume definieren.
 
-1. Supabase-Staging in EU-Region provisionieren.
-2. Migration automatisch testen und deployen.
-3. Gast-Session, Raumverzeichnis, Create/Join/Snapshot implementieren.
-4. Serverautoritativ Rollen und Wörter verteilen.
-5. Realtime-Adapter mit Reconnect und Revision-Lücken implementieren.
-6. Timer-Catch-up, Kick, Offline und Hostwechsel verbindlich definieren.
-7. Drei-Geräte-E2E inklusive Verbindungsabbruch durchführen.
+### Danach – Qualität und Inhalt
 
-### P2 – Produktionssicherheit
-
-1. CSP, HSTS, Nosniff, Referrer- und Permissions-Policy setzen.
-2. Rate Limits, Replay- und Parallelaktionstests.
-3. RLS-Matrix und Secret-Leak-Suite.
-4. Adminbereich mit MFA, Reports, Kick/Ban/Lock und Audit.
-5. Monitoring, strukturierte Logs, Alarmierung, Cleanup und Restore-Test.
-
-### P3 – UX und Barrierefreiheit
-
-1. Doppelwort-Presets plus einklappbare erweiterte Optionen.
-2. Vote-/Phasen-Korrektur mit sicheren Regeln.
-3. Rundengeschichte.
-4. vollständige Regelhilfe für das Kartenspiel.
-5. optionale Sounds und Haptik.
-6. VoiceOver/NVDA, Axe, Fokusmanagement und Live-Regionen.
-7. vollständige UI-Lokalisierung oder klare Trennung „Wortsprache“.
-
-### P4 – Plattform für weitere Spiele
-
-1. Registry mit Resume-/Status-Adaptern.
-2. Feature-basierte Komponenten- und Style-Struktur.
-3. versionierte Save-Schemas mit Migrationen.
-4. PWA/Offline-Installation prüfen.
-5. Bei wachsendem Katalog Suche, Kategorien und Verfügbarkeitsstatus ergänzen.
-
-## Produktions-Gates
-
-UGBZ sollte erst als vollständiges Online-Produkt bezeichnet werden, wenn alle folgenden Punkte nachweisbar sind:
-
-1. Ein anonymer dauerhafter Link antwortet unabhängig vom Entwickler-Mac zuverlässig mit HTTP 200.
-2. Drei echte Geräte können denselben Raum erstellen, beitreten und vollständig spielen.
-3. Kein Client kann Rollen oder Wörter anderer Personen aus Netzwerk, Cache oder Storage lesen.
-4. Reconnect, Offline, Hostwechsel, Kick und Timer funktionieren in jeder Phase deterministisch.
-5. RLS-, Replay-, Doppelstimmen-, Last- und Securitytests bestehen gegen Staging.
-6. Playwright Desktop/Mobil läuft in CI.
-7. CSP und weitere Security Header sind aktiv.
-8. Monitoring, Alarmierung, Cleanup, Backup und Restore wurden real ausgeführt.
-9. Admin- und Moderationsfunktionen sind geschützt und auditierbar.
-10. Impressum, Datenschutz und Betreiberfreigabe sind abgeschlossen.
+1. Imposter-Wortpaare nach Schwierigkeit und Bekanntheit bewerten.
+2. Automatisches A11y-Audit und statische Codeprüfung in CI ergänzen.
+3. Große Screens und CSS-Dateien schrittweise zerlegen.
+4. Alte Detaildokumente unter `docs/doppelwort/` aktualisieren beziehungsweise als historisch markieren.
+5. Für sehr große Kniffelgruppen einen technischen Schutz ohne kleines sichtbares Spielerlimit definieren.
 
 ## Schlussfazit
 
-Das Projekt ist **deutlich besser als ein typischer Prototyp**. Design, Hauptabläufe, lokale Speicherung und Kernlogik sind vorzeigbar. Das Kartenspiel kann heute sinnvoll bei einem Spieleabend eingesetzt werden. Doppelwort kann heute lokal viel Spaß machen und wirkt bereits wie ein echtes Spiel, nicht nur wie eine technische Demo.
+UGBZ braucht im Moment **keine weiteren großen Spiele oder Effekte**, um besser zu werden. Navigation, Recovery und dauerhafte Browsertests sind jetzt deutlich stärker. Der größte verbleibende Qualitätssprung ist eine serverautoritative Online-Aktionsschicht mit wirklich privaten Imposter-Geheimnissen.
 
-Die wichtigste nächste Entscheidung ist nicht weiteres visuelles Polishing. Zuerst müssen die feste Wortrichtung korrigiert und anschließend echte Online-Infrastruktur sowie dauerhaftes Hosting umgesetzt werden. Danach sind Recovery, Korrekturflüsse, E2E-CI, Security und Barrierefreiheit die Bereiche mit dem größten Qualitätsgewinn.
+Lokal kann die Plattform bereits ohne große Einschränkung eingesetzt werden. Online ist sie für eine vertrauenswürdige Freundesgruppe gut genug für eine Beta. Für offene öffentliche Räume sollte die gemeinsame Raumtransport-Schicht zuerst von einem Synchronisationskanal zu einer echten autoritativen Spielschicht weiterentwickelt werden.

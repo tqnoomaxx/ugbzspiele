@@ -1,6 +1,6 @@
 # UGBZ
 
-UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter** und klassischem **Kniffel**.
+UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter**, klassischem **Kniffel**, **Schiffe versenken**, **Werwolf** und optionalem **Memory**.
 
 ## Enthalten
 
@@ -20,13 +20,16 @@ UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter** und klass
 - Kniffel wahlweise komplett digital oder mit echten Würfeln und gemeinsamem Punkteblock
 - Solo, Pass-and-Play oder synchrone Online-Räume mit öffentlichen, privaten und passwortgeschützten Tischen
 - Klassische 13 Kategorien, obere Bonuswertung, Kniffel-Bonus/Joker, Rückgängig und Rangliste
-- Ausfallsichere Kniffel-Speicherung mit Cloud-Autosave, lokalem Spiegel, Wiederholungs-Sync und JSON-Export
+- Ausfallsichere Kniffel-Speicherung mit Cloud-Autosave, lokalem Spiegel, Tab-Recovery sowie validiertem JSON-Export und -Import
 - Autoritative digitale Online-Würfe direkt aus der Datenbank
-- Automatische Tests und Produktionsbuilds über die GitHub-Actions-Pipeline
+- Schiffe versenken als lokales Zwei-Personen-Spiel mit geheimer Übergabe, manueller oder zufälliger Flotte und bestätigten Schüssen
+- Werwolf für fünf bis zwölf Mitspielende mit nicht mitspielender Leitung, sicheren Rollenansichten, Nachtführung, Stichwahl, Hexe und Jäger
+- Optionales Memory für ein bis sechs Personen; es erscheint erst ab sechs geprüften eigenen Motiven
+- 76 Unit-Tests, sieben echte Playwright-Spielabläufe und Produktionsbuilds über die GitHub-Actions-Pipeline
 
 ## Lokal starten
 
-Auf macOS kann die Datei `UGBZ-starten.command` doppelt angeklickt werden. Sie startet den Produktionsbuild und öffnet automatisch `http://127.0.0.1:3000`.
+Auf macOS kann die Datei `UGBZ-starten.command` doppelt angeklickt werden. Sie prüft den aktuellen Produktionsbuild und öffnet automatisch Port 3000 oder, falls dieser belegt ist, den nächsten freien Port.
 
 Alternativ im Terminal:
 
@@ -48,7 +51,16 @@ npm start
 npm run check
 ```
 
+Für die vollständige lokale Prüfung inklusive Browserabläufen:
+
+```bash
+npx playwright install chromium
+npm run check:all
+```
+
 Kartenspiel speichert den Spielstand lokal. Imposter und Kniffel verwenden ohne Konfiguration einen lokalen Fallback und wechseln mit den dokumentierten Supabase-Variablen automatisch in den geräteübergreifenden Online-Modus.
+
+Schiffe versenken und Werwolf bleiben bewusst lokal, damit geheime Flotten und Rollen nicht im gemeinsamen Online-Raumzustand landen. Für Memory legst du mindestens sechs nicht vertrauliche Bilder in `public/assets/memory/pairs/`; beim nächsten Start oder Build wird das Spiel automatisch geprüft und freigeschaltet. Hinweise zu Format und Dateinamen stehen in `public/assets/memory/README.md`.
 
 ## Imposter-Dokumentation
 

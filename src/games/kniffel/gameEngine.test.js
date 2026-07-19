@@ -8,6 +8,7 @@ import {
   getDigitalScoreOptions,
   getPlayerTotals,
   recordManualScore,
+  restartKniffelGame,
   scoreDigitalCategory,
   startKniffelGame,
   toggleHeldDie,
@@ -116,5 +117,11 @@ describe('Kniffel game engine', () => {
     expect(totals.upperBonus).toBe(35)
     expect(totals.total).toBe(309)
     expect(room.status).toBe('complete')
+
+    const rematch = restartKniffelGame(room, room.hostId, 3000)
+    expect(rematch.status).toBe('playing')
+    expect(rematch.players).toEqual(room.players)
+    expect(rematch.game.history).toEqual([])
+    expect(rematch.game.sheets['player-1'].scores.kniffel).toBeNull()
   })
 })

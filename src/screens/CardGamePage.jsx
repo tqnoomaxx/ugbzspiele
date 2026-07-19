@@ -310,7 +310,7 @@ export default function CardGamePage() {
         <FinalScore
           game={game}
           onCorrect={correctFinalRound}
-          onHome={() => window.location.assign('/')}
+          onHome={() => window.location.assign(appPath('/'))}
           onNewGame={startNewGame}
         />
       </div>

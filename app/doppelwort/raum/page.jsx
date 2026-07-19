@@ -1,7 +1,7 @@
-import DoppelwortRoomPage from '../../../src/screens/DoppelwortRoomPage.jsx'
+import LegacyGameRedirect from '../../../src/screens/LegacyGameRedirect.jsx'
 
 export const dynamic = 'force-static'
 
 export default function DoppelwortRoomRoute() {
-  return <DoppelwortRoomPage />
+  return <LegacyGameRedirect target="/imposter/raum" />
 }

@@ -4,12 +4,16 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-memory-manifest.js",
     "dev": "vinext dev",
+    "prebuild": "node scripts/generate-memory-manifest.js",
     "build": "vinext build && node scripts/copy-hosting-config.js",
     "start": "vinext start",
     "preview": "vinext start",
     "test": "vitest run",
-    "check": "npm run test && npm run build"
+    "test:e2e": "playwright test",
+    "check": "npm run test && npm run build",
+    "check:all": "npm run check && npm run test:e2e"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",
@@ -18,6 +22,7 @@
     "vinext": "1.0.0-beta.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@vitejs/plugin-react": "6.0.3",
     "@vitejs/plugin-rsc": "0.5.28",
     "next": "16.2.10",

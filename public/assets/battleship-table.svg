@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">Schiffe versenken auf einem Kartentisch</title>
+  <desc id="description">Zwei nautische Raster mit Schiffen, Markierungen und einem Messing-Kompass.</desc>
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d3d46"/>
+      <stop offset="1" stop-color="#071e27"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#d7ad61" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#d7ad61" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#b9d4d4" stroke-opacity=".24" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#020b0e" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sea)"/>
+  <circle cx="950" cy="170" r="320" fill="url(#glow)"/>
+  <path d="M0 110C210 45 375 170 600 100S980 25 1200 85V0H0Z" fill="#ffffff" opacity=".025"/>
+  <path d="M0 640c245-90 375 40 610-40s410-70 590-4v164H0Z" fill="#000" opacity=".13"/>
+  <g transform="translate(86 138) rotate(-3 252 210)" filter="url(#shadow)">
+    <rect width="504" height="504" rx="18" fill="#0a3039" stroke="#bf9651" stroke-width="3"/>
+    <rect x="42" y="42" width="420" height="420" fill="url(#grid)" stroke="#d4bd8d" stroke-opacity=".62"/>
+    <g fill="#d9caa8" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">
+      <text x="63" y="29">A</text><text x="105" y="29">B</text><text x="147" y="29">C</text><text x="189" y="29">D</text><text x="231" y="29">E</text><text x="273" y="29">F</text><text x="315" y="29">G</text><text x="357" y="29">H</text><text x="399" y="29">I</text><text x="441" y="29">J</text>
+    </g>
+    <g fill="#d5ad62" opacity=".92">
+      <rect x="64" y="105" width="166" height="25" rx="12"/><circle cx="82" cy="117.5" r="6" fill="#092832"/><circle cx="212" cy="117.5" r="6" fill="#092832"/>
+      <rect x="273" y="272" width="25" height="124" rx="12"/><circle cx="285.5" cy="290" r="6" fill="#092832"/><circle cx="285.5" cy="378" r="6" fill="#092832"/>
+      <rect x="105" y="357" width="82" height="25" rx="12"/>
+    </g>
+    <g stroke="#ecb85a" stroke-width="5" stroke-linecap="round">
+      <path d="m356 95 22 22m0-22-22 22"/><path d="m126 242 22 22m0-22-22 22"/>
+    </g>
+    <g fill="#dbe8e6"><circle cx="335" cy="326" r="6"/><circle cx="419" cy="200" r="6"/><circle cx="251" cy="74" r="6"/></g>
+  </g>
+  <g transform="translate(700 165) rotate(4 205 190)" filter="url(#shadow)">
+    <rect width="410" height="410" rx="16" fill="#0b333d" stroke="#8da9a7" stroke-width="2"/>
+    <rect x="35" y="35" width="340" height="340" fill="url(#grid)" stroke="#b9d4d4" stroke-opacity=".5"/>
+    <g stroke="#d8a952" stroke-width="5" stroke-linecap="round"><path d="m82 76 19 19m0-19-19 19"/><path d="m252 246 19 19m0-19-19 19"/><path d="m320 314 19 19m0-19-19 19"/></g>
+    <g fill="#dbe8e6"><circle cx="184" cy="116" r="5"/><circle cx="286" cy="82" r="5"/><circle cx="116" cy="286" r="5"/><circle cx="218" cy="320" r="5"/></g>
+  </g>
+  <g transform="translate(613 580)" fill="none" stroke="#d2aa61" stroke-width="3" opacity=".9">
+    <circle r="66"/><circle r="48"/><path d="M0-79V79M-79 0H79M-47-47l94 94M47-47l-94 94"/>
+    <path d="m0-45 12 33 33 12-33 12L0 45l-12-33-33-12 33-12Z" fill="#d2aa61" stroke="none"/>
+  </g>
+  <text x="1110" y="714" fill="#d5bd8d" font-family="Georgia,serif" font-size="18" text-anchor="end" opacity=".72">UGBZ · LOKALE GEWÄSSER</text>
+</svg>

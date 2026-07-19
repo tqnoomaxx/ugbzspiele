@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Werwolf Spieltisch bei Nacht</title>
+  <desc id="desc">Ein stilisierter Vollmond über einem dunklen Dorf mit verdeckten Rollenkarten.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#071018"/>
+      <stop offset="1" stop-color="#26303b"/>
+    </linearGradient>
+    <radialGradient id="moon">
+      <stop offset="0" stop-color="#fff8d8"/>
+      <stop offset=".78" stop-color="#e9d99f"/>
+      <stop offset="1" stop-color="#bfae78"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <circle cx="330" cy="230" r="145" fill="#e6d48e" opacity=".2" filter="url(#glow)"/>
+  <circle cx="330" cy="230" r="112" fill="url(#moon)"/>
+  <path d="M0 505 110 420l75 45 115-105 83 79 95-126 110 117 92-67 132 88 100-40 138 78 150-17v288H0Z" fill="#111b22"/>
+  <g fill="#0a1015" stroke="#8c7743" stroke-width="3">
+    <path d="M92 520v-116l64-57 64 57v116Z"/><path d="M115 520v-64h35v64Zm49-111h25v33h-25Z" fill="#d6b95f"/>
+    <path d="M870 520V382l80-70 80 70v138Z"/><path d="M900 520v-76h39v76Zm51-112h31v38h-31Z" fill="#d6b95f"/>
+  </g>
+  <ellipse cx="602" cy="635" rx="450" ry="96" fill="#05090c" opacity=".7"/>
+  <g transform="translate(380 465) rotate(-8)">
+    <rect width="205" height="265" rx="20" fill="#361823" stroke="#d0ae65" stroke-width="5"/>
+    <circle cx="102" cy="108" r="54" fill="none" stroke="#d0ae65" stroke-width="5"/>
+    <path d="m67 126 20-38 15 18 16-18 20 38-36 48Z" fill="#d0ae65"/>
+    <path d="M55 214h94" stroke="#d0ae65" stroke-width="5"/>
+  </g>
+  <g transform="translate(615 454) rotate(9)">
+    <rect width="205" height="265" rx="20" fill="#13282a" stroke="#d0ae65" stroke-width="5"/>
+    <path d="M103 53c-40 25-58 63-52 111 18-17 38-23 61-18 17-29 14-60-9-93Z" fill="#d0ae65"/>
+    <path d="M55 214h94" stroke="#d0ae65" stroke-width="5"/>
+  </g>
+</svg>

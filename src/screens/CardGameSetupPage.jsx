@@ -31,15 +31,39 @@ export default function CardGameSetupPage() {
   const [mode, setMode] = useState('both')
   const [error, setError] = useState('')
   const [savedGame, setSavedGame] = useState(null)
+  const [corruptSave, setCorruptSave] = useState(null)
   const [confirmOverwrite, setConfirmOverwrite] = useState(false)
+  const [ready, setReady] = useState(false)
   const plan = useMemo(
     () => getGamePlan(deckSize, players.length, mode),
     [deckSize, mode, players.length],
   )
 
   useEffect(() => {
-    setSavedGame(gameRepository.load())
+    const inspection = gameRepository.inspect()
+    setSavedGame(inspection.game)
+    setCorruptSave(inspection.issue === 'corrupt' ? inspection.raw : null)
+    setReady(true)
   }, [])
+
+  function downloadCorruptSave() {
+    if (!corruptSave) return
+    const blob = new Blob([corruptSave], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `ugbz-kartenspiel-defekt-${new Date().toISOString().slice(0, 10)}.json`
+    document.body.append(anchor)
+    anchor.click()
+    anchor.remove()
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
+  }
+
+  function discardCorruptSave() {
+    gameRepository.clear()
+    setCorruptSave(null)
+    setError('Der beschädigte Spielstand wurde entfernt. Du kannst ein neues Spiel starten.')
+  }
 
   function updatePlayer(id, name) {
     setPlayers((current) => current.map((player) => (
@@ -107,6 +131,20 @@ export default function CardGameSetupPage() {
           <h2>Neue Runde</h2>
         </header>
 
+        {corruptSave ? (
+          <section className="save-recovery" aria-labelledby="save-recovery-title" role="alert">
+            <div>
+              <span className="active-game-banner__eyebrow">Wiederherstellung nötig</span>
+              <h2 id="save-recovery-title">Der gespeicherte Spielstand ist beschädigt.</h2>
+              <p>Lade die Rohdaten zur Sicherung herunter oder entferne nur diesen defekten Stand. Die Website bleibt bedienbar.</p>
+            </div>
+            <div className="save-recovery__actions">
+              <button onClick={downloadCorruptSave} type="button">Rohdaten herunterladen</button>
+              <button onClick={discardCorruptSave} type="button">Defekten Stand entfernen</button>
+            </div>
+          </section>
+        ) : null}
+
         {savedGame ? (
           <section className="active-game-banner" aria-labelledby="active-game-title">
             <div>
@@ -118,7 +156,7 @@ export default function CardGameSetupPage() {
               </h2>
               <p>{savedGame.players.map((player) => player.name).join(' · ')}</p>
             </div>
-            <Button onClick={resumeGame} type="button">
+            <Button disabled={!ready} onClick={resumeGame} type="button">
               {savedGame.phase === 'complete' ? 'Ergebnis öffnen' : 'Spiel fortsetzen'}
             </Button>
           </section>
@@ -135,6 +173,7 @@ export default function CardGameSetupPage() {
                   <label className="sr-only" htmlFor={player.id}>Spieler {index + 1}</label>
                   <input
                     autoComplete="off"
+                    disabled={!ready}
                     id={player.id}
                     maxLength={24}
                     onChange={(event) => updatePlayer(player.id, event.target.value)}
@@ -145,7 +184,7 @@ export default function CardGameSetupPage() {
                   <button
                     aria-label={`Spieler ${index + 1} entfernen`}
                     className="icon-button icon-button--plain"
-                    disabled={players.length === 1}
+                    disabled={!ready || players.length === 1}
                     onClick={() => removePlayer(player.id)}
                     type="button"
                   >
@@ -156,7 +195,7 @@ export default function CardGameSetupPage() {
             </div>
             <button
               className="add-player"
-              disabled={players.length >= MAX_PLAYERS}
+              disabled={!ready || players.length >= MAX_PLAYERS}
               onClick={addPlayer}
               type="button"
             >
@@ -173,6 +212,7 @@ export default function CardGameSetupPage() {
                   <button
                     aria-pressed={deckSize === size}
                     className={deckSize === size ? 'is-selected' : ''}
+                    disabled={!ready}
                     key={size}
                     onClick={() => setDeckSize(size)}
                     type="button"
@@ -191,6 +231,7 @@ export default function CardGameSetupPage() {
                 <button
                   aria-pressed={mode === 'both'}
                   className={mode === 'both' ? 'is-selected' : ''}
+                  disabled={!ready}
                   onClick={() => setMode('both')}
                   type="button"
                 >
@@ -199,6 +240,7 @@ export default function CardGameSetupPage() {
                 <button
                   aria-pressed={mode === 'one'}
                   className={mode === 'one' ? 'is-selected' : ''}
+                  disabled={!ready}
                   onClick={() => setMode('one')}
                   type="button"
                 >
@@ -231,7 +273,7 @@ export default function CardGameSetupPage() {
 
             <p className="form-error" role="alert">{error}</p>
 
-            <Button className="setup-start" onClick={() => startGame(false)} type="button">
+            <Button className="setup-start" disabled={!ready} onClick={() => startGame(false)} type="button">
               Spiel starten
             </Button>
 
