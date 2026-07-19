@@ -17,6 +17,8 @@ const DEFAULT_PAIRS_DIRECTORY = path.join(DEFAULT_MEMORY_DIRECTORY, 'pairs')
 const DEFAULT_OUTPUT_FILE = path.join(PROJECT_ROOT, 'src', 'games', 'memory', 'generatedManifest.js')
 const DEFAULT_PUBLIC_OUTPUT_FILE = path.join(DEFAULT_MEMORY_DIRECTORY, 'manifest.json')
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+const OPAQUE_PHOTO_NAME_PATTERN = /^(?:[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}(?:[_-].*)?|(?:img|dsc|pxl)[_-]?\d[\w-]*)$/i
+const UNSUPPORTED_HEIC_EXTENSIONS = new Set(['.heic', '.heif'])
 
 function readUint24LE(buffer, offset) {
   return buffer[offset] | (buffer[offset + 1] << 8) | (buffer[offset + 2] << 16)
@@ -103,6 +105,17 @@ export function labelFromMemorySlug(slug) {
     .join(' ')
 }
 
+export function memoryIdFromFilename(filename) {
+  const extension = path.extname(filename)
+  const normalized = path.basename(filename, extension)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('de-DE')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+  return normalized || `motiv-${createHash('sha256').update(filename).digest('hex').slice(0, 10)}`
+}
+
 async function readLabels(labelsPath, warnings) {
   if (!existsSync(labelsPath)) return {}
   try {
@@ -115,6 +128,87 @@ async function readLabels(labelsPath, warnings) {
   }
 }
 
+function labelOverride(labels, setSlug, id) {
+  const nested = setSlug && labels[setSlug] && typeof labels[setSlug] === 'object'
+    ? labels[setSlug][id]
+    : null
+  const pathLabel = setSlug ? labels[`${setSlug}/${id}`] : null
+  const value = nested ?? pathLabel ?? labels[id]
+  return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim().slice(0, 80) : ''
+}
+
+async function buildMemorySet({ directory, id, label, publicPath, setSlug, entries, labels, warnings }) {
+  const candidates = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .sort((first, second) => first.localeCompare(second, 'de-DE'))
+  const cards = []
+  const hashes = new Set()
+  const ids = new Set()
+
+  for (const filename of candidates) {
+    const extension = path.extname(filename).toLowerCase()
+    const relativeName = setSlug ? `${setSlug}/${filename}` : filename
+    if (UNSUPPORTED_HEIC_EXTENSIONS.has(extension)) {
+      warnings.push(`${relativeName}: HEIC/HEIF wird im Browser nicht zuverlässig unterstützt. Bitte als JPEG, WebP, PNG oder AVIF exportieren.`)
+      continue
+    }
+    if (!ALLOWED_MEMORY_EXTENSIONS.includes(extension)) continue
+    const imageId = memoryIdFromFilename(filename)
+    if (!SLUG_PATTERN.test(imageId)) {
+      warnings.push(`${relativeName}: Es konnte keine gültige Motiv-ID gebildet werden.`)
+      continue
+    }
+    if (ids.has(imageId)) {
+      warnings.push(`${relativeName}: Motiv-ID „${imageId}“ ist in diesem Set bereits vergeben.`)
+      continue
+    }
+
+    const filePath = path.join(directory, filename)
+    const buffer = await readFile(filePath)
+    const dimensions = inspectMemoryImage(buffer, extension)
+    if (!dimensions) {
+      warnings.push(`${relativeName}: Datei ist zu groß, defekt oder kein unterstütztes Bild.`)
+      continue
+    }
+    const ratio = dimensions.width / dimensions.height
+    if (dimensions.width < MIN_MEMORY_IMAGE_EDGE || dimensions.height < MIN_MEMORY_IMAGE_EDGE || ratio < 0.5 || ratio > 2) {
+      warnings.push(`${relativeName}: mindestens 512×512 px und Seitenverhältnis 0,5–2 erforderlich.`)
+      continue
+    }
+
+    const sha256 = createHash('sha256').update(buffer).digest('hex')
+    if (hashes.has(sha256)) {
+      warnings.push(`${relativeName}: exaktes Bildduplikat wird nicht als weiteres Paar gezählt.`)
+      continue
+    }
+    hashes.add(sha256)
+    ids.add(imageId)
+    const override = labelOverride(labels, setSlug, imageId)
+    const originalSlug = path.basename(filename, path.extname(filename))
+    cards.push({
+      id: imageId,
+      src: `/assets/memory/pairs/${publicPath ? `${encodeURIComponent(publicPath)}/` : ''}${encodeURIComponent(filename)}`,
+      label: override || (OPAQUE_PHOTO_NAME_PATTERN.test(originalSlug) ? `Foto ${cards.length + 1}` : labelFromMemorySlug(imageId)),
+      width: dimensions.width,
+      height: dimensions.height,
+      sha256,
+    })
+  }
+
+  cards.sort((first, second) => first.id.localeCompare(second.id, 'de-DE'))
+  const fingerprint = createHash('sha256').update(JSON.stringify(cards)).digest('hex')
+  const availablePairCounts = MEMORY_PAIR_OPTIONS.filter((count) => count <= cards.length)
+  return {
+    id,
+    label,
+    ready: cards.length >= MIN_MEMORY_PAIRS,
+    fingerprint,
+    availablePairCounts,
+    cards,
+  }
+}
+
 export async function buildMemoryManifest({
   pairsDirectory = DEFAULT_PAIRS_DIRECTORY,
   labelsPath = path.join(path.dirname(pairsDirectory), 'labels.json'),
@@ -124,69 +218,53 @@ export async function buildMemoryManifest({
   const entries = existsSync(pairsDirectory)
     ? await readdir(pairsDirectory, { withFileTypes: true })
     : []
-  const candidates = entries
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .sort((first, second) => first === second ? 0 : first < second ? -1 : 1)
-  const cards = []
-  const hashes = new Set()
-  const ids = new Set()
-
-  for (const filename of candidates) {
-    const extension = path.extname(filename).toLowerCase()
-    if (!ALLOWED_MEMORY_EXTENSIONS.includes(extension)) continue
-    const id = path.basename(filename, extension)
-    if (!SLUG_PATTERN.test(id)) {
-      warnings.push(`${filename}: Dateiname muss ein kleingeschriebener Slug sein.`)
-      continue
-    }
-    if (ids.has(id)) {
-      warnings.push(`${filename}: Motiv-ID „${id}“ ist bereits vergeben.`)
-      continue
-    }
-
-    const filePath = path.join(pairsDirectory, filename)
-    const buffer = await readFile(filePath)
-    const dimensions = inspectMemoryImage(buffer, extension)
-    if (!dimensions) {
-      warnings.push(`${filename}: Datei ist zu groß, defekt oder kein unterstütztes Bild.`)
-      continue
-    }
-    const ratio = dimensions.width / dimensions.height
-    if (dimensions.width < MIN_MEMORY_IMAGE_EDGE || dimensions.height < MIN_MEMORY_IMAGE_EDGE || ratio < 0.8 || ratio > 1.25) {
-      warnings.push(`${filename}: mindestens 512×512 px und Seitenverhältnis 0,8–1,25 erforderlich.`)
-      continue
-    }
-
-    const sha256 = createHash('sha256').update(buffer).digest('hex')
-    if (hashes.has(sha256)) {
-      warnings.push(`${filename}: exaktes Bildduplikat wird nicht als weiteres Paar gezählt.`)
-      continue
-    }
-    hashes.add(sha256)
-    ids.add(id)
-    const override = typeof labels[id] === 'string' ? labels[id].replace(/\s+/g, ' ').trim().slice(0, 80) : ''
-    cards.push({
-      id,
-      src: `/assets/memory/pairs/${encodeURIComponent(filename)}`,
-      label: override || labelFromMemorySlug(id),
-      width: dimensions.width,
-      height: dimensions.height,
-      sha256,
-    })
+  const sets = []
+  const rootImageEntries = entries.filter((entry) => entry.isFile() && (
+    ALLOWED_MEMORY_EXTENSIONS.includes(path.extname(entry.name).toLowerCase())
+    || UNSUPPORTED_HEIC_EXTENSIONS.has(path.extname(entry.name).toLowerCase())
+  ))
+  if (rootImageEntries.length > 0) {
+    sets.push(await buildMemorySet({
+      directory: pairsDirectory,
+      id: '_root',
+      label: 'Standard',
+      publicPath: '',
+      setSlug: '',
+      entries: rootImageEntries,
+      labels,
+      warnings,
+    }))
   }
 
-  cards.sort((first, second) => first.id === second.id ? 0 : first.id < second.id ? -1 : 1)
-  const fingerprint = createHash('sha256').update(JSON.stringify(cards)).digest('hex')
-  const availablePairCounts = MEMORY_PAIR_OPTIONS.filter((count) => count <= cards.length)
+  const directories = entries
+    .filter((entry) => entry.isDirectory())
+    .sort((first, second) => first.name.localeCompare(second.name, 'de-DE'))
+  for (const entry of directories) {
+    if (!SLUG_PATTERN.test(entry.name)) {
+      warnings.push(`${entry.name}/: Ordnername muss ein kleingeschriebener Slug sein, zum Beispiel „urlaub-2026“.`)
+      continue
+    }
+    const directory = path.join(pairsDirectory, entry.name)
+    sets.push(await buildMemorySet({
+      directory,
+      id: entry.name,
+      label: labelFromMemorySlug(entry.name),
+      publicPath: entry.name,
+      setSlug: entry.name,
+      entries: await readdir(directory, { withFileTypes: true }),
+      labels,
+      warnings,
+    }))
+  }
+
+  const fingerprint = createHash('sha256').update(JSON.stringify(sets)).digest('hex')
   return {
     manifest: {
-      schemaVersion: 1,
+      schemaVersion: 2,
       minPairs: MIN_MEMORY_PAIRS,
-      ready: cards.length >= MIN_MEMORY_PAIRS,
+      ready: sets.some((set) => set.ready),
       fingerprint,
-      availablePairCounts,
-      cards,
+      sets,
     },
     warnings,
   }
@@ -213,7 +291,9 @@ async function main() {
   const result = await generateMemoryManifest()
   result.warnings.forEach((warning) => console.warn(`[Memory] ${warning}`))
   const status = result.manifest.ready ? 'sichtbar' : 'verborgen'
-  console.log(`[Memory] ${result.manifest.cards.length} valide Motive; Spiel bleibt ${status}.`)
+  const readySets = result.manifest.sets.filter((set) => set.ready).length
+  const cards = result.manifest.sets.reduce((total, set) => total + set.cards.length, 0)
+  console.log(`[Memory] ${readySets} spielbare Sets mit insgesamt ${cards} validen Motiven; Spiel bleibt ${status}.`)
 }
 
 if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {

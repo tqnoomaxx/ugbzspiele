@@ -13,7 +13,7 @@ import {
   resolveMemoryTurn,
 } from '../games/memory/gameEngine.js'
 import { isStableMemoryState, memoryGameRepository } from '../games/memory/gameRepository.js'
-import { getMemoryAssets, memoryManifest } from '../games/memory/manifest.js'
+import { getMemoryAssets, getMemorySet, memoryManifest } from '../games/memory/manifest.js'
 import { preloadMemoryAssets } from '../games/memory/preload.js'
 
 function columnsForGame(pairCount) {
@@ -23,9 +23,9 @@ function columnsForGame(pairCount) {
 }
 
 export default function MemoryGamePage() {
-  const assets = useMemo(() => getMemoryAssets(), [])
-  const assetsById = useMemo(() => new Map(assets.map((asset) => [asset.id, asset])), [assets])
   const [game, setGame] = useState(null)
+  const assets = useMemo(() => game ? getMemoryAssets(game.setId) : [], [game?.setId])
+  const assetsById = useMemo(() => new Map(assets.map((asset) => [asset.id, asset])), [assets])
   const [loadError, setLoadError] = useState('')
   const [focusCardId, setFocusCardId] = useState(null)
   const [columnCount, setColumnCount] = useState(4)
@@ -34,11 +34,12 @@ export default function MemoryGamePage() {
   useEffect(() => {
     const stored = memoryGameRepository.load(memoryManifest)
     if (!stored) { window.location.replace(appPath('/memory')); return }
+    const storedAssets = getMemoryAssets(stored.setId)
     const selectedIds = new Set(stored.deck.map((card) => card.assetId))
-    preloadMemoryAssets(assets.filter((asset) => selectedIds.has(asset.id)))
+    preloadMemoryAssets(storedAssets.filter((asset) => selectedIds.has(asset.id)))
       .then(() => { setGame(stored); setFocusCardId(stored.deck.find((card) => card.status === 'hidden')?.id ?? stored.deck[0]?.id) })
       .catch(() => setLoadError('Mindestens ein Motiv konnte nicht geladen werden. Bitte prüfe die Bilddateien.'))
-  }, [assets])
+  }, [])
 
   useEffect(() => {
     if (!game) return undefined
@@ -104,7 +105,16 @@ export default function MemoryGamePage() {
 
   const replay = async () => {
     try {
-      const next = createMemoryGame({ names: game.players.map((player) => player.name), pairCount: game.pairCount, assets, manifestFingerprint: memoryManifest.fingerprint })
+      const set = getMemorySet(game.setId)
+      if (!set?.ready) throw new Error('Dieses Bilder-Set ist nicht mehr verfügbar.')
+      const next = createMemoryGame({
+        names: game.players.map((player) => player.name),
+        pairCount: game.pairCount,
+        assets,
+        setId: set.id,
+        setLabel: set.label,
+        setFingerprint: set.fingerprint,
+      })
       const selectedIds = new Set(next.deck.map((card) => card.assetId))
       await preloadMemoryAssets(assets.filter((asset) => selectedIds.has(asset.id)))
       if (!memoryGameRepository.save(next, memoryManifest)) throw new Error('Die neue Partie konnte nicht gespeichert werden.')
@@ -123,7 +133,7 @@ export default function MemoryGamePage() {
       <AppHeader variant="dark" home />
       <main className="memory-game-shell">
         <header className="memory-game-head">
-          <div><span>Memory</span><h1>{game.phase === MEMORY_PHASES.COMPLETE ? 'Partie beendet' : `${game.players[game.activePlayerIndex].name} ist dran`}</h1></div>
+          <div><span>Memory · {game.setLabel}</span><h1>{game.phase === MEMORY_PHASES.COMPLETE ? 'Partie beendet' : `${game.players[game.activePlayerIndex].name} ist dran`}</h1></div>
           <div className="memory-progress"><strong>{game.matchedPairs}/{game.pairCount}</strong><span>Paare gefunden</span></div>
         </header>
 

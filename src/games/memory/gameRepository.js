@@ -1,4 +1,5 @@
 import { MEMORY_PHASES, MEMORY_SCHEMA_VERSION } from './gameEngine.js'
+import { getMemorySet } from './manifest.js'
 
 export const MEMORY_STORAGE_KEY = 'ugbz:memory:v1'
 const CARD_STATUSES = new Set(['hidden', 'revealed', 'matched'])
@@ -10,14 +11,15 @@ export function isStableMemoryState(game) {
 }
 
 export function isValidMemoryGame(game, manifest) {
-  if (!game || game.schemaVersion !== MEMORY_SCHEMA_VERSION || !manifest || game.manifestFingerprint !== manifest.fingerprint) return false
+  const set = getMemorySet(game?.setId, manifest)
+  if (!game || game.schemaVersion !== MEMORY_SCHEMA_VERSION || !set || game.setFingerprint !== set.fingerprint || game.setLabel !== set.label) return false
   if (!Array.isArray(game.players) || game.players.length < 1 || game.players.length > 6) return false
   if (game.players.some((player) => !player || typeof player.id !== 'string' || !player.id || typeof player.name !== 'string' || !player.name.trim() || !Number.isInteger(player.score) || player.score < 0)) return false
   if (new Set(game.players.map((player) => player.id)).size !== game.players.length) return false
-  if (![6, 8, 10, 12].includes(game.pairCount) || game.pairCount > manifest.cards.length) return false
+  if (![6, 8, 10, 12].includes(game.pairCount) || game.pairCount > set.cards.length) return false
   if (!Array.isArray(game.deck) || game.deck.length !== game.pairCount * 2) return false
   if (new Set(game.deck.map((card) => card.id)).size !== game.deck.length) return false
-  const assetIds = new Set(manifest.cards.map((card) => card.id))
+  const assetIds = new Set(set.cards.map((card) => card.id))
   const pairCounts = new Map()
   for (const card of game.deck) {
     if (!card || typeof card.id !== 'string' || typeof card.pairId !== 'string' || card.assetId !== card.pairId || !assetIds.has(card.assetId) || !CARD_STATUSES.has(card.status)) return false
@@ -51,7 +53,8 @@ export const memoryGameRepository = {
       const game = JSON.parse(raw)
       if (!isValidMemoryGame(game, manifest) || !isStableMemoryState(game)) {
         window.localStorage.removeItem(MEMORY_STORAGE_KEY)
-        return { game: null, issue: game?.manifestFingerprint !== manifest?.fingerprint ? 'assets-changed' : 'corrupt' }
+        const set = getMemorySet(game?.setId, manifest)
+        return { game: null, issue: !set || game?.setFingerprint !== set.fingerprint ? 'assets-changed' : 'corrupt' }
       }
       return { game, issue: null }
     } catch {

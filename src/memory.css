@@ -167,6 +167,79 @@
   cursor: pointer;
 }
 
+.memory-set-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.memory-set-options > button {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  min-height: 88px;
+  overflow: hidden;
+  padding: 0;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.memory-set-options > button.is-active {
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 2px var(--green);
+}
+
+.memory-set-options > button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(.65);
+  opacity: .58;
+}
+
+.memory-set-preview {
+  position: relative;
+  display: block;
+  min-height: 88px;
+  overflow: hidden;
+  background: #dcd5c5;
+}
+
+.memory-set-preview img {
+  position: absolute;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-set-preview img:nth-child(1) { left: 0; }
+.memory-set-preview img:nth-child(2) { left: 28%; border-left: 2px solid #fff; }
+.memory-set-preview img:nth-child(3) { left: 56%; border-left: 2px solid #fff; }
+.memory-set-preview i { display: grid; height: 100%; color: var(--muted); font-family: var(--serif); font-size: 2rem; font-style: normal; place-items: center; }
+
+.memory-set-copy {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.memory-set-copy strong {
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.memory-set-copy small {
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
 .memory-pair-options {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -469,6 +542,7 @@
   .memory-resume { align-items: stretch; flex-direction: column; padding: 20px; }
   .memory-setup-card > section { padding: 27px 20px; }
   .memory-player-fields { grid-template-columns: 1fr; }
+  .memory-set-options { grid-template-columns: 1fr; }
   .memory-pair-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .memory-error { margin-inline: 20px; }
   .memory-start { width: calc(100% - 40px); margin-inline: 20px; }

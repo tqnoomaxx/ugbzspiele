@@ -85,13 +85,20 @@ export default function HomePage() {
     fetch(appPath('/assets/memory/manifest.json'), { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : null)
       .then((manifest) => {
-        const ids = Array.isArray(manifest?.cards) ? manifest.cards.map((card) => card?.id) : []
-        const valid = manifest?.schemaVersion === 1
+        const readySets = Array.isArray(manifest?.sets) ? manifest.sets.filter((set) => set?.ready === true) : []
+        const valid = manifest?.schemaVersion === 2
           && manifest?.minPairs === 6
           && manifest?.ready === true
-          && ids.length >= 6
-          && ids.every((id) => typeof id === 'string' && id)
-          && new Set(ids).size === ids.length
+          && readySets.some((set) => {
+            const ids = Array.isArray(set?.cards) ? set.cards.map((card) => card?.id) : []
+            return typeof set?.id === 'string'
+              && set.id
+              && typeof set?.fingerprint === 'string'
+              && set.fingerprint.length === 64
+              && ids.length >= 6
+              && ids.every((id) => typeof id === 'string' && id)
+              && new Set(ids).size === ids.length
+          })
           && typeof manifest?.fingerprint === 'string'
           && manifest.fingerprint.length === 64
         if (active) setMemoryReady(valid)

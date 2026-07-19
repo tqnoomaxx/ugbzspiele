@@ -1,4 +1,4 @@
-export const MEMORY_SCHEMA_VERSION = 1
+export const MEMORY_SCHEMA_VERSION = 2
 export const MEMORY_PHASES = Object.freeze({
   PLAYING: 'playing',
   RESOLVING: 'resolving',
@@ -51,14 +51,17 @@ function validateAssets(assets, pairCount) {
 }
 
 export function createMemoryGame(
-  { names, pairCount, assets, manifestFingerprint },
+  { names, pairCount, assets, setId, setLabel, setFingerprint },
   { rng = browserRandom } = {},
 ) {
   const players = validateMemoryPlayers(names)
   if (!players.valid) throw new Error(players.message)
   validateAssets(assets, pairCount)
-  if (typeof manifestFingerprint !== 'string' || manifestFingerprint.length !== 64) {
-    throw new Error('Das Memory-Manifest ist ungültig.')
+  if (typeof setId !== 'string' || !setId || typeof setLabel !== 'string' || !setLabel.trim()) {
+    throw new Error('Das Memory-Set ist ungültig.')
+  }
+  if (typeof setFingerprint !== 'string' || setFingerprint.length !== 64) {
+    throw new Error('Der Memory-Set-Fingerabdruck ist ungültig.')
   }
 
   const selectedAssets = shuffleMemoryItems(assets, rng).slice(0, pairCount)
@@ -69,7 +72,9 @@ export function createMemoryGame(
 
   return {
     schemaVersion: MEMORY_SCHEMA_VERSION,
-    manifestFingerprint,
+    setId,
+    setLabel: setLabel.trim().slice(0, 80),
+    setFingerprint,
     players: players.names.map((name, index) => ({ id: `player-${index + 1}`, name, score: 0 })),
     pairCount,
     deck,

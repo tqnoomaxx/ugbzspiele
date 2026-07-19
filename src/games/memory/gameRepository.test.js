@@ -14,16 +14,27 @@ class MemoryStorage {
 }
 
 const manifest = {
+  schemaVersion: 2,
+  minPairs: 6,
+  ready: true,
   fingerprint: 'b'.repeat(64),
-  cards: Array.from({ length: 6 }, (_, index) => ({ id: `motiv-${index + 1}` })),
+  sets: [{
+    id: 'familie',
+    label: 'Familie',
+    ready: true,
+    fingerprint: 'a'.repeat(64),
+    cards: Array.from({ length: 6 }, (_, index) => ({ id: `motiv-${index + 1}` })),
+  }],
 }
 
 function newGame() {
   return createMemoryGame({
     names: ['Anna', 'Ben'],
     pairCount: 6,
-    assets: manifest.cards,
-    manifestFingerprint: manifest.fingerprint,
+    assets: manifest.sets[0].cards,
+    setId: manifest.sets[0].id,
+    setLabel: manifest.sets[0].label,
+    setFingerprint: manifest.sets[0].fingerprint,
   }, { rng: () => 0.2 })
 }
 
@@ -53,16 +64,34 @@ describe('memory repository', () => {
     expect(memoryGameRepository.load(manifest).matchedPairs).toBe(1)
   })
 
-  it('invalidates a saved game when the manifest fingerprint changes', () => {
+  it('invalidates a saved game when its selected set changes', () => {
     const localStorage = new MemoryStorage()
     vi.stubGlobal('window', { localStorage })
     expect(memoryGameRepository.save(newGame(), manifest)).toBe(true)
 
-    const changedManifest = { ...manifest, fingerprint: 'c'.repeat(64) }
+    const changedManifest = { ...manifest, sets: [{ ...manifest.sets[0], fingerprint: 'c'.repeat(64) }] }
     const inspected = memoryGameRepository.inspect(changedManifest)
     expect(inspected.game).toBeNull()
     expect(inspected.issue).toBe('assets-changed')
     expect(localStorage.getItem(MEMORY_STORAGE_KEY)).toBeNull()
+  })
+
+  it('keeps a saved game when only another set is added', () => {
+    const localStorage = new MemoryStorage()
+    vi.stubGlobal('window', { localStorage })
+    expect(memoryGameRepository.save(newGame(), manifest)).toBe(true)
+    const extendedManifest = {
+      ...manifest,
+      fingerprint: 'd'.repeat(64),
+      sets: [...manifest.sets, {
+        id: 'urlaub',
+        label: 'Urlaub',
+        ready: true,
+        fingerprint: 'e'.repeat(64),
+        cards: Array.from({ length: 6 }, (_, index) => ({ id: `foto-${index + 1}` })),
+      }],
+    }
+    expect(memoryGameRepository.load(extendedManifest)?.setId).toBe('familie')
   })
 
   it('rejects corrupted deck invariants', () => {

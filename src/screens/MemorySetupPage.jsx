@@ -9,7 +9,10 @@ import { memoryGameRepository } from '../games/memory/gameRepository.js'
 import {
   getAvailableMemoryPairCounts,
   getDefaultMemoryPairCount,
+  getDefaultMemorySetId,
   getMemoryAssets,
+  getMemorySet,
+  getMemorySets,
   memoryManifest,
 } from '../games/memory/manifest.js'
 import { preloadMemoryAssets } from '../games/memory/preload.js'
@@ -19,10 +22,13 @@ function defaultNames() {
 }
 
 export default function MemorySetupPage() {
-  const pairOptions = useMemo(() => getAvailableMemoryPairCounts(), [])
-  const assets = useMemo(() => getMemoryAssets(), [])
+  const sets = useMemo(() => getMemorySets(), [])
+  const [selectedSetId, setSelectedSetId] = useState(() => getDefaultMemorySetId())
+  const selectedSet = useMemo(() => getMemorySet(selectedSetId), [selectedSetId])
+  const pairOptions = useMemo(() => getAvailableMemoryPairCounts(selectedSetId), [selectedSetId])
+  const assets = useMemo(() => getMemoryAssets(selectedSetId), [selectedSetId])
   const [names, setNames] = useState(defaultNames)
-  const [pairCount, setPairCount] = useState(() => getDefaultMemoryPairCount())
+  const [pairCount, setPairCount] = useState(() => getDefaultMemoryPairCount(getDefaultMemorySetId()))
   const [savedGame, setSavedGame] = useState(null)
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
@@ -45,11 +51,19 @@ export default function MemorySetupPage() {
     setConfirmOverwrite(false)
   }
   const removePlayer = (index) => { setNames((current) => current.length <= 1 ? current : current.filter((_, nameIndex) => nameIndex !== index)); setConfirmOverwrite(false) }
+  const selectSet = (set) => {
+    if (!set.ready) return
+    setSelectedSetId(set.id)
+    setPairCount(getDefaultMemoryPairCount(set.id))
+    setConfirmOverwrite(false)
+    setError('')
+  }
 
   const startGame = async (event) => {
     event.preventDefault()
     const validation = validateMemoryPlayers(names)
     if (!validation.valid) { setError(validation.message); return }
+    if (!selectedSet?.ready) { setError('Bitte wähle ein spielbares Bilder-Set.'); return }
     if (savedGame && !confirmOverwrite) { setConfirmOverwrite(true); setError(''); return }
     setBusy(true)
     setError('')
@@ -58,7 +72,9 @@ export default function MemorySetupPage() {
         names: validation.names,
         pairCount,
         assets,
-        manifestFingerprint: memoryManifest.fingerprint,
+        setId: selectedSet.id,
+        setLabel: selectedSet.label,
+        setFingerprint: selectedSet.fingerprint,
       })
       const selectedIds = new Set(game.deck.map((card) => card.assetId))
       await preloadMemoryAssets(assets.filter((asset) => selectedIds.has(asset.id)))
@@ -84,7 +100,7 @@ export default function MemorySetupPage() {
 
         {savedGame ? (
           <section className="memory-resume" aria-labelledby="memory-resume-title">
-            <div><span>Aktive Partie</span><h2 id="memory-resume-title">{savedGame.matchedPairs} von {savedGame.pairCount} Paaren gefunden</h2><p>{savedGame.players.map((player) => player.name).join(' · ')}</p></div>
+            <div><span>Aktive Partie · {savedGame.setLabel}</span><h2 id="memory-resume-title">{savedGame.matchedPairs} von {savedGame.pairCount} Paaren gefunden</h2><p>{savedGame.players.map((player) => player.name).join(' · ')}</p></div>
             <Button onClick={continueGame} type="button">Partie fortsetzen</Button>
           </section>
         ) : null}
@@ -104,8 +120,31 @@ export default function MemorySetupPage() {
             <button className="memory-add-player" disabled={names.length >= 6} onClick={addPlayer} type="button">+ Person hinzufügen</button>
           </section>
 
+          <section aria-labelledby="memory-set-title">
+            <div className="memory-section-heading"><span>02</span><div><h2 id="memory-set-title">Welches Bilder-Set?</h2><p>Jeder Ordner wird automatisch zu einem eigenen Set.</p></div></div>
+            <div className="memory-set-options">
+              {sets.map((set) => (
+                <button
+                  aria-label={`${set.label}, ${set.cards.length} Motive${set.ready ? '' : ', noch nicht spielbar'}`}
+                  aria-pressed={selectedSetId === set.id}
+                  className={selectedSetId === set.id ? 'is-active' : ''}
+                  disabled={!set.ready}
+                  key={set.id}
+                  onClick={() => selectSet(set)}
+                  type="button"
+                >
+                  <span className="memory-set-preview" aria-hidden="true">
+                    {set.cards.slice(0, 3).map((card) => <img alt="" height={card.height} key={card.id} src={appPath(card.src)} width={card.width} />)}
+                    {set.cards.length === 0 ? <i>?</i> : null}
+                  </span>
+                  <span className="memory-set-copy"><strong>{set.label}</strong><small>{set.ready ? `${set.cards.length} Motive` : `${set.cards.length}/6 Motive`}</small></span>
+                </button>
+              ))}
+            </div>
+          </section>
+
           <section aria-labelledby="memory-size-title">
-            <div className="memory-section-heading"><span>02</span><div><h2 id="memory-size-title">Wie groß soll das Spiel sein?</h2><p>{pairCount} Paare · etwa {pairCount <= 6 ? '3–7' : pairCount <= 8 ? '5–10' : '8–15'} Minuten</p></div></div>
+            <div className="memory-section-heading"><span>03</span><div><h2 id="memory-size-title">Wie groß soll das Spiel sein?</h2><p>{pairCount} Paare · etwa {pairCount <= 6 ? '3–7' : pairCount <= 8 ? '5–10' : '8–15'} Minuten</p></div></div>
             <div className="memory-pair-options">
               {pairOptions.map((count) => (
                 <button aria-pressed={pairCount === count} className={pairCount === count ? 'is-active' : ''} key={count} onClick={() => { setPairCount(count); setConfirmOverwrite(false) }} type="button">

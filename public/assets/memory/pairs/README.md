@@ -1,5 +1,5 @@
-# Bilder hier ablegen
+# Pro Set einen Ordner erstellen
 
-Pro Motiv genau eine Bilddatei. UGBZ verdoppelt sie automatisch zu einem Memory-Paar.
+Beispiel: Erstelle `familie/` und lege dort mindestens sechs unterschiedliche Bilder ab. Beim nächsten Start oder Build erscheint „Familie“ automatisch in der Memory-Auswahl.
 
-Erlaubt sind `.webp`, `.avif`, `.jpg`, `.jpeg` und `.png`; mindestens 512 × 512 Pixel, höchstens 2 MB und möglichst quadratisch. Dateinamen nur kleingeschrieben als Slug, zum Beispiel `mein-hund.webp`.
+Erlaubt sind `.webp`, `.avif`, `.jpg`, `.jpeg` und `.png`; mindestens 512 × 512 Pixel und höchstens 2 MB. HEIC bitte vorher als JPEG oder WebP exportieren. Die vollständige Anleitung steht eine Ebene höher in `README.md`.

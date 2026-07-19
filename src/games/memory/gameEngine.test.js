@@ -10,12 +10,14 @@ import {
 } from './gameEngine.js'
 
 const fingerprint = 'a'.repeat(64)
+const setId = 'familie'
+const setLabel = 'Familie'
 const assets = Array.from({ length: 12 }, (_, index) => ({ id: `motiv-${index + 1}` }))
 
 function createGame(names = ['Anna', 'Ben'], pairCount = 6) {
   let randomValue = 0
   return createMemoryGame(
-    { names, pairCount, assets, manifestFingerprint: fingerprint },
+    { names, pairCount, assets, setId, setLabel, setFingerprint: fingerprint },
     { rng: () => { randomValue = (randomValue + 0.173) % 1; return randomValue } },
   )
 }
@@ -28,6 +30,8 @@ describe('memory engine', () => {
   it('creates exactly two cards for every selected pair', () => {
     const game = createGame()
     expect(game.deck).toHaveLength(12)
+    expect(game.setId).toBe('familie')
+    expect(game.setLabel).toBe('Familie')
     expect(new Set(game.deck.map((card) => card.id)).size).toBe(12)
     const grouped = game.deck.reduce((counts, card) => counts.set(card.pairId, (counts.get(card.pairId) ?? 0) + 1), new Map())
     const counts = [...grouped.values()]

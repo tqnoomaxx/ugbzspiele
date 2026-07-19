@@ -42,26 +42,46 @@ describe('memory manifest generator', () => {
     await writeFile(path.join(files.pairsDirectory, 'motiv-6.png'), fakePng(640, 640, 6))
     const result = await buildMemoryManifest(files)
     expect(result.manifest.ready).toBe(true)
-    expect(result.manifest.cards).toHaveLength(6)
-    expect(result.manifest.availablePairCounts).toEqual([6])
+    expect(result.manifest.schemaVersion).toBe(2)
+    expect(result.manifest.sets[0].id).toBe('_root')
+    expect(result.manifest.sets[0].cards).toHaveLength(6)
+    expect(result.manifest.sets[0].availablePairCounts).toEqual([6])
   })
 
-  it('excludes duplicates, bad slugs, small and non-square images deterministically', async () => {
+  it('accepts camera filenames but excludes duplicates, HEIC, small and extreme images deterministically', async () => {
     const files = await fixture()
     await writeFile(path.join(files.labelsPath), JSON.stringify({ 'motiv-1': 'Mein Motiv' }))
+    await writeFile(path.join(files.pairsDirectory, 'IMG_9001.PNG'), fakePng(700, 512, 9))
     await writeFile(path.join(files.pairsDirectory, 'motiv-1.png'), fakePng(512, 512, 1))
     await writeFile(path.join(files.pairsDirectory, 'motiv-2.png'), fakePng(512, 512, 1))
-    await writeFile(path.join(files.pairsDirectory, 'Motiv-3.png'), fakePng(512, 512, 3))
+    await writeFile(path.join(files.pairsDirectory, 'IMG_1234.heic'), Buffer.from('not-a-browser-image'))
     await writeFile(path.join(files.pairsDirectory, 'motiv-4.png'), fakePng(200, 200, 4))
-    await writeFile(path.join(files.pairsDirectory, 'motiv-5.png'), fakePng(900, 512, 5))
+    await writeFile(path.join(files.pairsDirectory, 'motiv-5.png'), fakePng(1200, 512, 5))
 
     const first = await buildMemoryManifest(files)
     const second = await buildMemoryManifest(files)
     expect(first).toEqual(second)
-    expect(first.manifest.cards).toHaveLength(1)
-    expect(first.manifest.cards[0].label).toBe('Mein Motiv')
+    expect(first.manifest.sets[0].cards).toHaveLength(2)
+    expect(first.manifest.sets[0].cards.find((card) => card.id === 'motiv-1')?.label).toBe('Mein Motiv')
+    expect(first.manifest.sets[0].cards.find((card) => card.id === 'img-9001')?.label).toBe('Foto 1')
     expect(first.warnings).toHaveLength(4)
     expect(serializeMemoryManifest(first.manifest)).not.toContain('generatedAt')
+  })
+
+  it('turns every direct subfolder into an independently playable set', async () => {
+    const files = await fixture()
+    for (const folder of ['familie', 'urlaub-2026']) await mkdir(path.join(files.pairsDirectory, folder))
+    for (let index = 1; index <= 6; index += 1) {
+      await writeFile(path.join(files.pairsDirectory, 'familie', `foto-${index}.png`), fakePng(512, 700, index))
+      await writeFile(path.join(files.pairsDirectory, 'urlaub-2026', `foto-${index}.png`), fakePng(700, 512, index))
+    }
+
+    const result = await buildMemoryManifest(files)
+    expect(result.manifest.sets.map((set) => set.id)).toEqual(['familie', 'urlaub-2026'])
+    expect(result.manifest.sets.map((set) => set.label)).toEqual(['Familie', 'Urlaub 2026'])
+    expect(result.manifest.sets.every((set) => set.ready)).toBe(true)
+    expect(result.manifest.sets[0].cards[0].src).toMatch(/^\/assets\/memory\/pairs\/familie\//)
+    expect(result.manifest.sets[0].fingerprint).not.toBe(result.manifest.sets[1].fingerprint)
   })
 
   it('writes matching bundled and public manifests', async () => {

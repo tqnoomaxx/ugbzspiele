@@ -19,10 +19,18 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
   await expect(page).toHaveURL(/\/imposter\?code=ABCDE$/)
   await expect(page.getByRole('heading', { name: 'Imposter' })).toBeVisible()
 
+  const memoryManifestResponse = await page.request.get('/assets/memory/manifest.json')
+  const memoryManifest = await memoryManifestResponse.json()
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Memory' })).toHaveCount(0)
-  await page.goto('/memory')
-  await expect(page).toHaveURL(/\/$/)
+  if (memoryManifest.ready) {
+    await expect(page.getByRole('heading', { name: 'Memory' })).toBeVisible()
+    await page.goto('/memory')
+    await expect(page.getByRole('heading', { name: 'Welches Bilder-Set?' })).toBeVisible()
+  } else {
+    await expect(page.getByRole('heading', { name: 'Memory' })).toHaveCount(0)
+    await page.goto('/memory')
+    await expect(page).toHaveURL(/\/$/)
+  }
 })
 
 test('Schiffe versenken schützt beide Flotten und erreicht den ersten Schuss', async ({ page }) => {
