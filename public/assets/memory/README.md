@@ -22,6 +22,8 @@ Regeln:
 - Unterstützt: WebP, AVIF, JPG/JPEG und PNG. HEIC/HEIF vorher exportieren oder konvertieren.
 - Mindestens 512 × 512 Pixel, Seitenverhältnis zwischen 0,5 und 2, maximal 2 MB.
 - Ein Set wird ab sechs unterschiedlichen gültigen Motiven spielbar.
+- Je mehr Motive ein Set enthält, desto mehr Paarzahlen werden angeboten: jede Größe von 6 bis maximal 15 Paaren.
+- Werden weniger Paare als vorhandene Motive gewählt, stellt UGBZ bei jedem neuen Spiel eine zufällige Auswahl zusammen.
 - Ordnernamen: klein als Slug, zum Beispiel `urlaub-2026` oder `lustige-memes`.
 - Beliebige Kamera-Dateinamen werden akzeptiert. Aussagekräftige Namen wie `roter-traktor.webp` ergeben schönere Kartenbezeichnungen.
 - Bilder dürfen nur direkt im jeweiligen Set-Ordner liegen; weitere Unterordner werden nicht durchsucht.
@@ -37,3 +39,5 @@ Optionale eigene Kartenbezeichnungen kommen in `labels.json`. Für ein Ordner-Se
 ```
 
 Alle Bilder sind auf einer öffentlichen Website ebenfalls öffentlich abrufbar. Vertrauliche Fotos gehören nicht in diesen Ordner.
+
+Die gleichen Sets funktionieren lokal und in Online-Räumen. Im Mehrgeräte-Modus sehen alle Geräte dasselbe Brett; nur die gerade aktive Person kann Karten aufdecken.

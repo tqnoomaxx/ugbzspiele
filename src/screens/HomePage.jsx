@@ -36,8 +36,10 @@ function GameFeature({ game, index, saved }) {
     resumeTitle = saved.phase === 'complete' ? 'Das Dorf hat entschieden' : saved.phaseLabel ?? 'Partie fortsetzen'
     resumeDetail = `${saved.players?.filter((player) => player.alive !== false).length ?? 0} leben noch · nur für die Spielleitung`
   } else if (saved && game.id === 'memory') {
-    resumeTitle = saved.phase === 'complete' ? 'Alle Paare gefunden' : 'Memory fortsetzen'
-    resumeDetail = `${saved.players?.length ?? 1} ${saved.players?.length === 1 ? 'Person' : 'Personen'} · ${saved.pairCount ?? saved.cards?.length / 2 ?? 0} Paare`
+    resumeTitle = saved.phase === 'lobby' ? `Lobby · ${saved.name}` : saved.phase === 'complete' ? 'Alle Paare gefunden' : 'Memory fortsetzen'
+    resumeDetail = saved.playMode === 'online'
+      ? `${saved.players?.length ?? 1} Personen · Code ${saved.code}`
+      : `${saved.players?.length ?? 1} ${saved.players?.length === 1 ? 'Person' : 'Personen'} · ${saved.pairCount ?? saved.cards?.length / 2 ?? 0} Paare`
   }
 
   return (
@@ -138,8 +140,11 @@ export default function HomePage() {
     Promise.all([
       import('../games/memory/gameRepository.js'),
       import('../games/memory/manifest.js'),
-    ]).then(([{ memoryGameRepository }, { memoryManifest }]) => {
-      if (active) setSavedGames((current) => ({ ...current, memory: memoryGameRepository.load(memoryManifest) }))
+      import('../games/memory/roomRepository.js'),
+    ]).then(async ([{ memoryGameRepository }, { memoryManifest }, { memoryRoomRepository }]) => {
+      const session = memoryRoomRepository.loadSession()
+      const room = session ? await memoryRoomRepository.load(session.roomCode).catch(() => null) : null
+      if (active) setSavedGames((current) => ({ ...current, memory: room ?? memoryGameRepository.load(memoryManifest) }))
     }).catch(() => {})
 
     return () => { active = false }

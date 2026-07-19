@@ -2,7 +2,11 @@ import { appPath } from '../../basePath.js'
 import { memoryManifest } from './generatedManifest.js'
 
 export const MEMORY_MIN_PAIRS = 6
-export const MEMORY_PAIR_OPTIONS = Object.freeze([6, 8, 10, 12])
+export const MEMORY_MAX_PAIRS = 15
+export const MEMORY_PAIR_OPTIONS = Object.freeze(Array.from(
+  { length: MEMORY_MAX_PAIRS - MEMORY_MIN_PAIRS + 1 },
+  (_, index) => MEMORY_MIN_PAIRS + index,
+))
 
 function isValidMemorySet(set) {
   if (!set || typeof set.id !== 'string' || !set.id || typeof set.label !== 'string' || !set.label.trim()) return false

@@ -35,9 +35,9 @@ describe('memory manifest gate', () => {
   it('offers only supported sizes covered by the asset inventory', () => {
     expect(isMemoryReady(fakeManifest(6))).toBe(true)
     expect(getAvailableMemoryPairCounts('familie', fakeManifest(6))).toEqual([6])
-    expect(getAvailableMemoryPairCounts('familie', fakeManifest(8))).toEqual([6, 8])
-    expect(getAvailableMemoryPairCounts('familie', fakeManifest(11))).toEqual([6, 8, 10])
-    expect(getAvailableMemoryPairCounts('familie', fakeManifest(20))).toEqual([6, 8, 10, 12])
+    expect(getAvailableMemoryPairCounts('familie', fakeManifest(8))).toEqual([6, 7, 8])
+    expect(getAvailableMemoryPairCounts('familie', fakeManifest(11))).toEqual([6, 7, 8, 9, 10, 11])
+    expect(getAvailableMemoryPairCounts('familie', fakeManifest(20))).toEqual([6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
     expect(getDefaultMemoryPairCount('familie', fakeManifest(6))).toBe(6)
     expect(getDefaultMemoryPairCount('familie', fakeManifest(12))).toBe(8)
     expect(getDefaultMemorySetId(fakeManifest(12))).toBe('familie')

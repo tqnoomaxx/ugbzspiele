@@ -5,7 +5,11 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 export const MIN_MEMORY_PAIRS = 6
-export const MEMORY_PAIR_OPTIONS = Object.freeze([6, 8, 10, 12])
+export const MAX_MEMORY_PAIRS = 15
+export const MEMORY_PAIR_OPTIONS = Object.freeze(Array.from(
+  { length: MAX_MEMORY_PAIRS - MIN_MEMORY_PAIRS + 1 },
+  (_, index) => MIN_MEMORY_PAIRS + index,
+))
 export const ALLOWED_MEMORY_EXTENSIONS = Object.freeze(['.avif', '.jpeg', '.jpg', '.png', '.webp'])
 export const MAX_MEMORY_FILE_BYTES = 2 * 1024 * 1024
 export const MIN_MEMORY_IMAGE_EDGE = 512

@@ -1,18 +1,28 @@
 import { describe, expect, it } from 'vitest'
 import {
   createMemoryGame,
+  createMemoryRoom,
   describeMemoryStatus,
   flipMemoryCard,
   getMemoryRanking,
   MEMORY_PHASES,
   resolveMemoryTurn,
+  startOnlineMemoryGame,
   validateMemoryPlayers,
 } from './gameEngine.js'
+import { isValidMemoryGame } from './gameRepository.js'
 
 const fingerprint = 'a'.repeat(64)
 const setId = 'familie'
 const setLabel = 'Familie'
-const assets = Array.from({ length: 12 }, (_, index) => ({ id: `motiv-${index + 1}` }))
+const assets = Array.from({ length: 20 }, (_, index) => ({ id: `motiv-${index + 1}` }))
+const manifest = {
+  schemaVersion: 2,
+  minPairs: 6,
+  ready: true,
+  fingerprint: 'b'.repeat(64),
+  sets: [{ id: setId, label: setLabel, ready: true, fingerprint, cards: assets }],
+}
 
 function createGame(names = ['Anna', 'Ben'], pairCount = 6) {
   let randomValue = 0
@@ -37,6 +47,14 @@ describe('memory engine', () => {
     const counts = [...grouped.values()]
     expect(counts).toHaveLength(6)
     expect(counts.every((count) => count === 2)).toBe(true)
+  })
+
+  it('supports every size through 15 and chooses a fresh random subset', () => {
+    const full = createGame(['Anna', 'Ben'], 15)
+    expect(full.deck).toHaveLength(30)
+    const first = createMemoryGame({ names: ['Anna'], pairCount: 6, assets, setId, setLabel, setFingerprint: fingerprint }, { rng: () => 0 })
+    const second = createMemoryGame({ names: ['Anna'], pairCount: 6, assets, setId, setLabel, setFingerprint: fingerprint }, { rng: () => 0.999999 })
+    expect(new Set(first.deck.map((card) => card.assetId))).not.toEqual(new Set(second.deck.map((card) => card.assetId)))
   })
 
   it('supports one to six people and rejects duplicate or empty names', () => {
@@ -100,5 +118,26 @@ describe('memory engine', () => {
       { id: 'c', name: 'Caro', score: 1 },
     ] }
     expect(getMemoryRanking(tied).map((player) => player.rank)).toEqual([1, 1, 3])
+  })
+
+  it('starts a synchronized room and only lets the active device reveal cards', () => {
+    let id = 0
+    let room = createMemoryRoom(
+      { hostName: 'Anna', roomName: 'Bilderabend', pairCount: 8, assets, setId, setLabel, setFingerprint: fingerprint },
+      { idFactory: (prefix) => `${prefix}-${++id}`, now: 1000, rng: () => 0 },
+    )
+    room = {
+      ...room,
+      players: [...room.players, { id: 'player-guest', name: 'Ben', score: 0, isHost: false, connected: true }],
+      revision: 2,
+    }
+    expect(isValidMemoryGame(room, manifest)).toBe(true)
+    room = startOnlineMemoryGame(room, room.hostId, assets, { rng: () => 0, now: 1200 })
+    expect(room.deck).toHaveLength(16)
+    expect(isValidMemoryGame(room, manifest)).toBe(true)
+    expect(() => flipMemoryCard(room, room.deck[0].id, 'player-guest')).toThrow('noch nicht am Zug')
+    const next = flipMemoryCard(room, room.deck[0].id, room.hostId, 1300)
+    expect(next.flippedCardIds).toHaveLength(1)
+    expect(next.revision).toBe(room.revision + 1)
   })
 })

@@ -63,7 +63,7 @@ export const games = [
     artwork: appPath('/assets/memory/memory-table.svg'),
     available: true,
     requiresMemoryAssets: true,
-    rooms: null,
+    rooms: { gameKey: 'memory', localFallback: true, realtime: true },
     theme: 'memory',
     resumePath: appPath('/memory/spielen'),
   },

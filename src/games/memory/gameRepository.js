@@ -11,12 +11,38 @@ export function isStableMemoryState(game) {
 }
 
 export function isValidMemoryGame(game, manifest) {
+  const online = game?.playMode === 'online'
   const set = getMemorySet(game?.setId, manifest)
   if (!game || game.schemaVersion !== MEMORY_SCHEMA_VERSION || !set || game.setFingerprint !== set.fingerprint || game.setLabel !== set.label) return false
   if (!Array.isArray(game.players) || game.players.length < 1 || game.players.length > 6) return false
   if (game.players.some((player) => !player || typeof player.id !== 'string' || !player.id || typeof player.name !== 'string' || !player.name.trim() || !Number.isInteger(player.score) || player.score < 0)) return false
   if (new Set(game.players.map((player) => player.id)).size !== game.players.length) return false
-  if (![6, 8, 10, 12].includes(game.pairCount) || game.pairCount > set.cards.length) return false
+  if (!Number.isInteger(game.pairCount) || game.pairCount < 6 || game.pairCount > 15 || game.pairCount > set.cards.length) return false
+  if (!Number.isInteger(game.activePlayerIndex) || game.activePlayerIndex < 0 || game.activePlayerIndex >= game.players.length) return false
+  if (!Number.isInteger(game.matchedPairs) || game.matchedPairs < 0 || game.matchedPairs > game.pairCount) return false
+  if (!Number.isInteger(game.turns) || game.turns < 0) return false
+  if (online) {
+    if (typeof game.id !== 'string' || !game.id || typeof game.code !== 'string' || !/^[A-HJ-NP-Z2-9]{4,6}$/.test(game.code)) return false
+    if (!['lobby', 'playing', 'complete'].includes(game.status) || !['private', 'public'].includes(game.visibility)) return false
+    if (!game.players.some((player) => player.id === game.hostId) || !Number.isInteger(game.revision) || game.revision < 1) return false
+    if (!game.options || game.options.maxPlayers !== 6 || game.options.deviceMode !== 'separate'
+      || game.options.setId !== game.setId || game.options.setLabel !== game.setLabel
+      || game.options.setFingerprint !== game.setFingerprint || game.options.pairCount !== game.pairCount) return false
+    if (!Number.isFinite(Date.parse(game.createdAt)) || !Number.isFinite(Date.parse(game.updatedAt))) return false
+  }
+  if (game.phase === MEMORY_PHASES.LOBBY) {
+    return online
+      && game.status === 'lobby'
+      && Array.isArray(game.deck)
+      && game.deck.length === 0
+      && Array.isArray(game.flippedCardIds)
+      && game.flippedCardIds.length === 0
+      && game.pendingMatch === null
+      && game.matchedPairs === 0
+      && game.turns === 0
+      && game.players.every((player) => player.score === 0)
+  }
+  if (online && game.status !== (game.phase === MEMORY_PHASES.COMPLETE ? 'complete' : 'playing')) return false
   if (!Array.isArray(game.deck) || game.deck.length !== game.pairCount * 2) return false
   if (new Set(game.deck.map((card) => card.id)).size !== game.deck.length) return false
   const assetIds = new Set(set.cards.map((card) => card.id))
@@ -26,14 +52,11 @@ export function isValidMemoryGame(game, manifest) {
     pairCounts.set(card.pairId, (pairCounts.get(card.pairId) ?? 0) + 1)
   }
   if (pairCounts.size !== game.pairCount || [...pairCounts.values()].some((count) => count !== 2)) return false
-  if (!Number.isInteger(game.activePlayerIndex) || game.activePlayerIndex < 0 || game.activePlayerIndex >= game.players.length) return false
-  if (!Number.isInteger(game.matchedPairs) || game.matchedPairs < 0 || game.matchedPairs > game.pairCount) return false
-  if (!Number.isInteger(game.turns) || game.turns < 0) return false
   if (!Array.isArray(game.flippedCardIds) || new Set(game.flippedCardIds).size !== game.flippedCardIds.length) return false
   if (game.flippedCardIds.some((id) => !game.deck.some((card) => card.id === id && card.status === 'revealed'))) return false
   const revealedCardIds = game.deck.filter((card) => card.status === 'revealed').map((card) => card.id)
   if (revealedCardIds.length !== game.flippedCardIds.length || revealedCardIds.some((id) => !game.flippedCardIds.includes(id))) return false
-  if (!Object.values(MEMORY_PHASES).includes(game.phase)) return false
+  if (![MEMORY_PHASES.PLAYING, MEMORY_PHASES.RESOLVING, MEMORY_PHASES.COMPLETE].includes(game.phase)) return false
   if (game.phase === MEMORY_PHASES.PLAYING && game.flippedCardIds.length > 1) return false
   if (game.phase === MEMORY_PHASES.PLAYING && game.pendingMatch !== null) return false
   if (game.phase === MEMORY_PHASES.RESOLVING && (game.flippedCardIds.length !== 2 || typeof game.pendingMatch !== 'boolean')) return false
@@ -68,7 +91,7 @@ export const memoryGameRepository = {
   },
 
   save(game, manifest) {
-    if (typeof window === 'undefined' || !window.localStorage || !isStableMemoryState(game) || !isValidMemoryGame(game, manifest)) return false
+    if (typeof window === 'undefined' || !window.localStorage || game?.playMode === 'online' || !isStableMemoryState(game) || !isValidMemoryGame(game, manifest)) return false
     try {
       window.localStorage.setItem(MEMORY_STORAGE_KEY, JSON.stringify(game))
       return true

@@ -33,6 +33,28 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
   }
 })
 
+test('Memory mischt acht Paare in ein vollständig sichtbares mobiles Brett', async ({ page }) => {
+  const manifestResponse = await page.request.get('/assets/memory/manifest.json')
+  const manifest = await manifestResponse.json()
+  test.skip(!manifest.ready, 'Für diesen Build sind keine Memory-Motive hinterlegt.')
+
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/memory')
+  await expect(page.getByRole('button', { name: '7 Paare' })).toBeVisible()
+  await page.getByRole('button', { name: '8 Paare' }).click()
+  await page.getByRole('button', { name: 'Spiel starten' }).click()
+  await expect(page).toHaveURL(/\/memory\/spielen$/)
+  await expect(page.locator('.memory-card')).toHaveCount(16)
+  await page.locator('.memory-card').first().click()
+  await expect(page.locator('.memory-card.is-revealed')).toHaveCount(1)
+
+  const overflow = await page.evaluate(() => ({
+    horizontal: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    vertical: document.documentElement.scrollHeight > document.documentElement.clientHeight,
+  }))
+  expect(overflow).toEqual({ horizontal: false, vertical: false })
+})
+
 test('Schiffe versenken schützt beide Flotten und erreicht den ersten Schuss', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/schiffe-versenken')
