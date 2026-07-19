@@ -2,7 +2,7 @@
 
 ## Was bereits integriert ist
 
-UGBZ besitzt eine gemeinsame Raumplattform für Imposter, Kniffel und spätere Spiele:
+UGBZ besitzt eine gemeinsame Raumplattform für Imposter, Kniffel, Schiffe versenken und spätere Spiele:
 
 - anonyme Supabase-Sitzungen ohne Registrierung
 - öffentliche und private Räume mit Einladungscode

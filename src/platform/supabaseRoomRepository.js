@@ -18,8 +18,8 @@ function mapError(error, fallback) {
   return new Error(message)
 }
 
-function isRevisionConflict(error) {
-  return /revision|raum hat sich geändert/i.test(error?.message ?? '')
+function isRetryableMutation(error) {
+  return /revision|raum hat sich geändert|zu viele aktionen|rate_limited/i.test(error?.message ?? '')
 }
 
 function waitForRetry(attempt) {
@@ -149,7 +149,7 @@ export function createSupabaseRoomRepository({ gameKey, summarize, sessionKey })
             p_room_state: next,
           }, 'Die Raumänderung konnte nicht gespeichert werden.')
         } catch (error) {
-          if (!isRevisionConflict(error) || attempt === MAX_CONCURRENT_MUTATION_ATTEMPTS - 1) throw error
+          if (!isRetryableMutation(error) || attempt === MAX_CONCURRENT_MUTATION_ATTEMPTS - 1) throw error
           await waitForRetry(attempt)
         }
       }

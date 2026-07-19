@@ -5,7 +5,7 @@ import { appPath } from '../basePath.js'
 import AppHeader from '../components/AppHeader.jsx'
 import Button from '../components/Button.jsx'
 import { CloseIcon, PlusIcon } from '../components/Icons.jsx'
-import { createWerewolfGame, getWerewolfPreset } from '../games/werewolf/gameEngine.js'
+import { createWerewolfGame, getWerewolfPreset, WEREWOLF_VOTE_MODES } from '../games/werewolf/gameEngine.js'
 import { werewolfRepository } from '../games/werewolf/gameRepository.js'
 
 const ROLE_NAMES = { wolf: 'Werwolf', seer: 'Seherin', witch: 'Hexe', hunter: 'Jäger', villager: 'Dorfbewohner' }
@@ -28,6 +28,7 @@ export default function WerewolfSetupPage() {
   const [corrupt, setCorrupt] = useState(false)
   const [overwrite, setOverwrite] = useState(false)
   const [error, setError] = useState('')
+  const [voteMode, setVoteMode] = useState(WEREWOLF_VOTE_MODES.DEVICE)
   const [ready, setReady] = useState(false)
   const preset = useMemo(() => getWerewolfPreset(names.length), [names.length])
 
@@ -59,7 +60,7 @@ export default function WerewolfSetupPage() {
   function start(force = false) {
     if (saved && !force) { setOverwrite(true); return }
     try {
-      const game = createWerewolfGame({ names: names.map((entry) => entry.value) })
+      const game = createWerewolfGame({ names: names.map((entry) => entry.value), voteMode })
       if (!werewolfRepository.save(game)) throw new Error('Die Partie konnte nicht im Browser gespeichert werden.')
       window.location.assign(appPath('/werwolf/spiel'))
     } catch (startError) {
@@ -122,9 +123,14 @@ export default function WerewolfSetupPage() {
                 <div key={role}><span className={`ww-role-dot ww-role-dot--${role}`} aria-hidden="true" /><strong>{count}× {ROLE_NAMES[role]}</strong></div>
               ))}
             </div>
+            <fieldset className="ww-vote-mode">
+              <legend>Abstimmung am Tag</legend>
+              <button aria-pressed={voteMode === WEREWOLF_VOTE_MODES.DEVICE} className={voteMode === WEREWOLF_VOTE_MODES.DEVICE ? 'is-active' : ''} disabled={!ready} onClick={() => setVoteMode(WEREWOLF_VOTE_MODES.DEVICE)} type="button"><strong>Geheim am Handy</strong><span>Alle geben ihre Stimme einzeln und verdeckt ein.</span></button>
+              <button aria-pressed={voteMode === WEREWOLF_VOTE_MODES.IN_PERSON} className={voteMode === WEREWOLF_VOTE_MODES.IN_PERSON ? 'is-active' : ''} disabled={!ready} onClick={() => setVoteMode(WEREWOLF_VOTE_MODES.IN_PERSON)} type="button"><strong>Gemeinsam im Raum</strong><span>Ihr stimmt in echt ab; die Spielleitung trägt nur das Ergebnis ein.</span></button>
+            </fieldset>
             <div className="ww-rules">
               <h3>So läuft es</h3>
-              <ol><li>Gerät einzeln zur Rollenansicht weitergeben.</li><li>Die Spielleitung führt durch Nacht und Tag.</li><li>Abstimmungen werden einzeln und verdeckt eingegeben.</li></ol>
+              <ol><li>Gerät einzeln zur Rollenansicht weitergeben.</li><li>Die Spielleitung führt durch Nacht und Tag.</li><li>{voteMode === WEREWOLF_VOTE_MODES.IN_PERSON ? 'Ihr stimmt offen oder per Handzeichen ab; nur das Ergebnis kommt ins Handy.' : 'Abstimmungen werden einzeln und verdeckt eingegeben.'}</li></ol>
             </div>
             <p className="ww-a11y-note">Hinweis: Screenreader können geheime Rollen vorlesen. Nutzt dafür Kopfhörer oder lasst die Spielleitung vorlesen.</p>
             {error ? <p className="ww-error" role="alert">{error}</p> : null}

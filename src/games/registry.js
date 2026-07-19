@@ -36,11 +36,11 @@ export const games = [
   {
     id: 'battleship',
     title: 'Schiffe versenken',
-    description: 'Zwei geheime Flotten, ein gemeinsames Gerät und zehn Reihen Hochspannung.',
+    description: 'Zwei geheime Flotten – lokal herumreichen oder auf getrennten Geräten spielen.',
     path: appPath('/schiffe-versenken'),
     artwork: appPath('/assets/battleship-table.svg'),
     available: true,
-    rooms: null,
+    rooms: { gameKey: 'battleship', localFallback: true, realtime: true },
     theme: 'ocean',
     resumePath: appPath('/schiffe-versenken/spiel'),
   },

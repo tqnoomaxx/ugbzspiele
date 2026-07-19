@@ -24,10 +24,14 @@ function GameFeature({ game, index, saved }) {
     resumeDetail = `${saved.players.length} am Tisch · Code ${saved.code}`
   } else if (saved && game.id === 'battleship') {
     const current = saved.players?.[saved.turnIndex]
-    resumeTitle = saved.phase === 'complete'
+    resumeTitle = saved.phase === 'lobby'
+      ? `Lobby · ${saved.name}`
+      : saved.phase === 'complete'
       ? `${saved.players.find((player) => player.id === saved.winnerId)?.name ?? 'Sieg'} gewinnt`
       : saved.phase === 'placement' ? 'Flotten werden aufgestellt' : `${current?.name ?? 'Nächster Zug'} ist dran`
-    resumeDetail = saved.players?.map((player) => player.name).join(' gegen ') ?? 'Lokale Partie'
+    resumeDetail = saved.playMode === 'online'
+      ? `${saved.players.length} von 2 Personen · Code ${saved.code}`
+      : saved.players?.map((player) => player.name).join(' gegen ') ?? 'Lokale Partie'
   } else if (saved && game.id === 'werewolf') {
     resumeTitle = saved.phase === 'complete' ? 'Das Dorf hat entschieden' : saved.phaseLabel ?? 'Partie fortsetzen'
     resumeDetail = `${saved.players?.filter((player) => player.alive !== false).length ?? 0} leben noch · nur für die Spielleitung`
@@ -110,9 +114,15 @@ export default function HomePage() {
       setSavedGames((current) => ({ ...current, kniffel: room }))
     })
 
-    import('../games/battleship/gameRepository.js').then(({ battleshipRepository }) => {
-      if (active) setSavedGames((current) => ({ ...current, battleship: battleshipRepository.load() }))
-    })
+    Promise.all([
+      import('../games/battleship/gameRepository.js'),
+      import('../games/battleship/roomRepository.js'),
+    ]).then(async ([{ battleshipRepository }, { battleshipRoomRepository }]) => {
+      if (!active) return
+      const session = battleshipRoomRepository.loadSession()
+      const room = session ? await battleshipRoomRepository.load(session.roomCode).catch(() => null) : null
+      if (active) setSavedGames((current) => ({ ...current, battleship: room ?? battleshipRepository.load() }))
+    }).catch(() => {})
 
     import('../games/werewolf/gameRepository.js').then(({ werewolfRepository }) => {
       if (active) setSavedGames((current) => ({ ...current, werewolf: werewolfRepository.load() }))

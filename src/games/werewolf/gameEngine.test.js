@@ -12,10 +12,12 @@ import {
   getWerewolfPreset,
   inspectWithSeer,
   isValidWerewolfGame,
+  recordInPersonVote,
   selectWolfVictim,
   submitDayVote,
   submitHunterShot,
   submitWitchAction,
+  WEREWOLF_VOTE_MODES,
 } from './gameEngine.js'
 
 function createGame(playerCount) {
@@ -162,6 +164,29 @@ describe('Werwolf night actions', () => {
 })
 
 describe('Werwolf day vote, deaths and wins', () => {
+  it('records only the result of an in-person vote', () => {
+    let id = 0
+    let game = createWerewolfGame(
+      { names: ['Ada', 'Ben', 'Cleo', 'Dario', 'Eli'], voteMode: WEREWOLF_VOTE_MODES.IN_PERSON },
+      { idFactory: (prefix) => `${prefix}-${++id}`, now: 1000, rng: () => 0.999999 },
+    )
+    game = confirmAllRoles(game)
+    const wolf = player(game, WEREWOLF_ROLES.WOLF)
+    const seer = player(game, WEREWOLF_ROLES.SEER)
+    const villagers = game.players.filter(({ role }) => role === WEREWOLF_ROLES.VILLAGER)
+    game = finishNight(game, { wolfTargetId: villagers[2].id, seerTargetId: wolf.id })
+    game = continueToDay(game)
+
+    expect(() => beginDayVote(game)).toThrow('gemeinsame Abstimmung')
+    game = recordInPersonVote(game, villagers[0].id)
+
+    expect(game.phase).toBe(WEREWOLF_PHASES.EXECUTION)
+    expect(game.day.executedId).toBe(villagers[0].id)
+    expect(game.history.at(-1)).toMatchObject({ type: 'day', voteMethod: WEREWOLF_VOTE_MODES.IN_PERSON, executedId: villagers[0].id })
+    expect(seer.alive).toBe(true)
+    expect(isValidWerewolfGame(game)).toBe(true)
+  })
+
   it('keeps votes secret until complete, then runs one runoff and eliminates nobody on another tie', () => {
     let game = confirmAllRoles(createGame(5))
     const [wolf, seer, firstVillager, secondVillager, victim] = game.players

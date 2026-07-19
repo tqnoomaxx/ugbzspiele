@@ -22,6 +22,11 @@ export const WEREWOLF_PHASES = Object.freeze({
   COMPLETE: 'complete',
 })
 
+export const WEREWOLF_VOTE_MODES = Object.freeze({
+  DEVICE: 'device',
+  IN_PERSON: 'in-person',
+})
+
 const MIN_PLAYERS = 5
 const MAX_PLAYERS = 12
 const ROLE_VALUES = new Set(Object.values(WEREWOLF_ROLES))
@@ -40,6 +45,12 @@ function createId(prefix) {
 
 function cleanName(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, 28)
+}
+
+export function getWerewolfVoteMode(game) {
+  return game?.voteMode === WEREWOLF_VOTE_MODES.IN_PERSON
+    ? WEREWOLF_VOTE_MODES.IN_PERSON
+    : WEREWOLF_VOTE_MODES.DEVICE
 }
 
 function randomIndex(length, rng) {
@@ -114,7 +125,7 @@ function rolesForPreset(playerCount) {
 }
 
 export function createWerewolfGame(
-  { names },
+  { names, voteMode = WEREWOLF_VOTE_MODES.DEVICE },
   { idFactory = createId, now = Date.now(), rng = Math.random } = {},
 ) {
   if (!Array.isArray(names)) throw new Error('Trage die mitspielenden Personen ein.')
@@ -140,6 +151,7 @@ export function createWerewolfGame(
   return {
     schemaVersion: WEREWOLF_SCHEMA_VERSION,
     id: idFactory('werewolf'),
+    voteMode: voteMode === WEREWOLF_VOTE_MODES.IN_PERSON ? WEREWOLF_VOTE_MODES.IN_PERSON : WEREWOLF_VOTE_MODES.DEVICE,
     phase: WEREWOLF_PHASES.ROLE_REVEAL,
     players,
     revealOrder: players.map((player) => player.id),
@@ -323,6 +335,7 @@ function historyEntryForResolution(game, resolution, now) {
   return {
     type: 'day',
     number: game.day.number,
+    voteMethod: game.day.voteMethod ?? getWerewolfVoteMode(game),
     primary: game.day.primary,
     runoff: game.day.runoff,
     executedId: game.day.executedId,
@@ -424,7 +437,7 @@ export function continueToDay(game, now = Date.now()) {
   return touch({
     ...game,
     phase: WEREWOLF_PHASES.DAY,
-    day: { number: game.night.number, primary: null, runoff: null, executedId: null },
+    day: { number: game.night.number, primary: null, runoff: null, executedId: null, voteMethod: null },
     vote: null,
   }, now)
 }
@@ -441,10 +454,12 @@ function createVote(game, kind, candidateIds) {
 
 export function beginDayVote(game, now = Date.now()) {
   requirePhase(game, WEREWOLF_PHASES.DAY)
+  if (getWerewolfVoteMode(game) !== WEREWOLF_VOTE_MODES.DEVICE) throw new Error('Diese Partie verwendet die gemeinsame Abstimmung am Tisch.')
   const candidates = getAlivePlayers(game).map((player) => player.id)
   return touch({
     ...game,
     phase: WEREWOLF_PHASES.DAY_VOTE,
+    day: { ...game.day, voteMethod: WEREWOLF_VOTE_MODES.DEVICE },
     vote: createVote(game, 'primary', candidates),
   }, now)
 }
@@ -465,6 +480,17 @@ function executeDayTarget(game, targetId, now) {
   return beginDeathResolution({ ...game, day, vote: null }, [
     { playerId: targetId, cause: 'execution' },
   ], WEREWOLF_PHASES.EXECUTION, now)
+}
+
+export function recordInPersonVote(game, targetId = null, now = Date.now()) {
+  requirePhase(game, WEREWOLF_PHASES.DAY)
+  if (getWerewolfVoteMode(game) !== WEREWOLF_VOTE_MODES.IN_PERSON) throw new Error('Diese Partie verwendet die geheime Abstimmung am Gerät.')
+  const prepared = { ...game, day: { ...game.day, voteMethod: WEREWOLF_VOTE_MODES.IN_PERSON } }
+  if (targetId === null) {
+    return touch(beginDeathResolution(prepared, [], WEREWOLF_PHASES.EXECUTION, now), now)
+  }
+  requireLivingPlayer(game, targetId)
+  return touch(executeDayTarget(prepared, targetId, now), now)
 }
 
 function finishVote(game, ballots, now) {
@@ -571,6 +597,7 @@ export function isValidWerewolfGame(game) {
   if (!game || game.schemaVersion !== WEREWOLF_SCHEMA_VERSION || typeof game.id !== 'string' || !game.id) return false
   if (!PHASE_VALUES.has(game.phase) || !Number.isInteger(game.revision) || game.revision < 1) return false
   if (!validTimestamp(game.createdAt) || !validTimestamp(game.updatedAt)) return false
+  if (![undefined, ...Object.values(WEREWOLF_VOTE_MODES)].includes(game.voteMode)) return false
   if (!Array.isArray(game.players) || game.players.length < MIN_PLAYERS || game.players.length > MAX_PLAYERS) return false
 
   const playerIds = new Set(game.players.map((player) => player?.id))
@@ -628,6 +655,7 @@ export function isValidWerewolfGame(game) {
     if (!game.day || !Number.isInteger(game.day.number) || game.day.number !== game.night.number) return false
     if (!validBallotResult(game.day.primary, playerIds) || !validBallotResult(game.day.runoff, playerIds)) return false
     if (game.day.executedId !== null && !playerIds.has(game.day.executedId)) return false
+    if (![undefined, null, ...Object.values(WEREWOLF_VOTE_MODES)].includes(game.day.voteMethod)) return false
   }
 
   if (game.phase === WEREWOLF_PHASES.HUNTER_REACTION) {

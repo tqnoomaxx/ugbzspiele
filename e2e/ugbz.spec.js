@@ -57,6 +57,9 @@ test('Schiffe versenken schützt beide Flotten und erreicht den ersten Schuss', 
 
 test('Werwolf verteilt fünf Rollen einzeln und startet die erste Nacht', async ({ page }) => {
   await page.goto('/werwolf')
+  const inPersonVote = page.getByRole('button', { name: /Gemeinsam im Raum/ })
+  await inPersonVote.click()
+  await expect(inPersonVote).toHaveAttribute('aria-pressed', 'true')
   const names = ['Ada', 'Ben', 'Cleo', 'Dario', 'Eli']
   const inputs = page.locator('.ww-name input')
   for (let index = 0; index < names.length; index += 1) await inputs.nth(index).fill(names[index])
@@ -95,6 +98,13 @@ test('Werwolf verteilt fünf Rollen einzeln und startet die erste Nacht', async 
   await expect(page.getByRole('dialog')).toContainText(new RegExp(`${inspected.name} ist`))
   await page.getByRole('button', { name: 'Ergebnis wieder verdecken' }).click()
   await expect(page.getByRole('heading', { name: 'Das Dorf erwacht.' })).toBeVisible()
+  await page.getByRole('button', { name: 'Dorfversammlung beginnen' }).click()
+  await expect(page.getByRole('heading', { name: 'Wer wurde gewählt?' })).toBeVisible()
+  const dayState = await page.evaluate(() => JSON.parse(window.localStorage.getItem('ugbz:werewolf:v1')))
+  const voted = dayState.players.find((player) => player.alive && player.role === 'villager')
+  await page.locator('.ww-target-grid button').filter({ hasText: voted.name }).click()
+  await page.getByRole('button', { name: `${voted.name} wurde gewählt` }).click()
+  await expect(page.getByRole('heading', { name: `${voted.name} scheidet aus.` })).toBeVisible()
 })
 
 test('Kartenspiel lässt sich beenden und führt korrekt zur Startseite', async ({ page }) => {

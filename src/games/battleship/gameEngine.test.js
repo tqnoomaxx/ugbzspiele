@@ -3,11 +3,13 @@ import {
   FLEET,
   confirmBattleshipFleet,
   createBattleshipGame,
+  createBattleshipRoom,
   fireBattleshipShot,
   getBattleshipCellState,
   isValidBattleshipGame,
   placeBattleship,
   randomizeBattleshipFleet,
+  startOnlineBattleshipGame,
 } from './gameEngine.js'
 
 function game() {
@@ -89,6 +91,33 @@ describe('Battleship engine', () => {
     const next = randomizeBattleshipFleet(state, state.players[0].id, Math.random)
     expect(next.boards[state.players[0].id].ships).toHaveLength(5)
     expect(new Set(next.boards[state.players[0].id].ships.flatMap((ship) => ship.cells)).size).toBe(17)
+  })
+
+  it('lets two online devices place independently and synchronizes the first turn', () => {
+    let id = 0
+    let state = createBattleshipRoom(
+      { hostName: 'Ada', roomName: 'Nordsee' },
+      { idFactory: (prefix) => `${prefix}-${++id}`, now: 1000, rng: () => 0 },
+    )
+    state = {
+      ...state,
+      players: [...state.players, { id: 'player-guest', name: 'Ben', isHost: false, connected: true }],
+      revision: 2,
+    }
+    expect(isValidBattleshipGame(state)).toBe(true)
+
+    state = startOnlineBattleshipGame(state, state.hostId, { rng: () => 0, now: 1200 })
+    const [host, guest] = state.players
+    state = placeFleet(state, guest.id)
+    state = confirmBattleshipFleet(state, guest.id)
+    expect(state.phase).toBe('placement')
+    expect(state.readyPlayerIds).toEqual([guest.id])
+    state = placeFleet(state, host.id)
+    state = confirmBattleshipFleet(state, host.id)
+
+    expect(state.phase).toBe('battle')
+    expect(state.players[state.turnIndex].id).toBe(host.id)
+    expect(isValidBattleshipGame(state)).toBe(true)
   })
 
   it('rejects forged winners, malformed shots, bent ships and invented history', () => {

@@ -9,11 +9,29 @@ export const FLEET = Object.freeze([
 ])
 
 const SHIP_BY_ID = new Map(FLEET.map((ship) => [ship.id, ship]))
+const ROOM_CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
 
 function timestamp(now = Date.now()) { return new Date(now).toISOString() }
 function cellKey(row, column) { return `${row}:${column}` }
 function randomIndex(length, rng) { return Math.min(length - 1, Math.floor(rng() * length)) }
 function cleanName(value) { return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, 24) }
+
+export function createBattleshipId(prefix = 'id') {
+  const suffix = typeof crypto !== 'undefined' && crypto.randomUUID
+    ? crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
+  return `${prefix}-${suffix}`
+}
+
+function createRoomCode(rng = Math.random) {
+  return Array.from({ length: 5 }, () => ROOM_CODE_ALPHABET[randomIndex(ROOM_CODE_ALPHABET.length, rng)]).join('')
+}
+
+function cleanRoomName(value, hostName) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, 48) || `${hostName}s Flottenraum`
+}
+
+function isOnlineGame(game) { return game?.playMode === 'online' }
 
 function touch(game, now = Date.now()) {
   return { ...game, revision: game.revision + 1, updatedAt: timestamp(now) }
@@ -27,6 +45,11 @@ function emptyBoard() { return { ships: [], shots: {} } }
 
 function requirePlacementTurn(game, playerId) {
   if (game.phase !== 'placement') throw new Error('Die Flottenaufstellung ist bereits beendet.')
+  if (isOnlineGame(game)) {
+    requirePlayer(game, playerId)
+    if (game.readyPlayerIds.includes(playerId)) throw new Error('Deine Flotte ist bereits bestätigt.')
+    return
+  }
   if (game.players[game.placementIndex]?.id !== playerId) throw new Error('Die andere Person stellt gerade ihre Flotte auf.')
 }
 
@@ -71,6 +94,62 @@ export function createBattleshipGame({ firstName, secondName }, { idFactory, now
   }
 }
 
+export function createBattleshipRoom(
+  { hostName, roomName, visibility = 'private', password = '' },
+  { idFactory = createBattleshipId, now = Date.now(), rng = Math.random } = {},
+) {
+  const name = cleanName(hostName)
+  if (!name) throw new Error('Bitte gib deinen Namen ein.')
+  const hostId = idFactory('player')
+  const createdAt = timestamp(now)
+  const normalizedVisibility = visibility === 'public' ? 'public' : 'private'
+  return {
+    schemaVersion: BATTLESHIP_SCHEMA_VERSION,
+    playMode: 'online',
+    id: idFactory('battleship'),
+    code: createRoomCode(rng),
+    name: cleanRoomName(roomName, name),
+    visibility: normalizedVisibility,
+    password: String(password ?? '').slice(0, 64),
+    status: 'lobby',
+    hostId,
+    options: { maxPlayers: 2, language: 'de', deviceMode: 'separate' },
+    phase: 'lobby',
+    players: [{
+      id: hostId,
+      name,
+      score: 0,
+      isHost: true,
+      isDemo: false,
+      connected: true,
+      joinedAt: createdAt,
+    }],
+    boards: {},
+    readyPlayerIds: [],
+    placementIndex: 0,
+    turnIndex: 0,
+    winnerId: null,
+    history: [],
+    revision: 1,
+    createdAt,
+    updatedAt: createdAt,
+  }
+}
+
+export function startOnlineBattleshipGame(game, actorId, { rng = Math.random, now = Date.now() } = {}) {
+  if (!isOnlineGame(game) || game.phase !== 'lobby' || game.status !== 'lobby') throw new Error('Dieser Raum kann nicht gestartet werden.')
+  if (actorId !== game.hostId) throw new Error('Nur die Raumleitung kann die Partie starten.')
+  if (game.players.length !== 2) throw new Error('Für Schiffe versenken müssen genau zwei Personen im Raum sein.')
+  return touch({
+    ...game,
+    status: 'playing',
+    phase: 'placement',
+    boards: Object.fromEntries(game.players.map((player) => [player.id, emptyBoard()])),
+    readyPlayerIds: [],
+    turnIndex: randomIndex(2, rng),
+  }, now)
+}
+
 export function placeBattleship(game, playerId, shipId, row, column, orientation = 'horizontal', now = Date.now()) {
   requirePlacementTurn(game, playerId)
   const fleetShip = SHIP_BY_ID.get(shipId)
@@ -110,6 +189,14 @@ export function randomizeBattleshipFleet(game, playerId, rng = Math.random, now 
 export function confirmBattleshipFleet(game, playerId, now = Date.now()) {
   requirePlacementTurn(game, playerId)
   if (!allShipsPlaced(game.boards[playerId])) throw new Error('Platziere zuerst alle fünf Schiffe.')
+  if (isOnlineGame(game)) {
+    const readyPlayerIds = [...game.readyPlayerIds, playerId]
+    return touch({
+      ...game,
+      phase: readyPlayerIds.length === game.players.length ? 'battle' : 'placement',
+      readyPlayerIds,
+    }, now)
+  }
   if (game.placementIndex === 0) return touch({ ...game, placementIndex: 1 }, now)
   return touch({ ...game, phase: 'battle', placementIndex: 1 }, now)
 }
@@ -138,6 +225,7 @@ export function fireBattleshipShot(game, playerId, row, column, now = Date.now()
   return touch({
     ...game,
     phase: allSunk ? 'complete' : 'battle',
+    status: allSunk && isOnlineGame(game) ? 'complete' : game.status,
     turnIndex: allSunk ? game.turnIndex : 1 - game.turnIndex,
     winnerId: allSunk ? playerId : null,
     boards: { ...game.boards, [target.id]: { ...targetBoard, ships, shots: { ...targetBoard.shots, [key]: result } } },
@@ -185,11 +273,30 @@ function validTimestamp(value) {
 }
 
 export function isValidBattleshipGame(game) {
-  if (!game || game.schemaVersion !== BATTLESHIP_SCHEMA_VERSION || !['placement', 'battle', 'complete'].includes(game.phase)) return false
-  if (!Array.isArray(game.players) || game.players.length !== 2 || new Set(game.players.map((player) => player.id)).size !== 2) return false
+  const online = isOnlineGame(game)
+  const phases = online ? ['lobby', 'placement', 'battle', 'complete'] : ['placement', 'battle', 'complete']
+  if (!game || game.schemaVersion !== BATTLESHIP_SCHEMA_VERSION || !phases.includes(game.phase)) return false
+  if (!Array.isArray(game.players) || (online ? game.players.length < 1 || game.players.length > 2 : game.players.length !== 2)
+    || new Set(game.players.map((player) => player.id)).size !== game.players.length) return false
   if (game.players.some((player) => typeof player.id !== 'string' || !player.id || typeof player.name !== 'string' || !player.name.trim())) return false
   if (!Number.isInteger(game.revision) || game.revision < 1 || !Array.isArray(game.history) || !game.boards) return false
   if (!validTimestamp(game.createdAt) || !validTimestamp(game.updatedAt)) return false
+  if (online) {
+    if (typeof game.code !== 'string' || !/^[A-HJ-NP-Z2-9]{4,6}$/.test(game.code)) return false
+    if (!['lobby', 'playing', 'complete'].includes(game.status) || !['private', 'public'].includes(game.visibility)) return false
+    if (!game.options || game.options.maxPlayers !== 2 || game.options.deviceMode !== 'separate') return false
+    if (!game.players.some((player) => player.id === game.hostId)) return false
+    if (!Array.isArray(game.readyPlayerIds) || new Set(game.readyPlayerIds).size !== game.readyPlayerIds.length) return false
+    if (game.readyPlayerIds.some((id) => !game.players.some((player) => player.id === id))) return false
+    if (game.phase === 'lobby') {
+      return game.status === 'lobby'
+        && Object.keys(game.boards).length === 0
+        && game.readyPlayerIds.length === 0
+        && game.history.length === 0
+        && game.winnerId === null
+    }
+    if (game.status !== (game.phase === 'complete' ? 'complete' : 'playing') || game.players.length !== 2) return false
+  }
   const playerIds = new Set(game.players.map((player) => player.id))
   for (const player of game.players) {
     const board = game.boards[player.id]
@@ -235,8 +342,13 @@ export function isValidBattleshipGame(game) {
 
   if (game.phase === 'placement') {
     if (game.winnerId !== null || game.history.length !== 0 || game.players.some((player) => Object.keys(game.boards[player.id].shots).length)) return false
-    if (game.placementIndex === 0 && game.boards[game.players[1].id].ships.length !== 0) return false
-    if (game.placementIndex === 1 && !allShipsPlaced(game.boards[game.players[0].id])) return false
+    if (online) {
+      if (game.readyPlayerIds.length >= game.players.length) return false
+      if (game.readyPlayerIds.some((id) => !allShipsPlaced(game.boards[id]))) return false
+    } else {
+      if (game.placementIndex === 0 && game.boards[game.players[1].id].ships.length !== 0) return false
+      if (game.placementIndex === 1 && !allShipsPlaced(game.boards[game.players[0].id])) return false
+    }
   } else if (game.phase === 'battle') {
     if (game.winnerId !== null) return false
     const last = game.history.at(-1)
@@ -248,4 +360,18 @@ export function isValidBattleshipGame(game) {
     if (game.history.at(-1)?.playerId !== game.winnerId) return false
   }
   return true
+}
+
+export function getBattleshipRoomSummary(game) {
+  return {
+    code: game.code,
+    name: game.name,
+    status: game.status,
+    visibility: game.visibility,
+    passwordProtected: Boolean(game.password),
+    playerCount: game.players.length,
+    maxPlayers: 2,
+    language: 'de',
+    updatedAt: game.updatedAt,
+  }
 }

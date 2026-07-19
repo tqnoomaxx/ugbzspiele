@@ -10,10 +10,13 @@ import {
   confirmBattleshipFleet,
   fireBattleshipShot,
   getBattleshipCellState,
+  isValidBattleshipGame,
   placeBattleship,
   randomizeBattleshipFleet,
+  startOnlineBattleshipGame,
 } from '../games/battleship/gameEngine.js'
 import { battleshipRepository } from '../games/battleship/gameRepository.js'
+import { battleshipRoomRepository } from '../games/battleship/roomRepository.js'
 
 const COLUMNS = Array.from({ length: BOARD_SIZE }, (_, index) => String.fromCharCode(65 + index))
 const ROWS = Array.from({ length: BOARD_SIZE }, (_, index) => index)
@@ -126,14 +129,14 @@ function HandoffScreen({ game, onUnlock }) {
   )
 }
 
-function PlacementScreen({ game, onAction, player }) {
+function PlacementScreen({ game, onAction, online, player }) {
   const board = game.boards[player.id]
   const [shipId, setShipId] = useState(() => FLEET.find((ship) => !board.ships.some((entry) => entry.id === ship.id))?.id ?? FLEET[0].id)
   const [orientation, setOrientation] = useState('horizontal')
   const complete = board.ships.length === FLEET.length
 
-  function place(row, column) {
-    const next = onAction((current) => placeBattleship(current, player.id, shipId, row, column, orientation))
+  async function place(row, column) {
+    const next = await onAction((current) => placeBattleship(current, player.id, shipId, row, column, orientation))
     if (!next) return
     const nextShip = FLEET.find((ship) => !next.boards[player.id].ships.some((entry) => entry.id === ship.id))
     if (nextShip) setShipId(nextShip.id)
@@ -143,7 +146,7 @@ function PlacementScreen({ game, onAction, player }) {
     <main className="bs-game-shell">
       <header className="bs-game-heading">
         <div><span className="bs-kicker">Flottenaufstellung · {game.placementIndex + 1} von 2</span><h1>{player.name}, positioniere deine Flotte.</h1><p>Schiffe dürfen sich berühren, aber niemals überlappen. Du kannst jedes Schiff bis zur Bestätigung neu setzen.</p></div>
-        <div className="bs-local-badge"><i /> Nur auf diesem Gerät</div>
+        <div className="bs-local-badge"><i /> {online ? 'Online synchronisiert' : 'Nur auf diesem Gerät'}</div>
       </header>
 
       <div className="bs-placement-layout">
@@ -180,15 +183,15 @@ function PlacementScreen({ game, onAction, player }) {
   )
 }
 
-function ShotResult({ complete, entry, onContinue }) {
+function ShotResult({ complete, entry, onContinue, online }) {
   const label = entry.result === 'hit' ? (entry.sunkShip ? 'Schiff versenkt!' : 'Treffer!') : 'Daneben.'
   return (
     <div className={`bs-shot-result bs-shot-result--${entry.result}`} role="dialog" aria-labelledby="bs-shot-title" aria-modal="true">
       <div className="bs-shot-result__mark" aria-hidden="true">{entry.result === 'hit' ? '×' : '•'}</div>
       <span className="bs-kicker">Schuss auf {coordinate(entry.row, entry.column)}</span>
       <h2 id="bs-shot-title">{label}</h2>
-      <p>{complete ? 'Die letzte Flotte ist versenkt. Die Partie ist entschieden.' : 'Der Zug ist beendet. Verdecke jetzt das Feld und gib das Gerät weiter.'}</p>
-      <Button autoFocus onClick={onContinue} type="button">{complete ? 'Endergebnis ansehen' : 'Brett verdecken & weitergeben'}</Button>
+      <p>{complete ? 'Die letzte Flotte ist versenkt. Die Partie ist entschieden.' : online ? 'Der Zug ist beendet. Das andere Gerät wurde automatisch aktualisiert.' : 'Der Zug ist beendet. Verdecke jetzt das Feld und gib das Gerät weiter.'}</p>
+      <Button autoFocus onClick={onContinue} type="button">{complete ? 'Endergebnis ansehen' : online ? 'Ergebnis schließen' : 'Brett verdecken & weitergeben'}</Button>
     </div>
   )
 }
@@ -204,9 +207,9 @@ function BattleScreen({ game, onAction, player, onShotResult }) {
     setSelected({ row, column })
   }
 
-  function fire() {
+  async function fire() {
     if (!selected) return
-    const next = onAction((current) => fireBattleshipShot(current, player.id, selected.row, selected.column))
+    const next = await onAction((current) => fireBattleshipShot(current, player.id, selected.row, selected.column))
     if (!next) return
     onShotResult(next.history.at(-1))
     setSelected(null)
@@ -249,6 +252,48 @@ function BattleScreen({ game, onAction, player, onShotResult }) {
   )
 }
 
+function OnlineRoomBar({ copied, game, onCopy }) {
+  return (
+    <div className="bs-room-bar">
+      <span><small>Onlineraum</small><strong>{game.name}</strong></span>
+      <button onClick={onCopy} type="button"><small>{copied ? 'Link kopiert' : 'Raumcode'}</small><b>{game.code}</b></button>
+      <span className="bs-room-bar__sync"><i /> Live synchronisiert</span>
+    </div>
+  )
+}
+
+function OnlineLobby({ actorId, game, onLeave, onStart }) {
+  const isHost = actorId === game.hostId
+  return (
+    <main className="bs-online-lobby">
+      <section>
+        <span className="bs-kicker">Flottenraum {game.code}</span>
+        <h1>{game.players.length === 2 ? 'Beide Kapitäne sind an Bord.' : 'Warte auf die zweite Flotte.'}</h1>
+        <p>{isHost ? 'Teile den Raumcode oder den Einladungslink. Sobald ihr zu zweit seid, kannst du die Partie starten.' : 'Die Raumleitung startet, sobald beide Geräte verbunden sind.'}</p>
+        <div className="bs-online-players">{game.players.map((player) => <div key={player.id}><span>{player.name.slice(0, 1).toLocaleUpperCase('de-DE')}</span><strong>{player.name}</strong><small>{player.id === game.hostId ? 'Raumleitung' : 'Beigetreten'}</small></div>)}</div>
+        {isHost ? <Button disabled={game.players.length !== 2} onClick={onStart} type="button">Partie starten</Button> : <button className="bs-leave-room" onClick={onLeave} type="button">Raum verlassen</button>}
+      </section>
+    </main>
+  )
+}
+
+function OnlineWaiting({ actorId, game }) {
+  const actor = game.players.find((player) => player.id === actorId)
+  const active = activePlayer(game)
+  const placement = game.phase === 'placement'
+  return (
+    <main className="bs-online-waiting">
+      <section>
+        <div className="bs-handoff__radar" aria-hidden="true"><i /><span>{placement ? '✓' : '⌖'}</span></div>
+        <span className="bs-kicker">{placement ? 'Flotte sicher gespeichert' : 'Gegnerischer Zug'}</span>
+        <h1>{placement ? 'Warte auf die andere Flotte.' : `${active?.name} ist am Zug.`}</h1>
+        <p>{placement ? 'Sobald beide Aufstellungen bestätigt sind, wechselt der Raum automatisch zum ersten Schuss.' : 'Dein Bildschirm aktualisiert sich automatisch, sobald der Schuss gefallen ist.'}</p>
+        {!placement && actor ? <Board game={game} label="Deine Flotte" ownerId={actor.id} revealShips /> : null}
+      </section>
+    </main>
+  )
+}
+
 function CompleteScreen({ game, onNewGame }) {
   const winner = game.players.find((player) => player.id === game.winnerId)
   const loser = game.players.find((player) => player.id !== game.winnerId)
@@ -275,15 +320,41 @@ function CompleteScreen({ game, onNewGame }) {
 export default function BattleshipGamePage() {
   const [game, setGame] = useState(null)
   const [loaded, setLoaded] = useState(false)
+  const [onlineMode, setOnlineMode] = useState(false)
+  const [session, setSession] = useState(null)
   const [locked, setLocked] = useState(true)
   const [viewerId, setViewerId] = useState(null)
   const [shotResult, setShotResult] = useState(null)
+  const [copied, setCopied] = useState(false)
   const [error, setError] = useState('')
 
-  useEffect(() => {
-    setGame(battleshipRepository.load())
-    setLoaded(true)
+  const loadOnlineRoom = useCallback(async () => {
+    const activeSession = battleshipRoomRepository.loadSession()
+    if (!activeSession) return null
+    setSession(activeSession)
+    const room = await battleshipRoomRepository.load(activeSession.roomCode)
+    if (room && !isValidBattleshipGame(room)) throw new Error('Der Onlineraum enthält keinen gültigen Spielstand.')
+    setGame((current) => !current || !room || room.revision >= current.revision ? room : current)
+    return room
   }, [])
+
+  useEffect(() => {
+    const activeSession = battleshipRoomRepository.isOnline ? battleshipRoomRepository.loadSession() : null
+    if (!activeSession) {
+      setGame(battleshipRepository.load())
+      setLoaded(true)
+      return undefined
+    }
+
+    setOnlineMode(true)
+    loadOnlineRoom().catch((loadError) => setError(loadError.message)).finally(() => setLoaded(true))
+    const unsubscribe = battleshipRoomRepository.subscribe((event) => {
+      if (!event.code || event.code === battleshipRoomRepository.loadSession()?.roomCode) {
+        loadOnlineRoom().catch((loadError) => setError(loadError.message))
+      }
+    })
+    return unsubscribe
+  }, [loadOnlineRoom])
 
   const relock = useCallback(() => {
     setLocked(true)
@@ -292,6 +363,7 @@ export default function BattleshipGamePage() {
   }, [])
 
   useEffect(() => {
+    if (onlineMode) return undefined
     const handleVisibility = () => { if (document.visibilityState !== 'visible') relock() }
     window.addEventListener('blur', relock)
     document.addEventListener('visibilitychange', handleVisibility)
@@ -299,9 +371,13 @@ export default function BattleshipGamePage() {
       window.removeEventListener('blur', relock)
       document.removeEventListener('visibilitychange', handleVisibility)
     }
-  }, [relock])
+  }, [onlineMode, relock])
 
-  const currentPlayer = useMemo(() => game ? activePlayer(game) : null, [game])
+  const currentPlayer = useMemo(() => {
+    if (!game) return null
+    if (onlineMode) return game.players.find((player) => player.id === session?.playerId) ?? null
+    return activePlayer(game)
+  }, [game, onlineMode, session?.playerId])
 
   function unlock() {
     if (!currentPlayer) return
@@ -311,11 +387,13 @@ export default function BattleshipGamePage() {
     setLocked(false)
   }
 
-  function runAction(action, { relock: shouldRelock = false } = {}) {
+  async function runAction(action, { relock: shouldRelock = false } = {}) {
     try {
-      const next = action(game)
-      if (!battleshipRepository.save(next)) throw new Error('Der neue Stand konnte nicht gespeichert werden.')
-      if (shouldRelock) relock()
+      const next = onlineMode
+        ? await battleshipRoomRepository.mutate(game.code, action)
+        : action(game)
+      if (!onlineMode && !battleshipRepository.save(next)) throw new Error('Der neue Stand konnte nicht gespeichert werden.')
+      if (shouldRelock && !onlineMode) relock()
       setGame(next)
       setError('')
       return next
@@ -332,12 +410,32 @@ export default function BattleshipGamePage() {
       setViewerId(null)
       return
     }
-    relock()
+    if (!onlineMode) relock()
   }
 
-  function newGame() {
-    battleshipRepository.clear()
-    window.location.assign(appPath('/schiffe-versenken'))
+  async function newGame() {
+    try {
+      if (onlineMode) {
+        if (session?.playerId === game.hostId) await battleshipRoomRepository.remove(game.code)
+        battleshipRoomRepository.clearSession()
+      } else battleshipRepository.clear()
+      window.location.assign(appPath('/schiffe-versenken'))
+    } catch (closeError) { setError(closeError.message) }
+  }
+
+  async function leaveOnlineRoom() {
+    try {
+      if (game.status === 'lobby') await battleshipRoomRepository.leave(game.code, { ...game, revision: game.revision + 1 })
+      battleshipRoomRepository.clearSession()
+      window.location.assign(appPath('/schiffe-versenken'))
+    } catch (leaveError) { setError(leaveError.message) }
+  }
+
+  async function copyInvite() {
+    const link = `${window.location.origin}${appPath('/schiffe-versenken')}?code=${game.code}`
+    await navigator.clipboard?.writeText(link)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1600)
   }
 
   if (!loaded) return <div className="bs-loading" role="status">Spielstand wird geladen …</div>
@@ -350,13 +448,17 @@ export default function BattleshipGamePage() {
 
   return (
     <div className="bs-page bs-page--game">
-      {!locked && !shotResult ? <AppHeader backLabel="Spielübersicht" backTo="/schiffe-versenken" /> : null}
+      {(onlineMode || (!locked && !shotResult)) ? <AppHeader backLabel="Spielübersicht" backTo="/schiffe-versenken" /> : null}
+      {onlineMode ? <OnlineRoomBar copied={copied} game={game} onCopy={copyInvite} /> : null}
       {error ? <div className="bs-game-error" role="alert"><span>{error}</span><button onClick={() => setError('')} type="button">Schließen</button></div> : null}
-      {!shotResult && game.phase === 'placement' && viewerId ? <PlacementScreen game={game} onAction={runAction} player={game.players.find((player) => player.id === viewerId)} /> : null}
-      {!shotResult && game.phase === 'battle' && viewerId ? <BattleScreen game={game} onAction={runAction} onShotResult={setShotResult} player={game.players.find((player) => player.id === viewerId)} /> : null}
+      {onlineMode && game.phase === 'lobby' ? <OnlineLobby actorId={session.playerId} game={game} onLeave={leaveOnlineRoom} onStart={() => runAction((current) => startOnlineBattleshipGame(current, session.playerId))} /> : null}
+      {!shotResult && game.phase === 'placement' && (onlineMode ? currentPlayer && !game.readyPlayerIds.includes(currentPlayer.id) : viewerId) ? <PlacementScreen game={game} onAction={runAction} online={onlineMode} player={onlineMode ? currentPlayer : game.players.find((player) => player.id === viewerId)} /> : null}
+      {!shotResult && onlineMode && game.phase === 'placement' && currentPlayer && game.readyPlayerIds.includes(currentPlayer.id) ? <OnlineWaiting actorId={currentPlayer.id} game={game} /> : null}
+      {!shotResult && game.phase === 'battle' && (onlineMode ? currentPlayer?.id === game.players[game.turnIndex].id : viewerId) ? <BattleScreen game={game} onAction={runAction} onShotResult={setShotResult} player={onlineMode ? currentPlayer : game.players.find((player) => player.id === viewerId)} /> : null}
+      {!shotResult && onlineMode && game.phase === 'battle' && currentPlayer?.id !== game.players[game.turnIndex].id ? <OnlineWaiting actorId={currentPlayer?.id} game={game} /> : null}
       {game.phase === 'complete' && !shotResult ? <CompleteScreen game={game} onNewGame={newGame} /> : null}
-      {shotResult ? <ShotResult complete={game.phase === 'complete'} entry={shotResult} onContinue={continueAfterShot} /> : null}
-      {locked && game.phase !== 'complete' ? <HandoffScreen game={game} onUnlock={unlock} /> : null}
+      {shotResult ? <ShotResult complete={game.phase === 'complete'} entry={shotResult} onContinue={continueAfterShot} online={onlineMode} /> : null}
+      {!onlineMode && locked && game.phase !== 'complete' ? <HandoffScreen game={game} onUnlock={unlock} /> : null}
     </div>
   )
 }

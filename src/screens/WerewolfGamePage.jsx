@@ -15,11 +15,14 @@ import {
   getCurrentHunterId,
   getCurrentRoleRevealPlayerId,
   getCurrentVoterId,
+  getWerewolfVoteMode,
   inspectWithSeer,
+  recordInPersonVote,
   selectWolfVictim,
   submitDayVote,
   submitHunterShot,
   submitWitchAction,
+  WEREWOLF_VOTE_MODES,
 } from '../games/werewolf/gameEngine.js'
 import { werewolfRepository } from '../games/werewolf/gameRepository.js'
 
@@ -174,8 +177,10 @@ function Dawn({ game, onContinue }) {
   return <GameChrome game={game}><section className="ww-public-card"><span className="ww-sun" aria-hidden="true">☀</span><span className="ww-kicker">Alle öffnen die Augen</span><h1>Das Dorf erwacht.</h1>{deaths.length ? <><p>In der Nacht sind ausgeschieden:</p><div className="ww-deaths">{deaths.map((death) => { const dead = player(game, death.playerId); return <div key={death.playerId}><strong>{dead.name}</strong><span>{ROLES[death.role].name}</span></div> })}</div></> : <p className="ww-no-death">Diese Nacht ist niemand gestorben.</p>}<Button onClick={onContinue} type="button">Dorfversammlung beginnen</Button></section></GameChrome>
 }
 
-function Day({ game, onVote }) {
-  return <GameChrome game={game}><section className="ww-public-card"><span className="ww-kicker">Diskussion · ohne Zeitlimit</span><h1>Wem vertraut das Dorf?</h1><p>Besprecht Verdachtsmomente. Die Spielleitung kann die Abstimmung starten, sobald alle bereit sind.</p><div className="ww-roster">{game.players.map((entry) => <div className={entry.alive ? '' : 'is-dead'} key={entry.id}><span>{entry.alive ? 'Lebt' : 'Ausgeschieden'}</span><strong>{entry.name}</strong><small>{entry.alive ? 'Rolle geheim' : ROLES[entry.revealedRole].name}</small></div>)}</div><Button onClick={onVote} type="button">Verdeckte Abstimmung starten</Button></section></GameChrome>
+function Day({ game, onDeviceVote, onInPersonVote }) {
+  const [selected, setSelected] = useState(null)
+  const inPerson = getWerewolfVoteMode(game) === WEREWOLF_VOTE_MODES.IN_PERSON
+  return <GameChrome game={game}><section className="ww-public-card"><span className="ww-kicker">Diskussion · ohne Zeitlimit</span><h1>{inPerson ? 'Wer wurde gewählt?' : 'Wem vertraut das Dorf?'}</h1><p>{inPerson ? 'Stimmt in der Runde offen, per Handzeichen oder mit eurem gewohnten Verfahren ab. Die Spielleitung wählt danach nur das Ergebnis aus.' : 'Besprecht Verdachtsmomente. Die Spielleitung kann die geheime Abstimmung starten, sobald alle bereit sind.'}</p>{inPerson ? <TargetGrid candidates={getAlivePlayers(game)} onSelect={setSelected} selectedId={selected} /> : <div className="ww-roster">{game.players.map((entry) => <div className={entry.alive ? '' : 'is-dead'} key={entry.id}><span>{entry.alive ? 'Lebt' : 'Ausgeschieden'}</span><strong>{entry.name}</strong><small>{entry.alive ? 'Rolle geheim' : ROLES[entry.revealedRole].name}</small></div>)}</div>}{inPerson ? <div className="ww-in-person-actions"><Button disabled={!selected} onClick={() => onInPersonVote(selected)} type="button">{selected ? `${player(game, selected)?.name} wurde gewählt` : 'Gewählte Person auswählen'}</Button><button onClick={() => onInPersonVote(null)} type="button">Keine eindeutige Mehrheit</button></div> : <Button onClick={onDeviceVote} type="button">Verdeckte Abstimmung starten</Button>}</section></GameChrome>
 }
 
 function Vote({ game, onAction, onLock, unlocked }) {
@@ -189,7 +194,7 @@ function Vote({ game, onAction, onLock, unlocked }) {
 function Execution({ game, onContinue }) {
   const executed = player(game, game.day?.executedId)
   const additionalDeaths = game.lastDeaths.filter((death) => death.playerId !== executed?.id)
-  return <GameChrome game={game}><section className="ww-public-card"><span className="ww-kicker">Das Dorf hat entschieden</span><h1>{executed ? `${executed.name} scheidet aus.` : 'Die Stichwahl endet unentschieden.'}</h1>{executed ? <p>Die Rolle wird aufgedeckt: <strong>{ROLES[executed.role].name}</strong>.</p> : <p>Heute wird niemand verbannt.</p>}{additionalDeaths.length ? <div className="ww-deaths" aria-label="Weitere Todesreaktionen">{additionalDeaths.map((death) => { const dead = player(game, death.playerId); return <div key={death.playerId}><strong>{dead.name} wurde mitgerissen</strong><span>{ROLES[dead.role].name}</span></div> })}</div> : null}<Button onClick={onContinue} type="button">Nächste Nacht beginnen</Button></section></GameChrome>
+  return <GameChrome game={game}><section className="ww-public-card"><span className="ww-kicker">Das Dorf hat entschieden</span><h1>{executed ? `${executed.name} scheidet aus.` : getWerewolfVoteMode(game) === WEREWOLF_VOTE_MODES.IN_PERSON ? 'Es gab keine eindeutige Mehrheit.' : 'Die Stichwahl endet unentschieden.'}</h1>{executed ? <p>Die Rolle wird aufgedeckt: <strong>{ROLES[executed.role].name}</strong>.</p> : <p>Heute wird niemand verbannt.</p>}{additionalDeaths.length ? <div className="ww-deaths" aria-label="Weitere Todesreaktionen">{additionalDeaths.map((death) => { const dead = player(game, death.playerId); return <div key={death.playerId}><strong>{dead.name} wurde mitgerissen</strong><span>{ROLES[dead.role].name}</span></div> })}</div> : null}<Button onClick={onContinue} type="button">Nächste Nacht beginnen</Button></section></GameChrome>
 }
 
 function Hunter({ game, onAction }) {
@@ -264,7 +269,7 @@ export default function WerewolfGamePage() {
         {[WEREWOLF_PHASES.NIGHT_WOLVES, WEREWOLF_PHASES.NIGHT_SEER, WEREWOLF_PHASES.NIGHT_WITCH].includes(phase) ? <ModeratorNight game={game} key={phase} onAction={action} onPrivateResult={setPrivateResult} /> : null}
         {phase === WEREWOLF_PHASES.HUNTER_REACTION ? <Hunter game={game} onAction={action} /> : null}
         {phase === WEREWOLF_PHASES.DAWN ? <Dawn game={game} onContinue={() => action(continueToDay)} /> : null}
-        {phase === WEREWOLF_PHASES.DAY ? <Day game={game} onVote={() => action(beginDayVote)} /> : null}
+        {phase === WEREWOLF_PHASES.DAY ? <Day game={game} onDeviceVote={() => action(beginDayVote)} onInPersonVote={(targetId) => action((current) => recordInPersonVote(current, targetId))} /> : null}
         {[WEREWOLF_PHASES.DAY_VOTE, WEREWOLF_PHASES.RUNOFF_VOTE].includes(phase) ? <Vote game={game} onAction={action} onLock={() => { setVoteOpen((current) => !current); setModeratorOpen(false) }} unlocked={voteOpen} /> : null}
         {phase === WEREWOLF_PHASES.EXECUTION ? <Execution game={game} onContinue={() => { const next = action(continueAfterExecution); if (next) setModeratorOpen(false) }} /> : null}
         {phase === WEREWOLF_PHASES.COMPLETE ? <Complete game={game} onNew={newGame} /> : null}

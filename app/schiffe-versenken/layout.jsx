@@ -2,7 +2,7 @@ import '../../src/battleship.css'
 
 export const metadata = {
   title: 'Schiffe versenken · UGBZ',
-  description: 'Lokales Schiffe versenken mit sicherem Pass-and-play-Sichtschutz.',
+  description: 'Schiffe versenken lokal oder synchron auf zwei Geräten spielen.',
 }
 
 export const viewport = {
