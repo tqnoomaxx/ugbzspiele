@@ -1,0 +1,50 @@
+import { flagCatalog } from './catalog.generated.js'
+
+export const flagCollections = [
+  { id: 'all', title: 'Alle Flaggen', shortTitle: 'Alle', group: 'Komplett', symbol: '◎', description: 'Die komplette Sammlung aus Ländern, Gebieten und Regionen.', featured: true },
+  { id: 'random', title: 'Überraschungsmix', shortTitle: 'Zufall', group: 'Komplett', symbol: '✦', description: 'Ein bunter Zufallsmix aus der gesamten Sammlung.', featured: true },
+  { id: 'countries', title: 'Länder & Gebiete', shortTitle: 'Weltweit', group: 'Welt', symbol: '◉', description: 'Staaten, Territorien und ausgewählte internationale Flaggen.' },
+  { id: 'europe', title: 'Europa', group: 'Welt', symbol: 'EU', continent: 'europe', description: 'Länder und Gebiete Europas.' },
+  { id: 'africa', title: 'Afrika', group: 'Welt', symbol: 'AF', continent: 'africa', description: 'Länder und Gebiete Afrikas.' },
+  { id: 'asia', title: 'Asien', group: 'Welt', symbol: 'AS', continent: 'asia', description: 'Länder und Gebiete Asiens.' },
+  { id: 'north-america', title: 'Nordamerika & Karibik', group: 'Welt', symbol: 'NA', continent: 'north-america', description: 'Nord- und Mittelamerika sowie die Karibik.' },
+  { id: 'south-america', title: 'Südamerika', group: 'Welt', symbol: 'SA', continent: 'south-america', description: 'Länder und Gebiete Südamerikas.' },
+  { id: 'oceania', title: 'Ozeanien', group: 'Welt', symbol: 'OZ', continent: 'oceania', description: 'Australien, Pazifikstaaten und Inselgebiete.' },
+  { id: 'germany', title: 'Deutsche Bundesländer', shortTitle: 'Deutschland', group: 'Europa regional', symbol: 'DE', description: 'Alle 16 Bundesländer.' },
+  { id: 'austria', title: 'Österreichische Bundesländer', shortTitle: 'Österreich', group: 'Europa regional', symbol: 'AT', description: 'Alle neun Bundesländer.' },
+  { id: 'netherlands', title: 'Niederländische Provinzen', shortTitle: 'Niederlande', group: 'Europa regional', symbol: 'NL', description: 'Alle zwölf Provinzen.' },
+  { id: 'switzerland', title: 'Schweizer Kantone', shortTitle: 'Schweiz', group: 'Europa regional', symbol: 'CH', description: 'Alle 26 Kantone.' },
+  { id: 'spain', title: 'Spanische Regionen', shortTitle: 'Spanien', group: 'Europa regional', symbol: 'ES', description: 'Autonome Gemeinschaften sowie Ceuta und Melilla.' },
+  { id: 'italy', title: 'Italienische Regionen', shortTitle: 'Italien', group: 'Europa regional', symbol: 'IT', description: 'Alle 20 Regionen.' },
+  { id: 'poland', title: 'Polnische Woiwodschaften', shortTitle: 'Polen', group: 'Europa regional', symbol: 'PL', description: 'Alle 16 Woiwodschaften.' },
+  { id: 'united-kingdom', title: 'Landesteile des UK', shortTitle: 'Vereinigtes Königreich', group: 'Europa regional', symbol: 'UK', description: 'England, Schottland, Wales und Nordirland.' },
+  { id: 'us-states', title: 'US-Bundesstaaten', shortTitle: 'USA', group: 'Amerika regional', symbol: 'US', description: 'Alle 50 Bundesstaaten plus Washington, D.C.' },
+  { id: 'canada', title: 'Kanadische Provinzen', shortTitle: 'Kanada', group: 'Amerika regional', symbol: 'CA', description: 'Alle Provinzen und Territorien.' },
+  { id: 'mexico', title: 'Mexikanische Bundesstaaten', shortTitle: 'Mexiko', group: 'Amerika regional', symbol: 'MX', description: '30 Bundesstaaten mit verfügbarer Flagge.' },
+  { id: 'brazil', title: 'Brasilianische Bundesstaaten', shortTitle: 'Brasilien', group: 'Amerika regional', symbol: 'BR', description: 'Alle 26 Bundesstaaten plus Bundesdistrikt.' },
+  { id: 'argentina', title: 'Argentinische Provinzen', shortTitle: 'Argentinien', group: 'Amerika regional', symbol: 'AR', description: 'Alle 23 Provinzen plus Buenos Aires.' },
+  { id: 'australia', title: 'Australische Staaten', shortTitle: 'Australien', group: 'Pazifik regional', symbol: 'AU', description: 'Bundesstaaten und große Territorien.' },
+  { id: 'japan', title: 'Japanische Präfekturen', shortTitle: 'Japan', group: 'Pazifik regional', symbol: 'JP', description: 'Alle 47 Präfekturen.' },
+]
+
+const collectionById = new Map(flagCollections.map((collection) => [collection.id, collection]))
+export const flagById = new Map(flagCatalog.map((flag) => [flag.id, flag]))
+
+export function getCollection(id) {
+  return collectionById.get(id) ?? collectionById.get('countries')
+}
+
+export function getFlagsForCollection(id) {
+  const collection = getCollection(id)
+  if (collection.id === 'all' || collection.id === 'random') return flagCatalog
+  if (collection.continent) {
+    return flagCatalog.filter((flag) => flag.kind === 'country' && flag.continent === collection.continent)
+  }
+  return flagCatalog.filter((flag) => flag.collection === collection.id)
+}
+
+export function getCollectionCount(id) {
+  return getFlagsForCollection(id).length
+}
+
+export { flagCatalog }

@@ -2,6 +2,17 @@ import { appPath } from '../basePath.js'
 
 export const games = [
   {
+    id: 'flaggenkunde',
+    title: 'Flaggenkunde',
+    description: '576 Flaggen erkennen – Länder, Bundesstaaten, Provinzen, Kantone und Regionen aus aller Welt.',
+    path: appPath('/flaggen'),
+    artwork: appPath('/assets/flaggen-table.svg'),
+    available: true,
+    rooms: null,
+    theme: 'atlas',
+    resumePath: appPath('/flaggen/spielen'),
+  },
+  {
     id: 'card-game',
     title: 'Kartenspiel',
     description: 'Der digitale Punkteblock für euer physisches Stichspiel.',

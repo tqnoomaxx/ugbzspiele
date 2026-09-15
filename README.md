@@ -1,10 +1,14 @@
 # UGBZ
 
-UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter**, klassischem **Kniffel**, **Schiffe versenken**, **Werwolf** und optionalem **Memory**.
+UGBZ ist eine responsive Spieleplattform mit **Flaggenkunde**, Kartenspiel, **Imposter**, klassischem **Kniffel**, **Schiffe versenken**, **Werwolf** und optionalem **Memory**.
 
 ## Enthalten
 
 - Spielplan mit Rundenzahl, Kartenfolge und geschätzter Dauer vor dem Start
+- Flaggenkunde mit 576 vollständig lokalen Flaggen: 254 Länder und Gebiete sowie 322 regionale Flaggen aus 15 Sammlungen
+- Sortierte Lernsets für Kontinente, US-Bundesstaaten, deutsche und österreichische Bundesländer, niederländische Provinzen und viele weitere Regionen
+- Zufallsmix, kompletter 576-Flaggen-Marathon, 10/20/50-Fragen-Runden, Tastatursteuerung und lokaler Lernfortschritt
+- Durchsuchbarer Flaggenatlas zum Entdecken und Vergleichen sämtlicher Motive
 - Erklärte Punkteformel und auditierbarer Rundenverlauf
 - Faire Rangfolge mit gemeinsamen Platzierungen bei Gleichstand
 - Korrektur von Ansagen, letzter Wertung und Schlussrunde
@@ -25,7 +29,7 @@ UGBZ ist eine responsive Spieleplattform mit Kartenspiel, **Imposter**, klassisc
 - Schiffe versenken lokal mit geheimer Übergabe oder synchron auf zwei Geräten, inklusive öffentlicher, privater und passwortgeschützter Räume
 - Werwolf für fünf bis zwölf Mitspielende mit nicht mitspielender Leitung, sicheren Rollenansichten, Nachtführung sowie geheimer Handy- oder gemeinsamer Tischabstimmung
 - Optionales Memory für ein bis sechs Personen; es erscheint erst ab sechs geprüften eigenen Motiven
-- 78 Unit-Tests, sieben echte Playwright-Spielabläufe und Produktionsbuilds über die GitHub-Actions-Pipeline
+- Umfassende Unit-Tests, echte Playwright-Spielabläufe und Produktionsbuilds über die GitHub-Actions-Pipeline
 
 ## Lokal starten
 
@@ -62,8 +66,9 @@ Kartenspiel speichert den Spielstand lokal. Imposter und Kniffel verwenden ohne 
 
 Schiffe versenken behält den lokalen Pass-and-Play-Modus und nutzt optional dieselbe Freunde-Beta-Raumschicht wie Imposter und Kniffel. Werwolf bleibt wegen Rollen und Nachtaktionen bewusst auf einem Gerät. Für Memory legst du mindestens sechs nicht vertrauliche Bilder in `public/assets/memory/pairs/`; beim nächsten Start oder Build wird das Spiel automatisch geprüft und freigeschaltet. Hinweise zu Format und Dateinamen stehen in `public/assets/memory/README.md`.
 
-## Imposter-Dokumentation
+## Dokumentation
 
+- [Flaggenkunde: Umfang, Lernmodi und lokale Daten](docs/flaggenkunde.md)
 - [Vollständige Bewertung und priorisierte Kritik](docs/gesamtbewertung.md)
 - [Online-Modus einrichten und für neue Spiele verwenden](docs/online-modus.md)
 - [Architektur und Entscheidungen](docs/doppelwort/architecture.md)

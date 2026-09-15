@@ -80,3 +80,15 @@ export function TrophyIcon(props) {
 export function CheckIcon(props) {
   return <SvgIcon {...props}><path d="m5 12.5 4.2 4.2L19 7" /></SvgIcon>
 }
+
+export function FlagIcon(props) {
+  return <SvgIcon {...props}><path d="M5 21V4m0 1h11l-2.2 3L16 11H5" /></SvgIcon>
+}
+
+export function SearchIcon(props) {
+  return <SvgIcon {...props}><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></SvgIcon>
+}
+
+export function SparkIcon(props) {
+  return <SvgIcon {...props}><path d="M12 2.5c.5 5.2 2.8 8 7.5 9-4.7 1-7 3.8-7.5 9-.5-5.2-2.8-8-7.5-9 4.7-1 7-3.8 7.5-9Z" /><path d="M19 2v4M21 4h-4" /></SvgIcon>
+}

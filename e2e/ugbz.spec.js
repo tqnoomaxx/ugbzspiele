@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }) => {
-  for (const path of ['/', '/kartenspiel', '/imposter', '/kniffel', '/schiffe-versenken', '/werwolf']) {
+  for (const path of ['/', '/flaggen', '/flaggen/lernen', '/kartenspiel', '/imposter', '/kniffel', '/schiffe-versenken', '/werwolf']) {
     const response = await page.goto(path)
     expect(response?.ok(), `${path} sollte erreichbar sein`).toBe(true)
     await expect(page.locator('body')).not.toContainText('404')
@@ -31,6 +31,34 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
     await page.goto('/memory')
     await expect(page).toHaveURL(/\/$/)
   }
+})
+
+test('Flaggenkunde startet eine Runde und speichert die erste Antwort lokal', async ({ page }) => {
+  await page.goto('/flaggen')
+  await expect(page.getByRole('heading', { name: /Die Welt hat/ })).toContainText('576 Flaggen')
+  await expect(page.locator('.fq-start-panel')).toHaveAttribute('aria-busy', 'false')
+
+  const germany = page.getByRole('button', { name: /Deutsche Bundesländer/ })
+  await germany.click()
+  await expect(germany).toHaveAttribute('aria-pressed', 'true')
+  await page.getByRole('button', { name: /10 Fragen/ }).click()
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  await expect(page).toHaveURL(/\/flaggen\/spielen$/)
+  await expect(page.locator('.fq-flag-image')).toBeVisible()
+  await expect(page.locator('.fq-answer-grid button')).toHaveCount(4)
+
+  const chosenAnswer = page.locator('.fq-answer-grid button').first()
+  await chosenAnswer.click()
+  await expect(chosenAnswer).toHaveClass(/is-(?:correct|wrong)/)
+  await expect(page.locator('.fq-feedback')).toHaveClass(/is-visible/)
+  await expect(page.getByRole('button', { name: 'Nächste Flagge' })).toBeVisible()
+  const progress = await page.evaluate(() => JSON.parse(window.localStorage.getItem('ugbz:flaggenkunde:progress:v1')))
+  expect(Object.keys(progress.stats)).toHaveLength(1)
+
+  await page.goto('/flaggen/lernen')
+  await page.getByRole('searchbox', { name: 'Flaggen suchen' }).fill('Bayern')
+  await expect(page.locator('.fq-flag-tile')).toHaveCount(1)
+  await expect(page.getByRole('heading', { name: 'Bayern' })).toBeVisible()
 })
 
 test('Memory mischt acht Paare in ein vollständig sichtbares mobiles Brett', async ({ page }) => {
@@ -209,7 +237,7 @@ test('Imposter erstellt mit einem Preset einen spielbaren lokalen Raum', async (
 
 test('wichtige Ansichten bleiben auf einem kleinen Handy ohne horizontalen Überlauf', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  for (const path of ['/', '/kartenspiel', '/imposter', '/kniffel', '/schiffe-versenken', '/werwolf']) {
+  for (const path of ['/', '/flaggen', '/flaggen/lernen', '/kartenspiel', '/imposter', '/kniffel', '/schiffe-versenken', '/werwolf']) {
     await page.goto(path)
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
     expect(overflow, `${path} darf nicht horizontal überlaufen`).toBeLessThanOrEqual(1)

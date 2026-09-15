@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" role="img" aria-labelledby="title desc">
+  <title id="title">Flaggenatlas auf einem Reisetisch</title>
+  <desc id="desc">Verschiedene Flaggenkarten liegen auf einer stilisierten Weltkarte.</desc>
+  <defs>
+    <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17384b"/><stop offset="1" stop-color="#0a1d29"/></linearGradient>
+    <pattern id="grid" width="55" height="55" patternUnits="userSpaceOnUse"><path d="M55 0H0v55" fill="none" stroke="#7ca1aa" stroke-opacity=".11"/></pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#020b10" flood-opacity=".42"/></filter>
+  </defs>
+  <rect width="1000" height="650" fill="url(#desk)"/>
+  <rect width="1000" height="650" fill="url(#grid)"/>
+  <g fill="none" stroke="#b9d0cd" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".2" stroke-width="5">
+    <path d="M75 355c59-38 89-105 150-113 39-5 49 20 83 12 26-6 29-27 64-26 25 0 35 15 72 12 45-4 79-33 116-31 38 2 44 34 79 39 38 6 70-26 109-13 28 10 34 38 61 54 34 21 67 8 102 30"/>
+    <path d="M97 424c80-9 111 34 176 20 50-11 60-55 108-62 62-8 89 56 151 51 47-4 67-47 112-49 51-2 76 50 128 53 53 3 74-46 127-38"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(90 92) rotate(-8 170 105)">
+    <rect width="340" height="210" rx="10" fill="#fffaf0"/>
+    <path d="M0 0h113v210H0z" fill="#1c7a4b"/><path d="M227 0h113v210H227z" fill="#d44d3e"/>
+    <rect x="13" y="13" width="314" height="184" rx="4" fill="none" stroke="#efe5d2" stroke-width="3"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(485 74) rotate(7 170 105)">
+    <rect width="340" height="210" rx="10" fill="#f9f5e9"/>
+    <path d="M0 0h340v70H0z" fill="#c53c40"/><path d="M0 140h340v70H0z" fill="#214e80"/>
+    <rect x="13" y="13" width="314" height="184" rx="4" fill="none" stroke="#e9deca" stroke-width="3"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(280 330) rotate(3 170 105)">
+    <rect width="340" height="210" rx="10" fill="#f7d34e"/>
+    <path d="M0 0h340v70H0z" fill="#15191d"/><path d="M0 140h340v70H0z" fill="#bf3b37"/>
+    <rect x="13" y="13" width="314" height="184" rx="4" fill="none" stroke="#f2e6c5" stroke-width="3"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(655 350) rotate(-9 125 78)">
+    <rect width="250" height="156" rx="9" fill="#f8f5e9"/>
+    <circle cx="125" cy="78" r="41" fill="#ca3d3d"/>
+    <rect x="11" y="11" width="228" height="134" rx="3" fill="none" stroke="#e9dfce" stroke-width="3"/>
+  </g>
+  <g transform="translate(102 516) rotate(-14)">
+    <circle r="56" fill="#e26d4d" opacity=".9"/>
+    <circle r="43" fill="none" stroke="#f4d692" stroke-width="3" stroke-dasharray="4 5"/>
+    <path d="M-22 0h44M0-22v44" stroke="#f8e8c5" stroke-width="4"/>
+  </g>
+</svg>

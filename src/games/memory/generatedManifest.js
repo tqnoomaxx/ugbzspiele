@@ -3,7 +3,7 @@ export const memoryManifest = Object.freeze({
   "schemaVersion": 2,
   "minPairs": 6,
   "ready": true,
-  "fingerprint": "16f8767f2d763a538570a48b1f689bb70a263b61ffcf3c7909cea23c858184d0",
+  "fingerprint": "ab6f29c51fc4294ef1db0b9d164ee63575e9a161e42b5d6c6ff3ec95601c54dc",
   "sets": [
     {
       "id": "athen",
@@ -88,6 +88,205 @@ export const memoryManifest = Object.freeze({
           "width": 3024,
           "height": 4032,
           "sha256": "9dfa4662176e018f8a701aa8ac94618f32a46dca1831a9e39d96631e81f777dc"
+        }
+      ]
+    },
+    {
+      "id": "montenegro",
+      "label": "Montenegro",
+      "ready": true,
+      "fingerprint": "6daff0f54d71fa82c44d22137dc9cb1dad37dc32def8ecd6957cdcc086430d95",
+      "availablePairCounts": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "cards": [
+        {
+          "id": "6a660f3f-35f8-4e74-a5ed-f9e616c803bc-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/6A660F3F-35F8-4E74-A5ED-F9E616C803BC_1_105_c.jpeg",
+          "label": "Foto 1",
+          "width": 768,
+          "height": 1024,
+          "sha256": "24750216ca08ff7c05a2cd1c3c410879015072bcb64bc9dfe97531e732bd220e"
+        },
+        {
+          "id": "83fdcc15-e792-4503-84d9-bc00cecfae77-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/83FDCC15-E792-4503-84D9-BC00CECFAE77_1_105_c.jpeg",
+          "label": "Foto 2",
+          "width": 1024,
+          "height": 768,
+          "sha256": "e7ed1c4a7d575744f84077383a1f6eeb59d7fd14950eb30b016719050b9f8d36"
+        },
+        {
+          "id": "88c805c1-d2b3-40a5-a54e-fca4b39ba9ea-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/88C805C1-D2B3-40A5-A54E-FCA4B39BA9EA_1_105_c.jpeg",
+          "label": "Foto 3",
+          "width": 1024,
+          "height": 768,
+          "sha256": "6f336bb1c4419466a045d054e8962899b67b8f0982648b90c9bd59a2800ac231"
+        },
+        {
+          "id": "916c9c2e-8334-46a3-af50-120dec98f9a7-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/916C9C2E-8334-46A3-AF50-120DEC98F9A7_1_105_c.jpeg",
+          "label": "Foto 4",
+          "width": 768,
+          "height": 1024,
+          "sha256": "8ce9502bc0633c9c4ac803d53b8172a52b56a8f64a7e4691615c5a8e21fce190"
+        },
+        {
+          "id": "a59370c5-49db-44fe-bb1f-950c31c96b59-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/A59370C5-49DB-44FE-BB1F-950C31C96B59_1_105_c.jpeg",
+          "label": "Foto 5",
+          "width": 768,
+          "height": 1024,
+          "sha256": "30b3b7cc7f82628919eb6847af8e6393fea0d352d24bd3e9a9441f5dbba61c99"
+        },
+        {
+          "id": "e6bdd31c-0028-454d-a6db-0ed80f496922-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/E6BDD31C-0028-454D-A6DB-0ED80F496922_1_105_c.jpeg",
+          "label": "Foto 6",
+          "width": 1024,
+          "height": 768,
+          "sha256": "e69464dfb2260f53e44c9549118053e1d1c4ce8b120acaa2b42f56a9baf4a251"
+        },
+        {
+          "id": "f2111c49-910b-443d-8062-74b8be325182-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/F2111C49-910B-443D-8062-74B8BE325182_1_105_c.jpeg",
+          "label": "Foto 7",
+          "width": 768,
+          "height": 1024,
+          "sha256": "21c58d4c52815495ca497d6832bce11c70c1858f95b1cea7c1097a510b3a7d12"
+        },
+        {
+          "id": "f77f3107-a569-45c4-b00b-c566f8ee658c-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/F77F3107-A569-45C4-B00B-C566F8EE658C_1_105_c.jpeg",
+          "label": "Foto 8",
+          "width": 665,
+          "height": 1182,
+          "sha256": "96820eda9623048920408a5c6f0878fbfbd20e6e54067afe570966123307a36d"
+        },
+        {
+          "id": "f86b40c6-0e5a-4021-9b43-e66d4e84d915-1-105-c",
+          "src": "/assets/memory/pairs/montenegro/F86B40C6-0E5A-4021-9B43-E66D4E84D915_1_105_c.jpeg",
+          "label": "Foto 9",
+          "width": 1024,
+          "height": 768,
+          "sha256": "4df08863e5d92f4a46416a18866d4309b81783a32e004f1ed5617e117b879f20"
+        }
+      ]
+    },
+    {
+      "id": "porto",
+      "label": "Porto",
+      "ready": true,
+      "fingerprint": "0920b122f08d03315bf2bfae847b7e8afa4c92b417660050826c03055ca2f940",
+      "availablePairCounts": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cards": [
+        {
+          "id": "38f91813-284b-4f8d-860f-0638192e84d7-1-105-c",
+          "src": "/assets/memory/pairs/porto/38F91813-284B-4F8D-860F-0638192E84D7_1_105_c.jpeg",
+          "label": "Foto 1",
+          "width": 1084,
+          "height": 724,
+          "sha256": "208c2b2536349c28a3dd36f6d03b75e26408196442b0bd668effadf0c19d8eed"
+        },
+        {
+          "id": "49becc29-ec7d-4933-899b-868ab57d6eb7-1-105-c",
+          "src": "/assets/memory/pairs/porto/49BECC29-EC7D-4933-899B-868AB57D6EB7_1_105_c.jpeg",
+          "label": "Foto 2",
+          "width": 1084,
+          "height": 724,
+          "sha256": "0244e8bff655b4ace82c4d4baa9d2f909a712b339ebca82dc791063677cba07e"
+        },
+        {
+          "id": "57383122-4a8c-43f2-99b8-aca3d1acb4f1-1-105-c",
+          "src": "/assets/memory/pairs/porto/57383122-4A8C-43F2-99B8-ACA3D1ACB4F1_1_105_c.jpeg",
+          "label": "Foto 3",
+          "width": 1084,
+          "height": 724,
+          "sha256": "9deb872e592b10b3609e93cbe564abbff2ccfea93a7ad0e87de35a2b9376ad01"
+        },
+        {
+          "id": "691278d2-7bdd-464a-9112-2475231197ff-1-105-c",
+          "src": "/assets/memory/pairs/porto/691278D2-7BDD-464A-9112-2475231197FF_1_105_c.jpeg",
+          "label": "Foto 4",
+          "width": 1084,
+          "height": 724,
+          "sha256": "7c6692c8ef25716cb467f014a09e5baa9d7f19fc18d56af89a14c6618421ad1d"
+        },
+        {
+          "id": "709a6eb9-082e-48dd-a60a-5da37178159e-1-105-c",
+          "src": "/assets/memory/pairs/porto/709A6EB9-082E-48DD-A60A-5DA37178159E_1_105_c.jpeg",
+          "label": "Foto 5",
+          "width": 1024,
+          "height": 768,
+          "sha256": "5553b106a643614da4f297c7e5e49afb469f7c66a71f3b21a9e10db40a40a477"
+        },
+        {
+          "id": "9ac97203-aabf-4b92-a72f-2a9afbd44eb1-1-105-c",
+          "src": "/assets/memory/pairs/porto/9AC97203-AABF-4B92-A72F-2A9AFBD44EB1_1_105_c.jpeg",
+          "label": "Foto 6",
+          "width": 724,
+          "height": 1084,
+          "sha256": "3b728725aa313345b76e4d06b7fc58e11e32486cde19e10deb495bde1fcdf05f"
+        },
+        {
+          "id": "a811f4c8-8ffe-457b-962c-2a9493d7709d-1-105-c",
+          "src": "/assets/memory/pairs/porto/A811F4C8-8FFE-457B-962C-2A9493D7709D_1_105_c.jpeg",
+          "label": "Foto 7",
+          "width": 1084,
+          "height": 724,
+          "sha256": "dd18c7fbd8e752977dd49f65d59cbb2122ac243d369bfec29f06f98e068c40fe"
+        },
+        {
+          "id": "aeb87c85-0de5-4b3f-9e67-d16e55e1234e-1-105-c",
+          "src": "/assets/memory/pairs/porto/AEB87C85-0DE5-4B3F-9E67-D16E55E1234E_1_105_c.jpeg",
+          "label": "Foto 8",
+          "width": 768,
+          "height": 1024,
+          "sha256": "f99bedc69842abea3e56cfe7806f75744c3dc59c663146c993adc0e7e18a265d"
+        },
+        {
+          "id": "b49c26fd-0a9d-4bd6-b459-72762752d396-1-105-c",
+          "src": "/assets/memory/pairs/porto/B49C26FD-0A9D-4BD6-B459-72762752D396_1_105_c.jpeg",
+          "label": "Foto 9",
+          "width": 1024,
+          "height": 768,
+          "sha256": "b5af02a3e6e103b0e7c7a92e17dd15e09139df8c01d36a105a59935246b04703"
+        },
+        {
+          "id": "e1921c8d-044c-40ad-bb9c-d0f198ef1c58-1-105-c",
+          "src": "/assets/memory/pairs/porto/E1921C8D-044C-40AD-BB9C-D0F198EF1C58_1_105_c.jpeg",
+          "label": "Foto 10",
+          "width": 768,
+          "height": 1024,
+          "sha256": "8cbfd8794df21de1eabb23603bf946a7320920ca61a4e1bab6f5dfd0f4259775"
+        },
+        {
+          "id": "ea3d70cd-e2e3-4242-8136-4266631e1d13-1-105-c",
+          "src": "/assets/memory/pairs/porto/EA3D70CD-E2E3-4242-8136-4266631E1D13_1_105_c.jpeg",
+          "label": "Foto 11",
+          "width": 1084,
+          "height": 724,
+          "sha256": "208495fcebc2b0b157a8865d8b0b105ef9cdb57b36c145bde6198a99361a2a61"
+        },
+        {
+          "id": "f9ded587-d833-4e4a-8ef1-fa79dfe77d57-1-105-c",
+          "src": "/assets/memory/pairs/porto/F9DED587-D833-4E4A-8EF1-FA79DFE77D57_1_105_c.jpeg",
+          "label": "Foto 12",
+          "width": 768,
+          "height": 1024,
+          "sha256": "7d746fc1f7593e50829845ed1a73a6f89fa67ed620d517c01b73d1fa1c327382"
         }
       ]
     }

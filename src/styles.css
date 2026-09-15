@@ -229,6 +229,10 @@ button:disabled {
   background: #3d2853;
 }
 
+.game-feature--atlas {
+  background: #102536;
+}
+
 .game-feature--wine .game-feature__art::after {
   background: linear-gradient(90deg, transparent, #351018);
 }
@@ -243,6 +247,10 @@ button:disabled {
 
 .game-feature--memory .game-feature__art::after {
   background: linear-gradient(90deg, transparent, #3d2853);
+}
+
+.game-feature--atlas .game-feature__art::after {
+  background: linear-gradient(90deg, transparent, #102536);
 }
 
 .game-feature--night .game-feature__art::after {
