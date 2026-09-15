@@ -1,8 +1,10 @@
 import { flagCatalog } from './catalog.generated.js'
+import { europeMapTargets } from './mapManifest.generated.js'
 
 export const flagCollections = [
   { id: 'all', title: 'Alle Flaggen', shortTitle: 'Alle', group: 'Komplett', symbol: '◎', description: 'Die komplette Sammlung aus Ländern, Gebieten und Regionen.', featured: true },
   { id: 'random', title: 'Überraschungsmix', shortTitle: 'Zufall', group: 'Komplett', symbol: '✦', description: 'Ein bunter Zufallsmix aus der gesamten Sammlung.', featured: true },
+  { id: 'europe-hyper', title: 'Europa-Hypermodus', shortTitle: 'Europa Hyper', group: 'Komplett', symbol: '⚡', description: `${europeMapTargets.length} Gebiete auf einer Europakarte – finde jedes davon.`, featured: true, quizMode: 'europe-map' },
   { id: 'countries', title: 'Länder & Gebiete', shortTitle: 'Weltweit', group: 'Welt', symbol: '◉', description: 'Staaten, Territorien und ausgewählte internationale Flaggen.' },
   { id: 'europe', title: 'Europa', group: 'Welt', symbol: 'EU', continent: 'europe', description: 'Länder und Gebiete Europas.' },
   { id: 'africa', title: 'Afrika', group: 'Welt', symbol: 'AF', continent: 'africa', description: 'Länder und Gebiete Afrikas.' },
@@ -36,7 +38,7 @@ export const flagCollections = [
 ]
 
 const collectionById = new Map(flagCollections.map((collection) => [collection.id, collection]))
-export const flagById = new Map(flagCatalog.map((flag) => [flag.id, flag]))
+export const flagById = new Map([...europeMapTargets, ...flagCatalog].map((flag) => [flag.id, flag]))
 
 export function getCollection(id) {
   return collectionById.get(id) ?? collectionById.get('countries')
@@ -45,6 +47,7 @@ export function getCollection(id) {
 export function getFlagsForCollection(id) {
   const collection = getCollection(id)
   if (collection.id === 'all' || collection.id === 'random') return flagCatalog
+  if (collection.id === 'europe-hyper') return europeMapTargets.map((target) => flagById.get(target.id))
   if (collection.continent) {
     return flagCatalog.filter((flag) => flag.kind === 'country' && flag.continent === collection.continent)
   }

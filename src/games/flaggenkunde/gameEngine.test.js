@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { advanceQuiz, answerQuestion, createQuiz, getQuizResult } from './gameEngine.js'
+import { advanceQuiz, answerMapGuess, answerQuestion, answerTypedQuestion, createQuiz, getQuizResult, normalizeFlagAnswer, QUIZ_MODES } from './gameEngine.js'
+import { getFlagsForCollection } from './catalog.js'
 
 const flags = Array.from({ length: 6 }, (_, index) => ({
   id: `flag-${index}`,
@@ -76,5 +77,55 @@ describe('Flaggenkunde-Spielengine', () => {
     quiz = advanceQuiz(answerQuestion(quiz, answerId))
     expect(quiz.phase).toBe('complete')
     expect(getQuizResult(quiz)).toMatchObject({ baseTotal: 1, learned: 1, incorrect: 2, repeats: 2 })
+  })
+
+  it('wertet eingetippte Namen ohne Rücksicht auf Großschreibung und Akzente aus', () => {
+    const namedFlags = flags.map((flag, index) => ({ ...flag, name: index === 0 ? 'Tucumán' : `Region ${index}`, code: `T-${index}` }))
+    let quiz = createQuiz(namedFlags, { roundLength: 1, quizMode: QUIZ_MODES.TYPE, random: () => 0 })
+    expect(quiz.questions[0].optionIds).toBeUndefined()
+    quiz = answerTypedQuestion(quiz, 'tucuman', 'Tucumán', 'T-0')
+    expect(quiz.answers.at(-1)).toMatchObject({ response: 'tucuman', correct: true })
+    expect(normalizeFlagAnswer('  O’Higgins ')).toBe('o higgins')
+  })
+
+  it('lässt Kartenfehler offen und beendet die Aufgabe erst beim richtigen Gebiet', () => {
+    let quiz = createQuiz(flags, { roundLength: 1, quizMode: QUIZ_MODES.MAP, random: () => 0 })
+    const targetId = quiz.questions[0].flagId
+    const wrongId = flags.find((flag) => flag.id !== targetId).id
+    quiz = answerMapGuess(quiz, wrongId)
+    expect(quiz).toMatchObject({ phase: 'question', lastMapGuessId: wrongId, streak: 0 })
+    expect(quiz.answers.at(-1)).toMatchObject({ correct: false, mapGuess: true })
+    quiz = answerMapGuess(quiz, targetId)
+    expect(quiz.phase).toBe('feedback')
+    quiz = advanceQuiz(quiz)
+    expect(getQuizResult(quiz)).toMatchObject({ baseTotal: 1, learned: 1, incorrect: 1, total: 2 })
+  })
+
+  it('erzeugt für die umgekehrte Abfrage vier Flaggenoptionen', () => {
+    const quiz = createQuiz(flags, { roundLength: 2, quizMode: QUIZ_MODES.REVERSE, random: () => 0.4 })
+    expect(quiz.quizMode).toBe(QUIZ_MODES.REVERSE)
+    expect(quiz.questions.every((question) => question.optionIds.length === 4)).toBe(true)
+  })
+
+  it('akzeptiert Umlautumschreibungen, ignoriert leere Eingaben und wiederholt falsche Namen', () => {
+    const quiz = createQuiz(flags, { roundLength: 1, quizMode: QUIZ_MODES.TYPE, repeatMistakes: true })
+    expect(answerTypedQuestion(quiz, '   ', 'Baden-Württemberg', 'DE-BW')).toBe(quiz)
+    expect(answerTypedQuestion(quiz, 'Baden-Wuerttemberg', 'Baden-Württemberg', 'DE-BW').answers[0].correct).toBe(true)
+    const wrong = answerTypedQuestion(quiz, 'Berlin', 'Baden-Württemberg', 'DE-BW')
+    expect(wrong.questions[1]).toMatchObject({ flagId: quiz.questions[0].flagId, repeated: true })
+    expect(wrong.questions[1].optionIds).toBeUndefined()
+  })
+
+  it('durchläuft im Hypermodus jedes Europa-Ziel genau einmal und endet erst nach allen Treffern', () => {
+    const targets = getFlagsForCollection('europe-hyper')
+    let quiz = createQuiz(targets, { collectionId: 'europe-hyper', quizMode: QUIZ_MODES.EUROPE_MAP, roundLength: 'all', random: () => 0.3 })
+    expect(new Set(quiz.questions.map((question) => question.flagId)).size).toBe(targets.length)
+    expect(quiz.questions.map((question) => question.flagId)).not.toEqual(targets.map((target) => target.id))
+    for (let index = 0; index < targets.length; index += 1) {
+      expect(quiz.phase).toBe('question')
+      quiz = advanceQuiz(answerMapGuess(quiz, quiz.questions[index].flagId))
+    }
+    expect(quiz.phase).toBe('complete')
+    expect(getQuizResult(quiz)).toMatchObject({ learned: targets.length, incorrect: 0, accuracy: 100 })
   })
 })

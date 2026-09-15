@@ -299,7 +299,8 @@ const attribution = `# Quellen und Lizenzen der Flaggen\n\n` +
   `Diese Dateien sind nach österreichischem Urheberrecht gemeinfrei; ihre Commons-Beschreibungsseiten sind ebenfalls im lokalen Katalog vermerkt.\n\n` +
   `Vier zusätzlich ergänzte Regionalflaggen (Campeche, Hidalgo, Sisak-Moslavina und Požega-Slawonien) stammen von Wikimedia Commons; ihre Beschreibungsseiten sind im Katalog vermerkt.\n\n` +
   `Die vier Flaggen der Landesteile des Vereinigten Königreichs stammen ebenfalls aus country-flag-icons.\n\n` +
-  `Die lokalen Lagekarten wurden aus den vereinfachten gbOpen-Grenzen von **geoBoundaries** (CC BY 4.0) erzeugt. Für einzelne fehlende oder abweichend codierte Grenzen dient **Natural Earth** (Public Domain) als Fallback.\n`
+  `Die lokalen Lagekarten wurden aus den vereinfachten gbOpen-Grenzen von **geoBoundaries** (CC BY 4.0) erzeugt. Für einzelne fehlende oder abweichend codierte Grenzen dient **Natural Earth** (Public Domain) als Fallback.\n\n` +
+  `Auch die interaktiven Karten verwenden [geoBoundaries gbOpen](https://www.geoboundaries.org/) und [Natural Earth](https://www.naturalearthdata.com/). Die Geometrien wurden vereinfacht, projiziert und für den Europa-Hypermodus auf den Kartenausschnitt begrenzt. Quellenlinks, Bezugsjahre und ursprüngliche Lizenzangaben je Datensatz stehen in [interactive/SOURCES.json](interactive/SOURCES.json). Verwaltungsstände und Ebenen unterscheiden sich je Land; die Lernkarte ist keine tagesaktuelle amtliche Grenzkarte.\n`
 writeFileSync(path.join(outputRoot, 'ATTRIBUTION.md'), attribution)
 
 // Cloud-synchronisierte Arbeitsordner können beim schnellen Neuimport Konfliktkopien

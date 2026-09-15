@@ -1,10 +1,29 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { tmpdir } from 'node:os'
+import { createHash } from 'node:crypto'
 
 const root = path.resolve(import.meta.dirname, '..')
 const defaultOutput = path.join(root, 'public/assets/flags/maps')
+const interactiveOutput = path.join(root, 'public/assets/flags/interactive')
+const manifestOutput = path.join(root, 'src/games/flaggenkunde/mapManifest.generated.js')
+const cacheDirectory = path.join(tmpdir(), 'ugbz-map-source-cache')
 const naturalEarthUrl = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson'
+const naturalEarthCountriesUrl = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson'
+const europeHyperExclusions = new Set(['region-BE-VLG', 'region-BE-WAL'])
+const sourceCredits = new Map()
+
+async function fetchJson(url) {
+  mkdirSync(cacheDirectory, { recursive: true })
+  const cacheFile = path.join(cacheDirectory, `${createHash('sha256').update(url).digest('hex')}.json`)
+  if (existsSync(cacheFile) && process.env.FLAG_REFRESH_GEOMETRY !== '1') return JSON.parse(readFileSync(cacheFile, 'utf8'))
+  const response = await fetch(url, { signal: AbortSignal.timeout(60000) })
+  if (!response.ok) throw new Error(`${url}: ${response.status}`)
+  const data = await response.json()
+  writeFileSync(cacheFile, JSON.stringify(data))
+  return data
+}
 
 const mapConfigs = {
   AR: { iso3: 'ARG', levels: ['ADM1'] },
@@ -36,6 +55,7 @@ const selectorOverrides = {
   'AR-E': { naturalEarthCode: 'AR-E' },
   'BE-BRU': { code: 'BRU' }, 'BE-VLG': { code: 'VLG' }, 'BE-WAL': { code: 'WAL' },
   'CA-QC': { code: 'CA-QB' },
+  'CZ-PR': { code: 'CZ-10' },
   'MX-CMX': { name: 'Distrito Federal' },
   'MX-MEX': { name: 'Mexico' },
   'US-SD': { code: 'SU-SD' },
@@ -134,15 +154,30 @@ function createProjection(features, width = 240, height = 160, padding = 10) {
   ]
 }
 
-function pathFor(features, project) {
+function pathFor(features, project, tolerance = 0.45, preserveArea = true) {
   return features.flatMap((feature) => getRings(feature.geometry).map((ring) => {
     const projected = ring.map(project)
     const open = projected.length > 2 && projected[0][0] === projected.at(-1)[0] && projected[0][1] === projected.at(-1)[1]
       ? projected.slice(0, -1)
       : projected
-    const reduced = simplify(open)
-    if (reduced.length < 3) return ''
-    return `M${reduced.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z`
+    if (!preserveArea) {
+      const reduced = simplify(open, tolerance)
+      if (reduced.length < 3) return ''
+      return `M${reduced.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z`
+    }
+    if (open.length < 3) return ''
+    const xs = open.map(([x]) => x)
+    const ys = open.map(([, y]) => y)
+    const shortSide = Math.min(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys))
+    const reduced = simplify(open, Math.min(tolerance, shortSide / 20)).map(([x, y]) => [Number(x.toFixed(2)), Number(y.toFixed(2))])
+    const area = reduced.reduce((sum, point, index) => {
+      const next = reduced[(index + 1) % reduced.length]
+      return sum + point[0] * next[1] - next[0] * point[1]
+    }, 0)
+    // Three points may still be collinear or identical after rounding (Athos,
+    // Encamp). Preserve the original ring rather than producing an unclickable line.
+    const points = reduced.length < 3 || Math.abs(area) < 0.000001 ? open : reduced
+    return `M${points.map(([x, y]) => `${Number(x.toFixed(3))} ${Number(y.toFixed(3))}`).join('L')}Z`
   })).filter(Boolean).join('')
 }
 
@@ -164,8 +199,9 @@ function escapeXml(value) {
 
 function renderMap(flag, background, target) {
   const project = createProjection(background)
-  const backgroundPath = pathFor(background, project)
-  const targetPath = pathFor([target], project)
+  // Locator thumbnails already use a marker for tiny targets; keep them compact.
+  const backgroundPath = pathFor(background, project, 0.45, false)
+  const targetPath = pathFor([target], project, 0.45, false)
   const bounds = boundsFor(target, project)
   const isTiny = Math.max(bounds.maxX - bounds.minX, bounds.maxY - bounds.minY) < 5
   const centerX = ((bounds.minX + bounds.maxX) / 2).toFixed(1)
@@ -177,12 +213,10 @@ function renderMap(flag, background, target) {
 async function fetchGeoBoundaries(prefix, config) {
   const features = []
   for (const level of config.levels) {
-    const metadataResponse = await fetch(`https://www.geoboundaries.org/api/current/gbOpen/${config.iso3}/${level}/`)
-    if (!metadataResponse.ok) throw new Error(`geoBoundaries ${config.iso3}/${level}: ${metadataResponse.status}`)
-    const metadata = await metadataResponse.json()
-    const geometryResponse = await fetch(metadata.simplifiedGeometryGeoJSON)
-    if (!geometryResponse.ok) throw new Error(`geoBoundaries-Geometrie ${config.iso3}/${level}: ${geometryResponse.status}`)
-    const geometry = await geometryResponse.json()
+    const url = `https://www.geoboundaries.org/api/current/gbOpen/${config.iso3}/${level}/`
+    const metadata = await fetchJson(url)
+    const geometry = await fetchJson(metadata.simplifiedGeometryGeoJSON)
+    sourceCredits.set(`${prefix}-${level}`, { source: 'geoBoundaries gbOpen', url, geometry: metadata.simplifiedGeometryGeoJSON, year: metadata.boundaryYearRepresented, license: metadata.boundaryLicense })
     features.push(...geometry.features.map((feature) => ({ ...feature, sourceGroup: `${prefix}-${level}` })))
   }
   return features
@@ -197,9 +231,133 @@ function findGeoFeature(code, features) {
 }
 
 async function fetchNaturalEarth() {
-  const response = await fetch(naturalEarthUrl)
-  if (!response.ok) throw new Error(`Natural-Earth-Geometrie: ${response.status}`)
-  return (await response.json()).features
+  return (await fetchJson(naturalEarthUrl)).features
+}
+
+async function fetchEuropeCountries() {
+  const features = (await fetchJson(naturalEarthCountriesUrl)).features
+  const europeExtras = new Set(['CY', 'TR'])
+  const insideEurope = ([longitude, latitude]) => longitude >= -32 && longitude <= 60 && latitude >= 27 && latitude <= 72
+  return features.flatMap((feature) => {
+    const properties = feature.properties ?? {}
+    const code = properties.ISO_A2_EH ?? properties.ISO_A2 ?? properties.iso_a2
+    const continent = properties.CONTINENT ?? properties.continent
+    if (continent !== 'Europe' && !europeExtras.has(code)) return []
+    const polygons = feature.geometry?.type === 'Polygon' ? [feature.geometry.coordinates] : feature.geometry?.coordinates ?? []
+    const visiblePolygons = polygons.filter((polygon) => polygon[0]?.some(insideEurope)).map((polygon) => polygon.map((ring) => ring.map(([x, y]) => [Math.max(-32, Math.min(60, x)), Math.max(27, Math.min(72, y))])))
+    if (!visiblePolygons.length) return []
+    return [{ ...feature, geometry: { type: 'MultiPolygon', coordinates: visiblePolygons } }]
+  })
+}
+
+function uniqueFeatures(features) {
+  return [...new Set(features)]
+}
+
+function createShape(flag, feature, project, tolerance = 0.8) {
+  const bounds = boundsFor(feature, project)
+  return {
+    flagId: flag.id,
+    name: flag.name,
+    parent: flag.parent,
+    bounds: [bounds.minX, bounds.minY, bounds.maxX - bounds.minX, bounds.maxY - bounds.minY].map((number) => Number(number.toFixed(3))),
+    d: pathFor([feature], project, tolerance),
+  }
+}
+
+function europeanPart(feature) {
+  const polygons = feature.geometry?.type === 'Polygon' ? [feature.geometry.coordinates] : feature.geometry?.coordinates ?? []
+  const visible = polygons.filter((polygon) => polygon[0]?.some(([x, y]) => x >= -32 && x <= 60 && y >= 27 && y <= 72))
+    .map((polygon) => polygon.map((ring) => ring.map(([x, y]) => [Math.max(-32, Math.min(60, x)), Math.max(27, Math.min(72, y))])))
+  return visible.length ? { ...feature, geometry: { type: 'MultiPolygon', coordinates: visible } } : null
+}
+
+async function addEuropeanRegions(europeFlags, countries, targetByFlagId, naturalEarthFeatures) {
+  const covered = new Set(europeFlags.map((flag) => flag.code.split('-')[0]))
+  // Åland is already one of Finland's 19 regions. Do not overlay a second,
+  // incompatible municipality layer on the same islands.
+  covered.add('AX')
+  const extras = await Promise.all(countries.filter((country) => !covered.has(country.properties.ISO_A2_EH)).map(async (country) => {
+    const code = country.properties.ISO_A2_EH
+    const parent = country.properties.NAME_DE
+    const iso3 = code === 'XK' ? 'XKX' : country.properties.ISO_A3_EH
+    let features
+    try {
+      // These gbOpen ADM1 sets use supra-regions (GR) or omit the capital (HU).
+      // Use a complete, non-overlapping Natural Earth subdivision set instead.
+      if (code === 'GR' || code === 'HU') throw new Error('Natural Earth subdivision level preferred')
+      features = await fetchGeoBoundaries(code, { iso3, levels: ['ADM1'] })
+    } catch {
+      features = naturalEarthFeatures.filter((feature) => feature.properties.iso_a2 === code)
+      sourceCredits.set(`${code}-fallback`, { source: 'Natural Earth', url: naturalEarthUrl, license: 'Public Domain' })
+    }
+    if (!features.length) features = [country]
+    const matches = features.map((feature, index) => {
+      const geometry = europeanPart(feature)
+      if (!geometry) return null
+      const props = feature.properties
+      const name = props.shapeName || props.name_de || props.name || parent
+      const regionCode = props.shapeISO || props.iso_3166_2 || `${code}-${index + 1}`
+      const flag = { id: `map-${code}-${index + 1}`, code: regionCode, name, parent, kind: 'map-region', continent: 'europe' }
+      targetByFlagId.set(flag.id, geometry)
+      return flag
+    }).filter(Boolean)
+    if (!matches.length) throw new Error(`Keine europäischen Regionen für ${parent}`)
+    console.log(`${parent}: ${matches.length} Europa-Ziele`)
+    return matches
+  }))
+  return [...europeFlags, ...extras.flat()].sort((a, b) => a.name.localeCompare(b.name, 'de'))
+}
+
+async function writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarthFeatures) {
+  const mapSets = {}
+  const mapSetByFlagId = {}
+  const targetByFlagId = new Map()
+
+  for (const [prefix, prefixFlags] of Map.groupBy(regionalFlags, (flag) => flag.code.split('-')[0])) {
+    let matches = prefixFlags.map((flag) => ({ flag, feature: matchedGeoByPrefix.get(prefix)?.get(flag.code) })).filter(({ feature }) => feature)
+    if (matches.length !== prefixFlags.length) {
+      const fallbackMatches = prefixFlags.map((flag) => {
+        const fallbackCode = selectorOverrides[flag.code]?.naturalEarthCode ?? flag.code
+        return { flag, feature: naturalEarthFeatures.find((feature) => feature.properties.iso_3166_2 === fallbackCode) }
+      })
+      if (fallbackMatches.every(({ feature }) => feature)) matches = fallbackMatches.map((match) => ({ ...match, feature: { ...match.feature, sourceGroup: `${prefix}-NE` } }))
+    }
+
+    for (const [sourceGroup, groupMatches] of Map.groupBy(matches, ({ feature }) => feature.sourceGroup ?? `${prefix}-NE`)) {
+      const features = uniqueFeatures(groupMatches.map(({ feature }) => feature))
+      const project = createProjection(features)
+      const setId = sourceGroup
+      mapSets[setId] = {
+        label: groupMatches[0].flag.parent,
+        viewBox: '0 0 240 160',
+        shapes: groupMatches.map(({ flag, feature }) => createShape(flag, feature, project)),
+      }
+      for (const { flag, feature } of groupMatches) {
+        mapSetByFlagId[flag.id] = setId
+        targetByFlagId.set(flag.id, feature)
+      }
+    }
+  }
+
+  let europeFlags = regionalFlags.filter((flag) => flag.continent === 'europe' && !europeHyperExclusions.has(flag.id) && targetByFlagId.has(flag.id))
+  const europeCountries = await fetchEuropeCountries()
+  europeFlags = await addEuropeanRegions(europeFlags, europeCountries, targetByFlagId, naturalEarthFeatures)
+  const europeTargets = europeFlags.map((flag) => targetByFlagId.get(flag.id))
+  const europeProject = createProjection([...europeCountries, ...europeTargets], 980, 620, 22)
+  const europeMap = {
+    label: 'Europa-Hypermodus',
+    viewBox: '0 0 980 620',
+    backgroundPath: pathFor(europeCountries, europeProject, 1.8, false),
+    shapes: europeFlags.map((flag) => createShape(flag, targetByFlagId.get(flag.id), europeProject, 0.9)),
+  }
+
+  mkdirSync(interactiveOutput, { recursive: true })
+  for (const [id, map] of Object.entries({ ...mapSets, europe: europeMap })) writeFileSync(path.join(interactiveOutput, `${id}.json`), JSON.stringify(map))
+  const source = `// Automatisch erzeugt durch scripts/generate-flag-locator-maps.mjs.\n// Die Geometrie wird je Karte aus lokalen JSON-Dateien nachgeladen.\nexport const mapSetByFlagId = ${JSON.stringify(mapSetByFlagId)}\nexport const europeMapTargets = ${JSON.stringify(europeFlags.map(({ id, code, name, parent, kind }) => ({ id, code, name, parent, kind })))}\n`
+  writeFileSync(manifestOutput, source)
+  writeFileSync(path.join(interactiveOutput, 'SOURCES.json'), JSON.stringify({ naturalEarth: { countries: naturalEarthCountriesUrl, subdivisions: naturalEarthUrl, license: 'Public Domain' }, datasets: Object.fromEntries(sourceCredits), extent: 'Europäischer Kartenausschnitt: 32°W bis 60°E, 27°N bis 72°N; Türkei und Zypern eingeschlossen. Verwaltungsstände je Quelldatensatz.' }, null, 2))
+  console.log(`${Object.keys(mapSets).length} interaktive Kartensätze und ${europeFlags.length} Europa-Ziele erzeugt.`)
 }
 
 export async function generateFlagLocatorMaps(flags, { outputDirectory = defaultOutput, skipGeneration = false } = {}) {
@@ -254,6 +412,8 @@ export async function generateFlagLocatorMaps(flags, { outputDirectory = default
   }
 
   if (missing.length) console.warn(`Keine Lagekarte für: ${missing.join(', ')}`)
+  naturalEarth ??= await fetchNaturalEarth()
+  await writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarth)
   console.log(`${mappedCodes.size} lokale Lagekarten erzeugt.`)
   return mappedCodes
 }

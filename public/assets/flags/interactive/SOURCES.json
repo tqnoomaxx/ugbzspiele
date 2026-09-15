@@ -1,0 +1,435 @@
+{
+  "naturalEarth": {
+    "countries": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson",
+    "subdivisions": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+    "license": "Public Domain"
+  },
+  "datasets": {
+    "CH-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CHE/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CHE/ADM1/geoBoundaries-CHE-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Federal Office of Topography swisstopo License"
+    },
+    "IT-ADM2": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ITA/ADM2/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ITA/ADM2/geoBoundaries-ITA-ADM2_simplified.geojson",
+      "year": "2023",
+      "license": "Creative Commons Attribution 3.0 License"
+    },
+    "BR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BRA/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BRA/ADM1/geoBoundaries-BRA-ADM1_simplified.geojson",
+      "year": "2006",
+      "license": "Creative Commons Attribution 2.5 Generic"
+    },
+    "MX-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MEX/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/90a1d52/releaseData/gbOpen/MEX/ADM1/geoBoundaries-MEX-ADM1_simplified.geojson",
+      "year": "2020",
+      "license": "Creative Commons Attribution 3.0 Intergovernmental Organisations (CC BY 3.0 IGO)"
+    },
+    "JP-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/JPN/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/JPN/ADM1/geoBoundaries-JPN-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "US-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/USA/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/USA/ADM1/geoBoundaries-USA-ADM1_simplified.geojson",
+      "year": "2018",
+      "license": "Public Domain"
+    },
+    "CA-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CAN/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/41af8f1/releaseData/gbOpen/CAN/ADM1/geoBoundaries-CAN-ADM1_simplified.geojson",
+      "year": "2023",
+      "license": "Open Government Canada 2.0"
+    },
+    "CO-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/COL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/COL/ADM1/geoBoundaries-COL-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "ES-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ESP/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ESP/ADM1/geoBoundaries-ESP-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "CL-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CHL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CHL/ADM1/geoBoundaries-CHL-ADM1_simplified.geojson",
+      "year": "2020",
+      "license": "Creative Commons Attribution 3.0 Intergovernmental Organisations (CC BY 3.0 IGO)"
+    },
+    "BE-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BEL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BEL/ADM1/geoBoundaries-BEL-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+    },
+    "AU-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/AUS/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/AUS/ADM1/geoBoundaries-AUS-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "DE-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/DEU/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/DEU/ADM1/geoBoundaries-DEU-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Data license Germany - Attribution - Version 2.0"
+    },
+    "SK-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/SVK/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/SVK/ADM1/geoBoundaries-SVK-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "HR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/HRV/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/HRV/ADM1/geoBoundaries-HRV-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "SE-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/SWE/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/SWE/ADM1/geoBoundaries-SWE-ADM1_simplified.geojson",
+      "year": "2009",
+      "license": "Creative Commons Attribution 3.0 License"
+    },
+    "AR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ARG/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ARG/ADM1/geoBoundaries-ARG-ADM1_simplified.geojson",
+      "year": "2006",
+      "license": "Creative Commons Attribution 2.5 Generic"
+    },
+    "AT-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/AUT/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/AUT/ADM1/geoBoundaries-AUT-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Creative Commons Attribution-ShareAlike 2.0"
+    },
+    "NL-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/NLD/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/NLD/ADM1/geoBoundaries-NLD-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+    },
+    "GB-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/GBR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/GBR/ADM1/geoBoundaries-GBR-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "PL-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/POL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/POL/ADM1/geoBoundaries-POL-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "CZ-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CZE/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CZE/ADM1/geoBoundaries-CZE-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "MY-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MYS/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MYS/ADM1/geoBoundaries-MYS-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "BE-ADM2": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BEL/ADM2/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BEL/ADM2/geoBoundaries-BEL-ADM2_simplified.geojson",
+      "year": "2015",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "HU-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "GR-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "CY-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CYP/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CYP/ADM1/geoBoundaries-CYP-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "FR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/FRA/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/FRA/ADM1/geoBoundaries-FRA-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Etalab Open License 2.0"
+    },
+    "UA-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/UKR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/UKR/ADM1/geoBoundaries-UKR-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "BY-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BLR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BLR/ADM1/geoBoundaries-BLR-ADM1_simplified.geojson",
+      "year": "2005",
+      "license": "Creative Commons Attribution 3.0 License"
+    },
+    "LT-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/LTU/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/LTU/ADM1/geoBoundaries-LTU-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "RU-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/RUS/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/RUS/ADM1/geoBoundaries-RUS-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "EE-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/EST/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/EST/ADM1/geoBoundaries-EST-ADM1_simplified.geojson",
+      "year": "2016",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "LV-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/LVA/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/LVA/ADM1/geoBoundaries-LVA-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "NO-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/NOR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/NOR/ADM1/geoBoundaries-NOR-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+    },
+    "FI-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/FIN/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/FIN/ADM1/geoBoundaries-FIN-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "LU-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/LUX/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/LUX/ADM1/geoBoundaries-LUX-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "MK-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MKD/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MKD/ADM1/geoBoundaries-MKD-ADM1_simplified.geojson",
+      "year": "2016",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "AL-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ALB/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ALB/ADM1/geoBoundaries-ALB-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Public Domain"
+    },
+    "XK-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/XKX/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/XKX/ADM1/geoBoundaries-XKX-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution-ShareAlike 2.0"
+    },
+    "TR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/TUR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/TUR/ADM1/geoBoundaries-TUR-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution-ShareAlike 2.0"
+    },
+    "DK-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/DNK/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/DNK/ADM1/geoBoundaries-DNK-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "RO-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ROU/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ROU/ADM1/geoBoundaries-ROU-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "IE-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/IRL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/IRL/ADM1/geoBoundaries-IRL-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+    },
+    "LI-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/LIE/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/LIE/ADM1/geoBoundaries-LIE-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "RS-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/SRB/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/SRB/ADM1/geoBoundaries-SRB-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "SI-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/SVN/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/SVN/ADM1/geoBoundaries-SVN-ADM1_simplified.geojson",
+      "year": "2021",
+      "license": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+    },
+    "BG-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BGR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BGR/ADM1/geoBoundaries-BGR-ADM1_simplified.geojson",
+      "year": "2019",
+      "license": "Public Domain"
+    },
+    "SM-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/SMR/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/SMR/ADM1/geoBoundaries-SMR-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "MC-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MCO/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MCO/ADM1/geoBoundaries-MCO-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "AD-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/AND/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/AND/ADM1/geoBoundaries-AND-ADM1_simplified.geojson",
+      "year": "2007",
+      "license": "Public Domain"
+    },
+    "ME-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MNE/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MNE/ADM1/geoBoundaries-MNE-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "BA-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BIH/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/90a1d52/releaseData/gbOpen/BIH/ADM1/geoBoundaries-BIH-ADM1_simplified.geojson",
+      "year": "2013",
+      "license": "Public Domain"
+    },
+    "PT-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/PRT/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/PRT/ADM1/geoBoundaries-PRT-ADM1_simplified.geojson",
+      "year": "2016",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "MD-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MDA/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MDA/ADM1/geoBoundaries-MDA-ADM1_simplified.geojson",
+      "year": "2020",
+      "license": "Creative Commons Attribution 3.0 Intergovernmental Organisations (CC BY 3.0 IGO)"
+    },
+    "IS-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ISL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ISL/ADM1/geoBoundaries-ISL-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "MT-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/MLT/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MLT/ADM1/geoBoundaries-MLT-ADM1_simplified.geojson",
+      "year": "2022",
+      "license": "Public Domain"
+    },
+    "VA-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "GG-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "FO-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "JE-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "GI-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "IM-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    }
+  },
+  "extent": "Europäischer Kartenausschnitt: 32°W bis 60°E, 27°N bis 72°N; Türkei und Zypern eingeschlossen. Verwaltungsstände je Quelldatensatz."
+}

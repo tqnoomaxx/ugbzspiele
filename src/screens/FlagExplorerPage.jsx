@@ -40,7 +40,7 @@ export default function FlagExplorerPage() {
           <label className="fq-filter">
             <span className="sr-only">Sammlung filtern</span>
             <select onChange={(event) => setCollectionId(event.target.value)} value={collectionId}>
-              {flagCollections.filter((collection) => collection.id !== 'random').map((collection) => (
+              {flagCollections.filter((collection) => collection.id !== 'random' && collection.id !== 'europe-hyper').map((collection) => (
                 <option key={collection.id} value={collection.id}>{collection.title} · {getFlagsForCollection(collection.id).length}</option>
               ))}
             </select>

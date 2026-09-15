@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { europeMapTargets } from '../src/games/flaggenkunde/mapManifest.generated.js'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -65,8 +66,9 @@ test('Flaggenkunde zeigt die Regionslage und wiederholt einen Fehler später', a
   await page.goto('/flaggen')
   await page.evaluate(() => {
     const quiz = {
-      version: 2,
+      version: 3,
       collectionId: 'germany',
+      quizMode: 'choice',
       repeatMistakes: true,
       phase: 'question',
       questionIndex: 0,
@@ -82,7 +84,7 @@ test('Flaggenkunde zeigt die Regionslage und wiederholt einen Fehler später', a
       bestStreak: 0,
       startedAt: new Date().toISOString(),
     }
-    window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v2', JSON.stringify(quiz))
+    window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v3', JSON.stringify(quiz))
   })
   await page.goto('/flaggen/spielen')
 
@@ -100,6 +102,164 @@ test('Flaggenkunde zeigt die Regionslage und wiederholt einen Fehler später', a
   await page.getByRole('button', { name: /Bayern$/ }).click()
   await page.getByRole('button', { name: 'Ergebnis ansehen' }).click()
   await expect(page.locator('.fq-result-stats')).toContainText('1wiederholt')
+})
+
+test('Flaggenkunde unterstützt Eingabe, umgekehrte Auswahl und Kartenfragen', async ({ page }) => {
+  async function installQuiz(quizMode, questions) {
+    await page.goto('/flaggen')
+    await page.evaluate(({ mode, quizQuestions }) => {
+      window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v3', JSON.stringify({
+        version: 3,
+        collectionId: 'germany',
+        quizMode: mode,
+        repeatMistakes: true,
+        phase: 'question',
+        questionIndex: 0,
+        questions: quizQuestions,
+        baseQuestionCount: quizQuestions.length,
+        repeatCount: 0,
+        answers: [],
+        score: 0,
+        streak: 0,
+        bestStreak: 0,
+        startedAt: new Date().toISOString(),
+      }))
+    }, { mode: quizMode, quizQuestions: questions })
+    await page.goto('/flaggen/spielen')
+  }
+
+  await installQuiz('type', [{ flagId: 'region-DE-BY' }])
+  await page.getByRole('textbox', { name: 'Deine Antwort' }).fill('bayern')
+  await page.getByRole('button', { name: /Prüfen/ }).click()
+  await expect(page.locator('.fq-feedback')).toContainText('Richtig erkannt!')
+
+  await installQuiz('reverse', [{ flagId: 'region-DE-BY', optionIds: ['region-DE-BY', 'region-DE-BE', 'region-DE-HH', 'region-DE-HB'] }])
+  await expect(page.getByRole('heading', { name: 'Bayern' })).toBeVisible()
+  await page.getByRole('button', { name: 'Flagge 1' }).click()
+  await expect(page.locator('.fq-feedback')).toContainText('Richtig erkannt!')
+  await expect(page.locator('.fq-answer-grid--flags img')).toHaveCount(4)
+
+  let firstMapRequest = true
+  await page.route('**/assets/flags/interactive/*.json', (route) => {
+    if (firstMapRequest) {
+      firstMapRequest = false
+      return route.fulfill({ status: 503, body: 'Vorübergehend nicht verfügbar' })
+    }
+    return route.continue()
+  })
+  await installQuiz('map', [{ flagId: 'region-DE-BY' }])
+  await expect(page.getByText('Die Karte konnte nicht geladen werden.')).toBeVisible()
+  await page.getByRole('button', { name: 'Erneut versuchen' }).click()
+  await page.locator('[data-map-region="region-DE-BW"]').click()
+  await expect(page.locator('.fq-map-try-again')).toContainText('Baden-Württemberg ist es noch nicht.')
+  await page.locator('[data-map-region="region-DE-BY"]').click()
+  await expect(page.locator('.fq-feedback')).toContainText('Richtig gefunden!')
+})
+
+test('Europa-Hypermodus zeigt alle Regionen und wechselt nach einem Treffer automatisch zum nächsten Ziel', async ({ page }) => {
+  await page.goto('/flaggen')
+  const hyperMode = page.getByRole('button', { name: /Europa-Hypermodus/ })
+  await expect(hyperMode).toContainText(String(europeMapTargets.length))
+  await hyperMode.click()
+  await expect(page.locator('.fq-hyper-total')).toContainText(String(europeMapTargets.length))
+  await expect(page.getByText('Europa-Karte aktiviert')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  await expect(page.locator('.fq-region-map--europe [data-map-region]')).toHaveCount(europeMapTargets.length)
+  const started = await page.evaluate(() => JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3')))
+  expect(started.quizMode).toBe('europe-map')
+  expect(new Set(started.questions.map((question) => question.flagId)).size).toBe(europeMapTargets.length)
+
+  await page.evaluate(() => {
+    window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v3', JSON.stringify({
+      version: 3,
+      collectionId: 'europe-hyper',
+      quizMode: 'europe-map',
+      repeatMistakes: false,
+      phase: 'question',
+      questionIndex: 0,
+      questions: [{ flagId: 'region-DE-BY' }, { flagId: 'region-DE-BE' }],
+      baseQuestionCount: 2,
+      repeatCount: 0,
+      answers: [],
+      score: 0,
+      streak: 0,
+      bestStreak: 0,
+      startedAt: new Date().toISOString(),
+    }))
+  })
+  await page.goto('/flaggen/spielen')
+  await expect(page.locator('.fq-region-map--europe [data-map-region]')).toHaveCount(europeMapTargets.length)
+  await page.getByLabel('Kartenausschnitt wählen').selectOption('Deutschland')
+  await page.locator('[data-map-region="region-DE-BY"]').click()
+  await expect(page.locator('.fq-feedback')).toContainText('Richtig gefunden!')
+  await expect(page.getByRole('heading', { name: 'Berlin' })).toBeVisible({ timeout: 3000 })
+  await expect(page.locator('.fq-game-progress')).toHaveAttribute('aria-label', 'Frage 2 von 2')
+  await page.locator('[data-map-region="region-DE-BE"]').click()
+  await expect(page.getByRole('heading', { name: 'Europa gemeistert!' })).toBeVisible()
+  await expect(page.locator('.fq-result-stats')).toContainText('2/2gelernt')
+})
+
+test('die neuen Fragetypen starten über die Auswahl und bleiben mobil bedienbar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  const errors = []
+  page.on('pageerror', (error) => errors.push(error.message))
+  for (const [title, mode, selector] of [
+    ['Name eingeben', 'type', '.fq-type-answer input'],
+    ['Name → Flagge', 'reverse', '.fq-answer-grid--flags'],
+    ['Flagge → Karte', 'map', '.fq-region-map svg'],
+  ]) {
+    await page.goto('/flaggen')
+    await page.getByRole('button', { name: /Deutsche Bundesländer/ }).click()
+    await page.getByRole('button', { name: new RegExp(title) }).click()
+    await page.getByRole('button', { name: 'Quiz starten' }).click()
+    await expect(page.locator(selector)).toBeVisible()
+    expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3')).quizMode)).toBe(mode)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  }
+  const svg = page.locator('.fq-region-map svg')
+  const original = await svg.getAttribute('viewBox')
+  await page.getByRole('button', { name: 'Karte vergrößern' }).click()
+  await expect(svg).not.toHaveAttribute('viewBox', original)
+  const zoomed = await svg.getAttribute('viewBox')
+  const box = await svg.boundingBox()
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(box.x + box.width / 2 + 60, box.y + box.height / 2 + 40, { steps: 8 })
+  await page.mouse.up()
+  await expect(svg).not.toHaveAttribute('viewBox', zoomed)
+  expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3')).answers)).toHaveLength(0)
+  await page.getByRole('button', { name: 'Kartenansicht zurücksetzen' }).click()
+  await expect(svg).toHaveAttribute('viewBox', original)
+  expect(errors).toEqual([])
+})
+
+test('auch kleine Hypermodus-Gebiete bleiben als echte Flächen anklickbar', async ({ page }) => {
+  for (const name of ['Athos', 'Encamp', 'Monaco']) {
+    const target = europeMapTargets.find((region) => region.name === name)
+    expect(target, name).toBeTruthy()
+    await page.goto('/flaggen')
+    await page.evaluate((id) => sessionStorage.setItem('ugbz:flaggenkunde:quiz:v3', JSON.stringify({
+      version: 3, collectionId: 'europe-hyper', quizMode: 'europe-map', repeatMistakes: false,
+      phase: 'question', questionIndex: 0, questions: [{ flagId: id }], baseQuestionCount: 1,
+      repeatCount: 0, answers: [], score: 0, streak: 0, bestStreak: 0, startedAt: new Date().toISOString(),
+    })), target.id)
+    await page.goto('/flaggen/spielen')
+    await page.getByLabel('Kartenausschnitt wählen').selectOption(target.parent)
+    const point = await page.locator(`[data-map-region="${target.id}"]`).evaluate((shape) => {
+      const box = shape.getBBox()
+      for (let y = 1; y < 30; y += 1) for (let x = 1; x < 30; x += 1) {
+        const local = new DOMPoint(box.x + box.width * x / 30, box.y + box.height * y / 30)
+        if (!shape.isPointInFill(local)) continue
+        const screen = local.matrixTransform(shape.getScreenCTM())
+        if (document.elementFromPoint(screen.x, screen.y) === shape) return { x: screen.x, y: screen.y }
+      }
+      return null
+    })
+    expect(point, `${name} muss eine sichtbare, anklickbare Fläche haben`).not.toBeNull()
+    await page.mouse.click(point.x, point.y)
+    await expect(page.getByRole('heading', { name: 'Europa gemeistert!' })).toBeVisible()
+  }
 })
 
 test('Memory mischt acht Paare in ein vollständig sichtbares mobiles Brett', async ({ page }) => {

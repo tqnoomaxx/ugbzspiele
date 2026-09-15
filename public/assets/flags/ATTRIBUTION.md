@@ -11,3 +11,5 @@ Vier zusätzlich ergänzte Regionalflaggen (Campeche, Hidalgo, Sisak-Moslavina u
 Die vier Flaggen der Landesteile des Vereinigten Königreichs stammen ebenfalls aus country-flag-icons.
 
 Die lokalen Lagekarten wurden aus den vereinfachten gbOpen-Grenzen von **geoBoundaries** (CC BY 4.0) erzeugt. Für einzelne fehlende oder abweichend codierte Grenzen dient **Natural Earth** (Public Domain) als Fallback.
+
+Auch die interaktiven Karten verwenden [geoBoundaries gbOpen](https://www.geoboundaries.org/) und [Natural Earth](https://www.naturalearthdata.com/). Die Geometrien wurden vereinfacht, projiziert und für den Europa-Hypermodus auf den Kartenausschnitt begrenzt. Quellenlinks, Bezugsjahre und ursprüngliche Lizenzangaben je Datensatz stehen in [interactive/SOURCES.json](interactive/SOURCES.json). Verwaltungsstände und Ebenen unterscheiden sich je Land; die Lernkarte ist keine tagesaktuelle amtliche Grenzkarte.
