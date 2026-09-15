@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'ugbz:flaggenkunde:progress:v1'
-const SESSION_KEY = 'ugbz:flaggenkunde:quiz:v1'
+const SESSION_KEY = 'ugbz:flaggenkunde:quiz:v2'
 
 const emptyProgress = () => ({ version: 1, stats: {} })
 
@@ -55,7 +55,7 @@ export function loadQuizSession() {
   if (typeof window === 'undefined') return null
   try {
     const parsed = JSON.parse(window.sessionStorage.getItem(SESSION_KEY))
-    return parsed?.version === 1 && Array.isArray(parsed.questions) ? parsed : null
+    return parsed?.version === 2 && Array.isArray(parsed.questions) ? parsed : null
   } catch {
     return null
   }

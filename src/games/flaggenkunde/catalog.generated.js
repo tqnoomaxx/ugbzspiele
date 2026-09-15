@@ -10,8 +10,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-AG.webp",
-    "visualKey": "3322aaf8c2a5ce07",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "bc6ae3b898d9cca3",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-AG.svg"
   },
   {
     "id": "region-IT-65",
@@ -21,8 +23,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-65.webp",
-    "visualKey": "12abaeb904cf7a37",
-    "source": "https://en.wikipedia.org/wiki/Abruzzo"
+    "visualKey": "9d92c5e7ec65568f",
+    "source": "https://en.wikipedia.org/wiki/Abruzzo",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-65.svg"
   },
   {
     "id": "region-BR-AC",
@@ -32,8 +36,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-AC.webp",
-    "visualKey": "00e37666830f9c12",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Acre"
+    "visualKey": "5b71643fc21c4288",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Acre",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-AC.svg"
   },
   {
     "id": "country-AF",
@@ -53,8 +59,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-AGU.webp",
-    "visualKey": "5e6b2968daae86a6",
-    "source": "https://en.wikipedia.org/wiki/Aguascalientes"
+    "visualKey": "f32c92f0a08fcfa3",
+    "source": "https://en.wikipedia.org/wiki/Aguascalientes",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-AGU.svg"
   },
   {
     "id": "country-EG",
@@ -74,8 +82,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-23.webp",
-    "visualKey": "83ae39acebca42a9",
-    "source": "https://en.wikipedia.org/wiki/Aichi_Prefecture"
+    "visualKey": "b2b0414e79781252",
+    "source": "https://en.wikipedia.org/wiki/Aichi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-23.svg"
   },
   {
     "id": "region-JP-05",
@@ -85,8 +95,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-05.webp",
-    "visualKey": "5b5e6767889375e4",
-    "source": "https://en.wikipedia.org/wiki/Akita_Prefecture"
+    "visualKey": "a37f15a058f3da46",
+    "source": "https://en.wikipedia.org/wiki/Akita_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-05.svg"
   },
   {
     "id": "region-US-AL",
@@ -96,8 +108,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-AL.webp",
-    "visualKey": "f67d589181f75413",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Alabama"
+    "visualKey": "efca9f2685bfa64a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Alabama",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-AL.svg"
   },
   {
     "id": "region-BR-AL",
@@ -107,8 +121,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-AL.webp",
-    "visualKey": "aca254b20873f820",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Alagoas"
+    "visualKey": "8ad1aa79267b679e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Alagoas",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-AL.svg"
   },
   {
     "id": "country-AX",
@@ -128,8 +144,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-AK.webp",
-    "visualKey": "9c187d472b8e5b50",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Alaska"
+    "visualKey": "016c45cc84668cdc",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Alaska",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-AK.svg"
   },
   {
     "id": "country-AL",
@@ -149,8 +167,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-AB.webp",
-    "visualKey": "479061db91bb1e42",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Alberta"
+    "visualKey": "b615319ca24c7112",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Alberta",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-AB.svg"
   },
   {
     "id": "country-DZ",
@@ -170,8 +190,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-AP.webp",
-    "visualKey": "5be08be213afc6e3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Amap%C3%A1"
+    "visualKey": "f57046e3ae37615a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Amap%C3%A1",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-AP.svg"
   },
   {
     "id": "region-BR-AM",
@@ -181,8 +203,23 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-AM.webp",
-    "visualKey": "3f900d66e6b928cf",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Amazonas"
+    "visualKey": "795170594b23cb17",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Amazonas",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-AM.svg"
+  },
+  {
+    "id": "region-CO-AMA",
+    "code": "CO-AMA",
+    "name": "Amazonas",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-AMA.webp",
+    "visualKey": "4512e23657fdfb38",
+    "source": "https://en.wikipedia.org/wiki/Amazonas_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-AMA.svg"
   },
   {
     "id": "country-AS",
@@ -222,8 +259,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-AN.webp",
-    "visualKey": "241bfa9e00e9df16",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Andalusia"
+    "visualKey": "a986b8332505f122",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Andalusia",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-AN.svg"
   },
   {
     "id": "country-AD",
@@ -276,6 +315,45 @@ export const flagCatalog = [
     "visualKey": "2181681b0f221c71"
   },
   {
+    "id": "region-CO-ANT",
+    "code": "CO-ANT",
+    "name": "Antioquia",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-ANT.webp",
+    "visualKey": "7da1aa6b0353b77c",
+    "source": "https://en.wikipedia.org/wiki/Antioquia_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-ANT.svg"
+  },
+  {
+    "id": "region-CL-AN",
+    "code": "CL-AN",
+    "name": "Antofagasta",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-AN.webp",
+    "visualKey": "6efd52a16b675090",
+    "source": "https://www.wikidata.org/wiki/Q2118",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-AN.svg"
+  },
+  {
+    "id": "region-BE-VAN",
+    "code": "BE-VAN",
+    "name": "Antwerpen",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VAN.webp",
+    "visualKey": "bee1eba872f47905",
+    "source": "https://en.wikipedia.org/wiki/Antwerp_Province",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VAN.svg"
+  },
+  {
     "id": "region-JP-02",
     "code": "JP-02",
     "name": "Aomori",
@@ -283,8 +361,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-02.webp",
-    "visualKey": "bd6698beeb610235",
-    "source": "https://en.wikipedia.org/wiki/Aomori_Prefecture"
+    "visualKey": "b2a02ee34c65adea",
+    "source": "https://en.wikipedia.org/wiki/Aomori_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-02.svg"
   },
   {
     "id": "region-IT-23",
@@ -294,8 +374,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-23.webp",
-    "visualKey": "9f9a0aeaac26866d",
-    "source": "https://en.wikipedia.org/wiki/Aosta_Valley"
+    "visualKey": "150f45cd83d7bf33",
+    "source": "https://en.wikipedia.org/wiki/Aosta_Valley",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-23.svg"
   },
   {
     "id": "region-CH-AR",
@@ -305,8 +387,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-AR.webp",
-    "visualKey": "5694c77cf6c50c28",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "a4f49397e2412611",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-AR.svg"
   },
   {
     "id": "region-CH-AI",
@@ -316,8 +400,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-AI.webp",
-    "visualKey": "935c1a203abd3f87",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "6d9ea73379828ddb",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-AI.svg"
   },
   {
     "id": "region-IT-75",
@@ -327,8 +413,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-75.webp",
-    "visualKey": "688a9e4510b26674",
-    "source": "https://en.wikipedia.org/wiki/Apulia"
+    "visualKey": "e295ee038782ea00",
+    "source": "https://en.wikipedia.org/wiki/Apulia",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-75.svg"
   },
   {
     "id": "country-GQ",
@@ -348,8 +436,36 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-AR.webp",
-    "visualKey": "017bff1becb10ee1",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Aragon"
+    "visualKey": "4d01c7a626394d3d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Aragon",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-AR.svg"
+  },
+  {
+    "id": "region-CO-ARA",
+    "code": "CO-ARA",
+    "name": "Arauca",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-ARA.webp",
+    "visualKey": "4912a70ba8e3b6c4",
+    "source": "https://en.wikipedia.org/wiki/Arauca_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-ARA.svg"
+  },
+  {
+    "id": "region-CL-AR",
+    "code": "CL-AR",
+    "name": "Araucanía",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-AR.webp",
+    "visualKey": "d32052eab1f3268b",
+    "source": "https://www.wikidata.org/wiki/Q2176",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-AR.svg"
   },
   {
     "id": "country-AR",
@@ -362,6 +478,19 @@ export const flagCatalog = [
     "visualKey": "978ed9f2be5fdc3f"
   },
   {
+    "id": "region-CL-AP",
+    "code": "CL-AP",
+    "name": "Arica und Parinacota",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-AP.webp",
+    "visualKey": "ed48c6c074250db7",
+    "source": "https://www.wikidata.org/wiki/Q2109",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-AP.svg"
+  },
+  {
     "id": "region-US-AZ",
     "code": "US-AZ",
     "name": "Arizona",
@@ -369,8 +498,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-AZ.webp",
-    "visualKey": "30a403937d93053b",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Arizona"
+    "visualKey": "889b7f64b8c5263f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Arizona",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-AZ.svg"
   },
   {
     "id": "region-US-AR",
@@ -380,8 +511,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-AR.webp",
-    "visualKey": "06be2aa331c32053",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Arkansas"
+    "visualKey": "bfdf8495a6bcf4f9",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Arkansas",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-AR.svg"
   },
   {
     "id": "country-AM",
@@ -431,8 +564,23 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-AS.webp",
-    "visualKey": "89399bc6edd706b9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Asturias"
+    "visualKey": "63b3cf9117bb1727",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Asturias",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-AS.svg"
+  },
+  {
+    "id": "region-CL-AT",
+    "code": "CL-AT",
+    "name": "Atacama",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-AT.webp",
+    "visualKey": "e64c0bd2e7b9f876",
+    "source": "https://www.wikidata.org/wiki/Q2120",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-AT.svg"
   },
   {
     "id": "country-ET",
@@ -445,6 +593,19 @@ export const flagCatalog = [
     "visualKey": "66a243a0c97dc68c"
   },
   {
+    "id": "region-CO-ATL",
+    "code": "CO-ATL",
+    "name": "Atlántico",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-ATL.webp",
+    "visualKey": "595c2fa906a308e3",
+    "source": "https://en.wikipedia.org/wiki/Atl%C3%A1ntico_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-ATL.svg"
+  },
+  {
     "id": "region-AU-ACT",
     "code": "AU-ACT",
     "name": "Australian Capital Territory",
@@ -452,8 +613,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-ACT.webp",
-    "visualKey": "558fa7d74a9c1b94",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Australian_Capital_Territory"
+    "visualKey": "93fff5cfaa7c2b1d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Australian_Capital_Territory",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-ACT.svg"
   },
   {
     "id": "country-AU",
@@ -466,6 +629,19 @@ export const flagCatalog = [
     "visualKey": "9c5e500830538dfb"
   },
   {
+    "id": "region-CL-AI",
+    "code": "CL-AI",
+    "name": "Aysén",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-AI.webp",
+    "visualKey": "df6348dd8fcec1cc",
+    "source": "https://www.wikidata.org/wiki/Q2181",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-AI.svg"
+  },
+  {
     "id": "region-DE-BW",
     "code": "DE-BW",
     "name": "Baden-Württemberg",
@@ -473,8 +649,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-BW.webp",
-    "visualKey": "73cca9dc3fd661cd",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Baden-W%C3%BCrttemberg"
+    "visualKey": "0dc788d10e93ad48",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Baden-W%C3%BCrttemberg",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-BW.svg"
   },
   {
     "id": "country-BS",
@@ -494,8 +672,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-BA.webp",
-    "visualKey": "45b71456e97b45fb",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Bahia"
+    "visualKey": "d04d3833a78d9add",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bahia",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-BA.svg"
   },
   {
     "id": "country-BH",
@@ -515,8 +695,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-BCN.webp",
-    "visualKey": "d92bf7f52d35436f",
-    "source": "https://en.wikipedia.org/wiki/Baja_California"
+    "visualKey": "1b0696fc161bdef5",
+    "source": "https://en.wikipedia.org/wiki/Baja_California",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-BCN.svg"
   },
   {
     "id": "region-MX-BCS",
@@ -526,8 +708,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-BCS.webp",
-    "visualKey": "5fc32f08e54ecf53",
-    "source": "https://en.wikipedia.org/wiki/Baja_California_Sur"
+    "visualKey": "9afe5aeb2a99ab97",
+    "source": "https://en.wikipedia.org/wiki/Baja_California_Sur",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-BCS.svg"
   },
   {
     "id": "region-ES-IB",
@@ -537,8 +721,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-IB.webp",
-    "visualKey": "b7a920f4030a291c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Balearic_Islands"
+    "visualKey": "4359eed35e87bb00",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Balearic_Islands",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-IB.svg"
   },
   {
     "id": "country-BD",
@@ -549,6 +735,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/BD.svg",
     "visualKey": "724ee10149c0b67f"
+  },
+  {
+    "id": "region-SK-BC",
+    "code": "SK-BC",
+    "name": "Banská Bystrica",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-BC.webp",
+    "visualKey": "0c4a3c2c12d078f9",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-BC.svg"
   },
   {
     "id": "country-BB",
@@ -568,8 +767,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-BL.webp",
-    "visualKey": "f0b5f413894ac750",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "844a8a48ffe2f06c",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-BL.svg"
   },
   {
     "id": "region-CH-BS",
@@ -579,8 +780,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-BS.webp",
-    "visualKey": "6840d4662dc4d5d8",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "428930ba59665aed",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-BS.svg"
   },
   {
     "id": "region-IT-77",
@@ -590,8 +793,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-77.webp",
-    "visualKey": "9e8fcd1f38b44c33",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Basilicata"
+    "visualKey": "7a468605495b8426",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Basilicata",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-77.svg"
   },
   {
     "id": "region-ES-PV",
@@ -601,8 +806,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-PV.webp",
-    "visualKey": "e72356516b3cfdac",
-    "source": "https://en.wikipedia.org/wiki/Ikurri%C3%B1a"
+    "visualKey": "7bc24e5f692a7f14",
+    "source": "https://en.wikipedia.org/wiki/Ikurri%C3%B1a",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-PV.svg"
   },
   {
     "id": "region-DE-BY",
@@ -612,8 +819,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-BY.webp",
-    "visualKey": "2173a82c22030dca",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Bavaria"
+    "visualKey": "c848cc4f5b4f5224",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bavaria",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-BY.svg"
   },
   {
     "id": "country-BY",
@@ -663,8 +872,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-BE.webp",
-    "visualKey": "0c70e0c83b7c7104",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Berlin"
+    "visualKey": "c699ae31b266d62b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Berlin",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-BE.svg"
   },
   {
     "id": "country-BM",
@@ -684,8 +895,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-BE.webp",
-    "visualKey": "c2c97810c63ec595",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "d9f9631913ecf51c",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-BE.svg"
   },
   {
     "id": "country-BT",
@@ -696,6 +909,71 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/BT.svg",
     "visualKey": "c93a72d1bf03d0c5"
+  },
+  {
+    "id": "region-CL-BI",
+    "code": "CL-BI",
+    "name": "Biobío",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-BI.webp",
+    "visualKey": "2185e735e103f1ef",
+    "source": "https://www.wikidata.org/wiki/Q2170",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-BI.svg"
+  },
+  {
+    "id": "region-HR-07",
+    "code": "HR-07",
+    "name": "Bjelovar-Bilogora",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-07.webp",
+    "visualKey": "42197fdc8d2c7dc4",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-07.svg"
+  },
+  {
+    "id": "region-SE-K",
+    "code": "SE-K",
+    "name": "Blekinge County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-K.webp",
+    "visualKey": "eab53f27d4052323",
+    "source": "https://sv.wikipedia.org/wiki/Blekinge_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-K.svg"
+  },
+  {
+    "id": "region-CO-DC",
+    "code": "CO-DC",
+    "name": "Bogotá",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-DC.webp",
+    "visualKey": "bd0a4ba7918d54dd",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bogot%C3%A1",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-DC.svg"
+  },
+  {
+    "id": "region-CO-BOL",
+    "code": "CO-BOL",
+    "name": "Bolívar",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-BOL.webp",
+    "visualKey": "7ca656dc33e3b8b7",
+    "source": "https://en.wikipedia.org/wiki/Bol%C3%ADvar_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-BOL.svg"
   },
   {
     "id": "country-BO",
@@ -738,6 +1016,19 @@ export const flagCatalog = [
     "visualKey": "4b3b93632257c698"
   },
   {
+    "id": "region-CO-BOY",
+    "code": "CO-BOY",
+    "name": "Boyacá",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-BOY.webp",
+    "visualKey": "75ae20798dbb6a9f",
+    "source": "https://en.wikipedia.org/wiki/Boyac%C3%A1_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-BOY.svg"
+  },
+  {
     "id": "region-DE-BB",
     "code": "DE-BB",
     "name": "Brandenburg",
@@ -745,8 +1036,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-BB.webp",
-    "visualKey": "0478a2402d876243",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Brandenburg"
+    "visualKey": "51c450b13ef85839",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Brandenburg",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-BB.svg"
   },
   {
     "id": "country-BR",
@@ -759,6 +1052,19 @@ export const flagCatalog = [
     "visualKey": "0275675207e1cbe0"
   },
   {
+    "id": "region-SK-BL",
+    "code": "SK-BL",
+    "name": "Bratislava",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-BL.webp",
+    "visualKey": "79135b234b76fe01",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-BL.svg"
+  },
+  {
     "id": "region-DE-HB",
     "code": "DE-HB",
     "name": "Bremen",
@@ -766,8 +1072,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-HB.webp",
-    "visualKey": "0bf5324f5dcc80e4",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Bremen_(state)"
+    "visualKey": "98b7667ea5af52b3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bremen_(state)",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-HB.svg"
   },
   {
     "id": "region-CA-BC",
@@ -777,8 +1085,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-BC.webp",
-    "visualKey": "349b182f3f53c9a3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_British_Columbia"
+    "visualKey": "b77ca5b87fad76a2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_British_Columbia",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-BC.svg"
   },
   {
     "id": "country-VG",
@@ -801,6 +1111,19 @@ export const flagCatalog = [
     "visualKey": "fa09befdafeeb005"
   },
   {
+    "id": "region-HR-12",
+    "code": "HR-12",
+    "name": "Brod-Posavina",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-12.webp",
+    "visualKey": "37599ec222558529",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-12.svg"
+  },
+  {
     "id": "country-BN",
     "code": "BN",
     "name": "Brunei Darussalam",
@@ -811,6 +1134,19 @@ export const flagCatalog = [
     "visualKey": "fb61579ea4299a19"
   },
   {
+    "id": "region-BE-BRU",
+    "code": "BE-BRU",
+    "name": "Brüssel-Hauptstadt",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-BRU.webp",
+    "visualKey": "b235acef20a2996a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Brussels-Capital_Region",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-BRU.svg"
+  },
+  {
     "id": "region-AR-B",
     "code": "AR-B",
     "name": "Buenos Aires",
@@ -818,8 +1154,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-B.webp",
-    "visualKey": "63d5fddc377ccd2b",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Buenos_Aires_Province"
+    "visualKey": "68eda3b3bf3bbb68",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Buenos_Aires_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-B.svg"
   },
   {
     "id": "region-AR-C",
@@ -829,8 +1167,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-C.webp",
-    "visualKey": "2c6260a0e2822e02",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Buenos_Aires"
+    "visualKey": "fe37b4b8d13ae17f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Buenos_Aires",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-C.svg"
   },
   {
     "id": "country-BG",
@@ -850,8 +1190,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-1.webp",
-    "visualKey": "d2050c8f91aeefec",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burgenland_(state).svg"
+    "visualKey": "df572a233fb6e16e",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Burgenland_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-1.svg"
   },
   {
     "id": "country-BF",
@@ -884,6 +1226,19 @@ export const flagCatalog = [
     "visualKey": "8cf857f18a5a5952"
   },
   {
+    "id": "region-CO-CAL",
+    "code": "CO-CAL",
+    "name": "Caldas",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CAL.webp",
+    "visualKey": "bd466b0513455158",
+    "source": "https://en.wikipedia.org/wiki/Caldas_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CAL.svg"
+  },
+  {
     "id": "region-US-CA",
     "code": "US-CA",
     "name": "California",
@@ -891,8 +1246,49 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-CA.webp",
-    "visualKey": "021db851bfa14efe",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_California"
+    "visualKey": "40d5576e9d5fe90d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_California",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-CA.svg"
+  },
+  {
+    "id": "region-MX-CAM",
+    "code": "MX-CAM",
+    "name": "Campeche",
+    "kind": "region",
+    "collection": "mexico",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/MX-CAM.webp",
+    "visualKey": "3b9bcbf112e90d28",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Campeche.svg",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-CAM.svg"
+  },
+  {
+    "id": "region-CO-CAQ",
+    "code": "CO-CAQ",
+    "name": "Caquetá",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CAQ.webp",
+    "visualKey": "5c372021316cc760",
+    "source": "https://en.wikipedia.org/wiki/Caquet%C3%A1_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CAQ.svg"
+  },
+  {
+    "id": "region-CO-CAS",
+    "code": "CO-CAS",
+    "name": "Casanare",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CAS.webp",
+    "visualKey": "269d65c22318eb14",
+    "source": "https://en.wikipedia.org/wiki/Casanare_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CAS.svg"
   },
   {
     "id": "region-AR-K",
@@ -902,8 +1298,23 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-K.webp",
-    "visualKey": "f5b6a28eef27254f",
-    "source": "https://commons.wikimedia.org/wiki/File:Bandera_de_la_Provincia_de_Catamarca.svg"
+    "visualKey": "e4b089fd4e9f8b01",
+    "source": "https://commons.wikimedia.org/wiki/File:Bandera_de_la_Provincia_de_Catamarca.svg",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-K.svg"
+  },
+  {
+    "id": "region-CO-CAU",
+    "code": "CO-CAU",
+    "name": "Cauca",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CAU.webp",
+    "visualKey": "eeeca2c59e4e79ad",
+    "source": "https://en.wikipedia.org/wiki/Cauca_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CAU.svg"
   },
   {
     "id": "region-BR-CE",
@@ -913,8 +1324,23 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-CE.webp",
-    "visualKey": "40dbe437395a1596",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Cear%C3%A1"
+    "visualKey": "df8de1ec74e43bf0",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Cear%C3%A1",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-CE.svg"
+  },
+  {
+    "id": "region-CO-CES",
+    "code": "CO-CES",
+    "name": "Cesar",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CES.webp",
+    "visualKey": "4352168faa7b5a2d",
+    "source": "https://en.wikipedia.org/wiki/Cesar_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CES.svg"
   },
   {
     "id": "region-ES-CE",
@@ -922,10 +1348,12 @@ export const flagCatalog = [
     "name": "Ceuta",
     "kind": "region",
     "collection": "spain",
-    "continent": "africa",
+    "continent": "europe",
     "image": "/assets/flags/regions/ES-CE.webp",
-    "visualKey": "94b9e6b0ee7686cc",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Ceuta"
+    "visualKey": "fc6b374f657d3fbe",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ceuta",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CE.svg"
   },
   {
     "id": "region-AR-H",
@@ -935,8 +1363,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-H.webp",
-    "visualKey": "9a36265121e3fe66",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Chaco_Province"
+    "visualKey": "08d3fc5cb6e1cd86",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chaco_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-H.svg"
   },
   {
     "id": "region-MX-CHP",
@@ -946,8 +1376,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-CHP.webp",
-    "visualKey": "ec7b5387f36da383",
-    "source": "https://en.wikipedia.org/wiki/Chiapas"
+    "visualKey": "70d846d984215800",
+    "source": "https://en.wikipedia.org/wiki/Chiapas",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-CHP.svg"
   },
   {
     "id": "region-JP-12",
@@ -957,8 +1389,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-12.webp",
-    "visualKey": "586e0601f437327a",
-    "source": "https://en.wikipedia.org/wiki/Chiba_Prefecture"
+    "visualKey": "cee7ab9b43fdcf7c",
+    "source": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-12.svg"
   },
   {
     "id": "region-MX-CHH",
@@ -968,8 +1402,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-CHH.webp",
-    "visualKey": "e64bf882a7856ea0",
-    "source": "https://en.wikipedia.org/wiki/Chihuahua_(state)"
+    "visualKey": "f381d8151ef6935e",
+    "source": "https://en.wikipedia.org/wiki/Chihuahua_(state)",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-CHH.svg"
   },
   {
     "id": "country-CL",
@@ -992,6 +1428,19 @@ export const flagCatalog = [
     "visualKey": "c593f52da3c5354c"
   },
   {
+    "id": "region-CO-CHO",
+    "code": "CO-CHO",
+    "name": "Chocó",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CHO.webp",
+    "visualKey": "65a15e17444eee4b",
+    "source": "https://en.wikipedia.org/wiki/Choc%C3%B3_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CHO.svg"
+  },
+  {
     "id": "region-AR-U",
     "code": "AR-U",
     "name": "Chubut",
@@ -999,8 +1448,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-U.webp",
-    "visualKey": "7bc7f1c474126a31",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Chubut_Province"
+    "visualKey": "0bcde5e78f968c4f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chubut_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-U.svg"
   },
   {
     "id": "region-MX-COA",
@@ -1010,8 +1461,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-COA.webp",
-    "visualKey": "502429c695cbd38c",
-    "source": "https://en.wikipedia.org/wiki/Coahuila"
+    "visualKey": "d3c3c2c22f27f525",
+    "source": "https://en.wikipedia.org/wiki/Coahuila",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-COA.svg"
   },
   {
     "id": "region-MX-COL",
@@ -1021,8 +1474,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-COL.webp",
-    "visualKey": "218f257c4620c559",
-    "source": "https://en.wikipedia.org/wiki/Colima"
+    "visualKey": "33be3cb3faee1817",
+    "source": "https://en.wikipedia.org/wiki/Colima",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-COL.svg"
   },
   {
     "id": "region-US-CO",
@@ -1032,8 +1487,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-CO.webp",
-    "visualKey": "b849eba689d157f9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Colorado"
+    "visualKey": "6989434f6094a1de",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Colorado",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-CO.svg"
   },
   {
     "id": "region-US-CT",
@@ -1043,8 +1500,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-CT.webp",
-    "visualKey": "1cb025fd44206b56",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Connecticut"
+    "visualKey": "7f9dfd22a0a0edb3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Connecticut",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-CT.svg"
   },
   {
     "id": "country-CK",
@@ -1057,6 +1516,19 @@ export const flagCatalog = [
     "visualKey": "a3cdb8bd94e6edf6"
   },
   {
+    "id": "region-CL-CO",
+    "code": "CL-CO",
+    "name": "Coquimbo",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-CO.webp",
+    "visualKey": "c05d0b5c61498bff",
+    "source": "https://www.wikidata.org/wiki/Q2121",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-CO.svg"
+  },
+  {
     "id": "region-AR-X",
     "code": "AR-X",
     "name": "Córdoba",
@@ -1064,8 +1536,23 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-X.webp",
-    "visualKey": "771ad00bf90a5e7a",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_C%C3%B3rdoba_Province,_Argentina"
+    "visualKey": "8fdbb7e783bdf642",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_C%C3%B3rdoba_Province,_Argentina",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-X.svg"
+  },
+  {
+    "id": "region-CO-COR",
+    "code": "CO-COR",
+    "name": "Córdoba",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-COR.webp",
+    "visualKey": "44e30d54f9f762e1",
+    "source": "https://en.wikipedia.org/wiki/C%C3%B3rdoba_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-COR.svg"
   },
   {
     "id": "region-AR-W",
@@ -1075,8 +1562,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-W.webp",
-    "visualKey": "ea5969bde8e452f8",
-    "source": "https://www.wikidata.org/wiki/Q2314559"
+    "visualKey": "52cdcb1b9aa91e76",
+    "source": "https://www.wikidata.org/wiki/Q2314559",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-W.svg"
   },
   {
     "id": "country-CR",
@@ -1099,6 +1588,19 @@ export const flagCatalog = [
     "visualKey": "d7acff2d1ad384fb"
   },
   {
+    "id": "region-CO-CUN",
+    "code": "CO-CUN",
+    "name": "Cundinamarca",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-CUN.webp",
+    "visualKey": "d782c667d17cb66b",
+    "source": "https://en.wikipedia.org/wiki/Cundinamarca_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-CUN.svg"
+  },
+  {
     "id": "country-CW",
     "code": "CW",
     "name": "Curaçao",
@@ -1107,6 +1609,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/CW.svg",
     "visualKey": "c111591777f6c51b"
+  },
+  {
+    "id": "region-SE-W",
+    "code": "SE-W",
+    "name": "Dalarna County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-W.webp",
+    "visualKey": "5691b75512e06b87",
+    "source": "https://sv.wikipedia.org/wiki/Dalarnas_läns_vapen",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-W.svg"
   },
   {
     "id": "country-DK",
@@ -1126,8 +1641,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-DE.webp",
-    "visualKey": "e12745d1ce687ba4",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Delaware"
+    "visualKey": "863a00db0d2c5203",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Delaware",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-DE.svg"
   },
   {
     "id": "country-DE",
@@ -1147,8 +1664,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-DC.webp",
-    "visualKey": "ea5cc095cefb800e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Washington,_D.C."
+    "visualKey": "08f02f0b89fdc270",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Washington,_D.C.",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-DC.svg"
   },
   {
     "id": "region-BR-DF",
@@ -1158,8 +1677,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-DF.webp",
-    "visualKey": "e1fd7f11b22c5ca0",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Federal_District_(Brazil)"
+    "visualKey": "20231cd6e7c3d10c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Federal_District_(Brazil)",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-DF.svg"
   },
   {
     "id": "country-DM",
@@ -1189,8 +1710,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-DR.webp",
-    "visualKey": "84c194f4f9e6e4bf",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Drenthe"
+    "visualKey": "76414e0106be5a75",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Drenthe",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-DR.svg"
   },
   {
     "id": "country-DJ",
@@ -1203,6 +1726,19 @@ export const flagCatalog = [
     "visualKey": "053ead39e5419cd7"
   },
   {
+    "id": "region-HR-19",
+    "code": "HR-19",
+    "name": "Dubrovnik-Neretva",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-19.webp",
+    "visualKey": "e6705de67c333f15",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-19.svg"
+  },
+  {
     "id": "region-MX-DUR",
     "code": "MX-DUR",
     "name": "Durango",
@@ -1210,8 +1746,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-DUR.webp",
-    "visualKey": "5fe4008b52953140",
-    "source": "https://es.wikipedia.org/wiki/Bandera_de_Durango"
+    "visualKey": "f873b102b78463ac",
+    "source": "https://es.wikipedia.org/wiki/Bandera_de_Durango",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-DUR.svg"
   },
   {
     "id": "country-EC",
@@ -1231,8 +1769,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-38.webp",
-    "visualKey": "318e64dca6106b9a",
-    "source": "https://en.wikipedia.org/wiki/Ehime_Prefecture"
+    "visualKey": "83c4eefcf0404ee0",
+    "source": "https://en.wikipedia.org/wiki/Ehime_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-38.svg"
   },
   {
     "id": "country-SV",
@@ -1252,8 +1792,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-45.webp",
-    "visualKey": "24519a5fffd4b136",
-    "source": "https://en.wikipedia.org/wiki/Emilia-Romagna"
+    "visualKey": "d07ce33a8d15d806",
+    "source": "https://en.wikipedia.org/wiki/Emilia-Romagna",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-45.svg"
   },
   {
     "id": "region-GB-ENG",
@@ -1263,7 +1805,9 @@ export const flagCatalog = [
     "collection": "united-kingdom",
     "continent": "europe",
     "image": "/assets/flags/regions/GB-ENG.svg",
-    "visualKey": "78a1c462a5a03c5b"
+    "visualKey": "78a1c462a5a03c5b",
+    "parent": "Vereinigtes Königreich",
+    "locationMap": "/assets/flags/maps/GB-ENG.svg"
   },
   {
     "id": "region-AR-E",
@@ -1273,8 +1817,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-E.webp",
-    "visualKey": "8c0ae52bf2067fc8",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Entre_R%C3%ADos_Province"
+    "visualKey": "10e6f48012ea7582",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Entre_R%C3%ADos_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-E.svg"
   },
   {
     "id": "country-ER",
@@ -1294,8 +1840,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-28.webp",
-    "visualKey": "fad79885713811b7",
-    "source": "https://en.wikipedia.org/wiki/Warmian-Masurian_Voivodeship"
+    "visualKey": "b7699490d379cc08",
+    "source": "https://en.wikipedia.org/wiki/Warmian-Masurian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-28.svg"
   },
   {
     "id": "region-BR-ES",
@@ -1305,8 +1853,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-ES.webp",
-    "visualKey": "7fc0ef273879ee21",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Esp%C3%ADrito_Santo"
+    "visualKey": "7a780f53ff4a6e95",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Esp%C3%ADrito_Santo",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-ES.svg"
   },
   {
     "id": "country-EE",
@@ -1346,8 +1896,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-EX.webp",
-    "visualKey": "727fea8a5ad42552",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Extremadura"
+    "visualKey": "5459eca155fac17d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Extremadura",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-EX.svg"
   },
   {
     "id": "country-FK",
@@ -1390,6 +1942,32 @@ export const flagCatalog = [
     "visualKey": "dc6946a5e69a7870"
   },
   {
+    "id": "region-BE-VBR",
+    "code": "BE-VBR",
+    "name": "Flämisch-Brabant",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VBR.webp",
+    "visualKey": "d658f0a5ea603419",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Flemish_Brabant",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VBR.svg"
+  },
+  {
+    "id": "region-BE-VLG",
+    "code": "BE-VLG",
+    "name": "Flandern",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VLG.webp",
+    "visualKey": "d2cd4c087b6321bf",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Flanders",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VLG.svg"
+  },
+  {
     "id": "region-NL-FL",
     "code": "NL-FL",
     "name": "Flevoland",
@@ -1397,8 +1975,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-FL.webp",
-    "visualKey": "4272dcb932e19ac6",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Flevoland"
+    "visualKey": "d4e15026532e42cb",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Flevoland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-FL.svg"
   },
   {
     "id": "region-US-FL",
@@ -1408,8 +1988,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-FL.webp",
-    "visualKey": "9beb481a904865fd",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Florida"
+    "visualKey": "b067c26f5458be39",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Florida",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-FL.svg"
   },
   {
     "id": "region-AR-P",
@@ -1419,8 +2001,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-P.webp",
-    "visualKey": "601716520b2ae28c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Formosa_Province"
+    "visualKey": "8d2bf38dbede44e5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Formosa_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-P.svg"
   },
   {
     "id": "country-FR",
@@ -1470,8 +2054,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-FR.webp",
-    "visualKey": "7a0788f11b4d0fb2",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "d384ae89124d2901",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-FR.svg"
   },
   {
     "id": "region-IT-36",
@@ -1481,8 +2067,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-36.webp",
-    "visualKey": "00562a2735e734a1",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Friuli_Venezia_Giulia"
+    "visualKey": "c150af972961cbd9",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Friuli_Venezia_Giulia",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-36.svg"
   },
   {
     "id": "region-NL-FR",
@@ -1492,8 +2080,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-FR.webp",
-    "visualKey": "4ec0445dbbeb49da",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Friesland"
+    "visualKey": "8230772b64acc4f4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Friesland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-FR.svg"
   },
   {
     "id": "region-JP-18",
@@ -1503,8 +2093,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-18.webp",
-    "visualKey": "b50aac9726e1d718",
-    "source": "https://en.wikipedia.org/wiki/Fukui_Prefecture"
+    "visualKey": "9956656210d98aa7",
+    "source": "https://en.wikipedia.org/wiki/Fukui_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-18.svg"
   },
   {
     "id": "region-JP-40",
@@ -1514,8 +2106,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-40.webp",
-    "visualKey": "3987176a94f02500",
-    "source": "https://en.wikipedia.org/wiki/Fukuoka_Prefecture"
+    "visualKey": "9be62021db714871",
+    "source": "https://en.wikipedia.org/wiki/Fukuoka_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-40.svg"
   },
   {
     "id": "region-JP-07",
@@ -1525,8 +2119,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-07.webp",
-    "visualKey": "34cb367b8b34cafa",
-    "source": "https://en.wikipedia.org/wiki/Fukushima_Prefecture"
+    "visualKey": "b11336abae360261",
+    "source": "https://en.wikipedia.org/wiki/Fukushima_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-07.svg"
   },
   {
     "id": "country-GA",
@@ -1546,8 +2142,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-GA.webp",
-    "visualKey": "b0a2bc8367c8e8c4",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Galicia"
+    "visualKey": "b0961ee4449b4855",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Galicia",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-GA.svg"
   },
   {
     "id": "country-GM",
@@ -1560,6 +2158,19 @@ export const flagCatalog = [
     "visualKey": "d8ea8e17c144d120"
   },
   {
+    "id": "region-SE-X",
+    "code": "SE-X",
+    "name": "Gävleborg",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-X.webp",
+    "visualKey": "1e8b4865bc6a9153",
+    "source": "https://en.wikipedia.org/wiki/G%C3%A4vleborg_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-X.svg"
+  },
+  {
     "id": "region-NL-GE",
     "code": "NL-GE",
     "name": "Gelderland",
@@ -1567,8 +2178,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-GE.webp",
-    "visualKey": "b41416a9585937a2",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Gelderland"
+    "visualKey": "73c562f0ecfa84fd",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Gelderland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-GE.svg"
   },
   {
     "id": "region-CH-GE",
@@ -1578,8 +2191,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-GE.webp",
-    "visualKey": "5f2510787c531df6",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "83139eac26af741e",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-GE.svg"
   },
   {
     "id": "region-US-GA",
@@ -1589,8 +2204,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-GA.webp",
-    "visualKey": "26978788de5072bf",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Georgia_(U.S._state)"
+    "visualKey": "938d770d1ec58c32",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Georgia_(U.S._state)",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-GA.svg"
   },
   {
     "id": "country-GE",
@@ -1601,6 +2218,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/GE.svg",
     "visualKey": "12676551b8145a17"
+  },
+  {
+    "id": "region-HR-01",
+    "code": "HR-01",
+    "name": "Gespanschaft Zagreb",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-01.webp",
+    "visualKey": "dbabab7ade277114",
+    "source": "https://hr.wikipedia.org/wiki/Zagrebačka_županija",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-01.svg"
   },
   {
     "id": "country-GH",
@@ -1630,8 +2260,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-21.webp",
-    "visualKey": "f5e4ac45c1598831",
-    "source": "https://en.wikipedia.org/wiki/Gifu_Prefecture"
+    "visualKey": "e841c7aaf2f18d45",
+    "source": "https://en.wikipedia.org/wiki/Gifu_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-21.svg"
   },
   {
     "id": "region-CH-GL",
@@ -1641,8 +2273,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-GL.webp",
-    "visualKey": "31b89d87866b1165",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "b596c7d19d5bfdff",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-GL.svg"
   },
   {
     "id": "region-BR-GO",
@@ -1652,8 +2286,23 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-GO.webp",
-    "visualKey": "5a338943f1c6d458",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Goi%C3%A1s"
+    "visualKey": "2e4430f54895bf3a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Goi%C3%A1s",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-GO.svg"
+  },
+  {
+    "id": "region-SE-I",
+    "code": "SE-I",
+    "name": "Gotland County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-I.webp",
+    "visualKey": "01029c30ed7cf6d3",
+    "source": "https://sv.wikipedia.org/wiki/Gotlands_läns_vapen",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-I.svg"
   },
   {
     "id": "country-GD",
@@ -1683,8 +2332,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-GR.webp",
-    "visualKey": "a3a24650eebce8b1",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "2e77f1fb4a04e6a1",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-GR.svg"
   },
   {
     "id": "region-NL-GR",
@@ -1694,8 +2345,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-GR.webp",
-    "visualKey": "73104e4dcb3a0d85",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Groningen_(province)"
+    "visualKey": "57b633a9bf7da915",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Groningen_(province)",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-GR.svg"
   },
   {
     "id": "country-GL",
@@ -1715,8 +2368,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-30.webp",
-    "visualKey": "d2d8c6f3ba760631",
-    "source": "https://en.wikipedia.org/wiki/Greater_Poland_Voivodeship"
+    "visualKey": "db3a0a16a7507186",
+    "source": "https://en.wikipedia.org/wiki/Greater_Poland_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-30.svg"
   },
   {
     "id": "country-GP",
@@ -1727,6 +2382,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/GP.svg",
     "visualKey": "e154b77d6d80d40f"
+  },
+  {
+    "id": "region-CO-GUA",
+    "code": "CO-GUA",
+    "name": "Guainía",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-GUA.webp",
+    "visualKey": "e154b8d30b627783",
+    "source": "https://en.wikipedia.org/wiki/Guain%C3%ADa_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-GUA.svg"
   },
   {
     "id": "country-GU",
@@ -1746,8 +2414,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-GUA.webp",
-    "visualKey": "b9ca690374a9c78c",
-    "source": "https://en.wikipedia.org/wiki/Guanajuato"
+    "visualKey": "a30749ae63d87c84",
+    "source": "https://en.wikipedia.org/wiki/Guanajuato",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-GUA.svg"
   },
   {
     "id": "country-GT",
@@ -1758,6 +2428,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/GT.svg",
     "visualKey": "5c5cd35b9d7804ba"
+  },
+  {
+    "id": "region-CO-GUV",
+    "code": "CO-GUV",
+    "name": "Guaviare",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-GUV.webp",
+    "visualKey": "34c8525c12900ad6",
+    "source": "https://en.wikipedia.org/wiki/Guaviare_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-GUV.svg"
   },
   {
     "id": "country-GG",
@@ -1777,8 +2460,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-GRO.webp",
-    "visualKey": "2eac0459a1bb9a73",
-    "source": "https://www.wikidata.org/wiki/Q2327250"
+    "visualKey": "f6409c508e3fba09",
+    "source": "https://www.wikidata.org/wiki/Q2327250",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-GRO.svg"
   },
   {
     "id": "country-GN",
@@ -1808,8 +2493,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-10.webp",
-    "visualKey": "27e0aa61740e2663",
-    "source": "https://en.wikipedia.org/wiki/Gunma_Prefecture"
+    "visualKey": "57a890d155fdab31",
+    "source": "https://en.wikipedia.org/wiki/Gunma_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-10.svg"
   },
   {
     "id": "country-GY",
@@ -1832,6 +2519,19 @@ export const flagCatalog = [
     "visualKey": "99163028869c4e46"
   },
   {
+    "id": "region-SE-N",
+    "code": "SE-N",
+    "name": "Halland County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-N.webp",
+    "visualKey": "5edb8c450701d5b4",
+    "source": "https://sv.wikipedia.org/wiki/Hallands_läns_vapen",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-N.svg"
+  },
+  {
     "id": "region-DE-HH",
     "code": "DE-HH",
     "name": "Hamburg",
@@ -1839,8 +2539,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-HH.webp",
-    "visualKey": "bb9bcb87020d8e62",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Hamburg"
+    "visualKey": "88fd28c504585fbd",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Hamburg",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-HH.svg"
   },
   {
     "id": "region-US-HI",
@@ -1848,10 +2550,12 @@ export const flagCatalog = [
     "name": "Hawaii",
     "kind": "region",
     "collection": "us-states",
-    "continent": "oceania",
+    "continent": "north-america",
     "image": "/assets/flags/regions/US-HI.webp",
-    "visualKey": "b7e6be6ed5255d95",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Hawaii"
+    "visualKey": "ba68d7166c146bdd",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Hawaii",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-HI.svg"
   },
   {
     "id": "country-HM",
@@ -1871,8 +2575,23 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-26.webp",
-    "visualKey": "bd7b8c5870ea709e",
-    "source": "https://en.wikipedia.org/wiki/%C5%9Awi%C4%99tokrzyskie_Voivodeship"
+    "visualKey": "e37d06bbe5f911bc",
+    "source": "https://en.wikipedia.org/wiki/%C5%9Awi%C4%99tokrzyskie_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-26.svg"
+  },
+  {
+    "id": "region-BE-WHT",
+    "code": "BE-WHT",
+    "name": "Hennegau",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WHT.webp",
+    "visualKey": "793f57561789dc87",
+    "source": "https://en.wikipedia.org/wiki/List_of_Belgian_flags",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WHT.svg"
   },
   {
     "id": "region-DE-HE",
@@ -1882,8 +2601,23 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-HE.webp",
-    "visualKey": "c73578f040c2d568",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Hesse"
+    "visualKey": "38d36bdf5408f5d8",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Hesse",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-HE.svg"
+  },
+  {
+    "id": "region-MX-HID",
+    "code": "MX-HID",
+    "name": "Hidalgo",
+    "kind": "region",
+    "collection": "mexico",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/MX-HID.webp",
+    "visualKey": "9dbe2cf54b935875",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Hidalgo.svg",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-HID.svg"
   },
   {
     "id": "region-JP-34",
@@ -1893,8 +2627,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-34.webp",
-    "visualKey": "08da69b094b7a583",
-    "source": "https://en.wikipedia.org/wiki/Hiroshima_Prefecture"
+    "visualKey": "53d870f6611ced7b",
+    "source": "https://en.wikipedia.org/wiki/Hiroshima_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-34.svg"
   },
   {
     "id": "region-JP-01",
@@ -1904,8 +2640,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-01.webp",
-    "visualKey": "c9f71f194f82cd9a",
-    "source": "https://en.wikipedia.org/wiki/Hokkaido"
+    "visualKey": "2a3047759abc3e73",
+    "source": "https://en.wikipedia.org/wiki/Hokkaido",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-01.svg"
   },
   {
     "id": "country-HN",
@@ -1918,6 +2656,32 @@ export const flagCatalog = [
     "visualKey": "e3f4f45d1ea2f721"
   },
   {
+    "id": "region-CZ-52",
+    "code": "CZ-52",
+    "name": "Hradec Králové",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-52.webp",
+    "visualKey": "f11f1452589dd2ed",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-52.svg"
+  },
+  {
+    "id": "region-CO-HUI",
+    "code": "CO-HUI",
+    "name": "Huila",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-HUI.webp",
+    "visualKey": "5e1bd8f1ee00c424",
+    "source": "https://en.wikipedia.org/wiki/Huila_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-HUI.svg"
+  },
+  {
     "id": "region-JP-28",
     "code": "JP-28",
     "name": "Hyogo",
@@ -1925,8 +2689,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-28.webp",
-    "visualKey": "2fe98b4d21e74453",
-    "source": "https://en.wikipedia.org/wiki/Hyogo_Prefecture"
+    "visualKey": "a009d2025c60ab3b",
+    "source": "https://en.wikipedia.org/wiki/Hyogo_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-28.svg"
   },
   {
     "id": "region-JP-08",
@@ -1936,8 +2702,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-08.webp",
-    "visualKey": "19bed439b6b7070f",
-    "source": "https://en.wikipedia.org/wiki/Ibaraki_Prefecture"
+    "visualKey": "a551fcccedbe8d36",
+    "source": "https://en.wikipedia.org/wiki/Ibaraki_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-08.svg"
   },
   {
     "id": "region-US-ID",
@@ -1947,8 +2715,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-ID.webp",
-    "visualKey": "1ee27b4610c5a351",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Idaho"
+    "visualKey": "537218fbd6b9193b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Idaho",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-ID.svg"
   },
   {
     "id": "region-US-IL",
@@ -1958,8 +2728,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-IL.webp",
-    "visualKey": "8aeaf7b70d0ffab5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Illinois"
+    "visualKey": "72f83c007a49ed1e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Illinois",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-IL.svg"
   },
   {
     "id": "region-US-IN",
@@ -1969,8 +2741,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-IN.webp",
-    "visualKey": "3b235488e289b807",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Indiana"
+    "visualKey": "d918b2ef59d202e1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Indiana",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-IN.svg"
   },
   {
     "id": "country-IN",
@@ -2000,8 +2774,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-IA.webp",
-    "visualKey": "cc702bad01017676",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Iowa"
+    "visualKey": "48e29637f60dbc3c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Iowa",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-IA.svg"
   },
   {
     "id": "country-IQ",
@@ -2041,8 +2817,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-17.webp",
-    "visualKey": "a2a9c9b56ad92f37",
-    "source": "https://en.wikipedia.org/wiki/Ishikawa_Prefecture"
+    "visualKey": "5da9e9a9f7167e5d",
+    "source": "https://en.wikipedia.org/wiki/Ishikawa_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-17.svg"
   },
   {
     "id": "country-IS",
@@ -2075,6 +2853,19 @@ export const flagCatalog = [
     "visualKey": "e6edd720a2191bb6"
   },
   {
+    "id": "region-HR-18",
+    "code": "HR-18",
+    "name": "Istrien",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-18.webp",
+    "visualKey": "2921a6bc485e929f",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-18.svg"
+  },
+  {
     "id": "country-IT",
     "code": "IT",
     "name": "Italien",
@@ -2092,8 +2883,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-03.webp",
-    "visualKey": "1ca0e5c16783d694",
-    "source": "https://en.wikipedia.org/wiki/Iwate_Prefecture"
+    "visualKey": "57744e6d0405ec29",
+    "source": "https://en.wikipedia.org/wiki/Iwate_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-03.svg"
   },
   {
     "id": "region-MX-JAL",
@@ -2103,8 +2896,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-JAL.webp",
-    "visualKey": "e6d157957708bff6",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Jalisco"
+    "visualKey": "34c1f39b79ea67ba",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Jalisco",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-JAL.svg"
   },
   {
     "id": "country-JM",
@@ -2115,6 +2910,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/JM.svg",
     "visualKey": "3428da9c85ef274b"
+  },
+  {
+    "id": "region-SE-Z",
+    "code": "SE-Z",
+    "name": "Jämtland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-Z.webp",
+    "visualKey": "138f20bdf857dc4c",
+    "source": "https://sv.wikipedia.org/wiki/Jämtlands_läns_vapen",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-Z.svg"
   },
   {
     "id": "country-JP",
@@ -2147,6 +2955,32 @@ export const flagCatalog = [
     "visualKey": "1600a31d7c70bc4d"
   },
   {
+    "id": "region-MY-01",
+    "code": "MY-01",
+    "name": "Johor",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-01.webp",
+    "visualKey": "246aeaa3cf02fcdc",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Johor",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-01.svg"
+  },
+  {
+    "id": "region-SE-F",
+    "code": "SE-F",
+    "name": "Jönköping",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-F.webp",
+    "visualKey": "2b23adc24d08450f",
+    "source": "https://en.wikipedia.org/wiki/J%C3%B6nk%C3%B6ping_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-F.svg"
+  },
+  {
     "id": "country-JO",
     "code": "JO",
     "name": "Jordanien",
@@ -2164,8 +2998,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-Y.webp",
-    "visualKey": "49a73e18c534b91e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Jujuy_Province"
+    "visualKey": "96b84b98b2bd1d13",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Jujuy_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-Y.svg"
   },
   {
     "id": "region-CH-JU",
@@ -2175,8 +3011,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-JU.webp",
-    "visualKey": "276332268d11b71e",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "da49899d08a85385",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-JU.svg"
   },
   {
     "id": "region-JP-37",
@@ -2186,8 +3024,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-37.webp",
-    "visualKey": "89bfdc65f787c062",
-    "source": "https://en.wikipedia.org/wiki/Kagawa_Prefecture"
+    "visualKey": "987c4bcc5437fe08",
+    "source": "https://en.wikipedia.org/wiki/Kagawa_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-37.svg"
   },
   {
     "id": "region-JP-46",
@@ -2197,8 +3037,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-46.webp",
-    "visualKey": "180d9377a9a379b9",
-    "source": "https://en.wikipedia.org/wiki/Kagoshima_Prefecture"
+    "visualKey": "3d63ae79c6ca9dff",
+    "source": "https://en.wikipedia.org/wiki/Kagoshima_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-46.svg"
   },
   {
     "id": "country-KY",
@@ -2218,8 +3060,23 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-78.webp",
-    "visualKey": "7289213e9a42c641",
-    "source": "https://en.wikipedia.org/wiki/Calabria"
+    "visualKey": "d01cd393d91b5f76",
+    "source": "https://en.wikipedia.org/wiki/Calabria",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-78.svg"
+  },
+  {
+    "id": "region-SE-H",
+    "code": "SE-H",
+    "name": "Kalmar County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-H.webp",
+    "visualKey": "4688c5b5006970bb",
+    "source": "https://sv.wikipedia.org/wiki/Kalmar_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-H.svg"
   },
   {
     "id": "country-KH",
@@ -2249,8 +3106,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-72.webp",
-    "visualKey": "3205671bd75e4f27",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Campania"
+    "visualKey": "828f74ea7597efc2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Campania",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-72.svg"
   },
   {
     "id": "country-CA",
@@ -2270,8 +3129,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-14.webp",
-    "visualKey": "cd4facb49dea699f",
-    "source": "https://en.wikipedia.org/wiki/Kanagawa_Prefecture"
+    "visualKey": "d31e05f12a673e53",
+    "source": "https://en.wikipedia.org/wiki/Kanagawa_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-14.svg"
   },
   {
     "id": "country-IC",
@@ -2291,8 +3152,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-CN.webp",
-    "visualKey": "de6e34b016a7955f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Canary_Islands"
+    "visualKey": "6ba328a5ecb89949",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Canary_Islands",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CN.svg"
   },
   {
     "id": "region-US-KS",
@@ -2302,8 +3165,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-KS.webp",
-    "visualKey": "a6e149dc8d8c3c14",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Kansas"
+    "visualKey": "48cc30393b08bbe3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kansas",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-KS.svg"
   },
   {
     "id": "region-ES-CB",
@@ -2313,8 +3178,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-CB.webp",
-    "visualKey": "86a859637871e3b5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Cantabria"
+    "visualKey": "c460d40ee4929e2e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Cantabria",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CB.svg"
   },
   {
     "id": "country-BQ",
@@ -2327,6 +3194,32 @@ export const flagCatalog = [
     "visualKey": "e46eb343071284e4"
   },
   {
+    "id": "region-HR-04",
+    "code": "HR-04",
+    "name": "Karlovac",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-04.webp",
+    "visualKey": "43703ecb6069aae5",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-04.svg"
+  },
+  {
+    "id": "region-CZ-41",
+    "code": "CZ-41",
+    "name": "Karlovy Vary",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-41.webp",
+    "visualKey": "1326a7b15d4f35e6",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-41.svg"
+  },
+  {
     "id": "region-AT-2",
     "code": "AT-2",
     "name": "Kärnten",
@@ -2334,8 +3227,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-2.webp",
-    "visualKey": "d9ddc3d94f930dc5",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Carinthia_(state).svg"
+    "visualKey": "c67b212c987ac11e",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Carinthia_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-2.svg"
   },
   {
     "id": "region-PL-18",
@@ -2345,8 +3240,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-18.webp",
-    "visualKey": "8963cfc95fd6bfa5",
-    "source": "https://en.wikipedia.org/wiki/Subcarpathian_Voivodeship"
+    "visualKey": "ad9e4125035a3a80",
+    "source": "https://en.wikipedia.org/wiki/Subcarpathian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-18.svg"
   },
   {
     "id": "country-KZ",
@@ -2366,8 +3263,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-CL.webp",
-    "visualKey": "7bd3ea81b227f22e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Castile_and_Leon"
+    "visualKey": "1489887cfe091de5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Castile_and_Leon",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CL.svg"
   },
   {
     "id": "region-ES-CM",
@@ -2377,8 +3276,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-CM.webp",
-    "visualKey": "7250fb76abc40750",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Castilla-La_Mancha"
+    "visualKey": "32cbd92e081fddb5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Castilla-La_Mancha",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CM.svg"
   },
   {
     "id": "region-ES-CT",
@@ -2388,8 +3289,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-CT.webp",
-    "visualKey": "79faf640e58dc25f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Catalonia"
+    "visualKey": "fab704b7a6cbeb44",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Catalonia",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-CT.svg"
   },
   {
     "id": "country-QA",
@@ -2400,6 +3303,32 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/QA.svg",
     "visualKey": "3c3cbc6278b1a273"
+  },
+  {
+    "id": "region-MY-02",
+    "code": "MY-02",
+    "name": "Kedah",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-02.webp",
+    "visualKey": "f404387229569a07",
+    "source": "https://www.wikidata.org/wiki/Q17335307",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-02.svg"
+  },
+  {
+    "id": "region-MY-03",
+    "code": "MY-03",
+    "name": "Kelantan",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-03.webp",
+    "visualKey": "73fcd9a91a7894cf",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kelantan",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-03.svg"
   },
   {
     "id": "country-KE",
@@ -2419,8 +3348,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-KY.webp",
-    "visualKey": "b755dfec334baab7",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Kentucky"
+    "visualKey": "4aafd71f0f8efa38",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kentucky",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-KY.svg"
   },
   {
     "id": "country-KG",
@@ -2450,8 +3381,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-12.webp",
-    "visualKey": "4df1bda6e3be3fd6",
-    "source": "https://en.wikipedia.org/wiki/Lesser_Poland_Voivodeship"
+    "visualKey": "a24c72cd439552ff",
+    "source": "https://en.wikipedia.org/wiki/Lesser_Poland_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-12.svg"
   },
   {
     "id": "region-JP-39",
@@ -2461,8 +3394,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-39.webp",
-    "visualKey": "21796a9dd67dce30",
-    "source": "https://en.wikipedia.org/wiki/Kochi_Prefecture"
+    "visualKey": "d54cc7422f945800",
+    "source": "https://en.wikipedia.org/wiki/Kochi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-39.svg"
   },
   {
     "id": "country-CC",
@@ -2515,6 +3450,32 @@ export const flagCatalog = [
     "visualKey": "0f6d673a49398522"
   },
   {
+    "id": "region-HR-06",
+    "code": "HR-06",
+    "name": "Koprivnica-Križevci",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-06.webp",
+    "visualKey": "eaf7bd8669610a45",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Koprivnica-Križevci_County.svg",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-06.svg"
+  },
+  {
+    "id": "region-SK-KI",
+    "code": "SK-KI",
+    "name": "Košice",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-KI.webp",
+    "visualKey": "b1685a01c44e3fe6",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-KI.svg"
+  },
+  {
     "id": "country-XK",
     "code": "XK",
     "name": "Kosovo",
@@ -2525,6 +3486,19 @@ export const flagCatalog = [
     "visualKey": "64cb2059fff629b3"
   },
   {
+    "id": "region-HR-02",
+    "code": "HR-02",
+    "name": "Krapina-Zagorje",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-02.webp",
+    "visualKey": "90474ddcc4b5883f",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-02.svg"
+  },
+  {
     "id": "country-HR",
     "code": "HR",
     "name": "Kroatien",
@@ -2533,6 +3507,32 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/HR.svg",
     "visualKey": "deb4a8c399a3ef7e"
+  },
+  {
+    "id": "region-SE-G",
+    "code": "SE-G",
+    "name": "Kronoberg County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-G.webp",
+    "visualKey": "20c79c07bfec32ed",
+    "source": "https://sv.wikipedia.org/wiki/Kronobergs_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-G.svg"
+  },
+  {
+    "id": "region-MY-14",
+    "code": "MY-14",
+    "name": "Kuala Lumpur",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-14.webp",
+    "visualKey": "02e669c2f7f1b169",
+    "source": "https://en.wikipedia.org/wiki/Kuala_Lumpur",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-14.svg"
   },
   {
     "id": "country-CU",
@@ -2552,8 +3552,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-04.webp",
-    "visualKey": "ac7c91cd25fc0710",
-    "source": "https://en.wikipedia.org/wiki/Kuyavian-Pomeranian_Voivodeship"
+    "visualKey": "cc94cafb99cf8bcf",
+    "source": "https://en.wikipedia.org/wiki/Kuyavian-Pomeranian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-04.svg"
   },
   {
     "id": "region-JP-43",
@@ -2563,8 +3565,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-43.webp",
-    "visualKey": "7e372edf7241c696",
-    "source": "https://en.wikipedia.org/wiki/Kumamoto_Prefecture"
+    "visualKey": "737634b070773ced",
+    "source": "https://en.wikipedia.org/wiki/Kumamoto_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-43.svg"
   },
   {
     "id": "country-KW",
@@ -2584,8 +3588,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-26.webp",
-    "visualKey": "d3654e3e9468dc62",
-    "source": "https://en.wikipedia.org/wiki/Kyoto_Prefecture"
+    "visualKey": "76b19f127a3f5503",
+    "source": "https://en.wikipedia.org/wiki/Kyoto_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-26.svg"
+  },
+  {
+    "id": "region-CO-LAG",
+    "code": "CO-LAG",
+    "name": "La Guajira",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-LAG.webp",
+    "visualKey": "7b0166ea77c7765e",
+    "source": "https://en.wikipedia.org/wiki/La_Guajira_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-LAG.svg"
   },
   {
     "id": "region-AR-L",
@@ -2595,8 +3614,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-L.webp",
-    "visualKey": "dbf5686cdb472141",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Pampa_Province"
+    "visualKey": "a26d0071c42389c3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Pampa_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-L.svg"
   },
   {
     "id": "region-AR-F",
@@ -2606,8 +3627,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-F.webp",
-    "visualKey": "e346ec1e85d509ab",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Rioja_Province,_Argentina"
+    "visualKey": "30051b738ca1488f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Rioja_Province,_Argentina",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-F.svg"
   },
   {
     "id": "region-ES-RI",
@@ -2617,8 +3640,23 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-RI.webp",
-    "visualKey": "838219fcbc836450",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Rioja_(Spain)"
+    "visualKey": "5dd28a74f733d4a4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_La_Rioja_(Spain)",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-RI.svg"
+  },
+  {
+    "id": "region-MY-15",
+    "code": "MY-15",
+    "name": "Labuan",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-15.webp",
+    "visualKey": "8b897acdd4f71d54",
+    "source": "https://en.wikipedia.org/wiki/Labuan",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-15.svg"
   },
   {
     "id": "country-LA",
@@ -2638,8 +3676,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-62.webp",
-    "visualKey": "359fecd51f9f601b",
-    "source": "https://en.wikipedia.org/wiki/Lazio"
+    "visualKey": "b3c81f67ff24c5eb",
+    "source": "https://en.wikipedia.org/wiki/Lazio",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-62.svg"
   },
   {
     "id": "region-PL-08",
@@ -2649,8 +3689,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-08.webp",
-    "visualKey": "58d76e45c549a508",
-    "source": "https://en.wikipedia.org/wiki/Lubusz_Voivodeship"
+    "visualKey": "8286fed4710d648d",
+    "source": "https://en.wikipedia.org/wiki/Lubusz_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-08.svg"
   },
   {
     "id": "country-LS",
@@ -2681,6 +3723,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/LB.svg",
     "visualKey": "ec70130d1ea445d7"
+  },
+  {
+    "id": "region-CZ-51",
+    "code": "CZ-51",
+    "name": "Liberec",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-51.webp",
+    "visualKey": "766bdf5adbd1de93",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-51.svg"
   },
   {
     "id": "country-LR",
@@ -2720,8 +3775,23 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-42.webp",
-    "visualKey": "d989a6c8659b892f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Liguria"
+    "visualKey": "2a4479dc5982ebad",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Liguria",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-42.svg"
+  },
+  {
+    "id": "region-HR-09",
+    "code": "HR-09",
+    "name": "Lika-Senj",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-09.webp",
+    "visualKey": "7bc12b1726822d69",
+    "source": "https://www.fotw.info/flags/hr-gs.html",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-09.svg"
   },
   {
     "id": "region-NL-LI",
@@ -2731,8 +3801,23 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-LI.webp",
-    "visualKey": "60807b409c92d7b6",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Limburg_(Netherlands)"
+    "visualKey": "c4ca6254751b2f89",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Limburg_(Netherlands)",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-LI.svg"
+  },
+  {
+    "id": "region-BE-VLI",
+    "code": "BE-VLI",
+    "name": "Limburg",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VLI.webp",
+    "visualKey": "72f107f995abb0d3",
+    "source": "https://en.wikipedia.org/wiki/Limburg_(Belgium)",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VLI.svg"
   },
   {
     "id": "country-LT",
@@ -2752,8 +3837,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-10.webp",
-    "visualKey": "efc29527be850763",
-    "source": "https://en.wikipedia.org/wiki/%C5%81%C3%B3d%C5%BA_Voivodeship"
+    "visualKey": "73fc134a801ddb6f",
+    "source": "https://en.wikipedia.org/wiki/%C5%81%C3%B3d%C5%BA_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-10.svg"
   },
   {
     "id": "region-IT-25",
@@ -2763,8 +3850,36 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-25.webp",
-    "visualKey": "063c68e97443ef55",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Lombardy"
+    "visualKey": "388e13884e4a476c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Lombardy",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-25.svg"
+  },
+  {
+    "id": "region-CL-LL",
+    "code": "CL-LL",
+    "name": "Los Lagos",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-LL.webp",
+    "visualKey": "4b0b6f4fad7622d8",
+    "source": "https://www.wikidata.org/wiki/Q2178",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-LL.svg"
+  },
+  {
+    "id": "region-CL-LR",
+    "code": "CL-LR",
+    "name": "Los Ríos",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-LR.webp",
+    "visualKey": "35a1c29888abcbd2",
+    "source": "https://www.wikidata.org/wiki/Q2177",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-LR.svg"
   },
   {
     "id": "region-US-LA",
@@ -2774,8 +3889,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-LA.webp",
-    "visualKey": "c1095cb501281cc9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Louisiana"
+    "visualKey": "9d83c583a7a70f45",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Louisiana",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-LA.svg"
   },
   {
     "id": "region-PL-06",
@@ -2785,8 +3902,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-06.webp",
-    "visualKey": "4ab282eb0aac3d2f",
-    "source": "https://en.wikipedia.org/wiki/Lublin_Voivodeship"
+    "visualKey": "05359969cb1cb208",
+    "source": "https://en.wikipedia.org/wiki/Lublin_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-06.svg"
   },
   {
     "id": "region-CH-LU",
@@ -2796,8 +3915,23 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-LU.webp",
-    "visualKey": "809897f972b3b8bc",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "3b3c261e6e4639da",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-LU.svg"
+  },
+  {
+    "id": "region-BE-WLG",
+    "code": "BE-WLG",
+    "name": "Lüttich",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WLG.webp",
+    "visualKey": "2a13c73c567f0009",
+    "source": "https://en.wikipedia.org/wiki/Li%C3%A8ge_Province",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WLG.svg"
   },
   {
     "id": "country-LU",
@@ -2808,6 +3942,19 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/LU.svg",
     "visualKey": "261bfeb47b9c8d60"
+  },
+  {
+    "id": "region-BE-WLX",
+    "code": "BE-WLX",
+    "name": "Luxemburg",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WLX.webp",
+    "visualKey": "f0a95491280abbee",
+    "source": "https://en.wikipedia.org/wiki/List_of_Belgian_flags",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WLX.svg"
   },
   {
     "id": "country-MG",
@@ -2827,8 +3974,49 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-MD.webp",
-    "visualKey": "7a4c9e5d93aba116",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Community_of_Madrid"
+    "visualKey": "14543166777ea1e2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Community_of_Madrid",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-MD.svg"
+  },
+  {
+    "id": "region-CL-MA",
+    "code": "CL-MA",
+    "name": "Magallanes und Chilenische Antarktis",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-MA.webp",
+    "visualKey": "f26f5c253dcd8e1c",
+    "source": "https://www.wikidata.org/wiki/Q2189",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-MA.svg"
+  },
+  {
+    "id": "region-CO-MAG",
+    "code": "CO-MAG",
+    "name": "Magdalena",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-MAG.webp",
+    "visualKey": "bdc7d9fd94ef0f26",
+    "source": "https://en.wikipedia.org/wiki/Magdalena_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-MAG.svg"
+  },
+  {
+    "id": "region-CZ-80",
+    "code": "CZ-80",
+    "name": "Mährisch-Schlesien",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-80.webp",
+    "visualKey": "e9ffef7b29f597c2",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-80.svg"
   },
   {
     "id": "region-US-ME",
@@ -2838,8 +4026,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-ME.webp",
-    "visualKey": "d4891d1495c77eb7",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_State_of_Maine.svg"
+    "visualKey": "fe16b0121ec4d3b0",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_State_of_Maine.svg",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-ME.svg"
+  },
+  {
+    "id": "region-MY-04",
+    "code": "MY-04",
+    "name": "Malakka",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-04.webp",
+    "visualKey": "4a03b7338ab0c374",
+    "source": "https://www.wikidata.org/wiki/Q4486900",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-04.svg"
   },
   {
     "id": "country-MW",
@@ -2899,8 +4102,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-MB.webp",
-    "visualKey": "7712f2485981b066",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Manitoba"
+    "visualKey": "95b5dd0979e0a3ff",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Manitoba",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-MB.svg"
   },
   {
     "id": "region-BR-MA",
@@ -2910,8 +4115,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-MA.webp",
-    "visualKey": "0f643cfb96f4ec70",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Maranh%C3%A3o"
+    "visualKey": "3871daacfb7476e9",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Maranh%C3%A3o",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-MA.svg"
   },
   {
     "id": "region-IT-57",
@@ -2921,8 +4128,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-57.webp",
-    "visualKey": "104139dfebdb288e",
-    "source": "https://en.wikipedia.org/wiki/Marche"
+    "visualKey": "376ff4a5d1e08491",
+    "source": "https://en.wikipedia.org/wiki/Marche",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-57.svg"
   },
   {
     "id": "country-MA",
@@ -2962,8 +4171,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MD.webp",
-    "visualKey": "bc1ae68550c01a8c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Maryland"
+    "visualKey": "a0fe1c8338587f6e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Maryland",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MD.svg"
   },
   {
     "id": "region-PL-14",
@@ -2973,8 +4184,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-14.webp",
-    "visualKey": "04e0fd7e3c254c56",
-    "source": "https://en.wikipedia.org/wiki/Masovian_Voivodeship"
+    "visualKey": "61bfe56c2117db20",
+    "source": "https://en.wikipedia.org/wiki/Masovian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-14.svg"
   },
   {
     "id": "region-US-MA",
@@ -2984,8 +4197,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MA.webp",
-    "visualKey": "67145ebfa538378e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Massachusetts"
+    "visualKey": "7f2a1fa15020f9d5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Massachusetts",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MA.svg"
   },
   {
     "id": "region-BR-MT",
@@ -2995,8 +4210,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-MT.webp",
-    "visualKey": "dadf4ccce371d1d0",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Mato_Grosso"
+    "visualKey": "443bbad4b3b65987",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mato_Grosso",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-MT.svg"
   },
   {
     "id": "region-BR-MS",
@@ -3006,8 +4223,23 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-MS.webp",
-    "visualKey": "083d2cc9e7b0021a",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Mato_Grosso_do_Sul"
+    "visualKey": "793065d868b55f12",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mato_Grosso_do_Sul",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-MS.svg"
+  },
+  {
+    "id": "region-CL-ML",
+    "code": "CL-ML",
+    "name": "Maule",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-ML.webp",
+    "visualKey": "4394fb86297286b7",
+    "source": "https://www.wikidata.org/wiki/Q2166",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-ML.svg"
   },
   {
     "id": "country-MR",
@@ -3047,8 +4279,23 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-MV.webp",
-    "visualKey": "27537e6795150f28",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Mecklenburg-Vorpommern"
+    "visualKey": "2e8f2022495a7bcc",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mecklenburg-Vorpommern",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-MV.svg"
+  },
+  {
+    "id": "region-HR-20",
+    "code": "HR-20",
+    "name": "Međimurje",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-20.webp",
+    "visualKey": "9a22501f9ef65665",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-20.svg"
   },
   {
     "id": "region-ES-ML",
@@ -3056,10 +4303,12 @@ export const flagCatalog = [
     "name": "Melilla",
     "kind": "region",
     "collection": "spain",
-    "continent": "africa",
+    "continent": "europe",
     "image": "/assets/flags/regions/ES-ML.webp",
-    "visualKey": "f32e7ddfc4b127ee",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Melilla"
+    "visualKey": "57100060ac3e58be",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Melilla",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-ML.svg"
   },
   {
     "id": "region-AR-M",
@@ -3069,8 +4318,36 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-M.webp",
-    "visualKey": "a87648f99b99f128",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mendoza_Province,_Argentina.svg"
+    "visualKey": "2ebdf6846a484bba",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mendoza_Province,_Argentina.svg",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-M.svg"
+  },
+  {
+    "id": "region-CO-MET",
+    "code": "CO-MET",
+    "name": "Meta",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-MET.webp",
+    "visualKey": "57183b9a8bc8f13a",
+    "source": "https://en.wikipedia.org/wiki/Meta_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-MET.svg"
+  },
+  {
+    "id": "region-CL-RM",
+    "code": "CL-RM",
+    "name": "Metropolregion Santiago",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-RM.webp",
+    "visualKey": "4a9fd7dead7165fd",
+    "source": "https://www.wikidata.org/wiki/Q2131",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-RM.svg"
   },
   {
     "id": "region-MX-MEX",
@@ -3080,8 +4357,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-MEX.webp",
-    "visualKey": "34d7466b37cbd65e",
-    "source": "https://en.wikipedia.org/wiki/State_of_Mexico"
+    "visualKey": "0a2a4534d5d3f1d4",
+    "source": "https://en.wikipedia.org/wiki/State_of_Mexico",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-MEX.svg"
   },
   {
     "id": "country-MX",
@@ -3101,8 +4380,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-CMX.webp",
-    "visualKey": "99b1ade32f438efb",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Mexico_City"
+    "visualKey": "38d6d47017054c70",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mexico_City",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-CMX.svg"
   },
   {
     "id": "region-US-MI",
@@ -3112,8 +4393,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MI.webp",
-    "visualKey": "2bd6aec0ba98e394",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Michigan"
+    "visualKey": "7e721c250a9afb9b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Michigan",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MI.svg"
   },
   {
     "id": "region-MX-MIC",
@@ -3123,8 +4406,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-MIC.webp",
-    "visualKey": "8e12c411c9250ddb",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Michoacan.svg"
+    "visualKey": "31a5a13081434b9b",
+    "source": "https://en.wikipedia.org/wiki/Michoac%C3%A1n",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-MIC.svg"
   },
   {
     "id": "region-JP-24",
@@ -3134,8 +4419,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-24.webp",
-    "visualKey": "b64e164b03ee71e8",
-    "source": "https://en.wikipedia.org/wiki/Mie_Prefecture"
+    "visualKey": "d1cfbf30318902db",
+    "source": "https://en.wikipedia.org/wiki/Mie_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-24.svg"
   },
   {
     "id": "country-FM",
@@ -3155,8 +4442,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-MG.webp",
-    "visualKey": "d6b506d6b3aa4c19",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Minas_Gerais"
+    "visualKey": "20048f3b1366b06c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Minas_Gerais",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-MG.svg"
   },
   {
     "id": "region-US-MN",
@@ -3166,8 +4455,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MN.webp",
-    "visualKey": "f03125e56391d4f7",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Minnesota"
+    "visualKey": "c49e9a477814f447",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Minnesota",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MN.svg"
   },
   {
     "id": "region-AR-N",
@@ -3177,8 +4468,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-N.webp",
-    "visualKey": "e2fe768454045c3c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Misiones_Province"
+    "visualKey": "8a037ba7550ce50d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Misiones_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-N.svg"
   },
   {
     "id": "region-US-MS",
@@ -3188,8 +4481,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MS.webp",
-    "visualKey": "5c188413ad182955",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Mississippi"
+    "visualKey": "c95ce523df21e180",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mississippi",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MS.svg"
   },
   {
     "id": "region-US-MO",
@@ -3199,8 +4494,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MO.webp",
-    "visualKey": "440e8953541a78c2",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Missouri"
+    "visualKey": "8c6370352da34ac3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Missouri",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MO.svg"
+  },
+  {
+    "id": "region-CZ-20",
+    "code": "CZ-20",
+    "name": "Mittelböhmen",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-20.webp",
+    "visualKey": "13d3465e2281ea7b",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-20.svg"
   },
   {
     "id": "region-JP-04",
@@ -3210,8 +4520,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-04.webp",
-    "visualKey": "09dd2128fadddf60",
-    "source": "https://en.wikipedia.org/wiki/Miyagi_Prefecture"
+    "visualKey": "56326493c85d1fe7",
+    "source": "https://en.wikipedia.org/wiki/Miyagi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-04.svg"
   },
   {
     "id": "region-JP-45",
@@ -3221,8 +4533,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-45.webp",
-    "visualKey": "1aa4e9ee1c239f11",
-    "source": "https://en.wikipedia.org/wiki/Miyazaki_Prefecture"
+    "visualKey": "c10d87a546c34090",
+    "source": "https://en.wikipedia.org/wiki/Miyazaki_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-45.svg"
   },
   {
     "id": "region-IT-67",
@@ -3232,8 +4546,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-67.webp",
-    "visualKey": "60684defc80355c4",
-    "source": "https://en.wikipedia.org/wiki/Molise"
+    "visualKey": "fe2b384a59141012",
+    "source": "https://en.wikipedia.org/wiki/Molise",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-67.svg"
   },
   {
     "id": "country-MC",
@@ -3263,8 +4579,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-MT.webp",
-    "visualKey": "8e1f2d4298f18338",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Montana"
+    "visualKey": "1e65bd954c244e10",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Montana",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-MT.svg"
   },
   {
     "id": "country-ME",
@@ -3294,8 +4612,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-MOR.webp",
-    "visualKey": "5bbeb3bf044817c8",
-    "source": "https://en.wikipedia.org/wiki/Morelos"
+    "visualKey": "188e7068d697c978",
+    "source": "https://en.wikipedia.org/wiki/Morelos",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-MOR.svg"
   },
   {
     "id": "country-MZ",
@@ -3315,8 +4635,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-MC.webp",
-    "visualKey": "4c8f668f3dd10b15",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Region_of_Murcia"
+    "visualKey": "db1aae8da55f0fd4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Region_of_Murcia",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-MC.svg"
   },
   {
     "id": "country-MM",
@@ -3336,8 +4658,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-20.webp",
-    "visualKey": "d86bc9911f6f53de",
-    "source": "https://en.wikipedia.org/wiki/Nagano_Prefecture"
+    "visualKey": "523bade7b8e9608f",
+    "source": "https://en.wikipedia.org/wiki/Nagano_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-20.svg"
   },
   {
     "id": "region-JP-42",
@@ -3347,8 +4671,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-42.webp",
-    "visualKey": "895660430474358a",
-    "source": "https://en.wikipedia.org/wiki/Nagasaki_Prefecture"
+    "visualKey": "c0ecf684760ee4cf",
+    "source": "https://en.wikipedia.org/wiki/Nagasaki_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-42.svg"
   },
   {
     "id": "country-NA",
@@ -3361,6 +4687,19 @@ export const flagCatalog = [
     "visualKey": "c6980a03db5612c1"
   },
   {
+    "id": "region-BE-WNA",
+    "code": "BE-WNA",
+    "name": "Namur",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WNA.webp",
+    "visualKey": "a17c271f44ca63bd",
+    "source": "https://en.wikipedia.org/wiki/List_of_Belgian_flags",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WNA.svg"
+  },
+  {
     "id": "region-JP-29",
     "code": "JP-29",
     "name": "Nara",
@@ -3368,8 +4707,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-29.webp",
-    "visualKey": "cc03b5155967c9fa",
-    "source": "https://en.wikipedia.org/wiki/Nara_Prefecture"
+    "visualKey": "363db5b6271ecbfa",
+    "source": "https://en.wikipedia.org/wiki/Nara_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-29.svg"
+  },
+  {
+    "id": "region-CO-NAR",
+    "code": "CO-NAR",
+    "name": "Nariño",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-NAR.webp",
+    "visualKey": "d3b592b8a78cfad1",
+    "source": "https://en.wikipedia.org/wiki/Nari%C3%B1o_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-NAR.svg"
   },
   {
     "id": "country-NR",
@@ -3389,8 +4743,10 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-NC.webp",
-    "visualKey": "ed1aba66a6317c38",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Navarre"
+    "visualKey": "ebbe18ed2ecc90a2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Navarre",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-NC.svg"
   },
   {
     "id": "region-MX-NAY",
@@ -3400,8 +4756,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-NAY.webp",
-    "visualKey": "39edba8a70d32db4",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Nayarit.svg"
+    "visualKey": "2ecc114742636daa",
+    "source": "https://en.wikipedia.org/wiki/Nayarit",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-NAY.svg"
   },
   {
     "id": "region-US-NE",
@@ -3411,8 +4769,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NE.webp",
-    "visualKey": "533fe8318ee3a0f2",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Nebraska"
+    "visualKey": "cf832d2b77a79c55",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nebraska",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NE.svg"
+  },
+  {
+    "id": "region-MY-05",
+    "code": "MY-05",
+    "name": "Negeri Sembilan",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-05.webp",
+    "visualKey": "f1d0e93aa044d043",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Negeri_Sembilan",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-05.svg"
   },
   {
     "id": "country-NP",
@@ -3432,8 +4805,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-NE.webp",
-    "visualKey": "a82f4298c4fca761",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "4ae484dbf7a47698",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-NE.svg"
   },
   {
     "id": "region-CA-NL",
@@ -3443,8 +4818,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-NL.webp",
-    "visualKey": "08c3cf7475172ff8",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Newfoundland_and_Labrador"
+    "visualKey": "b85d92bcf88fc22c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Newfoundland_and_Labrador",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-NL.svg"
   },
   {
     "id": "country-NC",
@@ -3464,8 +4841,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-Q.webp",
-    "visualKey": "fafb3207d759fef0",
-    "source": "https://commons.wikimedia.org/wiki/File:Bandera_de_la_Provincia_del_Neuquen.svg"
+    "visualKey": "d37d90b6a7802ecb",
+    "source": "https://commons.wikimedia.org/wiki/File:Bandera_de_la_Provincia_del_Neuquen.svg",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-Q.svg"
   },
   {
     "id": "country-NZ",
@@ -3485,8 +4864,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NV.webp",
-    "visualKey": "fd4e31bc1d6e97d3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Nevada"
+    "visualKey": "edac434af7427c95",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nevada",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NV.svg"
   },
   {
     "id": "region-CA-NB",
@@ -3496,8 +4877,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-NB.webp",
-    "visualKey": "70ed1d2916cf2acd",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Brunswick"
+    "visualKey": "856f6db1087181f6",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Brunswick",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-NB.svg"
   },
   {
     "id": "region-US-NH",
@@ -3507,8 +4890,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NH.webp",
-    "visualKey": "0628d222285a9dd9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Hampshire"
+    "visualKey": "049d732cd6d5b5e9",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Hampshire",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NH.svg"
   },
   {
     "id": "region-US-NJ",
@@ -3518,8 +4903,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NJ.webp",
-    "visualKey": "747287ee2874a720",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Jersey"
+    "visualKey": "712d59a9970c99eb",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Jersey",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NJ.svg"
   },
   {
     "id": "region-US-NM",
@@ -3529,8 +4916,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NM.webp",
-    "visualKey": "10ba71a7b111ddb7",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Mexico"
+    "visualKey": "1efa6b1e5fb3b6bd",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_Mexico",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NM.svg"
   },
   {
     "id": "region-AU-NSW",
@@ -3540,8 +4929,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-NSW.webp",
-    "visualKey": "4406304b45bf5c52",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_South_Wales"
+    "visualKey": "243a9236e2103cd7",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_South_Wales",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-NSW.svg"
   },
   {
     "id": "region-US-NY",
@@ -3551,8 +4942,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NY.webp",
-    "visualKey": "93b3d151d9abe001",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_New_York_(state)"
+    "visualKey": "95b974ea8da93e7e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_New_York_(state)",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NY.svg"
   },
   {
     "id": "country-NI",
@@ -3572,8 +4965,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-NW.webp",
-    "visualKey": "67276bd40fa51267",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "b68655f006d524d1",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-NW.svg"
   },
   {
     "id": "country-NL",
@@ -3593,8 +4988,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-3.webp",
-    "visualKey": "320a1e185e50a973",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lower_Austria_(state).svg"
+    "visualKey": "7c1890a0a50ae0cc",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Lower_Austria_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-3.svg"
   },
   {
     "id": "region-DE-NI",
@@ -3604,8 +5001,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-NI.webp",
-    "visualKey": "e34501a74576bec9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Lower_Saxony"
+    "visualKey": "5368a22e48f766af",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Lower_Saxony",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-NI.svg"
   },
   {
     "id": "region-PL-02",
@@ -3615,8 +5014,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-02.webp",
-    "visualKey": "1d3dc9097b605153",
-    "source": "https://en.wikipedia.org/wiki/Lower_Silesian_Voivodeship"
+    "visualKey": "86dc0ec9b137d991",
+    "source": "https://en.wikipedia.org/wiki/Lower_Silesian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-02.svg"
   },
   {
     "id": "country-NE",
@@ -3646,8 +5047,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-15.webp",
-    "visualKey": "0c00f9ddb408a1e5",
-    "source": "https://en.wikipedia.org/wiki/Niigata_Prefecture"
+    "visualKey": "a9c1fa4981785627",
+    "source": "https://en.wikipedia.org/wiki/Niigata_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-15.svg"
+  },
+  {
+    "id": "region-SK-NI",
+    "code": "SK-NI",
+    "name": "Nitra",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-NI.webp",
+    "visualKey": "1cd72ee6b82b1a0b",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-NI.svg"
   },
   {
     "id": "country-NU",
@@ -3667,8 +5083,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-NB.webp",
-    "visualKey": "2c5130d9d7c3ee96",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Brabant"
+    "visualKey": "0880502e6178f67a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Brabant",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-NB.svg"
   },
   {
     "id": "region-NL-NH",
@@ -3678,8 +5096,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-NH.webp",
-    "visualKey": "f1a07fb17b579880",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Holland"
+    "visualKey": "632a1d2bab3c5bd6",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Holland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-NH.svg"
   },
   {
     "id": "region-GB-NIR",
@@ -3689,7 +5109,9 @@ export const flagCatalog = [
     "collection": "united-kingdom",
     "continent": "europe",
     "image": "/assets/flags/regions/GB-NIR.svg",
-    "visualKey": "b009535365d882a0"
+    "visualKey": "b009535365d882a0",
+    "parent": "Vereinigtes Königreich",
+    "locationMap": "/assets/flags/maps/GB-NIR.svg"
   },
   {
     "id": "country-KP",
@@ -3729,8 +5151,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-NW.webp",
-    "visualKey": "1b70caaa067d0dd5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Rhine-Westphalia"
+    "visualKey": "a39052ea8d99c2c4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Rhine-Westphalia",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-NW.svg"
   },
   {
     "id": "region-CA-NT",
@@ -3740,8 +5164,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-NT.webp",
-    "visualKey": "9d5dfd5741fe1111",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Northwest_Territories"
+    "visualKey": "51205c6b8b603d24",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Northwest_Territories",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-NT.svg"
   },
   {
     "id": "country-NF",
@@ -3754,6 +5180,32 @@ export const flagCatalog = [
     "visualKey": "bef9b45a2e02fddb"
   },
   {
+    "id": "region-SE-BD",
+    "code": "SE-BD",
+    "name": "Norrbotten",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-BD.webp",
+    "visualKey": "7214019c9fd37bf5",
+    "source": "https://en.wikipedia.org/wiki/Norrbotten_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-BD.svg"
+  },
+  {
+    "id": "region-CO-NSA",
+    "code": "CO-NSA",
+    "name": "Norte de Santander",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-NSA.webp",
+    "visualKey": "9a5f0ff0b4014caf",
+    "source": "https://en.wikipedia.org/wiki/Norte_de_Santander_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-NSA.svg"
+  },
+  {
     "id": "region-US-NC",
     "code": "US-NC",
     "name": "North Carolina",
@@ -3761,8 +5213,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-NC.webp",
-    "visualKey": "dd3cc2fe9ee98f6d",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Carolina"
+    "visualKey": "96588673ff44ed10",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Carolina",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-NC.svg"
   },
   {
     "id": "region-US-ND",
@@ -3772,8 +5226,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-ND.webp",
-    "visualKey": "a8a90caa7cc0071d",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Dakota"
+    "visualKey": "96bf37b48a32eb55",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Dakota",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-ND.svg"
   },
   {
     "id": "region-AU-NT",
@@ -3783,8 +5239,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-NT.webp",
-    "visualKey": "231a08aa44cc158f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Northern_Territory"
+    "visualKey": "34263ebbcaf37850",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Northern_Territory",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-NT.svg"
   },
   {
     "id": "country-NO",
@@ -3804,8 +5262,23 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-NS.webp",
-    "visualKey": "95db9b90353be276",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Nova_Scotia"
+    "visualKey": "ab6722f3ffebed50",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nova_Scotia",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-NS.svg"
+  },
+  {
+    "id": "region-CL-NB",
+    "code": "CL-NB",
+    "name": "Ñuble",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-NB.webp",
+    "visualKey": "6bc0718915d27638",
+    "source": "https://www.wikidata.org/wiki/Q24076693",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-NB.svg"
   },
   {
     "id": "region-MX-NLE",
@@ -3815,8 +5288,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-NLE.webp",
-    "visualKey": "10344c77774be234",
-    "source": "https://en.wikipedia.org/wiki/Nuevo_Le%C3%B3n"
+    "visualKey": "a1c69dc3d186f628",
+    "source": "https://en.wikipedia.org/wiki/Nuevo_Le%C3%B3n",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-NLE.svg"
   },
   {
     "id": "region-CA-NU",
@@ -3826,8 +5301,23 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-NU.webp",
-    "visualKey": "b645083825bad894",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Nunavut"
+    "visualKey": "6e49c6ce43cde8d2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nunavut",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-NU.svg"
+  },
+  {
+    "id": "region-CL-LI",
+    "code": "CL-LI",
+    "name": "O’Higgins",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-LI.webp",
+    "visualKey": "39d8ce9887286454",
+    "source": "https://www.wikidata.org/wiki/Q2133",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-LI.svg"
   },
   {
     "id": "region-MX-OAX",
@@ -3837,8 +5327,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-OAX.webp",
-    "visualKey": "29629a0dea9cb59b",
-    "source": "https://en.wikipedia.org/wiki/Oaxaca"
+    "visualKey": "1fc5d0dcceb7494c",
+    "source": "https://en.wikipedia.org/wiki/Oaxaca",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-OAX.svg"
   },
   {
     "id": "region-AT-4",
@@ -3848,8 +5340,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-4.webp",
-    "visualKey": "99fe0bb1d9c8e747",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Upper_Austria_(state).svg"
+    "visualKey": "04f8119a71525b44",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Upper_Austria_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-4.svg"
   },
   {
     "id": "region-CH-OW",
@@ -3859,8 +5353,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-OW.webp",
-    "visualKey": "674e28c939207ae3",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "c0fa2bc49dbcff30",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-OW.svg"
   },
   {
     "id": "region-US-OH",
@@ -3870,8 +5366,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-OH.webp",
-    "visualKey": "50b74e5946b8abe9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Ohio"
+    "visualKey": "6ad46dc2f1ec3b23",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ohio",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-OH.svg"
   },
   {
     "id": "region-JP-44",
@@ -3881,8 +5379,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-44.webp",
-    "visualKey": "e0470b911fdebe2d",
-    "source": "https://en.wikipedia.org/wiki/Oita_Prefecture"
+    "visualKey": "690e85e368dd18ba",
+    "source": "https://en.wikipedia.org/wiki/Oita_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-44.svg"
   },
   {
     "id": "region-JP-33",
@@ -3892,8 +5392,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-33.webp",
-    "visualKey": "c93dccbec0817211",
-    "source": "https://en.wikipedia.org/wiki/Okayama_Prefecture"
+    "visualKey": "e263877f3ffc816f",
+    "source": "https://en.wikipedia.org/wiki/Okayama_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-33.svg"
   },
   {
     "id": "region-JP-47",
@@ -3903,8 +5405,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-47.webp",
-    "visualKey": "b84c2e68b7c25fa3",
-    "source": "https://en.wikipedia.org/wiki/Okinawa_Prefecture"
+    "visualKey": "d81602e34379926f",
+    "source": "https://en.wikipedia.org/wiki/Okinawa_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-47.svg"
   },
   {
     "id": "region-US-OK",
@@ -3914,8 +5418,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-OK.webp",
-    "visualKey": "9e27a6889f142908",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Oklahoma"
+    "visualKey": "ea16d8e289178e53",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Oklahoma",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-OK.svg"
+  },
+  {
+    "id": "region-CZ-71",
+    "code": "CZ-71",
+    "name": "Olomouc",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-71.webp",
+    "visualKey": "801b48a4f2c2a9e3",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-71.svg"
   },
   {
     "id": "country-OM",
@@ -3935,8 +5454,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-ON.webp",
-    "visualKey": "b926088ed3e7763e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Ontario"
+    "visualKey": "94adc40cc826b4a3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ontario",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-ON.svg"
   },
   {
     "id": "region-PL-16",
@@ -3946,8 +5467,23 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-16.webp",
-    "visualKey": "b50d374cd031e572",
-    "source": "https://en.wikipedia.org/wiki/Opole_Voivodeship"
+    "visualKey": "d0f8c9d83956248e",
+    "source": "https://en.wikipedia.org/wiki/Opole_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-16.svg"
+  },
+  {
+    "id": "region-SE-T",
+    "code": "SE-T",
+    "name": "Örebro",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-T.webp",
+    "visualKey": "89276e5c8782a359",
+    "source": "https://sv.wikipedia.org/wiki/Örebro_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-T.svg"
   },
   {
     "id": "region-US-OR",
@@ -3957,8 +5493,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-OR.webp",
-    "visualKey": "f86205e01f18e2be",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Oregon"
+    "visualKey": "3704f79fbe3b465b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Oregon",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-OR.svg"
   },
   {
     "id": "region-JP-27",
@@ -3968,8 +5506,36 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-27.webp",
-    "visualKey": "a1f8d68f8747b878",
-    "source": "https://en.wikipedia.org/wiki/Osaka_Prefecture"
+    "visualKey": "3026dcb1f194f93c",
+    "source": "https://en.wikipedia.org/wiki/Osaka_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-27.svg"
+  },
+  {
+    "id": "region-HR-14",
+    "code": "HR-14",
+    "name": "Osijek-Baranja",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-14.webp",
+    "visualKey": "8bd1d70b2563afa2",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-14.svg"
+  },
+  {
+    "id": "region-SE-E",
+    "code": "SE-E",
+    "name": "Östergötland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-E.webp",
+    "visualKey": "15d35f1e0c3cd75b",
+    "source": "https://sv.wikipedia.org/wiki/Östergötlands_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-E.svg"
   },
   {
     "id": "country-AT",
@@ -3982,6 +5548,19 @@ export const flagCatalog = [
     "visualKey": "ddad7df9fb41ce3c"
   },
   {
+    "id": "region-BE-VOV",
+    "code": "BE-VOV",
+    "name": "Ostflandern",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VOV.webp",
+    "visualKey": "830e6a3f6e41f9a4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Flanders",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VOV.svg"
+  },
+  {
     "id": "region-NL-OV",
     "code": "NL-OV",
     "name": "Overijssel",
@@ -3989,8 +5568,23 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-OV.webp",
-    "visualKey": "6cd02bcf91c6c53e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Overijssel"
+    "visualKey": "4a2c9f9bfab01332",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Overijssel",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-OV.svg"
+  },
+  {
+    "id": "region-MY-06",
+    "code": "MY-06",
+    "name": "Pahang",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-06.webp",
+    "visualKey": "ea02260b36ff333c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Pahang",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-06.svg"
   },
   {
     "id": "country-PK",
@@ -4050,8 +5644,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-PA.webp",
-    "visualKey": "67896094892d7a7a",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Par%C3%A1"
+    "visualKey": "4cf7923937f774d0",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Par%C3%A1",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-PA.svg"
   },
   {
     "id": "country-PY",
@@ -4071,8 +5667,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-PB.webp",
-    "visualKey": "4cd6c25bc5474228",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Para%C3%ADba"
+    "visualKey": "128e3aa912cf9d8e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Para%C3%ADba",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-PB.svg"
   },
   {
     "id": "region-BR-PR",
@@ -4082,8 +5680,36 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-PR.webp",
-    "visualKey": "2d259d409494efc3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Paran%C3%A1"
+    "visualKey": "e4b5e2ec338fd5d9",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Paran%C3%A1",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-PR.svg"
+  },
+  {
+    "id": "region-CZ-53",
+    "code": "CZ-53",
+    "name": "Pardubice",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-53.webp",
+    "visualKey": "4f694cb10d077af6",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-53.svg"
+  },
+  {
+    "id": "region-MY-07",
+    "code": "MY-07",
+    "name": "Penang",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-07.webp",
+    "visualKey": "5f3e951bc1435010",
+    "source": "https://www.wikidata.org/wiki/Q4487474",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-07.svg"
   },
   {
     "id": "region-US-PA",
@@ -4093,8 +5719,36 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-PA.webp",
-    "visualKey": "b08a791d26a4f1fe",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Pennsylvania.svg"
+    "visualKey": "38db8e67bbed2068",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Pennsylvania.svg",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-PA.svg"
+  },
+  {
+    "id": "region-MY-08",
+    "code": "MY-08",
+    "name": "Perak",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-08.webp",
+    "visualKey": "61ce6ef686d242ba",
+    "source": "https://www.wikidata.org/wiki/Q2600445",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-08.svg"
+  },
+  {
+    "id": "region-MY-09",
+    "code": "MY-09",
+    "name": "Perlis",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-09.webp",
+    "visualKey": "3aa8945181f1cbb5",
+    "source": "https://www.wikidata.org/wiki/Q2171778",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-09.svg"
   },
   {
     "id": "region-BR-PE",
@@ -4104,8 +5758,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-PE.webp",
-    "visualKey": "705107e26c8f3c18",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Pernambuco"
+    "visualKey": "4a90221991876467",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Pernambuco",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-PE.svg"
   },
   {
     "id": "country-PE",
@@ -4135,8 +5791,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-PI.webp",
-    "visualKey": "5218e016c30c4676",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Piau%C3%AD"
+    "visualKey": "3ce32e7e351ad9ca",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Piau%C3%AD",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-PI.svg"
   },
   {
     "id": "region-IT-21",
@@ -4146,8 +5804,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-21.webp",
-    "visualKey": "aac77ad31a435c3a",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Piedmont"
+    "visualKey": "ece372cb55eb6797",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Piedmont",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-21.svg"
   },
   {
     "id": "country-PN",
@@ -4160,6 +5820,19 @@ export const flagCatalog = [
     "visualKey": "8dba59cea145d4b5"
   },
   {
+    "id": "region-CZ-32",
+    "code": "CZ-32",
+    "name": "Plzeň",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-32.webp",
+    "visualKey": "c6f1f7cfdeb90e61",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-32.svg"
+  },
+  {
     "id": "region-PL-20",
     "code": "PL-20",
     "name": "Podlachien",
@@ -4167,8 +5840,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-20.webp",
-    "visualKey": "a9a213ec06e7673f",
-    "source": "https://en.wikipedia.org/wiki/Podlaskie_Voivodeship"
+    "visualKey": "074194cfe74f7c81",
+    "source": "https://en.wikipedia.org/wiki/Podlaskie_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-20.svg"
   },
   {
     "id": "country-PL",
@@ -4188,8 +5863,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-22.webp",
-    "visualKey": "47db17b6864a1345",
-    "source": "https://en.wikipedia.org/wiki/Pomeranian_Voivodeship"
+    "visualKey": "9e007963bde9a201",
+    "source": "https://en.wikipedia.org/wiki/Pomeranian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-22.svg"
   },
   {
     "id": "country-PT",
@@ -4202,6 +5879,58 @@ export const flagCatalog = [
     "visualKey": "ed872d800177ced6"
   },
   {
+    "id": "region-HR-11",
+    "code": "HR-11",
+    "name": "Požega-Slawonien",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-11.webp",
+    "visualKey": "8524e4242f7042d8",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Po%C5%BEega-Slavonia_County.svg",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-11.svg"
+  },
+  {
+    "id": "region-CZ-PR",
+    "code": "CZ-PR",
+    "name": "Prag",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-PR.webp",
+    "visualKey": "2aba9c759b5e4972",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Prague",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-PR.svg"
+  },
+  {
+    "id": "region-SK-PV",
+    "code": "SK-PV",
+    "name": "Prešov",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-PV.webp",
+    "visualKey": "9b599faedee6d2de",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-PV.svg"
+  },
+  {
+    "id": "region-HR-08",
+    "code": "HR-08",
+    "name": "Primorje-Gorski kotar",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-08.webp",
+    "visualKey": "cba6dfeee5795c0b",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Primorje-Gorski_Kotar_County.svg",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-08.svg"
+  },
+  {
     "id": "region-CA-PE",
     "code": "CA-PE",
     "name": "Prince Edward Island",
@@ -4209,8 +5938,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-PE.webp",
-    "visualKey": "b206b42e35ea7eb9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Prince_Edward_Island"
+    "visualKey": "ac30876d535960c1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Prince_Edward_Island",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-PE.svg"
   },
   {
     "id": "region-MX-PUE",
@@ -4220,8 +5951,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-PUE.webp",
-    "visualKey": "105c9ddfd56036e4",
-    "source": "https://en.wikipedia.org/wiki/Puebla"
+    "visualKey": "5764982cbe10471a",
+    "source": "https://en.wikipedia.org/wiki/Puebla",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-PUE.svg"
   },
   {
     "id": "country-PR",
@@ -4234,6 +5967,32 @@ export const flagCatalog = [
     "visualKey": "ffb6f310f1b97e56"
   },
   {
+    "id": "region-MY-16",
+    "code": "MY-16",
+    "name": "Putrajaya",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-16.webp",
+    "visualKey": "22e464b51b0fb8c7",
+    "source": "https://en.wikipedia.org/wiki/Putrajaya",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-16.svg"
+  },
+  {
+    "id": "region-CO-PUT",
+    "code": "CO-PUT",
+    "name": "Putumayo",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-PUT.webp",
+    "visualKey": "dec2c5c0ccf5d306",
+    "source": "https://en.wikipedia.org/wiki/Putumayo_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-PUT.svg"
+  },
+  {
     "id": "region-CA-QC",
     "code": "CA-QC",
     "name": "Quebec",
@@ -4241,8 +6000,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-QC.webp",
-    "visualKey": "5d8713915b3a51a9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Quebec"
+    "visualKey": "c1eeedd86505899d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Quebec",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-QC.svg"
   },
   {
     "id": "region-AU-QLD",
@@ -4252,8 +6013,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-QLD.webp",
-    "visualKey": "22d27978cfb9f213",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Queensland"
+    "visualKey": "940fa79048069e7c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Queensland",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-QLD.svg"
   },
   {
     "id": "region-MX-QUE",
@@ -4263,8 +6026,23 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-QUE.webp",
-    "visualKey": "b4cf6954661a85f9",
-    "source": "https://en.wikipedia.org/wiki/Quer%C3%A9taro"
+    "visualKey": "7a4b2e511727092e",
+    "source": "https://en.wikipedia.org/wiki/Quer%C3%A9taro",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-QUE.svg"
+  },
+  {
+    "id": "region-CO-QUI",
+    "code": "CO-QUI",
+    "name": "Quindío",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-QUI.webp",
+    "visualKey": "546e90571ac35754",
+    "source": "https://en.wikipedia.org/wiki/Quind%C3%ADo_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-QUI.svg"
   },
   {
     "id": "region-MX-ROO",
@@ -4274,8 +6052,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-ROO.webp",
-    "visualKey": "3d5a4f19c35b92f5",
-    "source": "https://www.wikidata.org/wiki/Q2129668"
+    "visualKey": "f20c66320b03b32a",
+    "source": "https://www.wikidata.org/wiki/Q2129668",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-ROO.svg"
   },
   {
     "id": "country-MD",
@@ -4305,8 +6085,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-RP.webp",
-    "visualKey": "681164156033b8d1",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Rhineland-Palatinate"
+    "visualKey": "15cbfe14f2f3595b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rhineland-Palatinate",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-RP.svg"
   },
   {
     "id": "region-US-RI",
@@ -4316,8 +6098,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-RI.webp",
-    "visualKey": "330cb80d3428ef3e",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rhode_Island.svg"
+    "visualKey": "39fcf081544f7b1c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rhode_Island.svg",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-RI.svg"
   },
   {
     "id": "region-BR-RJ",
@@ -4327,8 +6111,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-RJ.webp",
-    "visualKey": "020a74a06b0f3f3c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_de_Janeiro_(state)"
+    "visualKey": "c69199ac212c2278",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_de_Janeiro_(state)",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-RJ.svg"
   },
   {
     "id": "region-BR-RN",
@@ -4338,8 +6124,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-RN.webp",
-    "visualKey": "f943acae929472a7",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_Grande_do_Norte"
+    "visualKey": "ff184586f28c683a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_Grande_do_Norte",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-RN.svg"
   },
   {
     "id": "region-BR-RS",
@@ -4349,8 +6137,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-RS.webp",
-    "visualKey": "e66d63d10a067a77",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_Grande_do_Sul"
+    "visualKey": "46e4b3c285e616f1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rio_Grande_do_Sul",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-RS.svg"
   },
   {
     "id": "region-AR-R",
@@ -4360,8 +6150,23 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-R.webp",
-    "visualKey": "d543d06de6dc79cd",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_R%C3%ADo_Negro_Province"
+    "visualKey": "2009d2a270edc38c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_R%C3%ADo_Negro_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-R.svg"
+  },
+  {
+    "id": "region-CO-RIS",
+    "code": "CO-RIS",
+    "name": "Risaralda",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-RIS.webp",
+    "visualKey": "09cfa47dec825930",
+    "source": "https://en.wikipedia.org/wiki/Risaralda_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-RIS.svg"
   },
   {
     "id": "region-BR-RO",
@@ -4371,8 +6176,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-RO.webp",
-    "visualKey": "7b1ccaf1ccbdce70",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Rond%C3%B4nia"
+    "visualKey": "4442832f272ded06",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rond%C3%B4nia",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-RO.svg"
   },
   {
     "id": "region-BR-RR",
@@ -4382,8 +6189,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-RR.webp",
-    "visualKey": "237765eb0dab7e9f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Roraima"
+    "visualKey": "578f3f062aa82600",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Roraima",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-RR.svg"
   },
   {
     "id": "country-RW",
@@ -4423,8 +6232,23 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-SL.webp",
-    "visualKey": "ad0dda1b49f0f621",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Saarland"
+    "visualKey": "99f300c901ad7c29",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saarland",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-SL.svg"
+  },
+  {
+    "id": "region-MY-12",
+    "code": "MY-12",
+    "name": "Sabah",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-12.webp",
+    "visualKey": "6ca2b82b58357ebe",
+    "source": "https://www.wikidata.org/wiki/Q11721817",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-12.svg"
   },
   {
     "id": "region-DE-SN",
@@ -4434,8 +6258,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-SN.webp",
-    "visualKey": "64134eb0b69d61f7",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Saxony"
+    "visualKey": "c398efbaf5623082",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saxony",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-SN.svg"
   },
   {
     "id": "region-DE-ST",
@@ -4445,8 +6271,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-ST.webp",
-    "visualKey": "b2c8ba3f0afff264",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Saxony-Anhalt"
+    "visualKey": "31686a8b4e5b98d2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saxony-Anhalt",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-ST.svg"
   },
   {
     "id": "region-JP-41",
@@ -4456,8 +6284,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-41.webp",
-    "visualKey": "8c80246cf7e89fb2",
-    "source": "https://en.wikipedia.org/wiki/Saga_Prefecture"
+    "visualKey": "95ff0d07e67a744a",
+    "source": "https://en.wikipedia.org/wiki/Saga_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-41.svg"
   },
   {
     "id": "region-JP-11",
@@ -4467,8 +6297,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-11.webp",
-    "visualKey": "a7dc1db175eb299b",
-    "source": "https://en.wikipedia.org/wiki/Saitama_Prefecture"
+    "visualKey": "eb7cf601522eb539",
+    "source": "https://en.wikipedia.org/wiki/Saitama_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-11.svg"
   },
   {
     "id": "country-SB",
@@ -4488,8 +6320,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-A.webp",
-    "visualKey": "25d5aeb4bd77ddb1",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Salta_Province"
+    "visualKey": "7f1f4b4ec4846cfe",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Salta_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-A.svg"
   },
   {
     "id": "region-AT-5",
@@ -4499,8 +6333,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-5.webp",
-    "visualKey": "2d00658583bf3e54",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Salzburg_(state).svg"
+    "visualKey": "8248cd875dbfd03d",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Salzburg_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-5.svg"
   },
   {
     "id": "country-ZM",
@@ -4523,6 +6359,19 @@ export const flagCatalog = [
     "visualKey": "9010dd614fbac7bd"
   },
   {
+    "id": "region-CO-SAP",
+    "code": "CO-SAP",
+    "name": "San Andrés und Providencia",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-SAP.webp",
+    "visualKey": "cf9007a0c9eb6efc",
+    "source": "https://en.wikipedia.org/wiki/Archipelago_of_San_Andr%C3%A9s,_Providencia_and_Santa_Catalina",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-SAP.svg"
+  },
+  {
     "id": "region-AR-J",
     "code": "AR-J",
     "name": "San Juan",
@@ -4530,8 +6379,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-J.webp",
-    "visualKey": "a6af34594a0732c5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_San_Juan_Province,_Argentina"
+    "visualKey": "e9a7f5cb0868ca41",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_San_Juan_Province,_Argentina",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-J.svg"
   },
   {
     "id": "region-AR-D",
@@ -4541,8 +6392,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-D.webp",
-    "visualKey": "651fc1fd88e7d680",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_San_Luis_Province"
+    "visualKey": "ae3625514c7b711d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_San_Luis_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-D.svg"
   },
   {
     "id": "region-MX-SLP",
@@ -4552,8 +6405,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-SLP.webp",
-    "visualKey": "6d1d2fd2729cbc1b",
-    "source": "https://en.wikipedia.org/wiki/San_Luis_Potos%C3%AD"
+    "visualKey": "c3d86607192c986a",
+    "source": "https://en.wikipedia.org/wiki/San_Luis_Potos%C3%AD",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-SLP.svg"
   },
   {
     "id": "country-SM",
@@ -4573,8 +6428,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-SC.webp",
-    "visualKey": "a1c1eb76941181e3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Catarina"
+    "visualKey": "5d6dcac436cd4381",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Catarina",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-SC.svg"
   },
   {
     "id": "region-AR-Z",
@@ -4584,8 +6441,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-Z.webp",
-    "visualKey": "79756d956e51e903",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Cruz_Province,_Argentina"
+    "visualKey": "1f88beb95270611c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Cruz_Province,_Argentina",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-Z.svg"
   },
   {
     "id": "region-AR-S",
@@ -4595,8 +6454,23 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-S.webp",
-    "visualKey": "a8eaa59b1a0814e5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Fe_Province"
+    "visualKey": "3cde07b5f660f891",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Santa_Fe_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-S.svg"
+  },
+  {
+    "id": "region-CO-SAN",
+    "code": "CO-SAN",
+    "name": "Santander",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-SAN.webp",
+    "visualKey": "05c88908386c599d",
+    "source": "https://en.wikipedia.org/wiki/Santander_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-SAN.svg"
   },
   {
     "id": "region-AR-G",
@@ -4606,8 +6480,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-G.webp",
-    "visualKey": "22bc06e23dd3ab9e",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Santiago_del_Estero_Province"
+    "visualKey": "4cde01009c959b78",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Santiago_del_Estero_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-G.svg"
   },
   {
     "id": "region-BR-SP",
@@ -4617,8 +6493,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-SP.webp",
-    "visualKey": "9280676b2e4320ac",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_S%C3%A3o_Paulo_(state)"
+    "visualKey": "4575581a33e788a3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_S%C3%A3o_Paulo_(state)",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-SP.svg"
   },
   {
     "id": "country-ST",
@@ -4631,6 +6509,19 @@ export const flagCatalog = [
     "visualKey": "f495bdd55ee1383e"
   },
   {
+    "id": "region-MY-13",
+    "code": "MY-13",
+    "name": "Sarawak",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-13.webp",
+    "visualKey": "1863c6baf8cf4081",
+    "source": "https://www.wikidata.org/wiki/Q2100376",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-13.svg"
+  },
+  {
     "id": "region-IT-88",
     "code": "IT-88",
     "name": "Sardinien",
@@ -4638,8 +6529,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-88.webp",
-    "visualKey": "a50bf2e8c04a1ba5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Sardinia"
+    "visualKey": "24f201470acaecf7",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sardinia",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-88.svg"
   },
   {
     "id": "region-CA-SK",
@@ -4649,8 +6542,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-SK.webp",
-    "visualKey": "ca82d78c8583758a",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Saskatchewan"
+    "visualKey": "ea6b2eafb2789008",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saskatchewan",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-SK.svg"
   },
   {
     "id": "country-SA",
@@ -4670,8 +6565,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-SH.webp",
-    "visualKey": "cd925985d12368f7",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "bcbf20b7af05359c",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-SH.svg"
   },
   {
     "id": "region-PL-24",
@@ -4681,8 +6578,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-24.webp",
-    "visualKey": "8a2d235b3d70b419",
-    "source": "https://en.wikipedia.org/wiki/Silesian_Voivodeship"
+    "visualKey": "0ed8cce557d6d971",
+    "source": "https://en.wikipedia.org/wiki/Silesian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-24.svg"
   },
   {
     "id": "region-DE-SH",
@@ -4692,8 +6591,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-SH.webp",
-    "visualKey": "39532a1120fedd2c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Schleswig-Holstein"
+    "visualKey": "077ea371b8bbf4e4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Schleswig-Holstein",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-SH.svg"
   },
   {
     "id": "region-GB-SCT",
@@ -4703,7 +6604,9 @@ export const flagCatalog = [
     "collection": "united-kingdom",
     "continent": "europe",
     "image": "/assets/flags/regions/GB-SCT.svg",
-    "visualKey": "6a48745907262a02"
+    "visualKey": "6a48745907262a02",
+    "parent": "Vereinigtes Königreich",
+    "locationMap": "/assets/flags/maps/GB-SCT.svg"
   },
   {
     "id": "country-SE",
@@ -4733,8 +6636,23 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-SZ.webp",
-    "visualKey": "93b0d2a887ecb9d7",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "df934570bd172378",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-SZ.svg"
+  },
+  {
+    "id": "region-MY-10",
+    "code": "MY-10",
+    "name": "Selangor",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-10.webp",
+    "visualKey": "b67d47ba4726eff2",
+    "source": "https://www.wikidata.org/wiki/Q116211178",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-10.svg"
   },
   {
     "id": "country-SN",
@@ -4764,8 +6682,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-SE.webp",
-    "visualKey": "d3225cb2a2f42215",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Sergipe"
+    "visualKey": "e4ffe9f7395f99fb",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sergipe",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-SE.svg"
   },
   {
     "id": "country-SC",
@@ -4785,8 +6705,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-25.webp",
-    "visualKey": "c6778c7d9c53ebdd",
-    "source": "https://en.wikipedia.org/wiki/Shiga_Prefecture"
+    "visualKey": "3e544dee71529ec1",
+    "source": "https://en.wikipedia.org/wiki/Shiga_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-25.svg"
   },
   {
     "id": "region-JP-32",
@@ -4796,8 +6718,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-32.webp",
-    "visualKey": "c434e5bd8aade6df",
-    "source": "https://en.wikipedia.org/wiki/Shimane_Prefecture"
+    "visualKey": "8326a43abb07c7e8",
+    "source": "https://en.wikipedia.org/wiki/Shimane_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-32.svg"
   },
   {
     "id": "region-JP-22",
@@ -4807,8 +6731,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-22.webp",
-    "visualKey": "6b29cf73072999a7",
-    "source": "https://en.wikipedia.org/wiki/Shizuoka_Prefecture"
+    "visualKey": "1b1c0adea4c974e4",
+    "source": "https://en.wikipedia.org/wiki/Shizuoka_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-22.svg"
+  },
+  {
+    "id": "region-HR-15",
+    "code": "HR-15",
+    "name": "Šibenik-Knin",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-15.webp",
+    "visualKey": "001307019da94466",
+    "source": "https://hr.wikipedia.org/wiki/Šibensko-kninska_županija",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-15.svg"
   },
   {
     "id": "country-SL",
@@ -4838,8 +6777,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-SIN.webp",
-    "visualKey": "fe848d91f07cc501",
-    "source": "https://en.wikipedia.org/wiki/Sinaloa"
+    "visualKey": "da9af3ddcfeb8ecb",
+    "source": "https://en.wikipedia.org/wiki/Sinaloa",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-SIN.svg"
   },
   {
     "id": "country-SG",
@@ -4862,6 +6803,19 @@ export const flagCatalog = [
     "visualKey": "d2dab07b34daaa53"
   },
   {
+    "id": "region-HR-03",
+    "code": "HR-03",
+    "name": "Sisak-Moslavina",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-03.webp",
+    "visualKey": "60144d8acbde9bc4",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Sisak-Moslavina_County.svg",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-03.svg"
+  },
+  {
     "id": "region-IT-82",
     "code": "IT-82",
     "name": "Sizilien",
@@ -4869,8 +6823,23 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-82.webp",
-    "visualKey": "e40d3750a07af8f5",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Sicily"
+    "visualKey": "df517f0ab7065717",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sicily",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-82.svg"
+  },
+  {
+    "id": "region-SE-M",
+    "code": "SE-M",
+    "name": "Skåne",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-M.webp",
+    "visualKey": "7b689405bf8fb382",
+    "source": "https://en.wikipedia.org/wiki/Sk%C3%A5ne_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-M.svg"
   },
   {
     "id": "country-SK",
@@ -4893,6 +6862,19 @@ export const flagCatalog = [
     "visualKey": "cfed3be19e2a4e9e"
   },
   {
+    "id": "region-SE-D",
+    "code": "SE-D",
+    "name": "Södermanland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-D.webp",
+    "visualKey": "267dbaedb44fee7c",
+    "source": "https://en.wikipedia.org/wiki/S%C3%B6dermanland_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-D.svg"
+  },
+  {
     "id": "region-CH-SO",
     "code": "CH-SO",
     "name": "Solothurn",
@@ -4900,8 +6882,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-SO.webp",
-    "visualKey": "86359b02af064a3c",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "7f39a4b6215409a7",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-SO.svg"
   },
   {
     "id": "country-SO",
@@ -4941,8 +6925,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-SON.webp",
-    "visualKey": "a69131463a3a3193",
-    "source": "https://en.wikipedia.org/wiki/Sonora"
+    "visualKey": "c11470c40f576f6d",
+    "source": "https://en.wikipedia.org/wiki/Sonora",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-SON.svg"
   },
   {
     "id": "region-AU-SA",
@@ -4952,8 +6938,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-SA.webp",
-    "visualKey": "6273ddcc5163c378",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Australia"
+    "visualKey": "caca2e360d78e31b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Australia",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-SA.svg"
   },
   {
     "id": "region-US-SC",
@@ -4963,8 +6951,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-SC.webp",
-    "visualKey": "59cef4915dc94d2d",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Carolina"
+    "visualKey": "9def4e8a5b7c906c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Carolina",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-SC.svg"
   },
   {
     "id": "region-US-SD",
@@ -4974,8 +6964,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-SD.webp",
-    "visualKey": "531a2c4c994b0a98",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Dakota"
+    "visualKey": "58c0ef905433b1d0",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Dakota",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-SD.svg"
   },
   {
     "id": "country-ES",
@@ -4996,6 +6988,19 @@ export const flagCatalog = [
     "continent": "other",
     "image": "/assets/flags/countries/SJ.svg",
     "visualKey": "aa9bd3159ae3c81e"
+  },
+  {
+    "id": "region-HR-17",
+    "code": "HR-17",
+    "name": "Split-Dalmatien",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-17.webp",
+    "visualKey": "f02412709b4a0291",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-17.svg"
   },
   {
     "id": "country-LK",
@@ -5025,8 +7030,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-SG.webp",
-    "visualKey": "50a48b9e79c9ffc9",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "c3d72838453bef61",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-SG.svg"
   },
   {
     "id": "country-SH",
@@ -5089,6 +7096,19 @@ export const flagCatalog = [
     "visualKey": "1da2abf39eeac29a"
   },
   {
+    "id": "region-HR-21",
+    "code": "HR-21",
+    "name": "Stadt Zagreb",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-21.webp",
+    "visualKey": "7dcd812c014214bb",
+    "source": "https://www.wikidata.org/wiki/Q2106586",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-21.svg"
+  },
+  {
     "id": "region-AT-6",
     "code": "AT-6",
     "name": "Steiermark",
@@ -5096,8 +7116,36 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-6.webp",
-    "visualKey": "21021ac4b6d544ab",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Styria_(state).svg"
+    "visualKey": "22037d8c0d705ceb",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Styria_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-6.svg"
+  },
+  {
+    "id": "region-SE-AB",
+    "code": "SE-AB",
+    "name": "Stockholm County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-AB.webp",
+    "visualKey": "1bc40572568f8697",
+    "source": "https://en.wikipedia.org/wiki/Stockholm_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-AB.svg"
+  },
+  {
+    "id": "region-CO-SUC",
+    "code": "CO-SUC",
+    "name": "Sucre",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-SUC.webp",
+    "visualKey": "3246cc95d99185a0",
+    "source": "https://en.wikipedia.org/wiki/Sucre_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-SUC.svg"
   },
   {
     "id": "country-ZA",
@@ -5120,6 +7168,19 @@ export const flagCatalog = [
     "visualKey": "319d9a50f35f1df1"
   },
   {
+    "id": "region-CZ-31",
+    "code": "CZ-31",
+    "name": "Südböhmen",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-31.webp",
+    "visualKey": "012201f4af2384c1",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-31.svg"
+  },
+  {
     "id": "country-GS",
     "code": "GS",
     "name": "Südgeorgien und die Südlichen Sandwichinseln",
@@ -5138,6 +7199,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/KR.svg",
     "visualKey": "8e7ecfe2a9ac0ee2"
+  },
+  {
+    "id": "region-CZ-64",
+    "code": "CZ-64",
+    "name": "Südmähren",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-64.webp",
+    "visualKey": "c157afd104fea048",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-64.svg"
   },
   {
     "id": "country-SS",
@@ -5177,8 +7251,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-TAB.webp",
-    "visualKey": "a814f708b2ef3663",
-    "source": "https://en.wikipedia.org/wiki/Tabasco"
+    "visualKey": "0a9190e23f8a75c0",
+    "source": "https://en.wikipedia.org/wiki/Tabasco",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-TAB.svg"
   },
   {
     "id": "country-TJ",
@@ -5208,8 +7284,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-TAM.webp",
-    "visualKey": "9599dd5cc851dc4f",
-    "source": "https://en.wikipedia.org/wiki/Tamaulipas"
+    "visualKey": "8b9692840488ed6e",
+    "source": "https://en.wikipedia.org/wiki/Tamaulipas",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-TAM.svg"
   },
   {
     "id": "country-TZ",
@@ -5222,6 +7300,19 @@ export const flagCatalog = [
     "visualKey": "fa300235c3e4f0f3"
   },
   {
+    "id": "region-CL-TA",
+    "code": "CL-TA",
+    "name": "Tarapacá",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-TA.webp",
+    "visualKey": "9796c4c2cd7c4a22",
+    "source": "https://www.wikidata.org/wiki/Q2114",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-TA.svg"
+  },
+  {
     "id": "region-AU-TAS",
     "code": "AU-TAS",
     "name": "Tasmanien",
@@ -5229,8 +7320,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-TAS.webp",
-    "visualKey": "bf7d29aa4a5d8e97",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tasmania"
+    "visualKey": "022f69f4da70d91e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tasmania",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-TAS.svg"
   },
   {
     "id": "region-US-TN",
@@ -5240,8 +7333,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-TN.webp",
-    "visualKey": "2d36262b8ea30d9c",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tennessee"
+    "visualKey": "1190ad855ab2f7d3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tennessee",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-TN.svg"
+  },
+  {
+    "id": "region-MY-11",
+    "code": "MY-11",
+    "name": "Terengganu",
+    "kind": "region",
+    "collection": "malaysia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/MY-11.webp",
+    "visualKey": "8e400bdec17580e2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Terengganu",
+    "parent": "Malaysia",
+    "locationMap": "/assets/flags/maps/MY-11.svg"
   },
   {
     "id": "region-CH-TI",
@@ -5251,8 +7359,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-TI.webp",
-    "visualKey": "189c5110137fe4d1",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "04ae3813a322228e",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-TI.svg"
   },
   {
     "id": "region-US-TX",
@@ -5262,8 +7372,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-TX.webp",
-    "visualKey": "3bc33ffa5cde7fc9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Texas"
+    "visualKey": "3739382f68ddb80d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Texas",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-TX.svg"
   },
   {
     "id": "country-TH",
@@ -5283,8 +7395,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-TG.webp",
-    "visualKey": "421dcfa9b3d1bff7",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "b76e5d7dd7cd2e3b",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-TG.svg"
   },
   {
     "id": "region-DE-TH",
@@ -5294,8 +7408,10 @@ export const flagCatalog = [
     "collection": "germany",
     "continent": "europe",
     "image": "/assets/flags/regions/DE-TH.webp",
-    "visualKey": "18b74c2509d05110",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Thuringia"
+    "visualKey": "f71472ffb391607d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Thuringia",
+    "parent": "Deutschland",
+    "locationMap": "/assets/flags/maps/DE-TH.svg"
   },
   {
     "id": "region-AR-V",
@@ -5305,8 +7421,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-V.webp",
-    "visualKey": "446a6d0ac97adddc",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tierra_del_Fuego_Province,_Argentina"
+    "visualKey": "03543bce1bff921b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tierra_del_Fuego_Province,_Argentina",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-V.svg"
   },
   {
     "id": "country-TL",
@@ -5326,8 +7444,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-7.webp",
-    "visualKey": "137cde2ca4435112",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tirol_(state).svg"
+    "visualKey": "e16d4f8450409c82",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tirol_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-7.svg"
   },
   {
     "id": "region-MX-TLA",
@@ -5337,8 +7457,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-TLA.webp",
-    "visualKey": "21c31d6dfe1b1139",
-    "source": "https://www.wikidata.org/wiki/Q2697223"
+    "visualKey": "14dc885039e72a7a",
+    "source": "https://www.wikidata.org/wiki/Q2697223",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-TLA.svg"
   },
   {
     "id": "region-BR-TO",
@@ -5348,8 +7470,10 @@ export const flagCatalog = [
     "collection": "brazil",
     "continent": "south-america",
     "image": "/assets/flags/regions/BR-TO.webp",
-    "visualKey": "e80175f5fb46f304",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tocantins"
+    "visualKey": "b2b09e2847136579",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tocantins",
+    "parent": "Brasilien",
+    "locationMap": "/assets/flags/maps/BR-TO.svg"
   },
   {
     "id": "region-JP-09",
@@ -5359,8 +7483,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-09.webp",
-    "visualKey": "ce9ac31b22cf9089",
-    "source": "https://en.wikipedia.org/wiki/Tochigi_Prefecture"
+    "visualKey": "956cd481cd49686b",
+    "source": "https://en.wikipedia.org/wiki/Tochigi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-09.svg"
   },
   {
     "id": "country-TG",
@@ -5390,8 +7516,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-36.webp",
-    "visualKey": "95ce77cc1916ec3c",
-    "source": "https://en.wikipedia.org/wiki/Tokushima_Prefecture"
+    "visualKey": "1306b75f4030c9e1",
+    "source": "https://en.wikipedia.org/wiki/Tokushima_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-36.svg"
   },
   {
     "id": "region-JP-13",
@@ -5401,8 +7529,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-13.webp",
-    "visualKey": "502e97e3fee3ac27",
-    "source": "https://en.wikipedia.org/wiki/Tokyo"
+    "visualKey": "c0ce30af46aaa8f8",
+    "source": "https://en.wikipedia.org/wiki/Tokyo",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-13.svg"
+  },
+  {
+    "id": "region-CO-TOL",
+    "code": "CO-TOL",
+    "name": "Tolima",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-TOL.webp",
+    "visualKey": "6fbaa40c14c4c50c",
+    "source": "https://en.wikipedia.org/wiki/Tolima_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-TOL.svg"
   },
   {
     "id": "country-TO",
@@ -5422,8 +7565,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-52.webp",
-    "visualKey": "28a7acb3e4a07a59",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tuscany"
+    "visualKey": "a34c2d28c04d3934",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tuscany",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-52.svg"
   },
   {
     "id": "region-JP-31",
@@ -5433,8 +7578,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-31.webp",
-    "visualKey": "6312b5c7cf3fd227",
-    "source": "https://en.wikipedia.org/wiki/Tottori_Prefecture"
+    "visualKey": "f2ad16a02aa0cd26",
+    "source": "https://en.wikipedia.org/wiki/Tottori_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-31.svg"
   },
   {
     "id": "region-JP-16",
@@ -5444,8 +7591,23 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-16.webp",
-    "visualKey": "0220d66a194efca9",
-    "source": "https://en.wikipedia.org/wiki/Toyama_Prefecture"
+    "visualKey": "fadd67e49335d213",
+    "source": "https://en.wikipedia.org/wiki/Toyama_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-16.svg"
+  },
+  {
+    "id": "region-SK-TC",
+    "code": "SK-TC",
+    "name": "Trenčín",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-TC.webp",
+    "visualKey": "030df02732d135b6",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-TC.svg"
   },
   {
     "id": "region-IT-32",
@@ -5455,8 +7617,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-32.webp",
-    "visualKey": "dc669ac381666935",
-    "source": "https://en.wikipedia.org/wiki/Trentino-Alto_Adige/S%C3%BCdtirol"
+    "visualKey": "88ae3b4ae8cbe926",
+    "source": "https://en.wikipedia.org/wiki/Trentino-Alto_Adige/S%C3%BCdtirol",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-32.svg"
   },
   {
     "id": "country-TT",
@@ -5477,6 +7641,19 @@ export const flagCatalog = [
     "continent": "other",
     "image": "/assets/flags/countries/TA.svg",
     "visualKey": "3dae64ec73de8017"
+  },
+  {
+    "id": "region-SK-TA",
+    "code": "SK-TA",
+    "name": "Trnava",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-TA.webp",
+    "visualKey": "9e73357750551771",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-TA.svg"
   },
   {
     "id": "country-TD",
@@ -5506,8 +7683,10 @@ export const flagCatalog = [
     "collection": "argentina",
     "continent": "south-america",
     "image": "/assets/flags/regions/AR-T.webp",
-    "visualKey": "671900229b04ae61",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Tucum%C3%A1n_Province"
+    "visualKey": "ac9e4f307474747d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tucum%C3%A1n_Province",
+    "parent": "Argentinien",
+    "locationMap": "/assets/flags/maps/AR-T.svg"
   },
   {
     "id": "country-TN",
@@ -5587,8 +7766,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-55.webp",
-    "visualKey": "ba89267fe24359bd",
-    "source": "https://en.wikipedia.org/wiki/Umbria"
+    "visualKey": "7e75358fca53c93a",
+    "source": "https://en.wikipedia.org/wiki/Umbria",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-55.svg"
   },
   {
     "id": "country-HU",
@@ -5601,6 +7782,19 @@ export const flagCatalog = [
     "visualKey": "01e5b9cb192e8d37"
   },
   {
+    "id": "region-SE-C",
+    "code": "SE-C",
+    "name": "Uppsala County",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-C.webp",
+    "visualKey": "310e53b71b521506",
+    "source": "https://sv.wikipedia.org/wiki/Uppsala_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-C.svg"
+  },
+  {
     "id": "region-CH-UR",
     "code": "CH-UR",
     "name": "Uri",
@@ -5608,8 +7802,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-UR.webp",
-    "visualKey": "03741c82f405a5fe",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "7b2de1e13bb64bfb",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-UR.svg"
   },
   {
     "id": "country-UY",
@@ -5632,6 +7828,19 @@ export const flagCatalog = [
     "visualKey": "91ded97ec0fa8bcc"
   },
   {
+    "id": "region-CZ-42",
+    "code": "CZ-42",
+    "name": "Ústí nad Labem",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-42.webp",
+    "visualKey": "f01fe7df051326b5",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-42.svg"
+  },
+  {
     "id": "region-US-UT",
     "code": "US-UT",
     "name": "Utah",
@@ -5639,8 +7848,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-UT.webp",
-    "visualKey": "3e252eb4720acd68",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Utah"
+    "visualKey": "f3c2264f4e3932d5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Utah",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-UT.svg"
   },
   {
     "id": "region-NL-UT",
@@ -5650,8 +7861,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-UT.webp",
-    "visualKey": "4b4b1980ce177b6f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Utrecht_(province)"
+    "visualKey": "755a1db061464745",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Utrecht_(province)",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-UT.svg"
   },
   {
     "id": "region-ES-VC",
@@ -5661,8 +7874,36 @@ export const flagCatalog = [
     "collection": "spain",
     "continent": "europe",
     "image": "/assets/flags/regions/ES-VC.webp",
-    "visualKey": "2d2106ff4966dd48",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Valencian_Community"
+    "visualKey": "4e4fcf24a58e8d96",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Valencian_Community",
+    "parent": "Spanien",
+    "locationMap": "/assets/flags/maps/ES-VC.svg"
+  },
+  {
+    "id": "region-CO-VAC",
+    "code": "CO-VAC",
+    "name": "Valle del Cauca",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-VAC.webp",
+    "visualKey": "49e0186419a89de3",
+    "source": "https://en.wikipedia.org/wiki/Valle_del_Cauca_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-VAC.svg"
+  },
+  {
+    "id": "region-CL-VS",
+    "code": "CL-VS",
+    "name": "Valparaíso",
+    "kind": "region",
+    "collection": "chile",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CL-VS.webp",
+    "visualKey": "099f876650696281",
+    "source": "https://www.wikidata.org/wiki/Q219458",
+    "parent": "Chile",
+    "locationMap": "/assets/flags/maps/CL-VS.svg"
   },
   {
     "id": "country-VU",
@@ -5675,6 +7916,84 @@ export const flagCatalog = [
     "visualKey": "531c8a4b6a576513"
   },
   {
+    "id": "region-HR-05",
+    "code": "HR-05",
+    "name": "Varaždin",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-05.webp",
+    "visualKey": "25b77025a5838e12",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-05.svg"
+  },
+  {
+    "id": "region-SE-S",
+    "code": "SE-S",
+    "name": "Värmland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-S.webp",
+    "visualKey": "4afb1d870dc8ad06",
+    "source": "https://sv.wikipedia.org/wiki/Värmlands_läns_vapen",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-S.svg"
+  },
+  {
+    "id": "region-SE-AC",
+    "code": "SE-AC",
+    "name": "Västerbotten",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-AC.webp",
+    "visualKey": "c38bcff2796e4686",
+    "source": "https://en.wikipedia.org/wiki/V%C3%A4sterbotten_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-AC.svg"
+  },
+  {
+    "id": "region-SE-Y",
+    "code": "SE-Y",
+    "name": "Västernorrland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-Y.webp",
+    "visualKey": "bbc64d44ada1fa73",
+    "source": "https://en.wikipedia.org/wiki/V%C3%A4sternorrland_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-Y.svg"
+  },
+  {
+    "id": "region-SE-U",
+    "code": "SE-U",
+    "name": "Västmanland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-U.webp",
+    "visualKey": "e09f098f7b0c6b3a",
+    "source": "https://sv.wikipedia.org/wiki/Västmanlands_län",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-U.svg"
+  },
+  {
+    "id": "region-SE-O",
+    "code": "SE-O",
+    "name": "Västra Götaland",
+    "kind": "region",
+    "collection": "sweden",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SE-O.webp",
+    "visualKey": "0c6c27f977b857c3",
+    "source": "https://en.wikipedia.org/wiki/V%C3%A4stra_G%C3%B6taland_County",
+    "parent": "Schweden",
+    "locationMap": "/assets/flags/maps/SE-O.svg"
+  },
+  {
     "id": "country-VA",
     "code": "VA",
     "name": "Vatikanstadt",
@@ -5685,6 +8004,19 @@ export const flagCatalog = [
     "visualKey": "dec73afd3f022e43"
   },
   {
+    "id": "region-CO-VAU",
+    "code": "CO-VAU",
+    "name": "Vaupés",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-VAU.webp",
+    "visualKey": "7a8ff6db2203abea",
+    "source": "https://en.wikipedia.org/wiki/Vaup%C3%A9s_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-VAU.svg"
+  },
+  {
     "id": "region-IT-34",
     "code": "IT-34",
     "name": "Venetien",
@@ -5692,8 +8024,10 @@ export const flagCatalog = [
     "collection": "italy",
     "continent": "europe",
     "image": "/assets/flags/regions/IT-34.webp",
-    "visualKey": "9b9b3503217681f1",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Veneto"
+    "visualKey": "e443573867a65ea1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Veneto",
+    "parent": "Italien",
+    "locationMap": "/assets/flags/maps/IT-34.svg"
   },
   {
     "id": "country-VE",
@@ -5713,8 +8047,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-VER.webp",
-    "visualKey": "379dca997ca889d8",
-    "source": "https://en.wikipedia.org/wiki/Veracruz"
+    "visualKey": "9f5a671cc2c56649",
+    "source": "https://en.wikipedia.org/wiki/Veracruz",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-VER.svg"
   },
   {
     "id": "country-AE",
@@ -5754,8 +8090,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-VT.webp",
-    "visualKey": "d6c28bb0f9a282c9",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Vermont"
+    "visualKey": "cb47518932b1cff2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Vermont",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-VT.svg"
+  },
+  {
+    "id": "region-CO-VID",
+    "code": "CO-VID",
+    "name": "Vichada",
+    "kind": "region",
+    "collection": "colombia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/CO-VID.webp",
+    "visualKey": "d3b592b8a78cfad1",
+    "source": "https://en.wikipedia.org/wiki/Vichada_Department",
+    "parent": "Kolumbien",
+    "locationMap": "/assets/flags/maps/CO-VID.svg"
   },
   {
     "id": "region-AU-VIC",
@@ -5765,8 +8116,10 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-VIC.webp",
-    "visualKey": "5a4158bff18ecc30",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Victoria_(Australia)"
+    "visualKey": "2fd89696ce3e8617",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Victoria_(Australia)",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-VIC.svg"
   },
   {
     "id": "country-VN",
@@ -5786,8 +8139,23 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-VA.webp",
-    "visualKey": "b4267cf58246be6a",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Virginia.svg"
+    "visualKey": "83259cd2c707c3dc",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Virginia.svg",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-VA.svg"
+  },
+  {
+    "id": "region-HR-10",
+    "code": "HR-10",
+    "name": "Virovitica-Podravina",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-10.webp",
+    "visualKey": "84168221fd68cdba",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-10.svg"
   },
   {
     "id": "region-AT-8",
@@ -5797,8 +8165,36 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-8.webp",
-    "visualKey": "5fb37ef129f3cf33",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vorarlberg_(state).svg"
+    "visualKey": "20f8aa2397d1fcaa",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vorarlberg_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-8.svg"
+  },
+  {
+    "id": "region-HR-16",
+    "code": "HR-16",
+    "name": "Vukovar-Syrmien",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-16.webp",
+    "visualKey": "a872fbc25350605c",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-16.svg"
+  },
+  {
+    "id": "region-CZ-63",
+    "code": "CZ-63",
+    "name": "Vysočina",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-63.webp",
+    "visualKey": "5da78f891b53cee9",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-63.svg"
   },
   {
     "id": "region-CH-VD",
@@ -5808,8 +8204,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-VD.webp",
-    "visualKey": "56aa192a7cff263f",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "e3e54733a3a43ca6",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-VD.svg"
   },
   {
     "id": "region-JP-30",
@@ -5819,8 +8217,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-30.webp",
-    "visualKey": "ddc4ed0b047f1d5f",
-    "source": "https://en.wikipedia.org/wiki/Wakayama_Prefecture"
+    "visualKey": "4f4f112f2e120c85",
+    "source": "https://en.wikipedia.org/wiki/Wakayama_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-30.svg"
   },
   {
     "id": "region-GB-WLS",
@@ -5830,7 +8230,9 @@ export const flagCatalog = [
     "collection": "united-kingdom",
     "continent": "europe",
     "image": "/assets/flags/regions/GB-WLS.svg",
-    "visualKey": "a9fbea0d932ae36d"
+    "visualKey": "a9fbea0d932ae36d",
+    "parent": "Vereinigtes Königreich",
+    "locationMap": "/assets/flags/maps/GB-WLS.svg"
   },
   {
     "id": "region-CH-VS",
@@ -5840,8 +8242,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-VS.webp",
-    "visualKey": "d22ec12c3a853de9",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "caea8f740032a080",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-VS.svg"
   },
   {
     "id": "country-WF",
@@ -5854,6 +8258,32 @@ export const flagCatalog = [
     "visualKey": "14aa63c02869e83c"
   },
   {
+    "id": "region-BE-WAL",
+    "code": "BE-WAL",
+    "name": "Wallonien",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WAL.webp",
+    "visualKey": "92d164c3c0ac2525",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Wallonia",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WAL.svg"
+  },
+  {
+    "id": "region-BE-WBR",
+    "code": "BE-WBR",
+    "name": "Wallonisch-Brabant",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-WBR.webp",
+    "visualKey": "8b33edde336d66b6",
+    "source": "https://en.wikipedia.org/wiki/Flag_and_coat_of_arms_of_Walloon_Brabant",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-WBR.svg"
+  },
+  {
     "id": "region-US-WA",
     "code": "US-WA",
     "name": "Washington",
@@ -5861,8 +8291,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-WA.webp",
-    "visualKey": "1a247ef25161a20f",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Washington_(state)"
+    "visualKey": "fc8577af874ee925",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Washington_(state)",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-WA.svg"
   },
   {
     "id": "country-CX",
@@ -5882,8 +8314,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-WV.webp",
-    "visualKey": "e5df5ddf488c5f29",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_West_Virginia"
+    "visualKey": "1eb727d7415f8371",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_West_Virginia",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-WV.svg"
   },
   {
     "id": "region-AU-WA",
@@ -5893,8 +8327,23 @@ export const flagCatalog = [
     "collection": "australia",
     "continent": "oceania",
     "image": "/assets/flags/regions/AU-WA.webp",
-    "visualKey": "4e8b0c2838b7a758",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Western_Australia"
+    "visualKey": "91a3aa0299369984",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Western_Australia",
+    "parent": "Australien",
+    "locationMap": "/assets/flags/maps/AU-WA.svg"
+  },
+  {
+    "id": "region-BE-VWV",
+    "code": "BE-VWV",
+    "name": "Westflandern",
+    "kind": "region",
+    "collection": "belgium",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BE-VWV.webp",
+    "visualKey": "6e68539bf881ccf6",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_West_Flanders",
+    "parent": "Belgien",
+    "locationMap": "/assets/flags/maps/BE-VWV.svg"
   },
   {
     "id": "region-PL-32",
@@ -5904,8 +8353,10 @@ export const flagCatalog = [
     "collection": "poland",
     "continent": "europe",
     "image": "/assets/flags/regions/PL-32.webp",
-    "visualKey": "ab4252258db80f81",
-    "source": "https://en.wikipedia.org/wiki/West_Pomeranian_Voivodeship"
+    "visualKey": "75de03e0f1ce5ba5",
+    "source": "https://en.wikipedia.org/wiki/West_Pomeranian_Voivodeship",
+    "parent": "Polen",
+    "locationMap": "/assets/flags/maps/PL-32.svg"
   },
   {
     "id": "country-EH",
@@ -5925,8 +8376,10 @@ export const flagCatalog = [
     "collection": "austria",
     "continent": "europe",
     "image": "/assets/flags/regions/AT-9.webp",
-    "visualKey": "bfea2df9560b0cfa",
-    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vienna_(state).svg"
+    "visualKey": "76df1741e8c3b8a5",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vienna_(state).svg",
+    "parent": "Österreich",
+    "locationMap": "/assets/flags/maps/AT-9.svg"
   },
   {
     "id": "region-US-WI",
@@ -5936,8 +8389,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-WI.webp",
-    "visualKey": "7e2385d1688dd5ce",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Wisconsin"
+    "visualKey": "2e31fd3be8f03c7d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Wisconsin",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-WI.svg"
   },
   {
     "id": "region-US-WY",
@@ -5947,8 +8402,10 @@ export const flagCatalog = [
     "collection": "us-states",
     "continent": "north-america",
     "image": "/assets/flags/regions/US-WY.webp",
-    "visualKey": "d4bd66b5321e7372",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Wyoming"
+    "visualKey": "41009cdbbf351b5b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Wyoming",
+    "parent": "USA",
+    "locationMap": "/assets/flags/maps/US-WY.svg"
   },
   {
     "id": "region-JP-06",
@@ -5958,8 +8415,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-06.webp",
-    "visualKey": "037016a2604dc7c0",
-    "source": "https://en.wikipedia.org/wiki/Yamagata_Prefecture"
+    "visualKey": "95ae7d0e92556c6d",
+    "source": "https://en.wikipedia.org/wiki/Yamagata_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-06.svg"
   },
   {
     "id": "region-JP-35",
@@ -5969,8 +8428,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-35.webp",
-    "visualKey": "cf25950ccbf10c21",
-    "source": "https://en.wikipedia.org/wiki/Yamaguchi_Prefecture"
+    "visualKey": "73f0a088122df189",
+    "source": "https://en.wikipedia.org/wiki/Yamaguchi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-35.svg"
   },
   {
     "id": "region-JP-19",
@@ -5980,8 +8441,10 @@ export const flagCatalog = [
     "collection": "japan",
     "continent": "asia",
     "image": "/assets/flags/regions/JP-19.webp",
-    "visualKey": "d09fb4a2966bdeae",
-    "source": "https://en.wikipedia.org/wiki/Yamanashi_Prefecture"
+    "visualKey": "df14c15da70846dc",
+    "source": "https://en.wikipedia.org/wiki/Yamanashi_Prefecture",
+    "parent": "Japan",
+    "locationMap": "/assets/flags/maps/JP-19.svg"
   },
   {
     "id": "region-MX-YUC",
@@ -5991,8 +8454,10 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-YUC.webp",
-    "visualKey": "04953c84b4067e7a",
-    "source": "https://en.wikipedia.org/wiki/Yucat%C3%A1n"
+    "visualKey": "416ff4be8ac65c69",
+    "source": "https://en.wikipedia.org/wiki/Yucat%C3%A1n",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-YUC.svg"
   },
   {
     "id": "region-CA-YT",
@@ -6002,8 +8467,10 @@ export const flagCatalog = [
     "collection": "canada",
     "continent": "north-america",
     "image": "/assets/flags/regions/CA-YT.webp",
-    "visualKey": "87c3bf6f665892f3",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Yukon"
+    "visualKey": "1c8af8f1ec504c35",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Yukon",
+    "parent": "Kanada",
+    "locationMap": "/assets/flags/maps/CA-YT.svg"
   },
   {
     "id": "region-MX-ZAC",
@@ -6013,8 +8480,23 @@ export const flagCatalog = [
     "collection": "mexico",
     "continent": "north-america",
     "image": "/assets/flags/regions/MX-ZAC.webp",
-    "visualKey": "549f3ff805a41c1e",
-    "source": "https://en.wikipedia.org/wiki/Zacatecas"
+    "visualKey": "2979cab8e320505d",
+    "source": "https://en.wikipedia.org/wiki/Zacatecas",
+    "parent": "Mexiko",
+    "locationMap": "/assets/flags/maps/MX-ZAC.svg"
+  },
+  {
+    "id": "region-HR-13",
+    "code": "HR-13",
+    "name": "Zadar",
+    "kind": "region",
+    "collection": "croatia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HR-13.webp",
+    "visualKey": "e36bf9c5389a961c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Zadar_County.svg",
+    "parent": "Kroatien",
+    "locationMap": "/assets/flags/maps/HR-13.svg"
   },
   {
     "id": "region-NL-ZE",
@@ -6024,8 +8506,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-ZE.webp",
-    "visualKey": "2910c425ea237a36",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_Zeeland"
+    "visualKey": "383b0653d6754eaf",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Zeeland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-ZE.svg"
   },
   {
     "id": "country-CF",
@@ -6038,6 +8522,32 @@ export const flagCatalog = [
     "visualKey": "825cab4a60fedafe"
   },
   {
+    "id": "region-SK-ZI",
+    "code": "SK-ZI",
+    "name": "Žilina",
+    "kind": "region",
+    "collection": "slovakia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SK-ZI.webp",
+    "visualKey": "b85a655ef185937a",
+    "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
+    "parent": "Slowakei",
+    "locationMap": "/assets/flags/maps/SK-ZI.svg"
+  },
+  {
+    "id": "region-CZ-72",
+    "code": "CZ-72",
+    "name": "Zlín",
+    "kind": "region",
+    "collection": "czechia",
+    "continent": "europe",
+    "image": "/assets/flags/regions/CZ-72.webp",
+    "visualKey": "4a12233029c476e0",
+    "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
+    "parent": "Tschechien",
+    "locationMap": "/assets/flags/maps/CZ-72.svg"
+  },
+  {
     "id": "region-CH-ZG",
     "code": "CH-ZG",
     "name": "Zug",
@@ -6045,8 +8555,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-ZG.webp",
-    "visualKey": "8214cec28aca88bc",
-    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland"
+    "visualKey": "51a060630c22c8bd",
+    "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-ZG.svg"
   },
   {
     "id": "region-NL-ZH",
@@ -6056,8 +8568,10 @@ export const flagCatalog = [
     "collection": "netherlands",
     "continent": "europe",
     "image": "/assets/flags/regions/NL-ZH.webp",
-    "visualKey": "e6d9d623a3b0ef68",
-    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Holland"
+    "visualKey": "fe636abba54a578e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_South_Holland",
+    "parent": "Niederlande",
+    "locationMap": "/assets/flags/maps/NL-ZH.svg"
   },
   {
     "id": "region-CH-ZH",
@@ -6067,8 +8581,10 @@ export const flagCatalog = [
     "collection": "switzerland",
     "continent": "europe",
     "image": "/assets/flags/regions/CH-ZH.webp",
-    "visualKey": "ee2f1153569c31c3",
-    "source": "https://en.wikipedia.org/wiki/Flag_and_coat_of_arms_of_Z%C3%BCrich"
+    "visualKey": "f71375cb3e91495c",
+    "source": "https://en.wikipedia.org/wiki/Flag_and_coat_of_arms_of_Z%C3%BCrich",
+    "parent": "Schweiz",
+    "locationMap": "/assets/flags/maps/CH-ZH.svg"
   },
   {
     "id": "country-CY",

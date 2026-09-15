@@ -9,7 +9,7 @@ import { createQuiz } from '../games/flaggenkunde/gameEngine.js'
 import { getProgressSummary, loadFlagProgress, saveQuizSession } from '../games/flaggenkunde/progressRepository.js'
 
 const roundLengths = [10, 20, 50, 'all']
-const groupOrder = ['Welt', 'Europa regional', 'Amerika regional', 'Pazifik regional']
+const groupOrder = ['Welt', 'Europa regional', 'Amerika regional', 'Asien regional', 'Pazifik regional']
 
 function CollectionCard({ collection, progress, selected, onSelect }) {
   const flags = getFlagsForCollection(collection.id)
@@ -37,6 +37,7 @@ function CollectionCard({ collection, progress, selected, onSelect }) {
 export default function FlagQuizSetupPage() {
   const [selectedId, setSelectedId] = useState('countries')
   const [roundLength, setRoundLength] = useState(20)
+  const [repeatMistakes, setRepeatMistakes] = useState(true)
   const [progress, setProgress] = useState({ version: 1, stats: {} })
   const [ready, setReady] = useState(false)
 
@@ -52,11 +53,11 @@ export default function FlagQuizSetupPage() {
 
   function selectCollection(id) {
     setSelectedId(id)
-    setRoundLength(id === 'random' ? 20 : 20)
+    setRoundLength(20)
   }
 
   function startQuiz() {
-    const quiz = createQuiz(selectedFlags, { collectionId: selectedId, roundLength })
+    const quiz = createQuiz(selectedFlags, { collectionId: selectedId, roundLength, repeatMistakes })
     saveQuizSession(quiz)
     window.location.assign(appPath('/flaggen/spielen'))
   }
@@ -70,7 +71,7 @@ export default function FlagQuizSetupPage() {
         <section className="fq-hero">
           <div className="fq-hero__copy">
             <span className="fq-kicker"><SparkIcon size={18} /> Flaggenkunde</span>
-            <h1>Die Welt hat<br /><em>576 Flaggen.</em></h1>
+            <h1>Die Welt hat<br /><em>{flagCatalog.length} Flaggen.</em></h1>
             <p>Von Albanien bis Wyoming: Wähle eine Sammlung, erkenne die Flagge und baue Schritt für Schritt echtes Wissen auf.</p>
             <div className="fq-hero__actions">
               <a className="fq-primary-link" href={appPath('/flaggen/lernen')}>
@@ -116,9 +117,26 @@ export default function FlagQuizSetupPage() {
             </div>
           ))}
 
+          <div className="fq-training-config">
+            <div>
+              <span className="fq-step">02 · Lernmodus</span>
+              <h2>Wie sollen Fehler trainiert werden?</h2>
+            </div>
+            <div className="fq-training-options" role="group" aria-label="Lernmodus wählen">
+              <button aria-pressed={repeatMistakes} className={repeatMistakes ? 'is-selected' : ''} onClick={() => setRepeatMistakes(true)} type="button">
+                <SparkIcon size={22} />
+                <span><strong>Fehler wiederholen</strong><small>Falsche Flaggen kommen später erneut – bis sie sitzen.</small></span>
+              </button>
+              <button aria-pressed={!repeatMistakes} className={!repeatMistakes ? 'is-selected' : ''} onClick={() => setRepeatMistakes(false)} type="button">
+                <span className="fq-classic-mark" aria-hidden="true">1×</span>
+                <span><strong>Klassische Runde</strong><small>Jede ausgewählte Flagge erscheint genau einmal.</small></span>
+              </button>
+            </div>
+          </div>
+
           <div className="fq-round-config">
             <div>
-              <span className="fq-step">02 · Rundenlänge</span>
+              <span className="fq-step">03 · Rundenlänge</span>
               <h2>Wie weit geht die Reise?</h2>
             </div>
             <div className="fq-length-options" role="group" aria-label="Rundenlänge wählen">
@@ -141,7 +159,7 @@ export default function FlagQuizSetupPage() {
             <div>
               <span>Ausgewählt</span>
               <strong>{selectedCollection.title}</strong>
-              <small>{selectedSummary.mastered} von {selectedSummary.total} gemeistert</small>
+              <small>{selectedSummary.mastered} von {selectedSummary.total} gemeistert · {repeatMistakes ? 'Fehlertraining aktiv' : 'klassisch'}</small>
             </div>
             <button className="fq-launch" onClick={startQuiz} type="button">
               Quiz starten <ArrowRightIcon size={22} />

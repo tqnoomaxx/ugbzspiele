@@ -4,7 +4,7 @@ export const games = [
   {
     id: 'flaggenkunde',
     title: 'Flaggenkunde',
-    description: '576 Flaggen erkennen – Länder, Bundesstaaten, Provinzen, Kantone und Regionen aus aller Welt.',
+    description: '720 Flaggen erkennen – Länder, Bundesstaaten, Provinzen, Kantone und Regionen aus aller Welt.',
     path: appPath('/flaggen'),
     artwork: appPath('/assets/flaggen-table.svg'),
     available: true,

@@ -41,4 +41,40 @@ describe('Flaggenkunde-Spielengine', () => {
       expect(optionKeys.filter((key) => key === answer.visualKey)).toHaveLength(1)
     }
   })
+
+  it('legt falsche Flaggen später erneut vor und schließt erst nach der richtigen Wiederholung ab', () => {
+    let quiz = createQuiz(flags, { roundLength: 2, repeatMistakes: true, random: () => 0.2 })
+    const firstFlagId = quiz.questions[0].flagId
+    const wrong = quiz.questions[0].optionIds.find((id) => id !== firstFlagId)
+
+    quiz = answerQuestion(quiz, wrong, () => 0.4)
+    expect(quiz.questions).toHaveLength(3)
+    expect(quiz.questions[2]).toMatchObject({ flagId: firstFlagId, repeated: true, repeatNumber: 1 })
+    expect(quiz.repeatCount).toBe(1)
+
+    quiz = advanceQuiz(quiz)
+    quiz = answerQuestion(quiz, quiz.questions[1].flagId)
+    quiz = advanceQuiz(quiz)
+    expect(quiz.questions[2].flagId).toBe(firstFlagId)
+    quiz = answerQuestion(quiz, firstFlagId)
+    quiz = advanceQuiz(quiz)
+
+    expect(quiz.phase).toBe('complete')
+    expect(getQuizResult(quiz)).toMatchObject({ baseTotal: 2, learned: 2, incorrect: 1, repeats: 1, total: 3 })
+  })
+
+  it('wiederholt eine erneut falsch beantwortete Flagge so lange, bis sie sitzt', () => {
+    let quiz = createQuiz(flags, { roundLength: 1, repeatMistakes: true, random: () => 0.2 })
+    const answerId = quiz.questions[0].flagId
+    const wrong = quiz.questions[0].optionIds.find((id) => id !== answerId)
+
+    quiz = advanceQuiz(answerQuestion(quiz, wrong, () => 0.3))
+    quiz = advanceQuiz(answerQuestion(quiz, wrong, () => 0.3))
+    expect(quiz.questions).toHaveLength(3)
+    expect(quiz.questions[2]).toMatchObject({ repeated: true, repeatNumber: 2 })
+
+    quiz = advanceQuiz(answerQuestion(quiz, answerId))
+    expect(quiz.phase).toBe('complete')
+    expect(getQuizResult(quiz)).toMatchObject({ baseTotal: 1, learned: 1, incorrect: 2, repeats: 2 })
+  })
 })

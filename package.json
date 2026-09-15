@@ -27,6 +27,7 @@
     "@vitejs/plugin-rsc": "0.5.28",
     "next": "16.2.10",
     "react-server-dom-webpack": "19.2.7",
+    "sharp": "^0.34.5",
     "vite": "8.1.5",
     "vitest": "4.1.10"
   },

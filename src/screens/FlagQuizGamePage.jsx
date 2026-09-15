@@ -19,6 +19,20 @@ function FlagPicture({ flag, revealed = false }) {
   )
 }
 
+function RegionLocation({ flag }) {
+  if (flag.kind !== 'region' || !flag.locationMap) return null
+  return (
+    <aside className="fq-location-card" aria-label={`Lage von ${flag.name} in ${flag.parent}`}>
+      <img alt={`Umrisskarte: ${flag.name} ist innerhalb von ${flag.parent} hervorgehoben`} src={appPath(flag.locationMap)} />
+      <div>
+        <span>Wo liegt das?</span>
+        <strong>{flag.parent}</strong>
+        <small>Die gesuchte Region ist korallfarben markiert.</small>
+      </div>
+    </aside>
+  )
+}
+
 function ResultScreen({ quiz, onRestart }) {
   const result = getQuizResult(quiz)
   const collection = getCollection(quiz.collectionId)
@@ -29,16 +43,16 @@ function ResultScreen({ quiz, onRestart }) {
         <div className="fq-result-seal"><TrophyIcon size={45} /></div>
         <span className="fq-kicker">Runde abgeschlossen</span>
         <h1>{message}</h1>
-        <p>{collection.title} · {result.total} Flaggen</p>
+        <p>{collection.title} · {result.baseTotal} Lernkarten · {quiz.score} Punkte</p>
         <div className="fq-result-score">
           <strong>{result.accuracy}<small>%</small></strong>
           <span>Trefferquote</span>
         </div>
         <div className="fq-result-stats">
-          <div><strong>{result.correct}</strong><span>richtig</span></div>
-          <div><strong>{result.incorrect}</strong><span>noch offen</span></div>
+          <div><strong>{result.learned}/{result.baseTotal}</strong><span>gelernt</span></div>
+          <div><strong>{result.incorrect}</strong><span>Fehler</span></div>
+          <div><strong>{result.repeats}</strong><span>wiederholt</span></div>
           <div><strong>{quiz.bestStreak}</strong><span>beste Serie</span></div>
-          <div><strong>{quiz.score}</strong><span>Punkte</span></div>
         </div>
         <div className="fq-result-actions">
           <button className="fq-launch" onClick={onRestart} type="button">Noch eine Runde <ArrowRightIcon size={21} /></button>
@@ -89,7 +103,7 @@ export default function FlagQuizGamePage() {
 
   function restart() {
     const pool = getFlagsForCollection(quiz.collectionId)
-    const nextQuiz = createQuiz(pool, { collectionId: quiz.collectionId, roundLength: quiz.questions.length })
+    const nextQuiz = createQuiz(pool, { collectionId: quiz.collectionId, roundLength: quiz.baseQuestionCount, repeatMistakes: quiz.repeatMistakes })
     saveQuizSession(nextQuiz)
     setQuiz(nextQuiz)
   }
@@ -139,9 +153,10 @@ export default function FlagQuizGamePage() {
 
         <section className={`fq-question-card ${answered ? (latestAnswer.correct ? 'is-correct' : 'is-wrong') : ''}`}>
           <div className="fq-question-copy">
-            <span className="fq-kicker">Welche Flagge ist das?</span>
+            <span className="fq-kicker">{question.repeated ? 'Wiederholung · Welche Flagge ist das?' : 'Welche Flagge ist das?'}</span>
             <h1>{answered ? flag.name : 'Schau genau hin.'}</h1>
             <p>{answered ? `${flag.code} · ${collection.shortTitle ?? collection.title}` : 'Wähle die passende Antwort.'}</p>
+            {answered ? <RegionLocation flag={flag} /> : null}
           </div>
           <div className="fq-flag-stage">
             <span className="fq-flag-stage__pin fq-flag-stage__pin--one" aria-hidden="true" />
@@ -177,7 +192,7 @@ export default function FlagQuizGamePage() {
               <>
                 <div>
                   <SparkIcon size={21} />
-                  <p><strong>{latestAnswer.correct ? 'Richtig erkannt!' : 'Fast – jetzt sitzt sie besser.'}</strong><span>{latestAnswer.correct ? `+${100 + Math.min(quiz.streak - 1, 10) * 15} Punkte` : `Die richtige Antwort ist ${flag.name}.`}</span></p>
+                  <p><strong>{latestAnswer.correct ? 'Richtig erkannt!' : 'Fast – jetzt sitzt sie besser.'}</strong><span>{latestAnswer.correct ? `+${100 + Math.min(quiz.streak - 1, 10) * 15} Punkte` : `Die richtige Antwort ist ${flag.name}.${quiz.repeatMistakes ? ' Sie kommt später noch einmal.' : ''}`}</span></p>
                 </div>
                 <button data-fq-next onClick={next} type="button">{quiz.questionIndex === quiz.questions.length - 1 ? 'Ergebnis ansehen' : 'Nächste Flagge'} <ArrowRightIcon size={21} /></button>
               </>

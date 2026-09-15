@@ -227,6 +227,7 @@
 }
 
 .fq-start-panel__heading,
+.fq-training-config,
 .fq-round-config {
   display: flex;
   align-items: end;
@@ -235,6 +236,7 @@
 }
 
 .fq-start-panel h2,
+.fq-training-config h2,
 .fq-round-config h2 {
   margin: 8px 0 0;
   font-family: var(--serif);
@@ -396,6 +398,92 @@
   margin-top: 52px;
   padding-top: 44px;
   border-top: 1px solid var(--fq-line);
+}
+
+.fq-training-config {
+  margin-top: 52px;
+  padding-top: 44px;
+  border-top: 1px solid var(--fq-line);
+}
+
+.fq-training-config > div:first-child {
+  max-width: 470px;
+}
+
+.fq-training-options {
+  display: grid;
+  width: min(100%, 600px);
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fq-training-options button {
+  display: grid;
+  min-height: 105px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 17px;
+  color: var(--fq-navy);
+  border: 1px solid #d2cabb;
+  border-radius: 11px;
+  background: #f8f5ed;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.fq-training-options button:hover {
+  border-color: #9c7e48;
+  transform: translateY(-1px);
+}
+
+.fq-training-options button.is-selected {
+  color: #fff9ec;
+  border-color: var(--fq-navy);
+  background: var(--fq-navy);
+  box-shadow: 0 5px 15px rgb(16 37 54 / 18%);
+}
+
+.fq-training-options button > svg,
+.fq-classic-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  color: var(--fq-coral-dark);
+  border: 1px solid #d4b984;
+  border-radius: 50%;
+  background: #fff9ec;
+  place-items: center;
+}
+
+.fq-training-options button > svg {
+  padding: 8px;
+}
+
+.fq-classic-mark {
+  font-family: var(--serif);
+  font-size: .88rem;
+  font-weight: 750;
+}
+
+.fq-training-options button > span:last-child {
+  display: grid;
+  gap: 6px;
+}
+
+.fq-training-options strong {
+  font-size: .95rem;
+}
+
+.fq-training-options small {
+  color: #737b7c;
+  font-size: .75rem;
+  line-height: 1.4;
+}
+
+.fq-training-options button.is-selected small {
+  color: #b9c7c7;
 }
 
 .fq-length-options {
@@ -609,6 +697,56 @@
   margin: 0;
   color: var(--fq-muted);
   font-size: 1rem;
+}
+
+.fq-location-card {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 13px;
+  margin-top: 22px;
+  padding: 10px;
+  border: 1px solid #d4cbbb;
+  border-radius: 11px;
+  background: rgb(248 245 237 / 86%);
+  text-align: left;
+}
+
+.fq-location-card img {
+  display: block;
+  width: 118px;
+  height: 78px;
+  border-radius: 7px;
+  background: #f4f0e7;
+  object-fit: contain;
+}
+
+.fq-location-card > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.fq-location-card span {
+  color: var(--fq-coral-dark);
+  font-size: .64rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.fq-location-card strong {
+  color: var(--fq-navy);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.fq-location-card small {
+  color: var(--fq-muted);
+  font-size: .69rem;
+  line-height: 1.35;
 }
 
 .fq-flag-stage {
@@ -1087,6 +1225,7 @@
   .fq-passport { min-height: 280px; padding: 28px; }
   .fq-passport > strong { font-size: 4.7rem; }
   .fq-collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fq-training-config,
   .fq-round-config { align-items: start; flex-direction: column; }
   .fq-question-card { min-height: 390px; grid-template-columns: .75fr 1.25fr; gap: 35px; }
   .fq-flag-stage { min-height: 235px; }
@@ -1140,6 +1279,10 @@
   .fq-start-panel__heading > p { font-size: .9rem; }
   .fq-featured-grid, .fq-collection-grid { grid-template-columns: 1fr; }
   .fq-collection { min-height: 100px; }
+  .fq-training-config,
+  .fq-round-config { margin-top: 38px; padding-top: 34px; }
+  .fq-training-options { grid-template-columns: 1fr; }
+  .fq-training-options button { min-height: 92px; }
   .fq-length-options { width: 100%; grid-template-columns: repeat(4, 1fr); }
   .fq-length-options button { min-height: 68px; padding: 8px 4px; }
   .fq-length-options strong { font-size: 1.25rem; }
@@ -1163,6 +1306,7 @@
   .fq-question-card::before { display: none; }
   .fq-question-copy { text-align: center; }
   .fq-question-copy h1 { margin-block: 8px 5px; font-size: clamp(2.25rem, 10vw, 3.4rem); }
+  .fq-location-card { width: min(100%, 390px); margin: 18px auto 0; }
   .fq-flag-stage { min-height: 185px; padding: 24px; }
   .fq-flag-image { max-height: 190px; }
   .fq-answer-grid { grid-template-columns: 1fr; gap: 8px; }
@@ -1198,6 +1342,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .fq-collection,
+  .fq-training-options button,
   .fq-primary-link,
   .fq-launch,
   .fq-game-progress i,

@@ -35,7 +35,7 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
 
 test('Flaggenkunde startet eine Runde und speichert die erste Antwort lokal', async ({ page }) => {
   await page.goto('/flaggen')
-  await expect(page.getByRole('heading', { name: /Die Welt hat/ })).toContainText('576 Flaggen')
+  await expect(page.getByRole('heading', { name: /Die Welt hat/ })).toContainText('720 Flaggen')
   await expect(page.locator('.fq-start-panel')).toHaveAttribute('aria-busy', 'false')
 
   const germany = page.getByRole('button', { name: /Deutsche Bundesländer/ })
@@ -59,6 +59,47 @@ test('Flaggenkunde startet eine Runde und speichert die erste Antwort lokal', as
   await page.getByRole('searchbox', { name: 'Flaggen suchen' }).fill('Bayern')
   await expect(page.locator('.fq-flag-tile')).toHaveCount(1)
   await expect(page.getByRole('heading', { name: 'Bayern' })).toBeVisible()
+})
+
+test('Flaggenkunde zeigt die Regionslage und wiederholt einen Fehler später', async ({ page }) => {
+  await page.goto('/flaggen')
+  await page.evaluate(() => {
+    const quiz = {
+      version: 2,
+      collectionId: 'germany',
+      repeatMistakes: true,
+      phase: 'question',
+      questionIndex: 0,
+      questions: [
+        { flagId: 'region-DE-BY', optionIds: ['region-DE-BE', 'region-DE-BY', 'region-DE-HH', 'region-DE-HB'] },
+        { flagId: 'region-DE-BE', optionIds: ['region-DE-BE', 'region-DE-BY', 'region-DE-HH', 'region-DE-HB'] },
+      ],
+      baseQuestionCount: 2,
+      repeatCount: 0,
+      answers: [],
+      score: 0,
+      streak: 0,
+      bestStreak: 0,
+      startedAt: new Date().toISOString(),
+    }
+    window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v2', JSON.stringify(quiz))
+  })
+  await page.goto('/flaggen/spielen')
+
+  await page.getByRole('button', { name: /Berlin/ }).click()
+  await expect(page.locator('.fq-feedback')).toContainText('Sie kommt später noch einmal.')
+  const locatorMap = page.locator('.fq-location-card img')
+  await expect(page.locator('.fq-location-card')).toContainText('Deutschland')
+  await expect(locatorMap).toBeVisible()
+  await expect.poll(() => locatorMap.evaluate((image) => image.naturalWidth)).toBeGreaterThan(0)
+
+  await page.getByRole('button', { name: 'Nächste Flagge' }).click()
+  await page.getByRole('button', { name: /Berlin$/ }).click()
+  await page.getByRole('button', { name: 'Nächste Flagge' }).click()
+  await expect(page.locator('.fq-question-copy')).toContainText('Wiederholung')
+  await page.getByRole('button', { name: /Bayern$/ }).click()
+  await page.getByRole('button', { name: 'Ergebnis ansehen' }).click()
+  await expect(page.locator('.fq-result-stats')).toContainText('1wiederholt')
 })
 
 test('Memory mischt acht Paare in ein vollständig sichtbares mobiles Brett', async ({ page }) => {

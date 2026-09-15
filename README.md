@@ -5,9 +5,9 @@ UGBZ ist eine responsive Spieleplattform mit **Flaggenkunde**, Kartenspiel, **Im
 ## Enthalten
 
 - Spielplan mit Rundenzahl, Kartenfolge und geschätzter Dauer vor dem Start
-- Flaggenkunde mit 576 vollständig lokalen Flaggen: 254 Länder und Gebiete sowie 322 regionale Flaggen aus 15 Sammlungen
+- Flaggenkunde mit 720 vollständig lokalen Flaggen: 254 Länder und Gebiete sowie 466 regionale Flaggen aus 23 Sammlungen
 - Sortierte Lernsets für Kontinente, US-Bundesstaaten, deutsche und österreichische Bundesländer, niederländische Provinzen und viele weitere Regionen
-- Zufallsmix, kompletter 576-Flaggen-Marathon, 10/20/50-Fragen-Runden, Tastatursteuerung und lokaler Lernfortschritt
+- Zufallsmix, kompletter 720-Flaggen-Marathon, adaptives Fehlertraining, Locator-Karten für Regionen, 10/20/50-Fragen-Runden, Tastatursteuerung und lokaler Lernfortschritt
 - Durchsuchbarer Flaggenatlas zum Entdecken und Vergleichen sämtlicher Motive
 - Erklärte Punkteformel und auditierbarer Rundenverlauf
 - Faire Rangfolge mit gemeinsamen Platzierungen bei Gleichstand
