@@ -36,7 +36,8 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
 
 test('Flaggenkunde startet eine Runde und speichert die erste Antwort lokal', async ({ page }) => {
   await page.goto('/flaggen')
-  await expect(page.getByRole('heading', { name: /Die Welt hat/ })).toContainText('720 Flaggen')
+  await expect(page.getByRole('heading', { name: 'Was möchtest du lernen?' })).toBeVisible()
+  await expect(page.locator('.fq-learning-progress')).toContainText('von 997 Flaggen')
   await expect(page.locator('.fq-start-panel')).toHaveAttribute('aria-busy', 'false')
 
   const germany = page.getByRole('button', { name: /Deutsche Bundesländer/ })
@@ -135,7 +136,7 @@ test('Flaggenkunde unterstützt Eingabe, umgekehrte Auswahl und Kartenfragen', a
 
   await installQuiz('reverse', [{ flagId: 'region-DE-BY', optionIds: ['region-DE-BY', 'region-DE-BE', 'region-DE-HH', 'region-DE-HB'] }])
   await expect(page.getByRole('heading', { name: 'Bayern' })).toBeVisible()
-  await page.getByRole('button', { name: 'Flagge 1' }).click()
+  await page.getByRole('button', { name: 'Bild 1' }).click()
   await expect(page.locator('.fq-feedback')).toContainText('Richtig erkannt!')
   await expect(page.locator('.fq-answer-grid--flags img')).toHaveCount(4)
 
@@ -200,14 +201,83 @@ test('Europa-Hypermodus zeigt alle Regionen und wechselt nach einem Treffer auto
   await expect(page.locator('.fq-result-stats')).toContainText('2/2gelernt')
 })
 
+test('Europa-Hypermodus kann ein unbekanntes Gebiet überspringen', async ({ page }) => {
+  await page.goto('/flaggen')
+  await page.evaluate(() => {
+    window.sessionStorage.setItem('ugbz:flaggenkunde:quiz:v3', JSON.stringify({
+      version: 3,
+      collectionId: 'europe-hyper',
+      quizMode: 'europe-map',
+      repeatMistakes: false,
+      phase: 'question',
+      questionIndex: 0,
+      questions: [{ flagId: 'region-DE-BY' }, { flagId: 'region-DE-BE' }],
+      baseQuestionCount: 2,
+      repeatCount: 0,
+      answers: [],
+      score: 0,
+      streak: 0,
+      bestStreak: 0,
+      startedAt: new Date().toISOString(),
+    }))
+  })
+  await page.goto('/flaggen/spielen')
+  await page.getByRole('button', { name: /Überspringen/ }).click()
+  await expect(page.locator('.fq-feedback')).toContainText('Übersprungen')
+  await expect(page.getByRole('heading', { name: 'Berlin' })).toBeVisible({ timeout: 3000 })
+  const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3')))
+  expect(stored.answers[0]).toMatchObject({ flagId: 'region-DE-BY', skipped: true, correct: false })
+})
+
+test('Hauptstädte, Stadtbilder und UNESCO-Orte lassen sich natürlich filtern und spielen', async ({ page }) => {
+  await page.goto('/flaggen')
+  await page.getByLabel('Nach Land filtern').selectOption('BG')
+  const bulgaria = page.getByRole('button', { name: /Bulgarien: Regionen mit Flaggen/ })
+  await expect(bulgaria).toContainText('1 Gebiet')
+  await bulgaria.click()
+  await expect(page.getByRole('button', { name: /Flaggenbild → Eingabe/ })).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.getByRole('button', { name: /Flaggenbild → Name/ })).toBeDisabled()
+
+  await page.goto('/flaggen')
+  await page.getByRole('tab', { name: /Hauptstädte & Städte/ }).click()
+  await expect(page.getByRole('button', { name: /Hauptstädte der Welt/ })).toBeVisible()
+  await page.getByLabel('Nach Kontinent filtern').selectOption('europe')
+  await expect(page.getByRole('button', { name: /Hauptstädte Europas/ })).toBeVisible()
+  await page.getByLabel('Nach Land filtern').selectOption('ES')
+  const spanishCities = page.getByRole('button', { name: /Städte in Spanien/ })
+  await spanishCities.click()
+  await page.getByRole('button', { name: /Name → Stadtbild/ }).click()
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  await expect(page.getByText('Name → Stadtbild')).toBeVisible()
+  await expect(page.locator('.fq-answer-grid--flags img')).toHaveCount(4)
+  await expect(page.locator('.fq-answer-grid--flags img').first()).toHaveJSProperty('complete', true)
+
+  await page.goto('/flaggen')
+  await page.getByRole('tab', { name: /Sehenswürdigkeiten & UNESCO/ }).click()
+  await page.getByLabel('Nach Land filtern').selectOption('ES')
+  const spanishHeritage = page.getByRole('button', { name: /Welterbe in Spanien/ })
+  await expect(spanishHeritage).toContainText('5')
+  await spanishHeritage.click()
+  await expect(page.getByRole('button', { name: /Bild → Sehenswürdigkeit/ })).toHaveAttribute('aria-pressed', 'true')
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  await expect(page.locator('.fq-quiz-photo')).toBeVisible()
+  await expect.poll(() => page.locator('.fq-quiz-photo').evaluate((image) => image.naturalWidth)).toBeGreaterThan(0)
+  const correctIndex = await page.evaluate(() => {
+    const quiz = JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3'))
+    return quiz.questions[0].optionIds.indexOf(quiz.questions[0].flagId)
+  })
+  await page.locator('.fq-answer-grid button').nth(correctIndex).click()
+  await expect(page.locator('.fq-feedback')).toContainText('Richtig erkannt!')
+})
+
 test('die neuen Fragetypen starten über die Auswahl und bleiben mobil bedienbar', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   const errors = []
   page.on('pageerror', (error) => errors.push(error.message))
   for (const [title, mode, selector] of [
-    ['Name eingeben', 'type', '.fq-type-answer input'],
-    ['Name → Flagge', 'reverse', '.fq-answer-grid--flags'],
-    ['Flagge → Karte', 'map', '.fq-region-map svg'],
+    ['Flaggenbild → Eingabe', 'type', '.fq-type-answer input'],
+    ['Name → Flaggenbild', 'reverse', '.fq-answer-grid--flags'],
+    ['Flaggenbild → Karte', 'map', '.fq-region-map svg'],
   ]) {
     await page.goto('/flaggen')
     await page.getByRole('button', { name: /Deutsche Bundesländer/ }).click()

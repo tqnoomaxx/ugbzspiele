@@ -26,7 +26,7 @@ function countryBounds(shapes) {
   return [left - padding, top - padding, right - left + padding * 2, bottom - top + padding * 2]
 }
 
-function InteractiveMap({ answered, completedIds, hyper, lastGuessId, map, onSelect, targetId }) {
+function InteractiveMap({ answered, completedIds, hyper, lastGuessId, map, onSelect, onSkip, targetId }) {
   const initialView = useMemo(() => map.viewBox.split(' ').map(Number), [map])
   const [view, setView] = useState(initialView)
   const [country, setCountry] = useState('')
@@ -97,6 +97,7 @@ function InteractiveMap({ answered, completedIds, hyper, lastGuessId, map, onSel
           <button aria-label="Kartenansicht zurücksetzen" onClick={() => { setView(initialView); setCountry('') }} type="button">↺</button>
           <button aria-label="Karte vergrößern" disabled={zoom >= 150} onClick={() => scaleView(1 / 1.6)} type="button">+</button>
         </div>
+        {hyper && onSkip ? <button className="fq-map-skip" disabled={answered} onClick={onSkip} type="button">Überspringen <span aria-hidden="true">→</span></button> : null}
       </div>
       <div className="fq-region-map__scroll">
         <svg

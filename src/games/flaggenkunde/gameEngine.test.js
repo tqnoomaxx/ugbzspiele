@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { advanceQuiz, answerMapGuess, answerQuestion, answerTypedQuestion, createQuiz, getQuizResult, normalizeFlagAnswer, QUIZ_MODES } from './gameEngine.js'
+import { advanceQuiz, answerMapGuess, answerQuestion, answerTypedQuestion, createQuiz, getQuizResult, normalizeFlagAnswer, QUIZ_MODES, skipMapQuestion } from './gameEngine.js'
 import { getFlagsForCollection } from './catalog.js'
 
 const flags = Array.from({ length: 6 }, (_, index) => ({
@@ -127,5 +127,33 @@ describe('Flaggenkunde-Spielengine', () => {
     }
     expect(quiz.phase).toBe('complete')
     expect(getQuizResult(quiz)).toMatchObject({ learned: targets.length, incorrect: 0, accuracy: 100 })
+  })
+
+  it('überspringt im Hypermodus ein Gebiet nachvollziehbar und geht danach weiter', () => {
+    const targets = getFlagsForCollection('europe-hyper')
+    let quiz = createQuiz(targets, { collectionId: 'europe-hyper', quizMode: QUIZ_MODES.EUROPE_MAP, roundLength: 2, random: () => 0 })
+    quiz = skipMapQuestion(quiz)
+    expect(quiz.phase).toBe('feedback')
+    expect(quiz.answers.at(-1)).toMatchObject({ correct: false, skipped: true, mapGuess: true })
+    quiz = advanceQuiz(quiz)
+    expect(quiz).toMatchObject({ phase: 'question', questionIndex: 1 })
+  })
+
+  it('erlaubt kleine regionale Sammlungen in Eingabe- und Kartenmodi', () => {
+    const single = [flags[0]]
+    expect(createQuiz(single, { quizMode: QUIZ_MODES.TYPE, roundLength: 'all' }).questions).toHaveLength(1)
+    expect(createQuiz(single, { quizMode: QUIZ_MODES.MAP, roundLength: 'all' }).questions).toHaveLength(1)
+    expect(() => createQuiz(single, { quizMode: QUIZ_MODES.CHOICE })).toThrow(/mindestens vier/)
+  })
+
+  it('erstellt eindeutige Länderantworten für Städte- und Welterbequizze', () => {
+    for (const [collectionId, quizMode] of [['cities-world', QUIZ_MODES.CITY_COUNTRY], ['heritage-world', QUIZ_MODES.LANDMARK_COUNTRY]]) {
+      const items = getFlagsForCollection(collectionId)
+      const quiz = createQuiz(items, { collectionId, quizMode, roundLength: 10, random: () => 0.37 })
+      for (const question of quiz.questions) {
+        const parents = question.optionIds.map((id) => items.find((item) => item.id === id).parent)
+        expect(new Set(parents).size).toBe(4)
+      }
+    }
   })
 })

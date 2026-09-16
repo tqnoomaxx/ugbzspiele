@@ -1,0 +1,722 @@
+[
+  {
+    "id": "landmark-alhambra",
+    "name": "Alhambra",
+    "wikipedia": "https://en.wikipedia.org/wiki/Alhambra",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
+    "artist": "Jebulon",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "landmark-sagrada-familia",
+    "name": "Sagrada Família",
+    "wikipedia": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ef/SF_maig_2_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:SF_maig_2_cropped.jpg",
+    "artist": "Canaan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-segovia",
+    "name": "Aquädukt von Segovia",
+    "wikipedia": "https://en.wikipedia.org/wiki/Aqueduct_of_Segovia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Aqueduct_of_Segovia_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Aqueduct_of_Segovia_08.jpg",
+    "artist": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-santiago",
+    "name": "Kathedrale von Santiago de Compostela",
+    "wikipedia": "https://en.wikipedia.org/wiki/Santiago_de_Compostela_Cathedral",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Santiago_cathedral_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Santiago_cathedral_2021.jpg",
+    "artist": "Fernando",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-cordoba",
+    "name": "Mezquita-Catedral de Córdoba",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mosque%E2%80%93Cathedral_of_C%C3%B3rdoba",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Mezquita_de_C%C3%B3rdoba_desde_el_aire_%28C%C3%B3rdoba%2C_Espa%C3%B1a%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Mezquita_de_C%C3%B3rdoba_desde_el_aire_(C%C3%B3rdoba,_Espa%C3%B1a).jpg",
+    "artist": "Toni Castillo Quero",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "landmark-mont-saint-michel",
+    "name": "Mont-Saint-Michel",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mont-Saint-Michel",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/78/Mont-Saint-Michel_vu_du_ciel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Mont-Saint-Michel_vu_du_ciel.jpg",
+    "artist": "Amaustan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-versailles",
+    "name": "Schloss Versailles",
+    "wikipedia": "https://en.wikipedia.org/wiki/Palace_of_Versailles",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_(cropped).jpg",
+    "artist": "ToucanWings",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-colosseum",
+    "name": "Kolosseum",
+    "wikipedia": "https://en.wikipedia.org/wiki/Colosseum",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg",
+    "artist": "FeaturedPics",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-venice",
+    "name": "Venedig und seine Lagune",
+    "wikipedia": "https://en.wikipedia.org/wiki/Venice",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Venezia_aerial_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg",
+    "artist": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-pisa",
+    "name": "Schiefer Turm von Pisa",
+    "wikipedia": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Italy_-_Pisa_-_Leaning_Tower.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Italy_-_Pisa_-_Leaning_Tower.jpg",
+    "artist": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "landmark-cologne",
+    "name": "Kölner Dom",
+    "wikipedia": "https://en.wikipedia.org/wiki/Cologne_Cathedral",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/04/K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:K%C3%B6lner_Dom_-_Westfassade_2022_ohne_Ger%C3%BCst-0968_b.jpg",
+    "artist": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-sanssouci",
+    "name": "Schloss Sanssouci",
+    "wikipedia": "https://en.wikipedia.org/wiki/Sanssouci",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Schloss_Sanssouci_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Schloss_Sanssouci_2014.jpg",
+    "artist": "ernstol",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-speicherstadt",
+    "name": "Speicherstadt",
+    "wikipedia": "https://en.wikipedia.org/wiki/Speicherstadt",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/31/Speicherstadt_abends.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Speicherstadt_abends.jpg",
+    "artist": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-stonehenge",
+    "name": "Stonehenge",
+    "wikipedia": "https://en.wikipedia.org/wiki/Stonehenge",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Stonehenge2007_07_30.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
+    "artist": "garethwiscombe",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-tower-london",
+    "name": "Tower of London",
+    "wikipedia": "https://en.wikipedia.org/wiki/Tower_of_London",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tower_of_London_from_the_Shard_(8515883950).jpg",
+    "artist": "[Duncan] from Nottingham, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-acropolis",
+    "name": "Akropolis von Athen",
+    "wikipedia": "https://en.wikipedia.org/wiki/Acropolis_of_Athens",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/2c/1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg",
+    "artist": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-meteora",
+    "name": "Meteora-Klöster",
+    "wikipedia": "https://en.wikipedia.org/wiki/Meteora",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Meteora%27s_monastery_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Meteora%27s_monastery_2.jpg",
+    "artist": "Stathis floros",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-belem",
+    "name": "Torre de Belém",
+    "wikipedia": "https://en.wikipedia.org/wiki/Bel%C3%A9m_Tower",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/65/Torre_Bel%C3%A9m_April_2009-4a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Torre_Bel%C3%A9m_April_2009-4a.jpg",
+    "artist": "Alvesgaspar",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-porto",
+    "name": "Historisches Zentrum von Porto",
+    "wikipedia": "https://en.wikipedia.org/wiki/Porto",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Puente_Don_Luis_I%2C_Oporto%2C_Portugal%2C_2012-05-09%2C_DD_13.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Puente_Don_Luis_I,_Oporto,_Portugal,_2012-05-09,_DD_13.JPG",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-hagia-sophia",
+    "name": "Hagia Sophia",
+    "wikipedia": "https://en.wikipedia.org/wiki/Hagia_Sophia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Hagia_Sophia_%28228968325%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_(228968325).jpeg",
+    "artist": "Adli Wahid",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-cappadocia",
+    "name": "Kappadokien",
+    "wikipedia": "https://en.wikipedia.org/wiki/Cappadocia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/59/Cappadocia_balloon_trip%2C_Ortahisar_Castle_%2811893715185%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Cappadocia_balloon_trip,_Ortahisar_Castle_(11893715185).jpg",
+    "artist": "Arian Zwegers from Brussels, Belgium",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-pyramids",
+    "name": "Pyramiden von Gizeh",
+    "wikipedia": "https://en.wikipedia.org/wiki/Giza_pyramid_complex",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/96/Pyramids_of_the_Giza_Necropolis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pyramids_of_the_Giza_Necropolis.jpg",
+    "artist": "KennyOMG",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-serengeti",
+    "name": "Serengeti-Nationalpark",
+    "wikipedia": "https://en.wikipedia.org/wiki/Serengeti_National_Park",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Serengeti-Landscape-2012.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Serengeti-Landscape-2012.JPG",
+    "artist": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-marrakesh",
+    "name": "Medina von Marrakesch",
+    "wikipedia": "https://en.wikipedia.org/wiki/Marrakesh",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Pavillon_Menarag%C3%A4rten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pavillon_Menarag%C3%A4rten.jpg",
+    "artist": "Acp",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "landmark-taj-mahal",
+    "name": "Taj Mahal",
+    "wikipedia": "https://en.wikipedia.org/wiki/Taj_Mahal",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_(Edited).jpeg",
+    "artist": "Yann ; edited by Jim Carter",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-great-wall",
+    "name": "Chinesische Mauer",
+    "wikipedia": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
+    "artist": "Severin.stalder",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-himeji",
+    "name": "Burg Himeji",
+    "wikipedia": "https://en.wikipedia.org/wiki/Himeji_Castle",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Himeji_castle_in_may_2015.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Himeji_castle_in_may_2015.jpg",
+    "artist": "Nikos Kitsakis",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-angkor",
+    "name": "Angkor Wat",
+    "wikipedia": "https://en.wikipedia.org/wiki/Angkor_Wat",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/41/Angkor_Wat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg",
+    "artist": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-machu-picchu",
+    "name": "Machu Picchu",
+    "wikipedia": "https://en.wikipedia.org/wiki/Machu_Picchu",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Machu_Picchu%2C_2023_%28012%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_2023_(012).jpg",
+    "artist": "Draceane",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-chichen-itza",
+    "name": "Chichén Itzá",
+    "wikipedia": "https://en.wikipedia.org/wiki/Chichen_Itza",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/51/Chichen_Itza_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Chichen_Itza_3.jpg",
+    "artist": "Daniel Schwen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-christ-redeemer",
+    "name": "Cristo Redentor",
+    "wikipedia": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+    "artist": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "landmark-opera-house",
+    "name": "Sydney Opera House",
+    "wikipedia": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Sydney_Australia._%2821339175489%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Sydney_Australia._(21339175489).jpg",
+    "artist": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "landmark-liberty",
+    "name": "Freiheitsstatue",
+    "wikipedia": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_(cropped).jpg",
+    "artist": "AskALotl",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "landmark-grand-canyon",
+    "name": "Grand Canyon",
+    "wikipedia": "https://en.wikipedia.org/wiki/Grand_Canyon",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/31/Canyon_River_Tree_%28165872763%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Canyon_River_Tree_(165872763).jpeg",
+    "artist": "Lennart Sikkema",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  {
+    "id": "city-FR-14",
+    "name": "Paris (Frankreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Eiffelturm",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons.jpg",
+    "artist": "Benh LIEU SONG",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  {
+    "id": "city-DE-15",
+    "name": "Berlin (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Brandenburger_Tor",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/11/BerlinBrandenburgerTor1985.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:BerlinBrandenburgerTor1985.jpg",
+    "artist": "Joergsam",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-IT-20",
+    "name": "Rom (Italien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Kolosseum",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg",
+    "artist": "FeaturedPics",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-ES-41",
+    "name": "Madrid (Spanien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Plaza_Mayor_(Madrid)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/44/Plaza_Mayor_de_Madrid_06.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_06.jpg",
+    "artist": "Sebastian Dubiel",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "city-GB-46",
+    "name": "London (Vereinigtes Königreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Tower_Bridge",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Tower_Bridge_dawn.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_dawn.jpg",
+    "artist": "UlyssesThirtyOne",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "city-JP-57",
+    "name": "Tokio (Japan)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Tokyo_Tower",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_2023.jpg",
+    "artist": "Akonnchiroll",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-US-69",
+    "name": "Washington, D.C. (USA)",
+    "wikipedia": "https://en.wikipedia.org/wiki/United_States_Capitol",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9f/US_Capitol_east_side.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:US_Capitol_east_side.JPG",
+    "artist": "Martin Falbisoner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-AU-80",
+    "name": "Canberra (Australien)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Parliament_House%2C_Canberra",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Parliament_House_at_dusk%2C_Canberra_ACT.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Parliament_House_at_dusk,_Canberra_ACT.jpg",
+    "artist": "Thennicke",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-ES-82",
+    "name": "Barcelona (Spanien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Park_G%C3%BCell",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/37/Am_Hauptportal_des_Parc_G%C3%BCell_2008.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Am_Hauptportal_des_Parc_G%C3%BCell_2008.jpg",
+    "artist": "JøMa",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-ES-83",
+    "name": "Sevilla (Spanien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Plaza_de_Espa%C3%B1a_(Sevilla)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e0/9._Mai_1929%2C_an_diesem_Tag_wurde_die_Iberoamerikanische_Ausstellung_in_Sevilla_er%C3%B6ffnet._09.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:9._Mai_1929,_an_diesem_Tag_wurde_die_Iberoamerikanische_Ausstellung_in_Sevilla_er%C3%B6ffnet._09.jpg",
+    "artist": "Holger Uwe Schmitt",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-ES-84",
+    "name": "Valencia (Spanien)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Palau_de_les_Arts_Reina_Sof%C3%ADa",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9b/El_Palau_de_les_Arts_Reina_Sof%C3%ADa%2C_Valencia_-_Jan_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:El_Palau_de_les_Arts_Reina_Sof%C3%ADa,_Valencia_-_Jan_2007.jpg",
+    "artist": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-ES-85",
+    "name": "Bilbao (Spanien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Guggenheim-Museum_Bilbao",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Guggenheim-bilbao-jan05.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Guggenheim-bilbao-jan05.jpg",
+    "artist": "Photograph taken by User:MykReeve .",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "city-ES-86",
+    "name": "Granada (Spanien)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Alhambra",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg",
+    "artist": "Jebulon",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "city-DE-87",
+    "name": "Hamburg (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Hamburger_Hafen",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/88/Schiffsverkehr_Elbe_Hamburg.JPG?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Schiffsverkehr_Elbe_Hamburg.JPG",
+    "artist": "Frank Liebig",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "city-DE-88",
+    "name": "München (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Frauenkirche_(M%C3%BCnchen)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/26/Frauenkirche_Munich_-_View_from_Peterskirche_Tower.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Frauenkirche_Munich_-_View_from_Peterskirche_Tower.jpg",
+    "artist": "Diliff",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  {
+    "id": "city-DE-89",
+    "name": "Köln (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/K%C3%B6lner_Dom",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a1/K%C3%B6lner_Dom_nachts_2013.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:K%C3%B6lner_Dom_nachts_2013.jpg",
+    "artist": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "city-DE-90",
+    "name": "Frankfurt am Main (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Main_Tower",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Maintower_Frankfurt.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Maintower_Frankfurt.jpg",
+    "artist": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en"
+  },
+  {
+    "id": "city-DE-91",
+    "name": "Dresden (Deutschland)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Frauenkirche_(Dresden)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/23/Dresden_Germany_Exterior-of-Frauenkirche-04.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Dresden_Germany_Exterior-of-Frauenkirche-04.jpg",
+    "artist": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-FR-92",
+    "name": "Lyon (Frankreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Notre-Dame_de_Fourvi%C3%A8re",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Basilique_de_Fourvi%C3%A8re_from_Saone_%28Lyon%29.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Basilique_de_Fourvi%C3%A8re_from_Saone_(Lyon).jpg",
+    "artist": "MickaëlG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-FR-93",
+    "name": "Marseille (Frankreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Alter_Hafen_(Marseille)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/74/Marseille_Old_Port.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Marseille_Old_Port.jpg",
+    "artist": "Ingo Mehling",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-FR-94",
+    "name": "Bordeaux (Frankreich)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Place_de_la_Bourse%2C_Bordeaux",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/64/Bordeaux_place_de_la_bourse_with_tram.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Bordeaux_place_de_la_bourse_with_tram.JPG",
+    "artist": "Phillip Maiwald ( Nikopol )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-FR-95",
+    "name": "Nizza (Frankreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Promenade_des_Anglais",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Quai_des_%C3%89tats-Unis%2C_Nice-001.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Quai_des_%C3%89tats-Unis,_Nice-001.jpg",
+    "artist": "Синявский Борис",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  {
+    "id": "city-IT-96",
+    "name": "Mailand (Italien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Dom_zu_Mailand",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Milano_Italy_Duomo-Milan-01.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Milano_Italy_Duomo-Milan-01.jpg",
+    "artist": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "city-IT-97",
+    "name": "Venedig (Italien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Markusplatz",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Markusplatz_Aug_2020_2.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Markusplatz_Aug_2020_2.jpg",
+    "artist": "Kasa Fue",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-IT-98",
+    "name": "Florenz (Italien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Dom_zu_Florenz",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/1b/View_of_Santa_Maria_del_Fiore_in_Florence.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:View_of_Santa_Maria_del_Fiore_in_Florence.jpg",
+    "artist": "Bruce Stokes on Flickr",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "city-IT-99",
+    "name": "Neapel (Italien)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Castel_dell%E2%80%99Ovo",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Napoli-casteldell%27ovo02.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Napoli-casteldell%27ovo02.jpg",
+    "artist": "currybet",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "city-GB-100",
+    "name": "Edinburgh (Vereinigtes Königreich)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Edinburgh_Castle",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Edinburgh_Castle_A255786_037.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_A255786_037.jpg",
+    "artist": "oskar karlin",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "city-GB-101",
+    "name": "Manchester (Vereinigtes Königreich)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Manchester_Town_Hall",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Manchester_Town_Hall_from_Lloyd_St.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Manchester_Town_Hall_from_Lloyd_St.jpg",
+    "artist": "Mark Andrew .",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "city-GB-102",
+    "name": "Liverpool (Vereinigtes Königreich)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Royal_Liver_Building",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Royal_Liver_Building.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Royal_Liver_Building.jpg",
+    "artist": "Unbekannt",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "city-GB-103",
+    "name": "Birmingham (Vereinigtes Königreich)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Library_of_Birmingham",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Library_of_Birmingham_%2832958941706%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Library_of_Birmingham_(32958941706).jpg",
+    "artist": "Alex Liivet from Chester, United Kingdom",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "city-US-104",
+    "name": "New York City (USA)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Empire_State_Building",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/94/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28vertical_crop%29.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_(vertical_crop).jpg",
+    "artist": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-US-105",
+    "name": "Los Angeles (USA)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Downtown_Los_Angeles",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Skyline_of_Los_Angeles%2C_Downtown_Los_Angeles%2C_California_13.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Skyline_of_Los_Angeles,_Downtown_Los_Angeles,_California_13.jpg",
+    "artist": "Levi Clancy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-US-106",
+    "name": "Chicago (USA)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Chicago_River",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Chicago_Riverwalk_%2851556708640%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Chicago_Riverwalk_(51556708640).jpg",
+    "artist": "ajay_suresh",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "city-US-107",
+    "name": "San Francisco (USA)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Golden_Gate_Bridge",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+    "artist": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-JP-116",
+    "name": "Osaka (Japan)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Burg_%C5%8Csaka",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Osaka_Castle_02bs3200.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_02bs3200.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  {
+    "id": "city-JP-117",
+    "name": "Kyoto (Japan)",
+    "wikipedia": "https://de.wikipedia.org/wiki/Kiyomizu-dera",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/83/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+    "artist": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "city-AU-123",
+    "name": "Sydney (Australien)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Sydney_Australia._%2821339175489%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Sydney_Australia._(21339175489).jpg",
+    "artist": "Bernard Spragg. NZ from Christchurch, New Zealand",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  {
+    "id": "city-AU-124",
+    "name": "Melbourne (Australien)",
+    "wikipedia": "https://en.wikipedia.org/wiki/Flinders_Street_railway_station",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/99/Flinders_Station_and_trams.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Flinders_Station_and_trams.jpg",
+    "artist": "Created by Philip Mallis in 2021; cropped by HappyWaldo",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  }
+]

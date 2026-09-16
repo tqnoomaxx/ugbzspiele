@@ -4,7 +4,7 @@ export const games = [
   {
     id: 'flaggenkunde',
     title: 'Flaggenkunde',
-    description: '720 Flaggen erkennen – Länder, Bundesstaaten, Provinzen, Kantone und Regionen aus aller Welt.',
+    description: '997 Flaggen, Hauptstädte, Städtebilder und UNESCO-Orte aus aller Welt spielerisch lernen.',
     path: appPath('/flaggen'),
     artwork: appPath('/assets/flaggen-table.svg'),
     available: true,

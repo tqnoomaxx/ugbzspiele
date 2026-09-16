@@ -29,6 +29,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-65.svg"
   },
   {
+    "id": "region-SM-01",
+    "code": "SM-01",
+    "name": "Acquaviva",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-01.webp",
+    "visualKey": "34f24be89a7e5edb",
+    "source": "https://commons.wikimedia.org/wiki/File:Acquaviva_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-01.svg"
+  },
+  {
     "id": "region-BR-AC",
     "code": "BR-AC",
     "name": "Acre",
@@ -40,6 +53,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Acre",
     "parent": "Brasilien",
     "locationMap": "/assets/flags/maps/BR-AC.svg"
+  },
+  {
+    "id": "region-LV-011",
+    "code": "LV-011",
+    "name": "Ādažu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-011.webp",
+    "visualKey": "95d2df6757d466d6",
+    "source": "https://commons.wikimedia.org/wiki/File:Ādažu_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-011.svg"
+  },
+  {
+    "id": "region-RU-AD",
+    "code": "RU-AD",
+    "name": "Adygea",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-AD.webp",
+    "visualKey": "7b17d0b16bf040f1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Adygea",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-AD.svg"
   },
   {
     "id": "country-AF",
@@ -183,6 +222,32 @@ export const flagCatalog = [
     "visualKey": "9beabb31b5518401"
   },
   {
+    "id": "region-LV-007",
+    "code": "LV-007",
+    "name": "Alūksnes novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-007.webp",
+    "visualKey": "a9fa169a019da982",
+    "source": "https://commons.wikimedia.org/wiki/File:Alūksnes_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-007.svg"
+  },
+  {
+    "id": "region-LT-AL",
+    "code": "LT-AL",
+    "name": "Alytus County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-AL.webp",
+    "visualKey": "33dee199ddb04a62",
+    "source": "https://en.wikipedia.org/wiki/Alytus_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-AL.svg"
+  },
+  {
     "id": "region-BR-AP",
     "code": "BR-AP",
     "name": "Amapá",
@@ -273,6 +338,19 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/AD.svg",
     "visualKey": "0fef22a2984ddc2d"
+  },
+  {
+    "id": "region-MD-AN",
+    "code": "MD-AN",
+    "name": "Anenii Noi",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-AN.webp",
+    "visualKey": "ad1c438205da3ebc",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Anenii_Noi_District,_Moldova.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-AN.svg"
   },
   {
     "id": "country-AO",
@@ -517,6 +595,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-AR.svg"
   },
   {
+    "id": "region-RU-ARK",
+    "code": "RU-ARK",
+    "name": "Arkhangelsk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ARK.webp",
+    "visualKey": "7f6ec5f418ee1b7c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Arkhangelsk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ARK.svg"
+  },
+  {
     "id": "country-AM",
     "code": "AM",
     "name": "Armenien",
@@ -555,6 +646,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/AZ.svg",
     "visualKey": "c0978a02c3e49588"
+  },
+  {
+    "id": "region-RU-AST",
+    "code": "RU-AST",
+    "name": "Astrakhan Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-AST.webp",
+    "visualKey": "4ddc26102da7df99",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Astrakhan_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-AST.svg"
   },
   {
     "id": "region-ES-AS",
@@ -606,6 +710,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CO-ATL.svg"
   },
   {
+    "id": "region-LV-111",
+    "code": "LV-111",
+    "name": "Augšdaugavas novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-111.webp",
+    "visualKey": "27ede6c933f5779a",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Augšdaugava_Municipality.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-111.svg"
+  },
+  {
     "id": "region-AU-ACT",
     "code": "AU-ACT",
     "name": "Australian Capital Territory",
@@ -627,6 +744,32 @@ export const flagCatalog = [
     "continent": "oceania",
     "image": "/assets/flags/countries/AU.svg",
     "visualKey": "9c5e500830538dfb"
+  },
+  {
+    "id": "region-UA-43",
+    "code": "UA-43",
+    "name": "Autonomous Republic of Crimea",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-43.webp",
+    "visualKey": "56db8320d4fbcf27",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Crimea",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-43.svg"
+  },
+  {
+    "id": "region-FR-ARA",
+    "code": "FR-ARA",
+    "name": "Auvergne-Rhône-Alpes",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-ARA.webp",
+    "visualKey": "169d9bc5c69f2faf",
+    "source": "https://en.wikipedia.org/wiki/Auvergne-Rh%C3%B4ne-Alpes",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-ARA.svg"
   },
   {
     "id": "region-CL-AI",
@@ -727,6 +870,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/ES-IB.svg"
   },
   {
+    "id": "region-LV-015",
+    "code": "LV-015",
+    "name": "Balvu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-015.webp",
+    "visualKey": "bb5e47b35db4ad7f",
+    "source": "https://commons.wikimedia.org/wiki/File:Balvu_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-015.svg"
+  },
+  {
+    "id": "region-LI-01",
+    "code": "LI-01",
+    "name": "Balzers",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-01.webp",
+    "visualKey": "257b40d83cad47bb",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Balzers_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-01.svg"
+  },
+  {
     "id": "country-BD",
     "code": "BD",
     "name": "Bangladesch",
@@ -760,6 +929,19 @@ export const flagCatalog = [
     "visualKey": "5f2a9ec20b8c3644"
   },
   {
+    "id": "region-MD-BS",
+    "code": "MD-BS",
+    "name": "Basarabeasca",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-BS.webp",
+    "visualKey": "f2389fa23bef02b5",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Basarabeasca_District.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-BS.svg"
+  },
+  {
     "id": "region-CH-BL",
     "code": "CH-BL",
     "name": "Basel-Landschaft",
@@ -784,6 +966,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
     "parent": "Schweiz",
     "locationMap": "/assets/flags/maps/CH-BS.svg"
+  },
+  {
+    "id": "region-RU-BA",
+    "code": "RU-BA",
+    "name": "Bashkortostan",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-BA.webp",
+    "visualKey": "a556aa495e007b56",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bashkortostan",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-BA.svg"
   },
   {
     "id": "region-IT-77",
@@ -812,6 +1007,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/ES-PV.svg"
   },
   {
+    "id": "region-LV-016",
+    "code": "LV-016",
+    "name": "Bauskas novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-016.webp",
+    "visualKey": "9b1271b7b8ed305b",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Bauskas_novads.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-016.svg"
+  },
+  {
     "id": "region-DE-BY",
     "code": "DE-BY",
     "name": "Bayern",
@@ -823,6 +1031,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Bavaria",
     "parent": "Deutschland",
     "locationMap": "/assets/flags/maps/DE-BY.svg"
+  },
+  {
+    "id": "region-HU-BC",
+    "code": "HU-BC",
+    "name": "Békéscsaba",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-BC.webp",
+    "visualKey": "b220ea02263f9f30",
+    "source": "https://www.wikidata.org/wiki/Q178878",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-BC.svg"
   },
   {
     "id": "country-BY",
@@ -845,6 +1066,32 @@ export const flagCatalog = [
     "visualKey": "7448dd192fb3ba3b"
   },
   {
+    "id": "region-RU-BEL",
+    "code": "RU-BEL",
+    "name": "Belgorod Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-BEL.webp",
+    "visualKey": "db2010350c477c73",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Belgorod_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-BEL.svg"
+  },
+  {
+    "id": "region-RS-00",
+    "code": "RS-00",
+    "name": "Belgrade",
+    "kind": "region",
+    "collection": "europe-rs",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RS-00.webp",
+    "visualKey": "bd301f80c7e37a2b",
+    "source": "https://www.wikidata.org/wiki/Q3434487",
+    "parent": "Serbien",
+    "locationMap": "/assets/flags/maps/RS-00.svg"
+  },
+  {
     "id": "country-BZ",
     "code": "BZ",
     "name": "Belize",
@@ -863,6 +1110,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/BJ.svg",
     "visualKey": "23f1400e459fba3c"
+  },
+  {
+    "id": "region-AL-01",
+    "code": "AL-01",
+    "name": "Berat",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-01.webp",
+    "visualKey": "8bd98c1d2a08709f",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Berat.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-01.svg"
   },
   {
     "id": "region-DE-BE",
@@ -986,6 +1246,19 @@ export const flagCatalog = [
     "visualKey": "44915a611d89c13d"
   },
   {
+    "id": "region-SM-06",
+    "code": "SM-06",
+    "name": "Borgo Maggiore",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-06.webp",
+    "visualKey": "179747509ca49c53",
+    "source": "https://commons.wikimedia.org/wiki/File:Borgo_Maggiore_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-06.svg"
+  },
+  {
     "id": "country-BA",
     "code": "BA",
     "name": "Bosnien und Herzegowina",
@@ -1004,6 +1277,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/BW.svg",
     "visualKey": "867e4933d203444a"
+  },
+  {
+    "id": "region-FR-BFC",
+    "code": "FR-BFC",
+    "name": "Bourgogne-Franche-Comté",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-BFC.webp",
+    "visualKey": "bc91642edf2dc0a4",
+    "source": "https://en.wikipedia.org/wiki/Bourgogne-Franche-Comt%C3%A9",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-BFC.svg"
   },
   {
     "id": "country-BV",
@@ -1078,6 +1364,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/DE-HB.svg"
   },
   {
+    "id": "region-BY-BR",
+    "code": "BY-BR",
+    "name": "Brest",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-BR.webp",
+    "visualKey": "50c8d9a52c5d9baa",
+    "source": "https://en.wikipedia.org/wiki/Brest_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-BR.svg"
+  },
+  {
+    "id": "region-FR-BRE",
+    "code": "FR-BRE",
+    "name": "Bretagne",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-BRE.webp",
+    "visualKey": "e68bafade5241667",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Brittany",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-BRE.svg"
+  },
+  {
     "id": "region-CA-BC",
     "code": "CA-BC",
     "name": "Britisch-Kolumbien",
@@ -1145,6 +1457,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_the_Brussels-Capital_Region",
     "parent": "Belgien",
     "locationMap": "/assets/flags/maps/BE-BRU.svg"
+  },
+  {
+    "id": "region-RU-BRY",
+    "code": "RU-BRY",
+    "name": "Bryansk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-BRY.webp",
+    "visualKey": "1dcbd5032d62f357",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Bryansk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-BRY.svg"
+  },
+  {
+    "id": "region-RO-B",
+    "code": "RO-B",
+    "name": "BUCURESTI",
+    "kind": "region",
+    "collection": "europe-ro",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RO-B.webp",
+    "visualKey": "4ed8e7b689a13201",
+    "source": "https://en.wikipedia.org/wiki/Bucharest",
+    "parent": "Rumänien",
+    "locationMap": "/assets/flags/maps/RO-B.svg"
   },
   {
     "id": "region-AR-B",
@@ -1226,6 +1564,19 @@ export const flagCatalog = [
     "visualKey": "8cf857f18a5a5952"
   },
   {
+    "id": "region-MD-CA",
+    "code": "MD-CA",
+    "name": "Cahul",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-CA.webp",
+    "visualKey": "aaddf5f3696a8ae9",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_District_Cahul.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-CA.svg"
+  },
+  {
     "id": "region-CO-CAL",
     "code": "CO-CAL",
     "name": "Caldas",
@@ -1263,6 +1614,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Campeche.svg",
     "parent": "Mexiko",
     "locationMap": "/assets/flags/maps/MX-CAM.svg"
+  },
+  {
+    "id": "region-MD-CT",
+    "code": "MD-CT",
+    "name": "Cantemir",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-CT.webp",
+    "visualKey": "f67f4d4afed65280",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Cantemir_District.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-CT.svg"
   },
   {
     "id": "region-CO-CAQ",
@@ -1330,6 +1694,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-CE.svg"
   },
   {
+    "id": "region-FI-08",
+    "code": "FI-08",
+    "name": "Central Finland",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-08.webp",
+    "visualKey": "5f22ee79843b638b",
+    "source": "https://en.wikipedia.org/wiki/Central_Finland",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-08.svg"
+  },
+  {
+    "id": "region-FR-CVL",
+    "code": "FR-CVL",
+    "name": "Centre-Val de Loire",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-CVL.webp",
+    "visualKey": "bc49101e778e75cb",
+    "source": "https://en.wikipedia.org/wiki/Centre-Val_de_Loire",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-CVL.svg"
+  },
+  {
     "id": "region-CO-CES",
     "code": "CO-CES",
     "name": "Cesar",
@@ -1341,6 +1731,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Cesar_Department",
     "parent": "Kolumbien",
     "locationMap": "/assets/flags/maps/CO-CES.svg"
+  },
+  {
+    "id": "region-LV-022",
+    "code": "LV-022",
+    "name": "Cēsu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-022.webp",
+    "visualKey": "599a2006473d3986",
+    "source": "https://commons.wikimedia.org/wiki/File:Cēsu_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-022.svg"
+  },
+  {
+    "id": "region-ME-06",
+    "code": "ME-06",
+    "name": "Cetinje Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-06.webp",
+    "visualKey": "b666c14261896168",
+    "source": "https://www.crwflags.com/fotw/flags/me-ceti.html",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-06.svg"
   },
   {
     "id": "region-ES-CE",
@@ -1369,6 +1785,71 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-H.svg"
   },
   {
+    "id": "region-RU-CE",
+    "code": "RU-CE",
+    "name": "Chechnya",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-CE.webp",
+    "visualKey": "7a89e3d091d79239",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Chechen_Republic",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-CE.svg"
+  },
+  {
+    "id": "region-RU-CHE",
+    "code": "RU-CHE",
+    "name": "Chelyabinsk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-CHE.webp",
+    "visualKey": "c8f87a9116135abc",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chelyabinsk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-CHE.svg"
+  },
+  {
+    "id": "region-UA-71",
+    "code": "UA-71",
+    "name": "Cherkasy Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-71.webp",
+    "visualKey": "7f57bdec302c5d55",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Cherkasy_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-71.svg"
+  },
+  {
+    "id": "region-UA-74",
+    "code": "UA-74",
+    "name": "Chernihiv Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-74.webp",
+    "visualKey": "8927c0cb19dc5ca4",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chernihiv_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-74.svg"
+  },
+  {
+    "id": "region-UA-77",
+    "code": "UA-77",
+    "name": "Chernivtsi Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-77.webp",
+    "visualKey": "d6d363e45ea43074",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chernivtsi_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-77.svg"
+  },
+  {
     "id": "region-MX-CHP",
     "code": "MX-CHP",
     "name": "Chiapas",
@@ -1393,6 +1874,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
     "parent": "Japan",
     "locationMap": "/assets/flags/maps/JP-12.svg"
+  },
+  {
+    "id": "region-SM-02",
+    "code": "SM-02",
+    "name": "Chiesanuova",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-02.webp",
+    "visualKey": "f91d1048cc81eb33",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiesanuova_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-02.svg"
   },
   {
     "id": "region-MX-CHH",
@@ -1428,6 +1922,19 @@ export const flagCatalog = [
     "visualKey": "c593f52da3c5354c"
   },
   {
+    "id": "region-MD-CU",
+    "code": "MD-CU",
+    "name": "Chisinau",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-CU.webp",
+    "visualKey": "b5cff92b7d44ee74",
+    "source": "https://en.wikipedia.org/wiki/Chi%C8%99in%C4%83u",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-CU.svg"
+  },
+  {
     "id": "region-CO-CHO",
     "code": "CO-CHO",
     "name": "Chocó",
@@ -1452,6 +1959,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Chubut_Province",
     "parent": "Argentinien",
     "locationMap": "/assets/flags/maps/AR-U.svg"
+  },
+  {
+    "id": "region-RU-CU",
+    "code": "RU-CU",
+    "name": "Chuvashia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-CU.webp",
+    "visualKey": "7fd9d33ba8877480",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Chuvashia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-CU.svg"
+  },
+  {
+    "id": "region-SM-07",
+    "code": "SM-07",
+    "name": "Città di San Marino",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-07.webp",
+    "visualKey": "d1c6ecbfa0fbd436",
+    "source": "https://www.crwflags.com/fotw/flags/sm-sm.html",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-07.svg"
   },
   {
     "id": "region-MX-COA",
@@ -1491,6 +2024,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Colorado",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-CO.svg"
+  },
+  {
+    "id": "region-IE-C",
+    "code": "IE-C",
+    "name": "Connacht",
+    "kind": "region",
+    "collection": "europe-ie",
+    "continent": "europe",
+    "image": "/assets/flags/regions/IE-C.webp",
+    "visualKey": "b7303488ae580605",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Connacht",
+    "parent": "Irland",
+    "locationMap": "/assets/flags/maps/IE-C.svg"
   },
   {
     "id": "region-US-CT",
@@ -1568,6 +2114,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-W.svg"
   },
   {
+    "id": "region-FR-20R",
+    "code": "FR-20R",
+    "name": "Corse",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-20R.webp",
+    "visualKey": "83c14a3989b51d14",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Corsica",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-20R.svg"
+  },
+  {
     "id": "country-CR",
     "code": "CR",
     "name": "Costa Rica",
@@ -1586,6 +2145,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/CI.svg",
     "visualKey": "d7acff2d1ad384fb"
+  },
+  {
+    "id": "region-MD-CR",
+    "code": "MD-CR",
+    "name": "Criuleni",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-CR.webp",
+    "visualKey": "6c414d7ed8472b03",
+    "source": "https://commons.wikimedia.org/wiki/File:Drapel_Raionul_Criuleni.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-CR.svg"
   },
   {
     "id": "region-CO-CUN",
@@ -1611,6 +2183,19 @@ export const flagCatalog = [
     "visualKey": "c111591777f6c51b"
   },
   {
+    "id": "region-RU-DA",
+    "code": "RU-DA",
+    "name": "Dagestan",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-DA.webp",
+    "visualKey": "30b13916d29e1eaa",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Dagestan",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-DA.svg"
+  },
+  {
     "id": "region-SE-W",
     "code": "SE-W",
     "name": "Dalarna County",
@@ -1634,6 +2219,32 @@ export const flagCatalog = [
     "visualKey": "af43b421a9f432c5"
   },
   {
+    "id": "region-LV-DGV",
+    "code": "LV-DGV",
+    "name": "Daugavpils",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-DGV.webp",
+    "visualKey": "87596ab1e48b0c4f",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Daugavpils.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-DGV.svg"
+  },
+  {
+    "id": "region-HU-DE",
+    "code": "HU-DE",
+    "name": "Debrecen",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-DE.webp",
+    "visualKey": "e67066a9b0da21d9",
+    "source": "https://www.wikidata.org/wiki/Q79880",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-DE.svg"
+  },
+  {
     "id": "region-US-DE",
     "code": "US-DE",
     "name": "Delaware",
@@ -1655,6 +2266,32 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/DE.svg",
     "visualKey": "ba6e2a243cb579de"
+  },
+  {
+    "id": "region-AL-09",
+    "code": "AL-09",
+    "name": "Dibër",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-09.webp",
+    "visualKey": "06f153c55d83611d",
+    "source": "https://commons.wikimedia.org/wiki/File:ALB_Qarku_i_Dibrës_flag.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-09.svg"
+  },
+  {
+    "id": "region-LV-112",
+    "code": "LV-112",
+    "name": "Dienvidkurzemes novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-112.webp",
+    "visualKey": "8a7c06a896313ed4",
+    "source": "https://commons.wikimedia.org/wiki/File:Dienvidkurzemes_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-112.svg"
   },
   {
     "id": "region-US-DC",
@@ -1683,6 +2320,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-DF.svg"
   },
   {
+    "id": "region-UA-12",
+    "code": "UA-12",
+    "name": "Dnipropetrovsk Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-12.webp",
+    "visualKey": "18f1b509a9eace09",
+    "source": "https://www.wikidata.org/wiki/Q2676406",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-12.svg"
+  },
+  {
+    "id": "region-SM-03",
+    "code": "SM-03",
+    "name": "Domagnano",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-03.webp",
+    "visualKey": "edc92bfb9a1c6a3f",
+    "source": "https://commons.wikimedia.org/wiki/File:Domagnano_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-03.svg"
+  },
+  {
     "id": "country-DM",
     "code": "DM",
     "name": "Dominica",
@@ -1701,6 +2364,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/DO.svg",
     "visualKey": "ae008d9d78ec02e4"
+  },
+  {
+    "id": "region-UA-14",
+    "code": "UA-14",
+    "name": "Donetsk Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-14.webp",
+    "visualKey": "dfa992b5907ac327",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Donetsk_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-14.svg"
   },
   {
     "id": "region-NL-DR",
@@ -1726,6 +2402,19 @@ export const flagCatalog = [
     "visualKey": "053ead39e5419cd7"
   },
   {
+    "id": "region-MD-DU",
+    "code": "MD-DU",
+    "name": "Dubasari",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-DU.webp",
+    "visualKey": "3d4c4d1d710be1cd",
+    "source": "https://commons.wikimedia.org/wiki/File:Dubăsari_District_flag.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-DU.svg"
+  },
+  {
     "id": "region-HR-19",
     "code": "HR-19",
     "name": "Dubrovnik-Neretva",
@@ -1737,6 +2426,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
     "parent": "Kroatien",
     "locationMap": "/assets/flags/maps/HR-19.svg"
+  },
+  {
+    "id": "region-HU-DU",
+    "code": "HU-DU",
+    "name": "Dunaújváros",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-DU.webp",
+    "visualKey": "836ea96cbe2b15eb",
+    "source": "https://www.wikidata.org/wiki/Q187812",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-DU.svg"
   },
   {
     "id": "region-MX-DUR",
@@ -1752,6 +2454,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-DUR.svg"
   },
   {
+    "id": "region-AL-02",
+    "code": "AL-02",
+    "name": "Durrës",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-02.webp",
+    "visualKey": "421117ff8ef5fe54",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Durrës.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-02.svg"
+  },
+  {
     "id": "country-EC",
     "code": "EC",
     "name": "Ecuador",
@@ -1760,6 +2475,32 @@ export const flagCatalog = [
     "continent": "south-america",
     "image": "/assets/flags/countries/EC.svg",
     "visualKey": "e6a77cab91bc867b"
+  },
+  {
+    "id": "region-MD-ED",
+    "code": "MD-ED",
+    "name": "Edinet",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-ED.webp",
+    "visualKey": "d541537abaed0aa5",
+    "source": "https://commons.wikimedia.org/wiki/File:Steag_raionul_edinet.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-ED.svg"
+  },
+  {
+    "id": "region-HU-EG",
+    "code": "HU-EG",
+    "name": "Eger",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-EG.webp",
+    "visualKey": "20b8eabe85b62c70",
+    "source": "https://www.wikidata.org/wiki/Q167109",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-EG.svg"
   },
   {
     "id": "region-JP-38",
@@ -1783,6 +2524,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/SV.svg",
     "visualKey": "bdf9ecb0ff511324"
+  },
+  {
+    "id": "region-AL-03",
+    "code": "AL-03",
+    "name": "Elbasan",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-03.webp",
+    "visualKey": "8c4cf0197783b20c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Elbasan.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-03.svg"
   },
   {
     "id": "region-IT-45",
@@ -1846,6 +2600,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/PL-28.svg"
   },
   {
+    "id": "region-LI-02",
+    "code": "LI-02",
+    "name": "Eschen",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-02.webp",
+    "visualKey": "6cc6a99f495ade7c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eschen_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-02.svg"
+  },
+  {
     "id": "region-BR-ES",
     "code": "BR-ES",
     "name": "Espírito Santo",
@@ -1902,6 +2669,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/ES-EX.svg"
   },
   {
+    "id": "region-SM-04",
+    "code": "SM-04",
+    "name": "Faetano",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-04.webp",
+    "visualKey": "89218d2cbde17437",
+    "source": "https://commons.wikimedia.org/wiki/File:Faetano_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-04.svg"
+  },
+  {
     "id": "country-FK",
     "code": "FK",
     "name": "Falklandinseln",
@@ -1932,6 +2712,19 @@ export const flagCatalog = [
     "visualKey": "c83bb207c081dac4"
   },
   {
+    "id": "region-FI-19",
+    "code": "FI-19",
+    "name": "Finland Proper",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-19.webp",
+    "visualKey": "2876e60c98e99ce0",
+    "source": "https://en.wikipedia.org/wiki/Finland_Proper",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-19.svg"
+  },
+  {
     "id": "country-FI",
     "code": "FI",
     "name": "Finnland",
@@ -1940,6 +2733,19 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/FI.svg",
     "visualKey": "dc6946a5e69a7870"
+  },
+  {
+    "id": "region-SM-05",
+    "code": "SM-05",
+    "name": "Fiorentino",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-05.webp",
+    "visualKey": "429aedb695ecd415",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiorentino_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-05.svg"
   },
   {
     "id": "region-BE-VBR",
@@ -1979,6 +2785,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Flevoland",
     "parent": "Niederlande",
     "locationMap": "/assets/flags/maps/NL-FL.svg"
+  },
+  {
+    "id": "region-MD-FL",
+    "code": "MD-FL",
+    "name": "Floresti",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-FL.webp",
+    "visualKey": "f22bdf94d311cad8",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Florești_District,_Moldova.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-FL.svg"
   },
   {
     "id": "region-US-FL",
@@ -2135,6 +2954,19 @@ export const flagCatalog = [
     "visualKey": "9ad41066b280d1cb"
   },
   {
+    "id": "region-MD-GA",
+    "code": "MD-GA",
+    "name": "Gagauzia",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-GA.webp",
+    "visualKey": "29ce6f58e2f8e97e",
+    "source": "https://en.wikipedia.org/wiki/Gagauzia",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-GA.svg"
+  },
+  {
     "id": "region-ES-GA",
     "code": "ES-GA",
     "name": "Galicien",
@@ -2156,6 +2988,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/GM.svg",
     "visualKey": "d8ea8e17c144d120"
+  },
+  {
+    "id": "region-LI-03",
+    "code": "LI-03",
+    "name": "Gamprin",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-03.webp",
+    "visualKey": "4851d36eb7fa0ac7",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Gamprin_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-03.svg"
   },
   {
     "id": "region-SE-X",
@@ -2279,6 +3124,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CH-GL.svg"
   },
   {
+    "id": "region-MD-GL",
+    "code": "MD-GL",
+    "name": "Glodeni",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-GL.webp",
+    "visualKey": "c9f09aa4c90e9dd5",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Glodeni_District.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-GL.svg"
+  },
+  {
     "id": "region-BR-GO",
     "code": "BR-GO",
     "name": "Goiás",
@@ -2292,6 +3150,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-GO.svg"
   },
   {
+    "id": "region-BY-HO",
+    "code": "BY-HO",
+    "name": "Gomel",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-HO.webp",
+    "visualKey": "81655d6e34abfd6a",
+    "source": "https://en.wikipedia.org/wiki/Gomel_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-HO.svg"
+  },
+  {
     "id": "region-SE-I",
     "code": "SE-I",
     "name": "Gotland County",
@@ -2303,6 +3174,19 @@ export const flagCatalog = [
     "source": "https://sv.wikipedia.org/wiki/Gotlands_läns_vapen",
     "parent": "Schweden",
     "locationMap": "/assets/flags/maps/SE-I.svg"
+  },
+  {
+    "id": "region-FR-GES",
+    "code": "FR-GES",
+    "name": "Grand Est",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-GES.webp",
+    "visualKey": "dc1d0f05b567ff86",
+    "source": "https://en.wikipedia.org/wiki/Grand_Est",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-GES.svg"
   },
   {
     "id": "country-GD",
@@ -2336,6 +3220,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
     "parent": "Schweiz",
     "locationMap": "/assets/flags/maps/CH-GR.svg"
+  },
+  {
+    "id": "region-BY-HR",
+    "code": "BY-HR",
+    "name": "Grodno",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-HR.webp",
+    "visualKey": "4b690d3ed7c355d0",
+    "source": "https://en.wikipedia.org/wiki/Grodno_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-HR.svg"
   },
   {
     "id": "region-NL-GR",
@@ -2509,6 +3406,19 @@ export const flagCatalog = [
     "visualKey": "5d5abae3a47a1e82"
   },
   {
+    "id": "region-HU-GY",
+    "code": "HU-GY",
+    "name": "Győr",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-GY.webp",
+    "visualKey": "c03656b79cbab594",
+    "source": "https://www.wikidata.org/wiki/Q134494",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-GY.svg"
+  },
+  {
     "id": "country-HT",
     "code": "HT",
     "name": "Haiti",
@@ -2543,6 +3453,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Hamburg",
     "parent": "Deutschland",
     "locationMap": "/assets/flags/maps/DE-HH.svg"
+  },
+  {
+    "id": "region-EE-37",
+    "code": "EE-37",
+    "name": "Harju maakond",
+    "kind": "region",
+    "collection": "europe-ee",
+    "continent": "europe",
+    "image": "/assets/flags/regions/EE-37.webp",
+    "visualKey": "271279dde5a62e2c",
+    "source": "https://www.wikidata.org/wiki/Q619247",
+    "parent": "Estland",
+    "locationMap": "/assets/flags/maps/EE-37.svg"
+  },
+  {
+    "id": "region-FR-HDF",
+    "code": "FR-HDF",
+    "name": "Hauts-de-France",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-HDF.webp",
+    "visualKey": "9edb84365398a6c5",
+    "source": "https://en.wikipedia.org/wiki/Hauts-de-France",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-HDF.svg"
   },
   {
     "id": "region-US-HI",
@@ -2594,6 +3530,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BE-WHT.svg"
   },
   {
+    "id": "region-ME-08",
+    "code": "ME-08",
+    "name": "Herceg Novi Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-08.webp",
+    "visualKey": "5ca4e1164de9437e",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Herceg_Novi,_Montenegro.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-08.svg"
+  },
+  {
     "id": "region-DE-HE",
     "code": "DE-HE",
     "name": "Hessen",
@@ -2620,6 +3569,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-HID.svg"
   },
   {
+    "id": "region-EE-39",
+    "code": "EE-39",
+    "name": "Hiiu maakond",
+    "kind": "region",
+    "collection": "europe-ee",
+    "continent": "europe",
+    "image": "/assets/flags/regions/EE-39.webp",
+    "visualKey": "9d045a83c36e5c9c",
+    "source": "https://www.wikidata.org/wiki/Q619405",
+    "parent": "Estland",
+    "locationMap": "/assets/flags/maps/EE-39.svg"
+  },
+  {
+    "id": "region-MD-HI",
+    "code": "MD-HI",
+    "name": "Hincesti",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-HI.webp",
+    "visualKey": "df432c887e962476",
+    "source": "https://commons.wikimedia.org/wiki/File:Hincesti_rajon_flag.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-HI.svg"
+  },
+  {
     "id": "region-JP-34",
     "code": "JP-34",
     "name": "Hiroshima",
@@ -2631,6 +3606,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Hiroshima_Prefecture",
     "parent": "Japan",
     "locationMap": "/assets/flags/maps/JP-34.svg"
+  },
+  {
+    "id": "region-HU-HV",
+    "code": "HU-HV",
+    "name": "Hódmezővásárhely",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-HV.webp",
+    "visualKey": "d443bff84b72bc73",
+    "source": "https://www.wikidata.org/wiki/Q124375",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-HV.svg"
   },
   {
     "id": "region-JP-01",
@@ -2654,6 +3642,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/HN.svg",
     "visualKey": "e3f4f45d1ea2f721"
+  },
+  {
+    "id": "region-DK-84",
+    "code": "DK-84",
+    "name": "Hovedstaden",
+    "kind": "region",
+    "collection": "europe-dk",
+    "continent": "europe",
+    "image": "/assets/flags/regions/DK-84.webp",
+    "visualKey": "446ddad3f6330519",
+    "source": "https://en.wikipedia.org/wiki/Capital_Region_of_Denmark",
+    "parent": "Dänemark",
+    "locationMap": "/assets/flags/maps/DK-84.svg"
   },
   {
     "id": "region-CZ-52",
@@ -2695,6 +3696,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-28.svg"
   },
   {
+    "id": "region-RO-IL",
+    "code": "RO-IL",
+    "name": "IALOMITA",
+    "kind": "region",
+    "collection": "europe-ro",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RO-IL.webp",
+    "visualKey": "126d934b59aae272",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Romania",
+    "parent": "Rumänien",
+    "locationMap": "/assets/flags/maps/RO-IL.svg"
+  },
+  {
     "id": "region-JP-08",
     "code": "JP-08",
     "name": "Ibaraki",
@@ -2719,6 +3733,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Idaho",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-ID.svg"
+  },
+  {
+    "id": "region-FR-IDF",
+    "code": "FR-IDF",
+    "name": "Île-de-France",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-IDF.webp",
+    "visualKey": "e49eac601c09dccd",
+    "source": "https://fr.wikipedia.org/wiki/Drapeau_de_l'Île-de-France",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-IDF.svg"
   },
   {
     "id": "region-US-IL",
@@ -2765,6 +3792,32 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/ID.svg",
     "visualKey": "10044594cd13d728"
+  },
+  {
+    "id": "region-RU-IN",
+    "code": "RU-IN",
+    "name": "Ingushetia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-IN.webp",
+    "visualKey": "9d14f8f3af631b76",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ingushetia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-IN.svg"
+  },
+  {
+    "id": "region-NO-34",
+    "code": "NO-34",
+    "name": "Innlandet",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-34.webp",
+    "visualKey": "8e94a71c0c579823",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Innlandet.svg",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-34.svg"
   },
   {
     "id": "region-US-IA",
@@ -2853,6 +3906,19 @@ export const flagCatalog = [
     "visualKey": "e6edd720a2191bb6"
   },
   {
+    "id": "region-TR-34",
+    "code": "TR-34",
+    "name": "İstanbul",
+    "kind": "region",
+    "collection": "europe-tr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/TR-34.webp",
+    "visualKey": "72cf4abc72fa1165",
+    "source": "https://en.wikipedia.org/wiki/Istanbul",
+    "parent": "Türkei",
+    "locationMap": "/assets/flags/maps/TR-34.svg"
+  },
+  {
     "id": "region-HR-18",
     "code": "HR-18",
     "name": "Istrien",
@@ -2874,6 +3940,32 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/IT.svg",
     "visualKey": "e88c1cc9c6a8fb9b"
+  },
+  {
+    "id": "region-UA-26",
+    "code": "UA-26",
+    "name": "Ivano-Frankivsk Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-26.webp",
+    "visualKey": "a81cb2cf6d73245b",
+    "source": "https://www.wikidata.org/wiki/Q2454410",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-26.svg"
+  },
+  {
+    "id": "region-RU-IVA",
+    "code": "RU-IVA",
+    "name": "Ivanovo Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-IVA.webp",
+    "visualKey": "2b810120ad2276aa",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ivanovo_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-IVA.svg"
   },
   {
     "id": "region-JP-03",
@@ -2933,6 +4025,45 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/JP.svg",
     "visualKey": "ce3d1e4c28f4fcfc"
+  },
+  {
+    "id": "region-LV-042",
+    "code": "LV-042",
+    "name": "Jēkabpils novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-042.webp",
+    "visualKey": "9e1bee32c5eaaf0f",
+    "source": "https://commons.wikimedia.org/wiki/File:Jēkabpils_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-042.svg"
+  },
+  {
+    "id": "region-LV-JEL",
+    "code": "LV-JEL",
+    "name": "Jelgavas",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-JEL.webp",
+    "visualKey": "d9595bd224a941c6",
+    "source": "https://commons.wikimedia.org/wiki/File:Jelgava_flag.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-JEL.svg"
+  },
+  {
+    "id": "region-LV-041",
+    "code": "LV-041",
+    "name": "Jelgavas novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-041.webp",
+    "visualKey": "65b6d6c8a038ae66",
+    "source": "https://commons.wikimedia.org/wiki/File:Jelgavas_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-041.svg"
   },
   {
     "id": "country-YE",
@@ -3017,6 +4148,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CH-JU.svg"
   },
   {
+    "id": "region-LV-JUR",
+    "code": "LV-JUR",
+    "name": "Jūrmalas",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-JUR.webp",
+    "visualKey": "85aea5249954ba61",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Jurmala.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-JUR.svg"
+  },
+  {
+    "id": "region-RU-KB",
+    "code": "RU-KB",
+    "name": "Kabardino-Balkaria",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KB.webp",
+    "visualKey": "645434d9768d78df",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kabardino-Balkaria",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KB.svg"
+  },
+  {
     "id": "region-JP-37",
     "code": "JP-37",
     "name": "Kagawa",
@@ -3053,6 +4210,19 @@ export const flagCatalog = [
     "visualKey": "7a0c0bd5d1b85afb"
   },
   {
+    "id": "region-FI-05",
+    "code": "FI-05",
+    "name": "Kainuu",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-05.webp",
+    "visualKey": "8e3a57dbe8cc9824",
+    "source": "https://en.wikipedia.org/wiki/Kainuu",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-05.svg"
+  },
+  {
     "id": "region-IT-78",
     "code": "IT-78",
     "name": "Kalabrien",
@@ -3066,6 +4236,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-78.svg"
   },
   {
+    "id": "region-RU-KGD",
+    "code": "RU-KGD",
+    "name": "Kaliningrad",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KGD.webp",
+    "visualKey": "ebfe151e464958d2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kaliningrad_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KGD.svg"
+  },
+  {
     "id": "region-SE-H",
     "code": "SE-H",
     "name": "Kalmar County",
@@ -3077,6 +4260,32 @@ export const flagCatalog = [
     "source": "https://sv.wikipedia.org/wiki/Kalmar_län",
     "parent": "Schweden",
     "locationMap": "/assets/flags/maps/SE-H.svg"
+  },
+  {
+    "id": "region-RU-KL",
+    "code": "RU-KL",
+    "name": "Kalmykia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KL.webp",
+    "visualKey": "ae72acc536055f22",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kalmykia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KL.svg"
+  },
+  {
+    "id": "region-RU-KLU",
+    "code": "RU-KLU",
+    "name": "Kaluga Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KLU.webp",
+    "visualKey": "e118ff2e515a68e0",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kaluga_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KLU.svg"
   },
   {
     "id": "country-KH",
@@ -3182,6 +4391,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Cantabria",
     "parent": "Spanien",
     "locationMap": "/assets/flags/maps/ES-CB.svg"
+  },
+  {
+    "id": "region-HU-KV",
+    "code": "HU-KV",
+    "name": "Kaposvár",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-KV.webp",
+    "visualKey": "3e18fd5cc325d952",
+    "source": "https://www.wikidata.org/wiki/Q184998",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-KV.svg"
+  },
+  {
+    "id": "region-RU-KC",
+    "code": "RU-KC",
+    "name": "Karachay-Cherkessia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KC.webp",
+    "visualKey": "39370eaab6bdc44d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Karachay-Cherkessia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KC.svg"
   },
   {
     "id": "country-BQ",
@@ -3305,6 +4540,32 @@ export const flagCatalog = [
     "visualKey": "3c3cbc6278b1a273"
   },
   {
+    "id": "region-LT-KU",
+    "code": "LT-KU",
+    "name": "Kaunas County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-KU.webp",
+    "visualKey": "75ff4ccd4828f14c",
+    "source": "https://en.wikipedia.org/wiki/Kaunas_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-KU.svg"
+  },
+  {
+    "id": "region-HU-KM",
+    "code": "HU-KM",
+    "name": "Kecskemét",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-KM.webp",
+    "visualKey": "e2bdfd8933c5aa42",
+    "source": "https://www.wikidata.org/wiki/Q171357",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-KM.svg"
+  },
+  {
     "id": "region-MY-02",
     "code": "MY-02",
     "name": "Kedah",
@@ -3316,6 +4577,19 @@ export const flagCatalog = [
     "source": "https://www.wikidata.org/wiki/Q17335307",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-02.svg"
+  },
+  {
+    "id": "region-LV-052",
+    "code": "LV-052",
+    "name": "Ķekavas novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-052.webp",
+    "visualKey": "57297fc00e7f5a83",
+    "source": "https://commons.wikimedia.org/wiki/File:Ķekavas_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-052.svg"
   },
   {
     "id": "region-MY-03",
@@ -3354,6 +4628,71 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-KY.svg"
   },
   {
+    "id": "region-FI-07",
+    "code": "FI-07",
+    "name": "Keski-Pohjanmaa",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-07.webp",
+    "visualKey": "4db7ddfc76271663",
+    "source": "https://en.wikipedia.org/wiki/Central_Ostrobothnia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-07.svg"
+  },
+  {
+    "id": "region-RU-KHM",
+    "code": "RU-KHM",
+    "name": "Khanty-Mansiysk Autonomous Okrug – Ugra",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KHM.webp",
+    "visualKey": "ef677fb009685765",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Khanty-Mansi_Autonomous_Okrug",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KHM.svg"
+  },
+  {
+    "id": "region-UA-63",
+    "code": "UA-63",
+    "name": "Kharkiv Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-63.webp",
+    "visualKey": "16980a3e0346d8ca",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kharkiv_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-63.svg"
+  },
+  {
+    "id": "region-UA-65",
+    "code": "UA-65",
+    "name": "Kherson Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-65.webp",
+    "visualKey": "808662d538e34de1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kherson_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-65.svg"
+  },
+  {
+    "id": "region-UA-68",
+    "code": "UA-68",
+    "name": "Khmelnytskyi Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-68.webp",
+    "visualKey": "a33028c2ff456095",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Khmelnytskyi_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-68.svg"
+  },
+  {
     "id": "country-KG",
     "code": "KG",
     "name": "Kirgisistan",
@@ -3372,6 +4711,45 @@ export const flagCatalog = [
     "continent": "oceania",
     "image": "/assets/flags/countries/KI.svg",
     "visualKey": "e5f9733eb434bc00"
+  },
+  {
+    "id": "region-RU-KIR",
+    "code": "RU-KIR",
+    "name": "Kirov Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KIR.webp",
+    "visualKey": "d122cc2bb57a009a",
+    "source": "https://en.wikipedia.org/wiki/Kirov_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KIR.svg"
+  },
+  {
+    "id": "region-UA-35",
+    "code": "UA-35",
+    "name": "Kirovohrad Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-35.webp",
+    "visualKey": "2adf56a97bf7e9ab",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kirovohrad_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-35.svg"
+  },
+  {
+    "id": "region-LT-KL",
+    "code": "LT-KL",
+    "name": "Klaipeda County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-KL.webp",
+    "visualKey": "5838e1ef09209d4b",
+    "source": "https://en.wikipedia.org/wiki/Klaip%C4%97da_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-KL.svg"
   },
   {
     "id": "region-PL-12",
@@ -3420,6 +4798,266 @@ export const flagCatalog = [
     "visualKey": "5a6236b26196c406"
   },
   {
+    "id": "region-RU-KO",
+    "code": "RU-KO",
+    "name": "Komi Republic",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KO.webp",
+    "visualKey": "6d74b36b6c6c2bc1",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Komi_Republic",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KO.svg"
+  },
+  {
+    "id": "region-HU-BK",
+    "code": "HU-BK",
+    "name": "Komitat Bács-Kiskun",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-BK.webp",
+    "visualKey": "919311940fb384d7",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-BK.svg"
+  },
+  {
+    "id": "region-HU-BA",
+    "code": "HU-BA",
+    "name": "Komitat Baranya",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-BA.webp",
+    "visualKey": "df8ba1a2529e87ca",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-BA.svg"
+  },
+  {
+    "id": "region-HU-BE",
+    "code": "HU-BE",
+    "name": "Komitat Békés",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-BE.webp",
+    "visualKey": "d9fb1d8baf5cf82f",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-BE.svg"
+  },
+  {
+    "id": "region-HU-BZ",
+    "code": "HU-BZ",
+    "name": "Komitat Borsod-Abaúj-Zemplén",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-BZ.webp",
+    "visualKey": "bc0be030c4d00f33",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-BZ.svg"
+  },
+  {
+    "id": "region-HU-CS",
+    "code": "HU-CS",
+    "name": "Komitat Csongrád-Csanád",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-CS.webp",
+    "visualKey": "8d4caa3c2784343e",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-CS.svg"
+  },
+  {
+    "id": "region-HU-FE",
+    "code": "HU-FE",
+    "name": "Komitat Fejér",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-FE.webp",
+    "visualKey": "8ba887cbf73eec81",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-FE.svg"
+  },
+  {
+    "id": "region-HU-GS",
+    "code": "HU-GS",
+    "name": "Komitat Győr-Moson-Sopron",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-GS.webp",
+    "visualKey": "c8d8d870b2152fc5",
+    "source": "https://hu.wikipedia.org/wiki/Győr-Moson-Sopron_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-GS.svg"
+  },
+  {
+    "id": "region-HU-HB",
+    "code": "HU-HB",
+    "name": "Komitat Hajdú-Bihar",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-HB.webp",
+    "visualKey": "e88d88bab2a84348",
+    "source": "https://hu.wikipedia.org/wiki/Hajdú-Bihar_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-HB.svg"
+  },
+  {
+    "id": "region-HU-HE",
+    "code": "HU-HE",
+    "name": "Komitat Heves",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-HE.webp",
+    "visualKey": "ff375eb43a757eb6",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-HE.svg"
+  },
+  {
+    "id": "region-HU-JN",
+    "code": "HU-JN",
+    "name": "Komitat Jász-Nagykun-Szolnok",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-JN.webp",
+    "visualKey": "8456b67ef9bbeb15",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-JN.svg"
+  },
+  {
+    "id": "region-HU-KE",
+    "code": "HU-KE",
+    "name": "Komitat Komárom-Esztergom",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-KE.webp",
+    "visualKey": "6029ea9c92b225e6",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-KE.svg"
+  },
+  {
+    "id": "region-HU-NO",
+    "code": "HU-NO",
+    "name": "Komitat Nógrád",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-NO.webp",
+    "visualKey": "4b2b21acd98304b8",
+    "source": "https://hu.wikipedia.org/wiki/Nógrád_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-NO.svg"
+  },
+  {
+    "id": "region-HU-PE",
+    "code": "HU-PE",
+    "name": "Komitat Pest",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-PE.webp",
+    "visualKey": "e7da35cbbe4d1f3e",
+    "source": "https://hu.wikipedia.org/wiki/Pest_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-PE.svg"
+  },
+  {
+    "id": "region-HU-SO",
+    "code": "HU-SO",
+    "name": "Komitat Somogy",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SO.webp",
+    "visualKey": "6bdf92f56156c1e3",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SO.svg"
+  },
+  {
+    "id": "region-HU-SZ",
+    "code": "HU-SZ",
+    "name": "Komitat Szabolcs-Szatmár-Bereg",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SZ.webp",
+    "visualKey": "8fa97542bb6c9843",
+    "source": "https://hu.wikipedia.org/wiki/Szabolcs-Szatmár-Bereg_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SZ.svg"
+  },
+  {
+    "id": "region-HU-TO",
+    "code": "HU-TO",
+    "name": "Komitat Tolna",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-TO.webp",
+    "visualKey": "4de2e4b7af70d794",
+    "source": "https://hu.wikipedia.org/wiki/Tolna_vármegye",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-TO.svg"
+  },
+  {
+    "id": "region-HU-VA",
+    "code": "HU-VA",
+    "name": "Komitat Vas",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-VA.webp",
+    "visualKey": "a8b367c57a7b294f",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-VA.svg"
+  },
+  {
+    "id": "region-HU-VE",
+    "code": "HU-VE",
+    "name": "Komitat Veszprém",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-VE.webp",
+    "visualKey": "4b761a2cbfca2787",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-VE.svg"
+  },
+  {
+    "id": "region-HU-ZA",
+    "code": "HU-ZA",
+    "name": "Komitat Zala",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-ZA.webp",
+    "visualKey": "01c6c4312d911942",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Hungary",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-ZA.svg"
+  },
+  {
     "id": "country-KM",
     "code": "KM",
     "name": "Komoren",
@@ -3463,6 +5101,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HR-06.svg"
   },
   {
+    "id": "region-AL-06",
+    "code": "AL-06",
+    "name": "Korçë",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-06.webp",
+    "visualKey": "171f2eed25e48c19",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Korçë.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-06.svg"
+  },
+  {
     "id": "region-SK-KI",
     "code": "SK-KI",
     "name": "Košice",
@@ -3486,6 +5137,19 @@ export const flagCatalog = [
     "visualKey": "64cb2059fff629b3"
   },
   {
+    "id": "region-RU-KOS",
+    "code": "RU-KOS",
+    "name": "Kostroma Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KOS.webp",
+    "visualKey": "5aa78608c6fc0ff7",
+    "source": "https://www.crwflags.com/fotw/flags/ru-44.html",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KOS.svg"
+  },
+  {
     "id": "region-HR-02",
     "code": "HR-02",
     "name": "Krapina-Zagorje",
@@ -3497,6 +5161,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
     "parent": "Kroatien",
     "locationMap": "/assets/flags/maps/HR-02.svg"
+  },
+  {
+    "id": "region-RU-KDA",
+    "code": "RU-KDA",
+    "name": "Krasnodar Krai",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KDA.webp",
+    "visualKey": "84dfe9e575a41626",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Krasnodar_Krai",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KDA.svg"
   },
   {
     "id": "country-HR",
@@ -3558,6 +5235,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/PL-04.svg"
   },
   {
+    "id": "region-AL-07",
+    "code": "AL-07",
+    "name": "Kukës",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-07.webp",
+    "visualKey": "47175ab8558ac35c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kukës.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-07.svg"
+  },
+  {
     "id": "region-JP-43",
     "code": "JP-43",
     "name": "Kumamoto",
@@ -3571,6 +5261,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-43.svg"
   },
   {
+    "id": "region-RU-KRS",
+    "code": "RU-KRS",
+    "name": "Kursk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KRS.webp",
+    "visualKey": "04cf5f154f235efc",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kursk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KRS.svg"
+  },
+  {
     "id": "country-KW",
     "code": "KW",
     "name": "Kuwait",
@@ -3579,6 +5282,45 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/KW.svg",
     "visualKey": "0b78ae3f7c93ca5d"
+  },
+  {
+    "id": "region-UA-30",
+    "code": "UA-30",
+    "name": "Kyiv",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-30.webp",
+    "visualKey": "b8487bf053b0445d",
+    "source": "https://www.wikidata.org/wiki/Q2225406",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-30.svg"
+  },
+  {
+    "id": "region-UA-32",
+    "code": "UA-32",
+    "name": "Kyiv Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-32.webp",
+    "visualKey": "0880a1115fd9fd8a",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Kyiv_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-32.svg"
+  },
+  {
+    "id": "region-FI-09",
+    "code": "FI-09",
+    "name": "Kymenlaakso",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-09.webp",
+    "visualKey": "e5353d131ce4c353",
+    "source": "https://en.wikipedia.org/wiki/Kymenlaakso",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-09.svg"
   },
   {
     "id": "region-JP-26",
@@ -3669,6 +5411,19 @@ export const flagCatalog = [
     "visualKey": "f7b38ea2fbc03a28"
   },
   {
+    "id": "region-FI-10",
+    "code": "FI-10",
+    "name": "Lapland",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-10.webp",
+    "visualKey": "b5c95e10ef2dc148",
+    "source": "https://en.wikipedia.org/wiki/Lapland_(Finland)",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-10.svg"
+  },
+  {
     "id": "region-IT-62",
     "code": "IT-62",
     "name": "Latium",
@@ -3693,6 +5448,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Lubusz_Voivodeship",
     "parent": "Polen",
     "locationMap": "/assets/flags/maps/PL-08.svg"
+  },
+  {
+    "id": "region-IE-L",
+    "code": "IE-L",
+    "name": "Leinster",
+    "kind": "region",
+    "collection": "europe-ie",
+    "continent": "europe",
+    "image": "/assets/flags/regions/IE-L.webp",
+    "visualKey": "358b83d070dba92c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Leinster",
+    "parent": "Irland",
+    "locationMap": "/assets/flags/maps/IE-L.svg"
+  },
+  {
+    "id": "region-RU-LEN",
+    "code": "RU-LEN",
+    "name": "Leningrad oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-LEN.webp",
+    "visualKey": "5fd6174a946c4db0",
+    "source": "https://www.crwflags.com/fotw/flags/ru-47.html",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-LEN.svg"
   },
   {
     "id": "country-LS",
@@ -3768,6 +5549,19 @@ export const flagCatalog = [
     "visualKey": "62823f1dcbd552b4"
   },
   {
+    "id": "region-LV-LPX",
+    "code": "LV-LPX",
+    "name": "Liepājas",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-LPX.webp",
+    "visualKey": "62b9c855d0fbc01c",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Liepāja.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-LPX.svg"
+  },
+  {
     "id": "region-IT-42",
     "code": "IT-42",
     "name": "Ligurien",
@@ -3794,6 +5588,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HR-09.svg"
   },
   {
+    "id": "region-LV-054",
+    "code": "LV-054",
+    "name": "Limbažu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-054.webp",
+    "visualKey": "bb8f434b877b3f96",
+    "source": "https://commons.wikimedia.org/wiki/File:Limbazu_novads_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-054.svg"
+  },
+  {
     "id": "region-NL-LI",
     "code": "NL-LI",
     "name": "Limburg",
@@ -3818,6 +5625,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Limburg_(Belgium)",
     "parent": "Belgien",
     "locationMap": "/assets/flags/maps/BE-VLI.svg"
+  },
+  {
+    "id": "region-RU-LIP",
+    "code": "RU-LIP",
+    "name": "Lipetsk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-LIP.webp",
+    "visualKey": "47b2d53e7d6910ed",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Lipetsk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-LIP.svg"
   },
   {
     "id": "country-LT",
@@ -3921,6 +5741,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CH-LU.svg"
   },
   {
+    "id": "region-UA-09",
+    "code": "UA-09",
+    "name": "Luhansk Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-09.webp",
+    "visualKey": "20e59571b7b50907",
+    "source": "https://www.wikidata.org/wiki/Q1853811",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-09.svg"
+  },
+  {
     "id": "region-BE-WLG",
     "code": "BE-WLG",
     "name": "Lüttich",
@@ -3955,6 +5788,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/List_of_Belgian_flags",
     "parent": "Belgien",
     "locationMap": "/assets/flags/maps/BE-WLX.svg"
+  },
+  {
+    "id": "region-UA-46",
+    "code": "UA-46",
+    "name": "Lviv Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-46.webp",
+    "visualKey": "36ea69e0c506bb79",
+    "source": "https://www.wikidata.org/wiki/Q2774900",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-46.svg"
   },
   {
     "id": "country-MG",
@@ -4108,6 +5954,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CA-MB.svg"
   },
   {
+    "id": "region-RO-MM",
+    "code": "RO-MM",
+    "name": "MARAMURES",
+    "kind": "region",
+    "collection": "europe-ro",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RO-MM.webp",
+    "visualKey": "19fad4f58d7dbf47",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Romania",
+    "parent": "Rumänien",
+    "locationMap": "/assets/flags/maps/RO-MM.svg"
+  },
+  {
     "id": "region-BR-MA",
     "code": "BR-MA",
     "name": "Maranhão",
@@ -4119,6 +5978,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Maranh%C3%A3o",
     "parent": "Brasilien",
     "locationMap": "/assets/flags/maps/BR-MA.svg"
+  },
+  {
+    "id": "region-RU-ME",
+    "code": "RU-ME",
+    "name": "Mari El",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ME.webp",
+    "visualKey": "80d091d3f797d83b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mari_El",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ME.svg"
+  },
+  {
+    "id": "region-LT-MR",
+    "code": "LT-MR",
+    "name": "Marijampole County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-MR.webp",
+    "visualKey": "e02e62b713f707c4",
+    "source": "https://en.wikipedia.org/wiki/Marijampol%C4%97_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-MR.svg"
   },
   {
     "id": "region-IT-57",
@@ -4240,6 +6125,19 @@ export const flagCatalog = [
     "source": "https://www.wikidata.org/wiki/Q2166",
     "parent": "Chile",
     "locationMap": "/assets/flags/maps/CL-ML.svg"
+  },
+  {
+    "id": "region-LI-04",
+    "code": "LI-04",
+    "name": "Mauren",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-04.webp",
+    "visualKey": "d53e0e7a64298770",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mauren_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-04.svg"
   },
   {
     "id": "country-MR",
@@ -4412,6 +6310,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-MIC.svg"
   },
   {
+    "id": "region-DK-82",
+    "code": "DK-82",
+    "name": "Midtjylland",
+    "kind": "region",
+    "collection": "europe-dk",
+    "continent": "europe",
+    "image": "/assets/flags/regions/DK-82.webp",
+    "visualKey": "a10be4b572a2f701",
+    "source": "https://en.wikipedia.org/wiki/Central_Denmark_Region",
+    "parent": "Dänemark",
+    "locationMap": "/assets/flags/maps/DK-82.svg"
+  },
+  {
     "id": "region-JP-24",
     "code": "JP-24",
     "name": "Mie",
@@ -4461,6 +6372,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-MN.svg"
   },
   {
+    "id": "region-BY-MI",
+    "code": "BY-MI",
+    "name": "Minsk",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-MI.webp",
+    "visualKey": "1221fa17becee047",
+    "source": "https://en.wikipedia.org/wiki/Minsk_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-MI.svg"
+  },
+  {
+    "id": "region-BY-HM",
+    "code": "BY-HM",
+    "name": "Minsk City",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-HM.webp",
+    "visualKey": "5b02b3beaa0d2521",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Minsk",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-HM.svg"
+  },
+  {
     "id": "region-AR-N",
     "code": "AR-N",
     "name": "Misiones",
@@ -4472,6 +6409,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Misiones_Province",
     "parent": "Argentinien",
     "locationMap": "/assets/flags/maps/AR-N.svg"
+  },
+  {
+    "id": "region-HU-MI",
+    "code": "HU-MI",
+    "name": "Miskolc",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-MI.webp",
+    "visualKey": "4a0be011c0f8a59b",
+    "source": "https://www.wikidata.org/wiki/Q102397",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-MI.svg"
   },
   {
     "id": "region-US-MS",
@@ -4539,6 +6489,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-45.svg"
   },
   {
+    "id": "region-BY-MA",
+    "code": "BY-MA",
+    "name": "Mogilev",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-MA.webp",
+    "visualKey": "24b6245e57b818bb",
+    "source": "https://en.wikipedia.org/wiki/Mogilev_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-MA.svg"
+  },
+  {
     "id": "region-IT-67",
     "code": "IT-67",
     "name": "Molise",
@@ -4585,6 +6548,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-MT.svg"
   },
   {
+    "id": "region-SM-08",
+    "code": "SM-08",
+    "name": "Montegiardino",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-08.webp",
+    "visualKey": "2a8172240ce62816",
+    "source": "https://commons.wikimedia.org/wiki/File:Montegiardino_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-08.svg"
+  },
+  {
     "id": "country-ME",
     "code": "ME",
     "name": "Montenegro",
@@ -4603,6 +6579,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/MS.svg",
     "visualKey": "0f81fb7c3f45dc94"
+  },
+  {
+    "id": "region-NO-15",
+    "code": "NO-15",
+    "name": "Møre og Romsdal",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-15.webp",
+    "visualKey": "80969fedaea81d93",
+    "source": "https://en.wikipedia.org/wiki/M%C3%B8re_og_Romsdal",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-15.svg"
   },
   {
     "id": "region-MX-MOR",
@@ -4628,6 +6617,45 @@ export const flagCatalog = [
     "visualKey": "0bd8d7c7f3989bd9"
   },
   {
+    "id": "region-RU-MOW",
+    "code": "RU-MOW",
+    "name": "Moscow",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-MOW.webp",
+    "visualKey": "8386db9c6320b649",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Moscow",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-MOW.svg"
+  },
+  {
+    "id": "region-RU-MOS",
+    "code": "RU-MOS",
+    "name": "Moscow Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-MOS.webp",
+    "visualKey": "5068d1f41139f016",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Moscow_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-MOS.svg"
+  },
+  {
+    "id": "region-IE-M",
+    "code": "IE-M",
+    "name": "Munster",
+    "kind": "region",
+    "collection": "europe-ie",
+    "continent": "europe",
+    "image": "/assets/flags/regions/IE-M.webp",
+    "visualKey": "256ef77ef0cdc50e",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Munster",
+    "parent": "Irland",
+    "locationMap": "/assets/flags/maps/IE-M.svg"
+  },
+  {
     "id": "region-ES-MC",
     "code": "ES-MC",
     "name": "Murcia",
@@ -4641,6 +6669,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/ES-MC.svg"
   },
   {
+    "id": "region-RU-MUR",
+    "code": "RU-MUR",
+    "name": "Murmansk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-MUR.webp",
+    "visualKey": "70b079a267db3c8c",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Murmansk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-MUR.svg"
+  },
+  {
     "id": "country-MM",
     "code": "MM",
     "name": "Myanmar",
@@ -4649,6 +6690,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/MM.svg",
     "visualKey": "806ac4710328d221"
+  },
+  {
+    "id": "region-UA-48",
+    "code": "UA-48",
+    "name": "Mykolaiv Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-48.webp",
+    "visualKey": "8c68eae359a5ce1c",
+    "source": "https://www.wikidata.org/wiki/Q4947971",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-48.svg"
   },
   {
     "id": "region-JP-20",
@@ -4675,6 +6729,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Nagasaki_Prefecture",
     "parent": "Japan",
     "locationMap": "/assets/flags/maps/JP-42.svg"
+  },
+  {
+    "id": "region-HU-NK",
+    "code": "HU-NK",
+    "name": "Nagykanizsa",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-NK.webp",
+    "visualKey": "ea8af1d015547e5c",
+    "source": "https://www.wikidata.org/wiki/Q14424",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-NK.svg"
   },
   {
     "id": "country-NA",
@@ -4786,6 +6853,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Negeri_Sembilan",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-05.svg"
+  },
+  {
+    "id": "region-RU-NEN",
+    "code": "RU-NEN",
+    "name": "Nenets Autonomous Okrug",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-NEN.webp",
+    "visualKey": "901f22e9734bb200",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nenets_Autonomous_Okrug",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-NEN.svg"
   },
   {
     "id": "country-NP",
@@ -5076,6 +7156,19 @@ export const flagCatalog = [
     "visualKey": "5827374c86bb34f8"
   },
   {
+    "id": "region-RU-NIZ",
+    "code": "RU-NIZ",
+    "name": "Nizhny Novgorod Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-NIZ.webp",
+    "visualKey": "57711fb36f284a22",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Nizhny_Novgorod_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-NIZ.svg"
+  },
+  {
     "id": "region-NL-NB",
     "code": "NL-NB",
     "name": "Noord-Brabant",
@@ -5114,6 +7207,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/GB-NIR.svg"
   },
   {
+    "id": "region-DK-81",
+    "code": "DK-81",
+    "name": "Nordjylland",
+    "kind": "region",
+    "collection": "europe-dk",
+    "continent": "europe",
+    "image": "/assets/flags/regions/DK-81.webp",
+    "visualKey": "6904b2830b10e445",
+    "source": "https://en.wikipedia.org/wiki/Region_Nordjylland",
+    "parent": "Dänemark",
+    "locationMap": "/assets/flags/maps/DK-81.svg"
+  },
+  {
     "id": "country-KP",
     "code": "KP",
     "name": "Nordkorea",
@@ -5122,6 +7228,19 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/KP.svg",
     "visualKey": "cb7dcbed9c762878"
+  },
+  {
+    "id": "region-NO-18",
+    "code": "NO-18",
+    "name": "Nordland",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-18.webp",
+    "visualKey": "74a2805d4a9c3682",
+    "source": "https://en.wikipedia.org/wiki/Nordland",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-18.svg"
   },
   {
     "id": "country-MP",
@@ -5180,6 +7299,19 @@ export const flagCatalog = [
     "visualKey": "bef9b45a2e02fddb"
   },
   {
+    "id": "region-FR-NOR",
+    "code": "FR-NOR",
+    "name": "Normandie",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-NOR.webp",
+    "visualKey": "cb1582dfbb766076",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Normandy",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-NOR.svg"
+  },
+  {
     "id": "region-SE-BD",
     "code": "SE-BD",
     "name": "Norrbotten",
@@ -5232,6 +7364,58 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-ND.svg"
   },
   {
+    "id": "region-FI-13",
+    "code": "FI-13",
+    "name": "North Karelia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-13.webp",
+    "visualKey": "b1617ba7c5f003f3",
+    "source": "https://en.wikipedia.org/wiki/North_Karelia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-13.svg"
+  },
+  {
+    "id": "region-RU-SE",
+    "code": "RU-SE",
+    "name": "North Ossetia–Alania",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SE.webp",
+    "visualKey": "1923f84ad366bffe",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_North_Ossetia%E2%80%93Alania",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SE.svg"
+  },
+  {
+    "id": "region-FI-14",
+    "code": "FI-14",
+    "name": "Northern Ostrobothnia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-14.webp",
+    "visualKey": "62e49b7c07938c93",
+    "source": "https://en.wikipedia.org/wiki/North_Ostrobothnia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-14.svg"
+  },
+  {
+    "id": "region-FI-15",
+    "code": "FI-15",
+    "name": "Northern Savonia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-15.webp",
+    "visualKey": "323879be558101fa",
+    "source": "https://en.wikipedia.org/wiki/Northern_Savonia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-15.svg"
+  },
+  {
     "id": "region-AU-NT",
     "code": "AU-NT",
     "name": "Northern Territory",
@@ -5255,6 +7439,19 @@ export const flagCatalog = [
     "visualKey": "aa9bd3159ae3c81e"
   },
   {
+    "id": "region-FR-NAQ",
+    "code": "FR-NAQ",
+    "name": "Nouvelle-Aquitaine",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-NAQ.webp",
+    "visualKey": "40dc53be771e90e0",
+    "source": "https://www.wikidata.org/wiki/Q66424359",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-NAQ.svg"
+  },
+  {
     "id": "region-CA-NS",
     "code": "CA-NS",
     "name": "Nova Scotia",
@@ -5266,6 +7463,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Nova_Scotia",
     "parent": "Kanada",
     "locationMap": "/assets/flags/maps/CA-NS.svg"
+  },
+  {
+    "id": "region-RU-NGR",
+    "code": "RU-NGR",
+    "name": "Novgorod Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-NGR.webp",
+    "visualKey": "a55070ca0ac89a1b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Novgorod_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-NGR.svg"
   },
   {
     "id": "region-CL-NB",
@@ -5305,6 +7515,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Nunavut",
     "parent": "Kanada",
     "locationMap": "/assets/flags/maps/CA-NU.svg"
+  },
+  {
+    "id": "region-HU-NY",
+    "code": "HU-NY",
+    "name": "Nyíregyháza",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-NY.webp",
+    "visualKey": "7d26018c83428595",
+    "source": "https://www.wikidata.org/wiki/Q171223",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-NY.svg"
   },
   {
     "id": "region-CL-LI",
@@ -5357,6 +7580,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
     "parent": "Schweiz",
     "locationMap": "/assets/flags/maps/CH-OW.svg"
+  },
+  {
+    "id": "region-FR-OCC",
+    "code": "FR-OCC",
+    "name": "Occitanie",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-OCC.webp",
+    "visualKey": "bf170a295cf2f867",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Occitania",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-OCC.svg"
+  },
+  {
+    "id": "region-UA-51",
+    "code": "UA-51",
+    "name": "Odessa Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-51.webp",
+    "visualKey": "55820a3b860ca0ba",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Odesa_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-51.svg"
   },
   {
     "id": "region-US-OH",
@@ -5499,6 +7748,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-OR.svg"
   },
   {
+    "id": "region-RU-ORE",
+    "code": "RU-ORE",
+    "name": "Orenburg Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ORE.webp",
+    "visualKey": "e1165f3fa95481b8",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Orenburg_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ORE.svg"
+  },
+  {
+    "id": "region-RU-ORL",
+    "code": "RU-ORL",
+    "name": "Oryol Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ORL.webp",
+    "visualKey": "dc7d1bd918f2aca0",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Oryol_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ORL.svg"
+  },
+  {
     "id": "region-JP-27",
     "code": "JP-27",
     "name": "Osaka",
@@ -5523,6 +7798,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_counties_of_Croatia",
     "parent": "Kroatien",
     "locationMap": "/assets/flags/maps/HR-14.svg"
+  },
+  {
+    "id": "region-NO-03",
+    "code": "NO-03",
+    "name": "Oslo",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-03.webp",
+    "visualKey": "bb7109ef5a5d6993",
+    "source": "https://snl.no/Oslos_flagg_og_v%C3%A5pen",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-03.svg"
   },
   {
     "id": "region-SE-E",
@@ -5561,6 +7849,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BE-VOV.svg"
   },
   {
+    "id": "region-FI-12",
+    "code": "FI-12",
+    "name": "Ostrobothnia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-12.webp",
+    "visualKey": "b9fb90bd4924d5d7",
+    "source": "https://en.wikipedia.org/wiki/Ostrobothnia_(region)",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-12.svg"
+  },
+  {
     "id": "region-NL-OV",
     "code": "NL-OV",
     "name": "Overijssel",
@@ -5585,6 +7886,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Pahang",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-06.svg"
+  },
+  {
+    "id": "region-FI-16",
+    "code": "FI-16",
+    "name": "Päijät-Häme",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-16.webp",
+    "visualKey": "0fcb4151805f93b0",
+    "source": "https://en.wikipedia.org/wiki/P%C3%A4ij%C3%A4nne_Tavastia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-16.svg"
   },
   {
     "id": "country-PK",
@@ -5625,6 +7939,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/PA.svg",
     "visualKey": "b619cebe2cf79b86"
+  },
+  {
+    "id": "region-LT-PN",
+    "code": "LT-PN",
+    "name": "Panevezys County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-PN.webp",
+    "visualKey": "061456306dfcf34f",
+    "source": "https://en.wikipedia.org/wiki/Panev%C4%97%C5%BEys_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-PN.svg"
   },
   {
     "id": "country-PG",
@@ -5699,6 +8026,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CZ-53.svg"
   },
   {
+    "id": "region-FR-PDL",
+    "code": "FR-PDL",
+    "name": "Pays de la Loire",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-PDL.webp",
+    "visualKey": "0a924a9d388a783c",
+    "source": "https://en.wikipedia.org/wiki/Pays_de_la_Loire",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-PDL.svg"
+  },
+  {
+    "id": "region-HU-PS",
+    "code": "HU-PS",
+    "name": "Pécs",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-PS.webp",
+    "visualKey": "65aa8dff1a5f48de",
+    "source": "https://www.wikidata.org/wiki/Q45779",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-PS.svg"
+  },
+  {
     "id": "region-MY-07",
     "code": "MY-07",
     "name": "Penang",
@@ -5725,6 +8078,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-PA.svg"
   },
   {
+    "id": "region-RU-PNZ",
+    "code": "RU-PNZ",
+    "name": "Penza Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-PNZ.webp",
+    "visualKey": "58301dfd7c67d668",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Penza_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-PNZ.svg"
+  },
+  {
     "id": "region-MY-08",
     "code": "MY-08",
     "name": "Perak",
@@ -5749,6 +8115,19 @@ export const flagCatalog = [
     "source": "https://www.wikidata.org/wiki/Q2171778",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-09.svg"
+  },
+  {
+    "id": "region-RU-PER",
+    "code": "RU-PER",
+    "name": "Perm Krai",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-PER.webp",
+    "visualKey": "fceac3d473b9b135",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Perm_Krai",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-PER.svg"
   },
   {
     "id": "region-BR-PE",
@@ -5810,6 +8189,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-21.svg"
   },
   {
+    "id": "region-FI-11",
+    "code": "FI-11",
+    "name": "Pirkanmaa",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-11.webp",
+    "visualKey": "ab82cb05a0c2328e",
+    "source": "https://en.wikipedia.org/wiki/Pirkanmaa",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-11.svg"
+  },
+  {
     "id": "country-PN",
     "code": "PN",
     "name": "Pitcairninseln",
@@ -5818,6 +8210,32 @@ export const flagCatalog = [
     "continent": "oceania",
     "image": "/assets/flags/countries/PN.svg",
     "visualKey": "8dba59cea145d4b5"
+  },
+  {
+    "id": "region-LI-05",
+    "code": "LI-05",
+    "name": "Planken",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-05.webp",
+    "visualKey": "2af4a11170fafea0",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Planken_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-05.svg"
+  },
+  {
+    "id": "region-ME-15",
+    "code": "ME-15",
+    "name": "Plužine Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-15.webp",
+    "visualKey": "18b3e8114458d6e1",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Plužine,_Montenegro.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-15.svg"
   },
   {
     "id": "region-CZ-32",
@@ -5831,6 +8249,19 @@ export const flagCatalog = [
     "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
     "parent": "Tschechien",
     "locationMap": "/assets/flags/maps/CZ-32.svg"
+  },
+  {
+    "id": "region-ME-16",
+    "code": "ME-16",
+    "name": "Podgorica Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-16.webp",
+    "visualKey": "ca4efee3f9e792de",
+    "source": "https://en.wikipedia.org",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-16.svg"
   },
   {
     "id": "region-PL-20",
@@ -5854,6 +8285,19 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/PL.svg",
     "visualKey": "ddcd386c022570c8"
+  },
+  {
+    "id": "region-UA-53",
+    "code": "UA-53",
+    "name": "Poltava Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-53.webp",
+    "visualKey": "dc9e8f9906dcfcd5",
+    "source": "https://www.wikidata.org/wiki/Q4487511",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-53.svg"
   },
   {
     "id": "region-PL-22",
@@ -5942,6 +8386,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Prince_Edward_Island",
     "parent": "Kanada",
     "locationMap": "/assets/flags/maps/CA-PE.svg"
+  },
+  {
+    "id": "region-FR-PAC",
+    "code": "FR-PAC",
+    "name": "Provence-Alpes-Côte d'Azur",
+    "kind": "region",
+    "collection": "europe-fr",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FR-PAC.webp",
+    "visualKey": "90f52d2a0a48679e",
+    "source": "https://www.wikidata.org/wiki/Q12143656",
+    "parent": "Frankreich",
+    "locationMap": "/assets/flags/maps/FR-PAC.svg"
+  },
+  {
+    "id": "region-RU-PSK",
+    "code": "RU-PSK",
+    "name": "Pskov Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-PSK.webp",
+    "visualKey": "dffa8ced0777a34b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Pskov_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-PSK.svg"
   },
   {
     "id": "region-MX-PUE",
@@ -6058,6 +8528,58 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-ROO.svg"
   },
   {
+    "id": "region-PT-30",
+    "code": "PT-30",
+    "name": "RegiÃ£o AutÃ³noma da Madeira",
+    "kind": "region",
+    "collection": "europe-pt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/PT-30.webp",
+    "visualKey": "e10fb716f1f5d284",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Madeira",
+    "parent": "Portugal",
+    "locationMap": "/assets/flags/maps/PT-30.svg"
+  },
+  {
+    "id": "region-PT-20",
+    "code": "PT-20",
+    "name": "RegiÃ£o AutÃ³noma dos AÃ§ores",
+    "kind": "region",
+    "collection": "europe-pt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/PT-20.webp",
+    "visualKey": "a3d99b6e27fc25a5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Azores",
+    "parent": "Portugal",
+    "locationMap": "/assets/flags/maps/PT-20.svg"
+  },
+  {
+    "id": "region-RU-KR",
+    "code": "RU-KR",
+    "name": "Republic of Karelia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-KR.webp",
+    "visualKey": "fe920e9cc5710c9f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_Karelia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-KR.svg"
+  },
+  {
+    "id": "region-RU-MO",
+    "code": "RU-MO",
+    "name": "Republic of Mordovia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-MO.webp",
+    "visualKey": "beaf7280bfd1ceae",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Mordovia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-MO.svg"
+  },
+  {
     "id": "country-MD",
     "code": "MD",
     "name": "Republik Moldau",
@@ -6076,6 +8598,32 @@ export const flagCatalog = [
     "continent": "other",
     "image": "/assets/flags/countries/RE.svg",
     "visualKey": "e154b77d6d80d40f"
+  },
+  {
+    "id": "region-LV-REZ",
+    "code": "LV-REZ",
+    "name": "Rēzeknes",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-REZ.webp",
+    "visualKey": "6f866b3fc2884d4e",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rēzekne.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-REZ.svg"
+  },
+  {
+    "id": "region-MD-RE",
+    "code": "MD-RE",
+    "name": "Rezina",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-RE.webp",
+    "visualKey": "4d4cad82e18ad7c0",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_District_Rezina.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-RE.svg"
   },
   {
     "id": "region-DE-RP",
@@ -6102,6 +8650,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rhode_Island.svg",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-RI.svg"
+  },
+  {
+    "id": "region-LV-RIX",
+    "code": "LV-RIX",
+    "name": "Rīga",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-RIX.webp",
+    "visualKey": "775ab14df6322edf",
+    "source": "https://www.wikidata.org/wiki/Q4487638",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-RIX.svg"
   },
   {
     "id": "region-BR-RJ",
@@ -6169,6 +8730,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CO-RIS.svg"
   },
   {
+    "id": "region-UA-56",
+    "code": "UA-56",
+    "name": "Rivne Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-56.webp",
+    "visualKey": "c86e23e0bcd0e33b",
+    "source": "https://www.wikidata.org/wiki/Q2501410",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-56.svg"
+  },
+  {
+    "id": "region-NO-11",
+    "code": "NO-11",
+    "name": "Rogaland",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-11.webp",
+    "visualKey": "943cc54cb6d70c53",
+    "source": "https://en.wikipedia.org/wiki/Rogaland",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-11.svg"
+  },
+  {
     "id": "region-BR-RO",
     "code": "BR-RO",
     "name": "Rondônia",
@@ -6180,6 +8767,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Rond%C3%B4nia",
     "parent": "Brasilien",
     "locationMap": "/assets/flags/maps/BR-RO.svg"
+  },
+  {
+    "id": "region-LV-080",
+    "code": "LV-080",
+    "name": "Ropažu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-080.webp",
+    "visualKey": "7bd75fc3c24ecf75",
+    "source": "https://commons.wikimedia.org/wiki/File:Ropažu_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-080.svg"
   },
   {
     "id": "region-BR-RR",
@@ -6195,6 +8795,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-RR.svg"
   },
   {
+    "id": "region-RU-ROS",
+    "code": "RU-ROS",
+    "name": "Rostov Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ROS.webp",
+    "visualKey": "3b30472f7bc3845d",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Rostov_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ROS.svg"
+  },
+  {
+    "id": "region-ME-17",
+    "code": "ME-17",
+    "name": "Rožaje Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-17.webp",
+    "visualKey": "5cc0c2c7e08e07fa",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rozaje.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-17.svg"
+  },
+  {
     "id": "country-RW",
     "code": "RW",
     "name": "Ruanda",
@@ -6203,6 +8829,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/RW.svg",
     "visualKey": "3504c12a92ac57b5"
+  },
+  {
+    "id": "region-LI-06",
+    "code": "LI-06",
+    "name": "Ruggell",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-06.webp",
+    "visualKey": "23077177d274420a",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ruggell_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-06.svg"
   },
   {
     "id": "country-RO",
@@ -6223,6 +8862,32 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/RU.svg",
     "visualKey": "956813618b07c240"
+  },
+  {
+    "id": "region-RU-RYA",
+    "code": "RU-RYA",
+    "name": "Ryazan Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-RYA.webp",
+    "visualKey": "8541865421912ed7",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ryazan_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-RYA.svg"
+  },
+  {
+    "id": "region-EE-74",
+    "code": "EE-74",
+    "name": "Saare maakond",
+    "kind": "region",
+    "collection": "europe-ee",
+    "continent": "europe",
+    "image": "/assets/flags/regions/EE-74.webp",
+    "visualKey": "54f875a1082d164d",
+    "source": "https://www.wikidata.org/wiki/Q619804",
+    "parent": "Estland",
+    "locationMap": "/assets/flags/maps/EE-74.svg"
   },
   {
     "id": "region-DE-SL",
@@ -6290,6 +8955,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-41.svg"
   },
   {
+    "id": "region-RU-SPE",
+    "code": "RU-SPE",
+    "name": "Saint Petersburg",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SPE.webp",
+    "visualKey": "6ee7ceb045ecb314",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saint_Petersburg",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SPE.svg"
+  },
+  {
     "id": "region-JP-11",
     "code": "JP-11",
     "name": "Saitama",
@@ -6301,6 +8979,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Saitama_Prefecture",
     "parent": "Japan",
     "locationMap": "/assets/flags/maps/JP-11.svg"
+  },
+  {
+    "id": "region-LV-088",
+    "code": "LV-088",
+    "name": "Saldus novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-088.webp",
+    "visualKey": "e5a86c54e5128939",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Saldus_novads.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-088.svg"
+  },
+  {
+    "id": "region-HU-ST",
+    "code": "HU-ST",
+    "name": "Salgótarján",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-ST.webp",
+    "visualKey": "447105e68fc52063",
+    "source": "https://www.wikidata.org/wiki/Q189769",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-ST.svg"
   },
   {
     "id": "country-SB",
@@ -6337,6 +9041,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Salzburg_(state).svg",
     "parent": "Österreich",
     "locationMap": "/assets/flags/maps/AT-5.svg"
+  },
+  {
+    "id": "region-RU-SAM",
+    "code": "RU-SAM",
+    "name": "Samara Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SAM.webp",
+    "visualKey": "fa412ea58d31571b",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Samara_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SAM.svg"
   },
   {
     "id": "country-ZM",
@@ -6509,6 +9226,19 @@ export const flagCatalog = [
     "visualKey": "f495bdd55ee1383e"
   },
   {
+    "id": "region-RU-SAR",
+    "code": "RU-SAR",
+    "name": "Saratov Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SAR.webp",
+    "visualKey": "8ed9ff9b6b4228de",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Saratov_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SAR.svg"
+  },
+  {
     "id": "region-MY-13",
     "code": "MY-13",
     "name": "Sarawak",
@@ -6548,6 +9278,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CA-SK.svg"
   },
   {
+    "id": "region-FI-17",
+    "code": "FI-17",
+    "name": "Satakunta",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-17.webp",
+    "visualKey": "2127f9218b48a8b3",
+    "source": "https://en.wikipedia.org/wiki/Satakunta",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-17.svg"
+  },
+  {
     "id": "country-SA",
     "code": "SA",
     "name": "Saudi-Arabien",
@@ -6556,6 +9299,45 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/SA.svg",
     "visualKey": "04f737fc74456758"
+  },
+  {
+    "id": "region-LV-089",
+    "code": "LV-089",
+    "name": "Saulkrastu novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-089.webp",
+    "visualKey": "af4167db8f8fd0d0",
+    "source": "https://commons.wikimedia.org/wiki/File:Saulkrastu_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-089.svg"
+  },
+  {
+    "id": "region-ME-18",
+    "code": "ME-18",
+    "name": "Šavnik Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-18.webp",
+    "visualKey": "00ada57702735602",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Šavnik,_Montenegro.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-18.svg"
+  },
+  {
+    "id": "region-LI-07",
+    "code": "LI-07",
+    "name": "Schaan",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-07.webp",
+    "visualKey": "bce20ee5a99a3fd4",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Schaan_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-07.svg"
   },
   {
     "id": "region-CH-SH",
@@ -6569,6 +9351,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flags_and_arms_of_cantons_of_Switzerland",
     "parent": "Schweiz",
     "locationMap": "/assets/flags/maps/CH-SH.svg"
+  },
+  {
+    "id": "region-LI-08",
+    "code": "LI-08",
+    "name": "Schellenberg",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-08.webp",
+    "visualKey": "494adbab2b388805",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Schellenberg_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-08.svg"
   },
   {
     "id": "region-PL-24",
@@ -6688,6 +9483,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-SE.svg"
   },
   {
+    "id": "region-SM-09",
+    "code": "SM-09",
+    "name": "Serravalle",
+    "kind": "region",
+    "collection": "europe-sm",
+    "continent": "europe",
+    "image": "/assets/flags/regions/SM-09.webp",
+    "visualKey": "60b8a8f2ead0fa8b",
+    "source": "https://commons.wikimedia.org/wiki/File:Serravalle_(RSM)-Bandiera.svg",
+    "parent": "San Marino",
+    "locationMap": "/assets/flags/maps/SM-09.svg"
+  },
+  {
+    "id": "region-UA-40",
+    "code": "UA-40",
+    "name": "Sevastopol",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-40.webp",
+    "visualKey": "0acf89f5d63cc6e7",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sevastopol",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-40.svg"
+  },
+  {
     "id": "country-SC",
     "code": "SC",
     "name": "Seychellen",
@@ -6735,6 +9556,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Shizuoka_Prefecture",
     "parent": "Japan",
     "locationMap": "/assets/flags/maps/JP-22.svg"
+  },
+  {
+    "id": "region-LT-SA",
+    "code": "LT-SA",
+    "name": "Siauliai County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-SA.webp",
+    "visualKey": "f28a3a099f887c75",
+    "source": "https://en.wikipedia.org/wiki/%C5%A0iauliai_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-SA.svg"
   },
   {
     "id": "region-HR-15",
@@ -6829,6 +9663,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-82.svg"
   },
   {
+    "id": "region-DK-85",
+    "code": "DK-85",
+    "name": "Sjælland",
+    "kind": "region",
+    "collection": "europe-dk",
+    "continent": "europe",
+    "image": "/assets/flags/regions/DK-85.webp",
+    "visualKey": "608fced68aab0b97",
+    "source": "https://en.wikipedia.org/wiki/Region_Zealand",
+    "parent": "Dänemark",
+    "locationMap": "/assets/flags/maps/DK-85.svg"
+  },
+  {
     "id": "region-SE-M",
     "code": "SE-M",
     "name": "Skåne",
@@ -6862,6 +9709,32 @@ export const flagCatalog = [
     "visualKey": "cfed3be19e2a4e9e"
   },
   {
+    "id": "region-LV-094",
+    "code": "LV-094",
+    "name": "Smiltenes novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-094.webp",
+    "visualKey": "7d45eadc3d1951e8",
+    "source": "https://commons.wikimedia.org/wiki/File:Smiltenes_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-094.svg"
+  },
+  {
+    "id": "region-RU-SMO",
+    "code": "RU-SMO",
+    "name": "Smolensk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SMO.webp",
+    "visualKey": "e9b89e290e8663d3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Smolensk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SMO.svg"
+  },
+  {
     "id": "region-SE-D",
     "code": "SE-D",
     "name": "Södermanland",
@@ -6873,6 +9746,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/S%C3%B6dermanland_County",
     "parent": "Schweden",
     "locationMap": "/assets/flags/maps/SE-D.svg"
+  },
+  {
+    "id": "region-BG-22",
+    "code": "BG-22",
+    "name": "Sofia City",
+    "kind": "region",
+    "collection": "europe-bg",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BG-22.webp",
+    "visualKey": "f5dd4525019b95ef",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sofia",
+    "parent": "Bulgarien",
+    "locationMap": "/assets/flags/maps/BG-22.svg"
   },
   {
     "id": "region-CH-SO",
@@ -6931,6 +9817,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-SON.svg"
   },
   {
+    "id": "region-HU-SN",
+    "code": "HU-SN",
+    "name": "Sopron",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SN.webp",
+    "visualKey": "77c294bf49b59c45",
+    "source": "https://www.wikidata.org/wiki/Q168648",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SN.svg"
+  },
+  {
+    "id": "region-MD-SO",
+    "code": "MD-SO",
+    "name": "Soroca",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-SO.webp",
+    "visualKey": "738b0ff48e95ecda",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_District_Soroca.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-SO.svg"
+  },
+  {
     "id": "region-AU-SA",
     "code": "AU-SA",
     "name": "South Australia",
@@ -6968,6 +9880,45 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_South_Dakota",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-SD.svg"
+  },
+  {
+    "id": "region-FI-02",
+    "code": "FI-02",
+    "name": "South Karelia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-02.webp",
+    "visualKey": "69d3f69c4260d97a",
+    "source": "https://en.wikipedia.org/wiki/South_Karelia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-02.svg"
+  },
+  {
+    "id": "region-FI-03",
+    "code": "FI-03",
+    "name": "South Ostrobothnia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-03.webp",
+    "visualKey": "8788722eace64064",
+    "source": "https://en.wikipedia.org/wiki/South_Ostrobothnia",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-03.svg"
+  },
+  {
+    "id": "region-FI-04",
+    "code": "FI-04",
+    "name": "Southern Savonia",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-04.webp",
+    "visualKey": "e2d5e125e8c9c76b",
+    "source": "https://en.wikipedia.org/wiki/South_Savo",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-04.svg"
   },
   {
     "id": "country-ES",
@@ -7109,6 +10060,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HR-21.svg"
   },
   {
+    "id": "region-RU-STA",
+    "code": "RU-STA",
+    "name": "Stavropol Krai",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-STA.webp",
+    "visualKey": "fe629d9a1ee675cf",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Stavropol_Krai",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-STA.svg"
+  },
+  {
     "id": "region-AT-6",
     "code": "AT-6",
     "name": "Steiermark",
@@ -7224,6 +10188,19 @@ export const flagCatalog = [
     "visualKey": "b9f71332a189a405"
   },
   {
+    "id": "region-UA-59",
+    "code": "UA-59",
+    "name": "Sumy Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-59.webp",
+    "visualKey": "c90fabd6dd615745",
+    "source": "https://www.wikidata.org/wiki/Q2088121",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-59.svg"
+  },
+  {
     "id": "country-SR",
     "code": "SR",
     "name": "Suriname",
@@ -7234,6 +10211,32 @@ export const flagCatalog = [
     "visualKey": "d82a94f5e61c0253"
   },
   {
+    "id": "region-RU-SVE",
+    "code": "RU-SVE",
+    "name": "Sverdlovsk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-SVE.webp",
+    "visualKey": "7fdcd71ce3abba52",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Sverdlovsk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-SVE.svg"
+  },
+  {
+    "id": "region-DK-83",
+    "code": "DK-83",
+    "name": "Syddanmark",
+    "kind": "region",
+    "collection": "europe-dk",
+    "continent": "europe",
+    "image": "/assets/flags/regions/DK-83.webp",
+    "visualKey": "2c5b013d02c640f7",
+    "source": "https://en.wikipedia.org/wiki/Region_of_Southern_Denmark",
+    "parent": "Dänemark",
+    "locationMap": "/assets/flags/maps/DK-83.svg"
+  },
+  {
     "id": "country-SY",
     "code": "SY",
     "name": "Syrien",
@@ -7242,6 +10245,71 @@ export const flagCatalog = [
     "continent": "asia",
     "image": "/assets/flags/countries/SY.svg",
     "visualKey": "f37b4e0e1b4310f7"
+  },
+  {
+    "id": "region-HU-SD",
+    "code": "HU-SD",
+    "name": "Szeged",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SD.webp",
+    "visualKey": "3780651e721441c1",
+    "source": "https://www.wikidata.org/wiki/Q81581",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SD.svg"
+  },
+  {
+    "id": "region-HU-SF",
+    "code": "HU-SF",
+    "name": "Székesfehérvár",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SF.webp",
+    "visualKey": "9b7a6e098546c937",
+    "source": "https://www.wikidata.org/wiki/Q130212",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SF.svg"
+  },
+  {
+    "id": "region-HU-SS",
+    "code": "HU-SS",
+    "name": "Szekszárd",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SS.webp",
+    "visualKey": "a0ad8f567060910d",
+    "source": "https://www.wikidata.org/wiki/Q189761",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SS.svg"
+  },
+  {
+    "id": "region-HU-SK",
+    "code": "HU-SK",
+    "name": "Szolnok",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SK.webp",
+    "visualKey": "0beaff15970bc9aa",
+    "source": "https://www.wikidata.org/wiki/Q181276",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SK.svg"
+  },
+  {
+    "id": "region-HU-SH",
+    "code": "HU-SH",
+    "name": "Szombathely",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-SH.webp",
+    "visualKey": "f93d9c6886d40b4b",
+    "source": "https://www.wikidata.org/wiki/Q42007",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-SH.svg"
   },
   {
     "id": "region-MX-TAB",
@@ -7290,6 +10358,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-TAM.svg"
   },
   {
+    "id": "region-RU-TAM",
+    "code": "RU-TAM",
+    "name": "Tambov Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-TAM.webp",
+    "visualKey": "4eb7ee5818a71297",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tambov_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-TAM.svg"
+  },
+  {
     "id": "country-TZ",
     "code": "TZ",
     "name": "Tansania",
@@ -7326,6 +10407,58 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AU-TAS.svg"
   },
   {
+    "id": "region-HU-TB",
+    "code": "HU-TB",
+    "name": "Tatabánya",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-TB.webp",
+    "visualKey": "ce0f502214a6c491",
+    "source": "https://www.wikidata.org/wiki/Q187821",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-TB.svg"
+  },
+  {
+    "id": "region-RU-TA",
+    "code": "RU-TA",
+    "name": "Tatarstan",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-TA.webp",
+    "visualKey": "019dbb4d85f93ae2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tatarstan",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-TA.svg"
+  },
+  {
+    "id": "region-LT-TA",
+    "code": "LT-TA",
+    "name": "Taurage County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-TA.webp",
+    "visualKey": "63510cfb34c1a7cf",
+    "source": "https://en.wikipedia.org/wiki/Taurag%C4%97_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-TA.svg"
+  },
+  {
+    "id": "region-FI-06",
+    "code": "FI-06",
+    "name": "Tavastia Proper",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-06.webp",
+    "visualKey": "076a1d796652a790",
+    "source": "https://en.wikipedia.org/wiki/Tavastia_Proper",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-06.svg"
+  },
+  {
     "id": "region-US-TN",
     "code": "US-TN",
     "name": "Tennessee",
@@ -7350,6 +10483,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Terengganu",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-11.svg"
+  },
+  {
+    "id": "region-UA-61",
+    "code": "UA-61",
+    "name": "Ternopil Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-61.webp",
+    "visualKey": "7c5174cf1b096b38",
+    "source": "https://www.wikidata.org/wiki/Q4488070",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-61.svg"
   },
   {
     "id": "region-CH-TI",
@@ -7437,6 +10583,19 @@ export const flagCatalog = [
     "visualKey": "2754afb6ef2e6e9e"
   },
   {
+    "id": "region-AL-11",
+    "code": "AL-11",
+    "name": "Tiranë",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-11.webp",
+    "visualKey": "c0bd7254c82a1702",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tiranë.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-11.svg"
+  },
+  {
     "id": "region-AT-7",
     "code": "AT-7",
     "name": "Tirol",
@@ -7448,6 +10607,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tirol_(state).svg",
     "parent": "Österreich",
     "locationMap": "/assets/flags/maps/AT-7.svg"
+  },
+  {
+    "id": "region-ME-19",
+    "code": "ME-19",
+    "name": "Tivat Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-19.webp",
+    "visualKey": "f63d22010cf8c2df",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Tivat.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-19.svg"
   },
   {
     "id": "region-MX-TLA",
@@ -7623,6 +10795,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-32.svg"
   },
   {
+    "id": "region-LI-09",
+    "code": "LI-09",
+    "name": "Triesen",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-09.webp",
+    "visualKey": "092d70d6e453decd",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Triesen_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-09.svg"
+  },
+  {
+    "id": "region-LI-10",
+    "code": "LI-10",
+    "name": "Triesenberg",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-10.webp",
+    "visualKey": "3c1411e6f353c336",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Triesenberg_Liechtenstein-1.svg",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-10.svg"
+  },
+  {
     "id": "country-TT",
     "code": "TT",
     "name": "Trinidad und Tobago",
@@ -7689,6 +10887,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-T.svg"
   },
   {
+    "id": "region-RU-TUL",
+    "code": "RU-TUL",
+    "name": "Tula Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-TUL.webp",
+    "visualKey": "545928e9be043445",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tula_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-TUL.svg"
+  },
+  {
     "id": "country-TN",
     "code": "TN",
     "name": "Tunesien",
@@ -7739,6 +10950,32 @@ export const flagCatalog = [
     "visualKey": "47c9049f9cb00612"
   },
   {
+    "id": "region-RU-TVE",
+    "code": "RU-TVE",
+    "name": "Tver Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-TVE.webp",
+    "visualKey": "5a1ce2727bd1ecca",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Tver_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-TVE.svg"
+  },
+  {
+    "id": "region-RU-UD",
+    "code": "RU-UD",
+    "name": "Udmurtia",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-UD.webp",
+    "visualKey": "1d739b17e3513409",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Udmurtia",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-UD.svg"
+  },
+  {
     "id": "country-UG",
     "code": "UG",
     "name": "Uganda",
@@ -7757,6 +10994,45 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/UA.svg",
     "visualKey": "160a6d810384794e"
+  },
+  {
+    "id": "region-ME-20",
+    "code": "ME-20",
+    "name": "Ulcinj Municipality",
+    "kind": "region",
+    "collection": "europe-me",
+    "continent": "europe",
+    "image": "/assets/flags/regions/ME-20.webp",
+    "visualKey": "fb409efc631acabe",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ulcinj.svg",
+    "parent": "Montenegro",
+    "locationMap": "/assets/flags/maps/ME-20.svg"
+  },
+  {
+    "id": "region-IE-U",
+    "code": "IE-U",
+    "name": "Ulster",
+    "kind": "region",
+    "collection": "europe-ie",
+    "continent": "europe",
+    "image": "/assets/flags/regions/IE-U.webp",
+    "visualKey": "35b891b3520ad284",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ulster",
+    "parent": "Irland",
+    "locationMap": "/assets/flags/maps/IE-U.svg"
+  },
+  {
+    "id": "region-RU-ULY",
+    "code": "RU-ULY",
+    "name": "Ulyanovsk Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-ULY.webp",
+    "visualKey": "9bc762b4a347d087",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Ulyanovsk_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-ULY.svg"
   },
   {
     "id": "region-IT-55",
@@ -7780,6 +11056,19 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/HU.svg",
     "visualKey": "01e5b9cb192e8d37"
+  },
+  {
+    "id": "region-MD-UN",
+    "code": "MD-UN",
+    "name": "Ungheni",
+    "kind": "region",
+    "collection": "europe-md",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MD-UN.webp",
+    "visualKey": "2f12925467dda6fa",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_District_Ungheni.svg",
+    "parent": "Republik Moldau",
+    "locationMap": "/assets/flags/maps/MD-UN.svg"
   },
   {
     "id": "region-SE-C",
@@ -7854,6 +11143,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-UT.svg"
   },
   {
+    "id": "region-LT-UT",
+    "code": "LT-UT",
+    "name": "Utena County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-UT.webp",
+    "visualKey": "b7c4be1055fb756e",
+    "source": "https://en.wikipedia.org/wiki/Utena_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-UT.svg"
+  },
+  {
     "id": "region-NL-UT",
     "code": "NL-UT",
     "name": "Utrecht",
@@ -7865,6 +11167,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Utrecht_(province)",
     "parent": "Niederlande",
     "locationMap": "/assets/flags/maps/NL-UT.svg"
+  },
+  {
+    "id": "region-FI-18",
+    "code": "FI-18",
+    "name": "Uusimaa",
+    "kind": "region",
+    "collection": "europe-fi",
+    "continent": "europe",
+    "image": "/assets/flags/regions/FI-18.webp",
+    "visualKey": "ae882a6784cea5ac",
+    "source": "https://en.wikipedia.org/wiki/Uusimaa",
+    "parent": "Finnland",
+    "locationMap": "/assets/flags/maps/FI-18.svg"
+  },
+  {
+    "id": "region-LI-11",
+    "code": "LI-11",
+    "name": "Vaduz",
+    "kind": "region",
+    "collection": "europe-li",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LI-11.webp",
+    "visualKey": "e94309a260237573",
+    "source": "https://www.vaduz.li/vaduz/portrait/wappen-und-flagge",
+    "parent": "Liechtenstein",
+    "locationMap": "/assets/flags/maps/LI-11.svg"
   },
   {
     "id": "region-ES-VC",
@@ -7891,6 +11219,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Valle_del_Cauca_Department",
     "parent": "Kolumbien",
     "locationMap": "/assets/flags/maps/CO-VAC.svg"
+  },
+  {
+    "id": "region-MT-60",
+    "code": "MT-60",
+    "name": "Valletta",
+    "kind": "region",
+    "collection": "europe-mt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/MT-60.webp",
+    "visualKey": "17560aa086e507c4",
+    "source": "https://www.crwflags.com/fotw/flags/mt-01.html",
+    "parent": "Malta",
+    "locationMap": "/assets/flags/maps/MT-60.svg"
+  },
+  {
+    "id": "region-LV-113",
+    "code": "LV-113",
+    "name": "Valmieras novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-113.webp",
+    "visualKey": "017f35281f0b67ba",
+    "source": "https://commons.wikimedia.org/wiki/File:Valmieras_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-113.svg"
   },
   {
     "id": "region-CL-VS",
@@ -8040,6 +11394,32 @@ export const flagCatalog = [
     "visualKey": "a7168f026e839882"
   },
   {
+    "id": "region-LV-VEN",
+    "code": "LV-VEN",
+    "name": "Ventspils",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-VEN.webp",
+    "visualKey": "1c8ef13d237f2277",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Ventspils.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-VEN.svg"
+  },
+  {
+    "id": "region-LV-106",
+    "code": "LV-106",
+    "name": "Ventspils novads",
+    "kind": "region",
+    "collection": "europe-lv",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LV-106.webp",
+    "visualKey": "835f02b6ec2048fe",
+    "source": "https://commons.wikimedia.org/wiki/File:Ventspils_novada_karogs.svg",
+    "parent": "Lettland",
+    "locationMap": "/assets/flags/maps/LV-106.svg"
+  },
+  {
     "id": "region-MX-VER",
     "code": "MX-VER",
     "name": "Veracruz",
@@ -8096,6 +11476,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-VT.svg"
   },
   {
+    "id": "region-NO-46",
+    "code": "NO-46",
+    "name": "Vestland",
+    "kind": "region",
+    "collection": "europe-no",
+    "continent": "europe",
+    "image": "/assets/flags/regions/NO-46.webp",
+    "visualKey": "3a21f364936c3ad2",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vestland.svg",
+    "parent": "Norwegen",
+    "locationMap": "/assets/flags/maps/NO-46.svg"
+  },
+  {
+    "id": "region-HU-VM",
+    "code": "HU-VM",
+    "name": "Veszprém",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-VM.webp",
+    "visualKey": "57531fd11d2d529f",
+    "source": "https://www.wikidata.org/wiki/Q146317",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-VM.svg"
+  },
+  {
     "id": "region-CO-VID",
     "code": "CO-VID",
     "name": "Vichada",
@@ -8132,6 +11538,45 @@ export const flagCatalog = [
     "visualKey": "7f722fb6104f69bc"
   },
   {
+    "id": "region-EE-84",
+    "code": "EE-84",
+    "name": "Viljandi maakond",
+    "kind": "region",
+    "collection": "europe-ee",
+    "continent": "europe",
+    "image": "/assets/flags/regions/EE-84.webp",
+    "visualKey": "e45165f9460c11ed",
+    "source": "https://en.wikipedia.org/wiki/Viljandi_County",
+    "parent": "Estland",
+    "locationMap": "/assets/flags/maps/EE-84.svg"
+  },
+  {
+    "id": "region-LT-VL",
+    "code": "LT-VL",
+    "name": "Vilnius County",
+    "kind": "region",
+    "collection": "europe-lt",
+    "continent": "europe",
+    "image": "/assets/flags/regions/LT-VL.webp",
+    "visualKey": "69a82fb1e070c841",
+    "source": "https://en.wikipedia.org/wiki/Vilnius_County",
+    "parent": "Litauen",
+    "locationMap": "/assets/flags/maps/LT-VL.svg"
+  },
+  {
+    "id": "region-UA-05",
+    "code": "UA-05",
+    "name": "Vinnytsia Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-05.webp",
+    "visualKey": "a60186e0b22bdb41",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Vinnytsia_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-05.svg"
+  },
+  {
     "id": "region-US-VA",
     "code": "US-VA",
     "name": "Virginia",
@@ -8158,6 +11603,84 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HR-10.svg"
   },
   {
+    "id": "region-BY-VI",
+    "code": "BY-VI",
+    "name": "Vitebsk",
+    "kind": "region",
+    "collection": "europe-by",
+    "continent": "europe",
+    "image": "/assets/flags/regions/BY-VI.webp",
+    "visualKey": "b3d44cf39512ea1f",
+    "source": "https://en.wikipedia.org/wiki/Vitebsk_Region",
+    "parent": "Belarus",
+    "locationMap": "/assets/flags/maps/BY-VI.svg"
+  },
+  {
+    "id": "region-RU-VLA",
+    "code": "RU-VLA",
+    "name": "Vladimir Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-VLA.webp",
+    "visualKey": "f29429a5f5816a69",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Vladimir_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-VLA.svg"
+  },
+  {
+    "id": "region-AL-12",
+    "code": "AL-12",
+    "name": "Vlorë",
+    "kind": "region",
+    "collection": "europe-al",
+    "continent": "europe",
+    "image": "/assets/flags/regions/AL-12.webp",
+    "visualKey": "b714dee168b02466",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vlorë.svg",
+    "parent": "Albanien",
+    "locationMap": "/assets/flags/maps/AL-12.svg"
+  },
+  {
+    "id": "region-RU-VGG",
+    "code": "RU-VGG",
+    "name": "Volgograd Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-VGG.webp",
+    "visualKey": "048e3cb4604bcdf3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Volgograd_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-VGG.svg"
+  },
+  {
+    "id": "region-RU-VLG",
+    "code": "RU-VLG",
+    "name": "Vologda Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-VLG.webp",
+    "visualKey": "943b58eba0a51bc5",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Vologda_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-VLG.svg"
+  },
+  {
+    "id": "region-UA-07",
+    "code": "UA-07",
+    "name": "Volyn Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-07.webp",
+    "visualKey": "63a8785934c5e78e",
+    "source": "https://www.wikidata.org/wiki/Q2714629",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-07.svg"
+  },
+  {
     "id": "region-AT-8",
     "code": "AT-8",
     "name": "Vorarlberg",
@@ -8169,6 +11692,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Vorarlberg_(state).svg",
     "parent": "Österreich",
     "locationMap": "/assets/flags/maps/AT-8.svg"
+  },
+  {
+    "id": "region-RU-VOR",
+    "code": "RU-VOR",
+    "name": "Voronezh Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-VOR.webp",
+    "visualKey": "9debdd8d0ba9d0f3",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Voronezh_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-VOR.svg"
   },
   {
     "id": "region-HR-16",
@@ -8447,6 +11983,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-19.svg"
   },
   {
+    "id": "region-RU-YAR",
+    "code": "RU-YAR",
+    "name": "Yaroslavl Oblast",
+    "kind": "region",
+    "collection": "europe-ru",
+    "continent": "europe",
+    "image": "/assets/flags/regions/RU-YAR.webp",
+    "visualKey": "2537f8bde5a8b1e2",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Yaroslavl_Oblast",
+    "parent": "Russland",
+    "locationMap": "/assets/flags/maps/RU-YAR.svg"
+  },
+  {
     "id": "region-MX-YUC",
     "code": "MX-YUC",
     "name": "Yucatán",
@@ -8499,6 +12048,45 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HR-13.svg"
   },
   {
+    "id": "region-UA-21",
+    "code": "UA-21",
+    "name": "Zakarpattia Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-21.webp",
+    "visualKey": "eb9c9ff46d0c00de",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Zakarpattia_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-21.svg"
+  },
+  {
+    "id": "region-HU-ZE",
+    "code": "HU-ZE",
+    "name": "Zalaegerszeg",
+    "kind": "region",
+    "collection": "europe-hu",
+    "continent": "europe",
+    "image": "/assets/flags/regions/HU-ZE.webp",
+    "visualKey": "7c21eb0ddfba63a6",
+    "source": "https://www.wikidata.org/wiki/Q60037",
+    "parent": "Ungarn",
+    "locationMap": "/assets/flags/maps/HU-ZE.svg"
+  },
+  {
+    "id": "region-UA-23",
+    "code": "UA-23",
+    "name": "Zaporizhia Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-23.webp",
+    "visualKey": "17929171961997d5",
+    "source": "https://www.wikidata.org/wiki/Q2596615",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-23.svg"
+  },
+  {
     "id": "region-NL-ZE",
     "code": "NL-ZE",
     "name": "Zeeland",
@@ -8520,6 +12108,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/CF.svg",
     "visualKey": "825cab4a60fedafe"
+  },
+  {
+    "id": "region-UA-18",
+    "code": "UA-18",
+    "name": "Zhytomyr Oblast",
+    "kind": "region",
+    "collection": "europe-ua",
+    "continent": "europe",
+    "image": "/assets/flags/regions/UA-18.webp",
+    "visualKey": "e28a5ff6cfe1227f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Zhytomyr_Oblast",
+    "parent": "Ukraine",
+    "locationMap": "/assets/flags/maps/UA-18.svg"
   },
   {
     "id": "region-SK-ZI",

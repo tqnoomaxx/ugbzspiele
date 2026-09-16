@@ -3,14 +3,15 @@ import path from 'node:path'
 import sharp from 'sharp'
 import { describe, expect, it } from 'vitest'
 import { flagCatalog, getFlagsForCollection } from './catalog.js'
+import { cityCatalog, landmarkCatalog } from './geographyCatalog.js'
 import { europeMapTargets, mapSetByFlagId } from './mapManifest.generated.js'
 
 const loadMap = (id) => JSON.parse(readFileSync(path.join(process.cwd(), 'public/assets/flags/interactive', `${id}.json`), 'utf8'))
 
 describe('Flaggenkunde-Katalog', () => {
-  it('enthält 720 eindeutige und vollständig lokale Flaggen', () => {
-    expect(flagCatalog).toHaveLength(720)
-    expect(new Set(flagCatalog.map((flag) => flag.id)).size).toBe(720)
+  it('enthält 997 eindeutige und vollständig lokale Flaggen', () => {
+    expect(flagCatalog).toHaveLength(997)
+    expect(new Set(flagCatalog.map((flag) => flag.id)).size).toBe(997)
     for (const flag of flagCatalog) {
       expect(flag.name).toBeTruthy()
       expect(flag.image).toMatch(/^\/assets\/flags\//)
@@ -42,14 +43,32 @@ describe('Flaggenkunde-Katalog', () => {
     expect(getFlagsForCollection('malaysia')).toHaveLength(16)
     expect(getFlagsForCollection('japan')).toHaveLength(47)
     expect(getFlagsForCollection('europe-hyper').length).toBeGreaterThan(800)
+    expect(getFlagsForCollection('europe-fr')).toHaveLength(13)
+    expect(getFlagsForCollection('europe-bg')).toHaveLength(1)
+  })
+
+  it('liefert Städte, Hauptstädte und Welterbe mit vollständig lokalen Quizbildern', async () => {
+    expect(cityCatalog.filter((city) => city.capital).length).toBeGreaterThan(75)
+    expect(cityCatalog.filter((city) => city.image)).toHaveLength(38)
+    expect(landmarkCatalog).toHaveLength(34)
+    expect(getFlagsForCollection('heritage-country-es')).toHaveLength(5)
+    for (const item of [...cityCatalog.filter((city) => city.image), ...landmarkCatalog]) {
+      const imagePath = path.join(process.cwd(), 'public', item.image.replace(/^\//, ''))
+      expect(existsSync(imagePath), item.image).toBe(true)
+      const metadata = await sharp(imagePath).metadata()
+      expect(metadata.width, item.id).toBe(1200)
+      expect(metadata.height, item.id).toBe(750)
+    }
   })
 
   it('stellt für jede Regionalflagge und den Europa-Hypermodus anklickbare Geometrie bereit', () => {
     const regionMaps = [...new Set(Object.values(mapSetByFlagId))].map(loadMap)
     const europeHyperMap = loadMap('europe')
     const interactiveRegionIds = new Set(regionMaps.flatMap((map) => map.shapes.map((shape) => shape.flagId)))
-    expect(Object.keys(mapSetByFlagId)).toHaveLength(466)
-    expect(interactiveRegionIds.size).toBe(466)
+    const regionalFlagIds = new Set(flagCatalog.filter((flag) => flag.kind === 'region').map((flag) => flag.id))
+    expect(Object.keys(mapSetByFlagId)).toHaveLength(743)
+    expect(new Set(Object.keys(mapSetByFlagId))).toEqual(regionalFlagIds)
+    expect(interactiveRegionIds).toEqual(regionalFlagIds)
     expect(new Set(europeHyperMap.shapes.map((shape) => shape.flagId)).size).toBe(europeMapTargets.length)
     expect(europeHyperMap.shapes.map((shape) => shape.flagId).sort()).toEqual(europeMapTargets.map((target) => target.id).sort())
     for (const parent of ['Deutschland', 'Frankreich', 'Portugal', 'Norwegen', 'Ukraine', 'Rumänien', 'Griechenland', 'Ungarn']) {

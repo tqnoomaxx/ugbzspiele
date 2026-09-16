@@ -216,6 +216,32 @@ function cleanSubdivisionName(name) {
     .replace(/ Metropolis$/, '')
 }
 
+// Every European map region for which the source repository contains a real
+// flag becomes a normal flag item as well. The checked-in map manifest keeps
+// this import reproducible and lets the map generator replace map-only targets
+// with their flag-backed counterparts on the next pass.
+const mapManifest = readFileSync(path.join(root, 'src/games/flaggenkunde/mapManifest.generated.js'), 'utf8')
+const targetMatch = mapManifest.match(/export const europeMapTargets = (\[[^\n]+\])/)
+const europeanTargets = targetMatch ? JSON.parse(targetMatch[1]) : []
+const existingRegionalCodes = new Set(Object.values(codeGroups).flat())
+for (const code of ['GB-ENG', 'GB-NIR', 'GB-SCT', 'GB-WLS']) existingRegionalCodes.add(code)
+const flagBackedTargets = europeanTargets.filter((target) => (
+  !existingRegionalCodes.has(target.code)
+  && existsSync(path.join(subdivisionDataDir, `${target.code}.json`))
+  && existsSync(path.join(subdivisionDataDir, `${target.code}.svg`))
+))
+const europeTargetByCode = new Map(flagBackedTargets.map((target) => [target.code, target]))
+
+for (const [prefix, targets] of Map.groupBy(flagBackedTargets, (target) => target.code.split('-')[0])) {
+  const collection = `europe-${prefix.toLowerCase()}`
+  const codes = [...new Set(targets.map((target) => target.code))]
+  codeGroups[collection] = codes
+  expectedCounts[collection] = codes.length
+  parentNames[collection] = targets[0].parent
+  continentByCollection[collection] = 'europe'
+  for (const target of targets) nameOverrides[target.code] ??= target.name
+}
+
 for (const [collection, codes] of Object.entries(codeGroups)) {
   if (codes.length !== expectedCounts[collection]) {
     throw new Error(`${collection}: ${codes.length} statt ${expectedCounts[collection]} erwarteten Flaggen`)
@@ -243,7 +269,7 @@ for (const [collection, codes] of Object.entries(codeGroups)) {
     flags.push({
       id: `region-${code}`,
       code,
-      name: nameOverrides[code] ?? cleanSubdivisionName(source.name),
+      name: nameOverrides[code] ?? europeTargetByCode.get(code)?.name ?? cleanSubdivisionName(source.name),
       kind: 'region',
       collection,
       continent: continentByCollection[collection] ?? continentFor(source),

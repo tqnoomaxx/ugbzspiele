@@ -1,7 +1,17 @@
 import { flagCatalog } from './catalog.generated.js'
 import { europeMapTargets } from './mapManifest.generated.js'
+import { geographyCatalog, geographyCollections, getGeographyItems } from './geographyCatalog.js'
 
-export const flagCollections = [
+function groupBy(items, getKey) {
+  const groups = new Map()
+  for (const item of items) {
+    const key = getKey(item)
+    groups.set(key, [...(groups.get(key) ?? []), item])
+  }
+  return groups
+}
+
+const baseFlagCollections = [
   { id: 'all', title: 'Alle Flaggen', shortTitle: 'Alle', group: 'Komplett', symbol: '◎', description: 'Die komplette Sammlung aus Ländern, Gebieten und Regionen.', featured: true },
   { id: 'random', title: 'Überraschungsmix', shortTitle: 'Zufall', group: 'Komplett', symbol: '✦', description: 'Ein bunter Zufallsmix aus der gesamten Sammlung.', featured: true },
   { id: 'europe-hyper', title: 'Europa-Hypermodus', shortTitle: 'Europa Hyper', group: 'Komplett', symbol: '⚡', description: `${europeMapTargets.length} Gebiete auf einer Europakarte – finde jedes davon.`, featured: true, quizMode: 'europe-map' },
@@ -37,8 +47,34 @@ export const flagCollections = [
   { id: 'japan', title: 'Japanische Präfekturen', shortTitle: 'Japan', group: 'Pazifik regional', symbol: 'JP', description: 'Alle 47 Präfekturen.' },
 ]
 
-const collectionById = new Map(flagCollections.map((collection) => [collection.id, collection]))
-export const flagById = new Map([...europeMapTargets, ...flagCatalog].map((flag) => [flag.id, flag]))
+const regionalCountryCodes = {
+  germany: 'DE', austria: 'AT', netherlands: 'NL', switzerland: 'CH', spain: 'ES', italy: 'IT', poland: 'PL', belgium: 'BE', czechia: 'CZ', croatia: 'HR', slovakia: 'SK', sweden: 'SE', 'united-kingdom': 'GB',
+  'us-states': 'US', canada: 'CA', mexico: 'MX', brazil: 'BR', argentina: 'AR', colombia: 'CO', chile: 'CL', malaysia: 'MY', australia: 'AU', japan: 'JP',
+}
+
+const expandedEuropeCollections = [...groupBy(flagCatalog.filter((flag) => flag.collection.startsWith('europe-')), (flag) => flag.collection)].map(([id, flags]) => ({
+  id,
+  title: `${flags[0].parent}: Regionen mit Flaggen`,
+  shortTitle: flags[0].parent,
+  group: 'Europa regional',
+  symbol: flags[0].code.split('-')[0],
+  description: `${flags.length} ${flags.length === 1 ? 'Gebiet' : 'Gebiete'} mit eigener Flagge – auch als Kartenquiz.`,
+  countryCode: flags[0].code.split('-')[0],
+  continent: 'europe',
+  topic: 'flags',
+}))
+
+export const flagCollections = [...baseFlagCollections.map((collection) => ({
+  ...collection,
+  topic: 'flags',
+  countryCode: regionalCountryCodes[collection.id],
+  continent: collection.continent ?? (collection.group === 'Europa regional' ? 'europe' : undefined),
+})), ...expandedEuropeCollections]
+
+export const learningCollections = [...flagCollections, ...geographyCollections]
+
+const collectionById = new Map(learningCollections.map((collection) => [collection.id, collection]))
+export const flagById = new Map([...europeMapTargets, ...flagCatalog, ...geographyCatalog].map((flag) => [flag.id, flag]))
 
 export function getCollection(id) {
   return collectionById.get(id) ?? collectionById.get('countries')
@@ -46,12 +82,15 @@ export function getCollection(id) {
 
 export function getFlagsForCollection(id) {
   const collection = getCollection(id)
+  if (collection.topic === 'cities' || collection.topic === 'landmarks') return getGeographyItems(collection)
   if (collection.id === 'all' || collection.id === 'random') return flagCatalog
   if (collection.id === 'europe-hyper') return europeMapTargets.map((target) => flagById.get(target.id))
+  const regionalItems = flagCatalog.filter((flag) => flag.collection === collection.id)
+  if (regionalItems.length) return regionalItems
   if (collection.continent) {
     return flagCatalog.filter((flag) => flag.kind === 'country' && flag.continent === collection.continent)
   }
-  return flagCatalog.filter((flag) => flag.collection === collection.id)
+  return []
 }
 
 export function getCollectionCount(id) {

@@ -273,13 +273,12 @@ function europeanPart(feature) {
 }
 
 async function addEuropeanRegions(europeFlags, countries, targetByFlagId, naturalEarthFeatures) {
-  const covered = new Set(europeFlags.map((flag) => flag.code.split('-')[0]))
-  // Åland is already one of Finland's 19 regions. Do not overlay a second,
-  // incompatible municipality layer on the same islands.
-  covered.add('AX')
-  const extras = await Promise.all(countries.filter((country) => !covered.has(country.properties.ISO_A2_EH)).map(async (country) => {
+  const preservedPrefixes = new Set(['AT', 'BE', 'CH', 'CZ', 'DE', 'ES', 'GB', 'HR', 'IT', 'NL', 'PL', 'SE', 'SK', 'AX'])
+  const preserved = europeFlags.filter((flag) => preservedPrefixes.has(flag.code.split('-')[0]))
+  const expanded = await Promise.all(countries.filter((country) => !preservedPrefixes.has(country.properties.ISO_A2_EH)).map(async (country) => {
     const code = country.properties.ISO_A2_EH
     const parent = country.properties.NAME_DE
+    const existingByCode = new Map(europeFlags.filter((flag) => flag.code.startsWith(`${code}-`)).map((flag) => [flag.code, flag]))
     const iso3 = code === 'XK' ? 'XKX' : country.properties.ISO_A3_EH
     let features
     try {
@@ -298,7 +297,7 @@ async function addEuropeanRegions(europeFlags, countries, targetByFlagId, natura
       const props = feature.properties
       const name = props.shapeName || props.name_de || props.name || parent
       const regionCode = props.shapeISO || props.iso_3166_2 || `${code}-${index + 1}`
-      const flag = { id: `map-${code}-${index + 1}`, code: regionCode, name, parent, kind: 'map-region', continent: 'europe' }
+      const flag = existingByCode.get(regionCode) ?? { id: `map-${code}-${index + 1}`, code: regionCode, name, parent, kind: 'map-region', continent: 'europe' }
       targetByFlagId.set(flag.id, geometry)
       return flag
     }).filter(Boolean)
@@ -306,10 +305,10 @@ async function addEuropeanRegions(europeFlags, countries, targetByFlagId, natura
     console.log(`${parent}: ${matches.length} Europa-Ziele`)
     return matches
   }))
-  return [...europeFlags, ...extras.flat()].sort((a, b) => a.name.localeCompare(b.name, 'de'))
+  return [...preserved, ...expanded.flat()].sort((a, b) => a.name.localeCompare(b.name, 'de'))
 }
 
-async function writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarthFeatures) {
+async function writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarthFeatures, outputDirectory, mappedCodes) {
   const mapSets = {}
   const mapSetByFlagId = {}
   const targetByFlagId = new Map()
@@ -340,9 +339,31 @@ async function writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, natur
     }
   }
 
-  let europeFlags = regionalFlags.filter((flag) => flag.continent === 'europe' && !europeHyperExclusions.has(flag.id) && targetByFlagId.has(flag.id))
+  // Keep every European flag in the candidate pool. addEuropeanRegions can match
+  // flags by their ISO subdivision code even when the locator data source used
+  // above did not contain that code (for example the current French regions).
+  let europeFlags = regionalFlags.filter((flag) => flag.continent === 'europe' && !europeHyperExclusions.has(flag.id))
   const europeCountries = await fetchEuropeCountries()
   europeFlags = await addEuropeanRegions(europeFlags, europeCountries, targetByFlagId, naturalEarthFeatures)
+  for (const flag of europeFlags.filter((item) => item.kind === 'region' && !mappedCodes.has(item.code))) {
+    const target = targetByFlagId.get(flag.id)
+    const background = europeFlags.filter((item) => item.parent === flag.parent).map((item) => targetByFlagId.get(item.id)).filter(Boolean)
+    if (!target || !background.length) continue
+    writeFileSync(path.join(outputDirectory, `${flag.code}.svg`), renderMap(flag, background, target))
+    mappedCodes.add(flag.code)
+  }
+  for (const [prefix, flags] of Map.groupBy(europeFlags.filter((flag) => flag.kind === 'region' && !mapSetByFlagId[flag.id]), (flag) => flag.code.split('-')[0])) {
+    const matches = flags.map((flag) => ({ flag, feature: targetByFlagId.get(flag.id) })).filter(({ feature }) => feature)
+    if (matches.length !== flags.length || matches.length < 4) continue
+    const project = createProjection(matches.map(({ feature }) => feature))
+    const setId = `${prefix}-EUROPE`
+    mapSets[setId] = {
+      label: matches[0].flag.parent,
+      viewBox: '0 0 240 160',
+      shapes: matches.map(({ flag, feature }) => createShape(flag, feature, project)),
+    }
+    for (const { flag } of matches) mapSetByFlagId[flag.id] = setId
+  }
   const europeTargets = europeFlags.map((flag) => targetByFlagId.get(flag.id))
   const europeProject = createProjection([...europeCountries, ...europeTargets], 980, 620, 22)
   const europeMap = {
@@ -413,7 +434,7 @@ export async function generateFlagLocatorMaps(flags, { outputDirectory = default
 
   if (missing.length) console.warn(`Keine Lagekarte für: ${missing.join(', ')}`)
   naturalEarth ??= await fetchNaturalEarth()
-  await writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarth)
+  await writeInteractiveGeometry(regionalFlags, matchedGeoByPrefix, naturalEarth, outputDirectory, mappedCodes)
   console.log(`${mappedCodes.size} lokale Lagekarten erzeugt.`)
   return mappedCodes
 }
