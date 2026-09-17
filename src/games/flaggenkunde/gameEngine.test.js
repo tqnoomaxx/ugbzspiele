@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { advanceQuiz, answerMapGuess, answerQuestion, answerTypedQuestion, createQuiz, getQuizResult, normalizeFlagAnswer, QUIZ_MODES, skipMapQuestion } from './gameEngine.js'
-import { getFlagsForCollection } from './catalog.js'
+import { getFlagsForCollection, getHyperItems } from './catalog.js'
 
 const flags = Array.from({ length: 6 }, (_, index) => ({
   id: `flag-${index}`,
@@ -154,6 +154,34 @@ describe('Flaggenkunde-Spielengine', () => {
         const parents = question.optionIds.map((id) => items.find((item) => item.id === id).parent)
         expect(new Set(parents).size).toBe(4)
       }
+    }
+  })
+
+  it('fragt regionale Hauptstädte in beide Richtungen mit eindeutigen Antworten ab', () => {
+    const items = getFlagsForCollection('regional-capitals-country-de')
+    for (const quizMode of [QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION]) {
+      const quiz = createQuiz(items, { collectionId: 'regional-capitals-country-de', quizMode, roundLength: 10, random: () => 0.31 })
+      for (const question of quiz.questions) {
+        expect(question.optionIds).toHaveLength(4)
+        const labels = question.optionIds.map((id) => {
+          const item = items.find((candidate) => candidate.id === id)
+          return quizMode === QUIZ_MODES.CAPITAL_REGION ? item.region : item.name
+        })
+        expect(new Set(labels).size).toBe(4)
+      }
+    }
+  })
+
+  it('mischt im auswählbaren Hypermodus nur passende Fragetypen', () => {
+    const categories = ['country-flags', 'regional-capitals', 'landmarks']
+    const items = getHyperItems(categories)
+    const quiz = createQuiz(items, { collectionId: 'knowledge-hyper', quizMode: QUIZ_MODES.MIXED, hyperCategories: categories, roundLength: 50, random: () => 0.37 })
+    expect(quiz.questions).toHaveLength(50)
+    expect(quiz.poolIds).toHaveLength(items.length)
+    expect(new Set(quiz.questions.map((question) => question.quizMode))).toEqual(new Set([QUIZ_MODES.CHOICE, QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.LANDMARK_COUNTRY]))
+    for (const question of quiz.questions) {
+      expect(question.optionIds).toHaveLength(4)
+      expect(question.optionIds).toContain(question.flagId)
     }
   })
 })

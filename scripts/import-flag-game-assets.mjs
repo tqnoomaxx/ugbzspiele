@@ -126,6 +126,10 @@ const codeGroups = {
   colombia: ['CO-AMA', 'CO-ANT', 'CO-ARA', 'CO-ATL', 'CO-BOL', 'CO-BOY', 'CO-CAL', 'CO-CAQ', 'CO-CAS', 'CO-CAU', 'CO-CES', 'CO-CHO', 'CO-COR', 'CO-CUN', 'CO-DC', 'CO-GUA', 'CO-GUV', 'CO-HUI', 'CO-LAG', 'CO-MAG', 'CO-MET', 'CO-NAR', 'CO-NSA', 'CO-PUT', 'CO-QUI', 'CO-RIS', 'CO-SAN', 'CO-SAP', 'CO-SUC', 'CO-TOL', 'CO-VAC', 'CO-VAU', 'CO-VID'],
   chile: ['CL-AI', 'CL-AN', 'CL-AP', 'CL-AR', 'CL-AT', 'CL-BI', 'CL-CO', 'CL-LI', 'CL-LL', 'CL-LR', 'CL-MA', 'CL-ML', 'CL-NB', 'CL-RM', 'CL-TA', 'CL-VS'],
   malaysia: ['MY-01', 'MY-02', 'MY-03', 'MY-04', 'MY-05', 'MY-06', 'MY-07', 'MY-08', 'MY-09', 'MY-10', 'MY-11', 'MY-12', 'MY-13', 'MY-14', 'MY-15', 'MY-16'],
+  indonesia: ['ID-AC', 'ID-BA', 'ID-BB', 'ID-BE', 'ID-BT', 'ID-GO', 'ID-JA', 'ID-JB', 'ID-JI', 'ID-JK', 'ID-JT', 'ID-KB', 'ID-KI', 'ID-KR', 'ID-KS', 'ID-KT', 'ID-KU', 'ID-LA', 'ID-MA', 'ID-MU', 'ID-NB', 'ID-NT', 'ID-PA', 'ID-PB', 'ID-RI', 'ID-SA', 'ID-SB', 'ID-SG', 'ID-SN', 'ID-SR', 'ID-SS', 'ID-ST', 'ID-SU', 'ID-YO'],
+  ecuador: ['EC-A', 'EC-B', 'EC-C', 'EC-D', 'EC-E', 'EC-F', 'EC-G', 'EC-H', 'EC-I', 'EC-L', 'EC-M', 'EC-N', 'EC-O', 'EC-P', 'EC-R', 'EC-S', 'EC-SD', 'EC-SE', 'EC-T', 'EC-U', 'EC-W', 'EC-X', 'EC-Y', 'EC-Z'],
+  bolivia: ['BO-B', 'BO-C', 'BO-H', 'BO-L', 'BO-N', 'BO-O', 'BO-P', 'BO-S', 'BO-T'],
+  'costa-rica': ['CR-A', 'CR-C', 'CR-G', 'CR-H', 'CR-L', 'CR-P', 'CR-SJ'],
 }
 
 codeGroups.mexico.splice(3, 0, 'MX-CAM')
@@ -154,14 +158,18 @@ const expectedCounts = {
   colombia: 33,
   chile: 16,
   malaysia: 16,
+  indonesia: 34,
+  ecuador: 24,
+  bolivia: 9,
+  'costa-rica': 7,
 }
 
 const parentNames = {
-  'us-states': 'USA', germany: 'Deutschland', austria: 'Österreich', netherlands: 'Niederlande', canada: 'Kanada', switzerland: 'Schweiz', australia: 'Australien', brazil: 'Brasilien', argentina: 'Argentinien', japan: 'Japan', mexico: 'Mexiko', spain: 'Spanien', italy: 'Italien', poland: 'Polen', belgium: 'Belgien', czechia: 'Tschechien', croatia: 'Kroatien', slovakia: 'Slowakei', sweden: 'Schweden', colombia: 'Kolumbien', chile: 'Chile', malaysia: 'Malaysia',
+  'us-states': 'USA', germany: 'Deutschland', austria: 'Österreich', netherlands: 'Niederlande', canada: 'Kanada', switzerland: 'Schweiz', australia: 'Australien', brazil: 'Brasilien', argentina: 'Argentinien', japan: 'Japan', mexico: 'Mexiko', spain: 'Spanien', italy: 'Italien', poland: 'Polen', belgium: 'Belgien', czechia: 'Tschechien', croatia: 'Kroatien', slovakia: 'Slowakei', sweden: 'Schweden', colombia: 'Kolumbien', chile: 'Chile', malaysia: 'Malaysia', indonesia: 'Indonesien', ecuador: 'Ecuador', bolivia: 'Bolivien', 'costa-rica': 'Costa Rica',
 }
 
 const continentByCollection = {
-  'us-states': 'north-america', germany: 'europe', austria: 'europe', netherlands: 'europe', canada: 'north-america', switzerland: 'europe', australia: 'oceania', brazil: 'south-america', argentina: 'south-america', japan: 'asia', mexico: 'north-america', spain: 'europe', italy: 'europe', poland: 'europe', belgium: 'europe', czechia: 'europe', croatia: 'europe', slovakia: 'europe', sweden: 'europe', colombia: 'south-america', chile: 'south-america', malaysia: 'asia',
+  'us-states': 'north-america', germany: 'europe', austria: 'europe', netherlands: 'europe', canada: 'north-america', switzerland: 'europe', australia: 'oceania', brazil: 'south-america', argentina: 'south-america', japan: 'asia', mexico: 'north-america', spain: 'europe', italy: 'europe', poland: 'europe', belgium: 'europe', czechia: 'europe', croatia: 'europe', slovakia: 'europe', sweden: 'europe', colombia: 'south-america', chile: 'south-america', malaysia: 'asia', indonesia: 'asia', ecuador: 'south-america', bolivia: 'south-america', 'costa-rica': 'north-america',
 }
 
 const nameOverrides = {
@@ -185,6 +193,8 @@ const nameOverrides = {
   'CO-ATL': 'Atlántico', 'CO-BOL': 'Bolívar', 'CO-BOY': 'Boyacá', 'CO-CAQ': 'Caquetá', 'CO-CHO': 'Chocó', 'CO-COR': 'Córdoba', 'CO-DC': 'Bogotá', 'CO-GUA': 'Guainía', 'CO-NAR': 'Nariño', 'CO-QUI': 'Quindío', 'CO-SAP': 'San Andrés und Providencia', 'CO-VAU': 'Vaupés',
   'CL-AI': 'Aysén', 'CL-AP': 'Arica und Parinacota', 'CL-AR': 'Araucanía', 'CL-BI': 'Biobío', 'CL-LI': "O’Higgins", 'CL-LL': 'Los Lagos', 'CL-LR': 'Los Ríos', 'CL-MA': 'Magallanes und Chilenische Antarktis', 'CL-ML': 'Maule', 'CL-NB': 'Ñuble', 'CL-RM': 'Metropolregion Santiago', 'CL-TA': 'Tarapacá', 'CL-VS': 'Valparaíso',
   'MY-04': 'Malakka', 'MY-07': 'Penang',
+  'ID-BB': 'Bangka-Belitung', 'ID-JB': 'Westjava', 'ID-JI': 'Ostjava', 'ID-JT': 'Zentraljava', 'ID-KB': 'Westkalimantan', 'ID-KI': 'Ostkalimantan', 'ID-KS': 'Südkalimantan', 'ID-KT': 'Zentralkalimantan', 'ID-KU': 'Nordkalimantan', 'ID-KR': 'Riau-Inseln', 'ID-MU': 'Nordmolukken', 'ID-NB': 'West-Nusa-Tenggara', 'ID-NT': 'Ost-Nusa-Tenggara', 'ID-PB': 'Westpapua', 'ID-SA': 'Nordsulawesi', 'ID-SB': 'Westsumatra', 'ID-SG': 'Südostsulawesi', 'ID-SN': 'Südsulawesi', 'ID-SR': 'Westsulawesi', 'ID-SS': 'Südsumatra', 'ID-ST': 'Zentralsulawesi', 'ID-SU': 'Nordsumatra',
+  'EC-D': 'Orellana', 'EC-F': 'Cañar', 'EC-H': 'Chimborazo', 'EC-O': 'El Oro', 'EC-P': 'Pichincha', 'EC-R': 'Los Ríos', 'EC-S': 'Morona Santiago', 'EC-SD': 'Santo Domingo de los Tsáchilas', 'EC-SE': 'Santa Elena', 'EC-U': 'Sucumbíos', 'EC-W': 'Galápagos', 'EC-X': 'Cotopaxi', 'EC-Y': 'Pastaza', 'EC-Z': 'Zamora Chinchipe',
 }
 
 // Die einfachen österreichischen Landesfarben sind mehrfach identisch. Für ein

@@ -29,6 +29,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/IT-65.svg"
   },
   {
+    "id": "region-ID-AC",
+    "code": "ID-AC",
+    "name": "Aceh",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-AC.webp",
+    "visualKey": "1af2d680e90fb28f",
+    "source": "https://en.wikipedia.org/wiki/Flag_of_Aceh",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-AC.svg"
+  },
+  {
     "id": "region-SM-01",
     "code": "SM-01",
     "name": "Acquaviva",
@@ -164,6 +177,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Alagoas",
     "parent": "Brasilien",
     "locationMap": "/assets/flags/maps/BR-AL.svg"
+  },
+  {
+    "id": "region-CR-A",
+    "code": "CR-A",
+    "name": "Alajuela",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-A.webp",
+    "visualKey": "55ab7f8c178e47f1",
+    "source": "https://www.wikidata.org/wiki/Q502188",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-A.svg"
   },
   {
     "id": "country-AX",
@@ -785,6 +811,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CL-AI.svg"
   },
   {
+    "id": "region-EC-A",
+    "code": "EC-A",
+    "name": "Azuay",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-A.webp",
+    "visualKey": "31631c4bfb613fcd",
+    "source": "https://en.wikipedia.org/wiki/Azuay_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-A.svg"
+  },
+  {
     "id": "region-DE-BW",
     "code": "DE-BW",
     "name": "Baden-Württemberg",
@@ -870,6 +909,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/ES-IB.svg"
   },
   {
+    "id": "region-ID-BA",
+    "code": "ID-BA",
+    "name": "Bali",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-BA.webp",
+    "visualKey": "6abc3c3824e93d3f",
+    "source": "https://en.wikipedia.org/wiki/Bali",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-BA.svg"
+  },
+  {
     "id": "region-LV-015",
     "code": "LV-015",
     "name": "Balvu novads",
@@ -896,6 +948,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/LI-01.svg"
   },
   {
+    "id": "region-ID-BB",
+    "code": "ID-BB",
+    "name": "Bangka-Belitung",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-BB.webp",
+    "visualKey": "97d00ebd3a6b0c8e",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-BB.svg"
+  },
+  {
     "id": "country-BD",
     "code": "BD",
     "name": "Bangladesch",
@@ -917,6 +982,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/List_of_Slovak_flags",
     "parent": "Slowakei",
     "locationMap": "/assets/flags/maps/SK-BC.svg"
+  },
+  {
+    "id": "region-ID-BT",
+    "code": "ID-BT",
+    "name": "Banten",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-BT.webp",
+    "visualKey": "df0fe0c0192fe0c3",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-BT.svg"
   },
   {
     "id": "country-BB",
@@ -1102,6 +1180,32 @@ export const flagCatalog = [
     "visualKey": "9fb33cea3d3f6068"
   },
   {
+    "id": "region-ID-BE",
+    "code": "ID-BE",
+    "name": "Bengkulu",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-BE.webp",
+    "visualKey": "2fb70e50d675e61b",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-BE.svg"
+  },
+  {
+    "id": "region-BO-B",
+    "code": "BO-B",
+    "name": "Beni",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-B.webp",
+    "visualKey": "71979259f5adb84b",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-B.svg"
+  },
+  {
     "id": "country-BJ",
     "code": "BJ",
     "name": "Benin",
@@ -1234,6 +1338,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Bol%C3%ADvar_Department",
     "parent": "Kolumbien",
     "locationMap": "/assets/flags/maps/CO-BOL.svg"
+  },
+  {
+    "id": "region-EC-B",
+    "code": "EC-B",
+    "name": "Bolívar",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-B.webp",
+    "visualKey": "4e0538acc1dda908",
+    "source": "https://en.wikipedia.org/wiki/Bol%C3%ADvar_Province_(Ecuador)",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-B.svg"
   },
   {
     "id": "country-BO",
@@ -1616,6 +1733,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-CAM.svg"
   },
   {
+    "id": "region-EC-F",
+    "code": "EC-F",
+    "name": "Cañar",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-F.webp",
+    "visualKey": "7a9cbae30179479c",
+    "source": "https://en.wikipedia.org/wiki/Ca%C3%B1ar_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-F.svg"
+  },
+  {
     "id": "region-MD-CT",
     "code": "MD-CT",
     "name": "Cantemir",
@@ -1640,6 +1770,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Caquet%C3%A1_Department",
     "parent": "Kolumbien",
     "locationMap": "/assets/flags/maps/CO-CAQ.svg"
+  },
+  {
+    "id": "region-EC-C",
+    "code": "EC-C",
+    "name": "Carchi",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-C.webp",
+    "visualKey": "e282ae4cc7fbfe96",
+    "source": "https://en.wikipedia.org/wiki/Carchi_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-C.svg"
+  },
+  {
+    "id": "region-CR-C",
+    "code": "CR-C",
+    "name": "Cartago",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-C.webp",
+    "visualKey": "50fe8df1e83e5cbd",
+    "source": "https://www.wikidata.org/wiki/Q502181",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-C.svg"
   },
   {
     "id": "region-CO-CAS",
@@ -1912,6 +2068,19 @@ export const flagCatalog = [
     "visualKey": "21bf53165fb32e07"
   },
   {
+    "id": "region-EC-H",
+    "code": "EC-H",
+    "name": "Chimborazo",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-H.webp",
+    "visualKey": "c78dbb9ed17b5a6c",
+    "source": "https://en.wikipedia.org/wiki/Chimborazo_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-H.svg"
+  },
+  {
     "id": "country-CN",
     "code": "CN",
     "name": "China",
@@ -1961,6 +2130,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-U.svg"
   },
   {
+    "id": "region-BO-H",
+    "code": "BO-H",
+    "name": "Chuquisaca",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-H.webp",
+    "visualKey": "ca612aa366193b17",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-H.svg"
+  },
+  {
     "id": "region-RU-CU",
     "code": "RU-CU",
     "name": "Chuvashia",
@@ -1998,6 +2180,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Coahuila",
     "parent": "Mexiko",
     "locationMap": "/assets/flags/maps/MX-COA.svg"
+  },
+  {
+    "id": "region-BO-C",
+    "code": "BO-C",
+    "name": "Cochabamba",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-C.webp",
+    "visualKey": "742882bd1c353782",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-C.svg"
   },
   {
     "id": "region-MX-COL",
@@ -2145,6 +2340,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/CI.svg",
     "visualKey": "d7acff2d1ad384fb"
+  },
+  {
+    "id": "region-EC-X",
+    "code": "EC-X",
+    "name": "Cotopaxi",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-X.webp",
+    "visualKey": "50fe8df1e83e5cbd",
+    "source": "https://en.wikipedia.org/wiki/Cotopaxi_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-X.svg"
   },
   {
     "id": "region-MD-CR",
@@ -2516,6 +2724,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-38.svg"
   },
   {
+    "id": "region-EC-O",
+    "code": "EC-O",
+    "name": "El Oro",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-O.webp",
+    "visualKey": "6fff82434127cfd6",
+    "source": "https://en.wikipedia.org/wiki/El_Oro_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-O.svg"
+  },
+  {
     "id": "country-SV",
     "code": "SV",
     "name": "El Salvador",
@@ -2611,6 +2832,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Eschen_Liechtenstein-1.svg",
     "parent": "Liechtenstein",
     "locationMap": "/assets/flags/maps/LI-02.svg"
+  },
+  {
+    "id": "region-EC-E",
+    "code": "EC-E",
+    "name": "Esmeraldas",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-E.webp",
+    "visualKey": "2ce1f5231bec3e76",
+    "source": "https://en.wikipedia.org/wiki/Esmeraldas_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-E.svg"
   },
   {
     "id": "region-BR-ES",
@@ -2967,6 +3201,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MD-GA.svg"
   },
   {
+    "id": "region-EC-W",
+    "code": "EC-W",
+    "name": "Galápagos",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-W.webp",
+    "visualKey": "8662970bbde5c1e7",
+    "source": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-W.svg"
+  },
+  {
     "id": "region-ES-GA",
     "code": "ES-GA",
     "name": "Galicien",
@@ -3163,6 +3410,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BY-HO.svg"
   },
   {
+    "id": "region-ID-GO",
+    "code": "ID-GO",
+    "name": "Gorontalo",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-GO.webp",
+    "visualKey": "d426201e68a27899",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-GO.svg"
+  },
+  {
     "id": "region-SE-I",
     "code": "SE-I",
     "name": "Gotland County",
@@ -3304,6 +3564,19 @@ export const flagCatalog = [
     "visualKey": "d92e5857b34db64f"
   },
   {
+    "id": "region-CR-G",
+    "code": "CR-G",
+    "name": "Guanacaste",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-G.webp",
+    "visualKey": "1bde8ad0cc3bb12c",
+    "source": "https://www.wikidata.org/wiki/Q690026",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-G.svg"
+  },
+  {
     "id": "region-MX-GUA",
     "code": "MX-GUA",
     "name": "Guanajuato",
@@ -3338,6 +3611,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Guaviare_Department",
     "parent": "Kolumbien",
     "locationMap": "/assets/flags/maps/CO-GUV.svg"
+  },
+  {
+    "id": "region-EC-G",
+    "code": "EC-G",
+    "name": "Guayas",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-G.webp",
+    "visualKey": "6ae8c0859a150436",
+    "source": "https://en.wikipedia.org/wiki/Guayas_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-G.svg"
   },
   {
     "id": "country-GG",
@@ -3541,6 +3827,19 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Herceg_Novi,_Montenegro.svg",
     "parent": "Montenegro",
     "locationMap": "/assets/flags/maps/ME-08.svg"
+  },
+  {
+    "id": "region-CR-H",
+    "code": "CR-H",
+    "name": "Heredia",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-H.webp",
+    "visualKey": "b0372b0159554f38",
+    "source": "https://www.wikidata.org/wiki/Q502192",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-H.svg"
   },
   {
     "id": "region-DE-HE",
@@ -3759,6 +4058,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Illinois",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-IL.svg"
+  },
+  {
+    "id": "region-EC-I",
+    "code": "EC-I",
+    "name": "Imbabura",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-I.webp",
+    "visualKey": "14af29d93f5051c5",
+    "source": "https://en.wikipedia.org/wiki/Imbabura_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-I.svg"
   },
   {
     "id": "region-US-IN",
@@ -3981,6 +4293,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/JP-03.svg"
   },
   {
+    "id": "region-ID-JK",
+    "code": "ID-JK",
+    "name": "Jakarta",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-JK.webp",
+    "visualKey": "67c8b1342f0ab31e",
+    "source": "https://en.wikipedia.org/wiki/Jakarta",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-JK.svg"
+  },
+  {
     "id": "region-MX-JAL",
     "code": "MX-JAL",
     "name": "Jalisco",
@@ -4002,6 +4327,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/JM.svg",
     "visualKey": "3428da9c85ef274b"
+  },
+  {
+    "id": "region-ID-JA",
+    "code": "ID-JA",
+    "name": "Jambi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-JA.webp",
+    "visualKey": "5b5032aad261e150",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-JA.svg"
   },
   {
     "id": "region-SE-Z",
@@ -5362,6 +5700,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-L.svg"
   },
   {
+    "id": "region-BO-L",
+    "code": "BO-L",
+    "name": "La Paz",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-L.webp",
+    "visualKey": "eda4e0248fce5653",
+    "source": "https://en.wikipedia.org/wiki/La_Paz",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-L.svg"
+  },
+  {
     "id": "region-AR-F",
     "code": "AR-F",
     "name": "La Rioja",
@@ -5399,6 +5750,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Labuan",
     "parent": "Malaysia",
     "locationMap": "/assets/flags/maps/MY-15.svg"
+  },
+  {
+    "id": "region-ID-LA",
+    "code": "ID-LA",
+    "name": "Lampung",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-LA.webp",
+    "visualKey": "6c6bbeb42295bbe0",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-LA.svg"
   },
   {
     "id": "country-LA",
@@ -5627,6 +5991,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BE-VLI.svg"
   },
   {
+    "id": "region-CR-L",
+    "code": "CR-L",
+    "name": "Limón",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-L.webp",
+    "visualKey": "f3d86aac4d07671e",
+    "source": "https://www.wikidata.org/wiki/Q642644",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-L.svg"
+  },
+  {
     "id": "region-RU-LIP",
     "code": "RU-LIP",
     "name": "Lipetsk Oblast",
@@ -5661,6 +6038,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/%C5%81%C3%B3d%C5%BA_Voivodeship",
     "parent": "Polen",
     "locationMap": "/assets/flags/maps/PL-10.svg"
+  },
+  {
+    "id": "region-EC-L",
+    "code": "EC-L",
+    "name": "Loja",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-L.webp",
+    "visualKey": "11f8bba34f916f5f",
+    "source": "https://en.wikipedia.org/wiki/Loja_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-L.svg"
   },
   {
     "id": "region-IT-25",
@@ -5700,6 +6090,19 @@ export const flagCatalog = [
     "source": "https://www.wikidata.org/wiki/Q2177",
     "parent": "Chile",
     "locationMap": "/assets/flags/maps/CL-LR.svg"
+  },
+  {
+    "id": "region-EC-R",
+    "code": "EC-R",
+    "name": "Los Ríos",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-R.webp",
+    "visualKey": "4352168faa7b5a2d",
+    "source": "https://en.wikipedia.org/wiki/Los_R%C3%ADos_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-R.svg"
   },
   {
     "id": "region-US-LA",
@@ -5939,6 +6342,32 @@ export const flagCatalog = [
     "continent": "europe",
     "image": "/assets/flags/countries/MT.svg",
     "visualKey": "9849e5e7bf315dfc"
+  },
+  {
+    "id": "region-ID-MA",
+    "code": "ID-MA",
+    "name": "Maluku",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-MA.webp",
+    "visualKey": "88c01fa96dc0463d",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-MA.svg"
+  },
+  {
+    "id": "region-EC-M",
+    "code": "EC-M",
+    "name": "Manabí",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-M.webp",
+    "visualKey": "d5d2f30a0e4a1dba",
+    "source": "https://en.wikipedia.org/wiki/Manab%C3%AD_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-M.svg"
   },
   {
     "id": "region-CA-MB",
@@ -6607,6 +7036,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/MX-MOR.svg"
   },
   {
+    "id": "region-EC-S",
+    "code": "EC-S",
+    "name": "Morona Santiago",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-S.webp",
+    "visualKey": "6b883a3eff1b0317",
+    "source": "https://en.wikipedia.org/wiki/Morona-Santiago_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-S.svg"
+  },
+  {
     "id": "country-MZ",
     "code": "MZ",
     "name": "Mosambik",
@@ -6765,6 +7207,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/List_of_Belgian_flags",
     "parent": "Belgien",
     "locationMap": "/assets/flags/maps/BE-WNA.svg"
+  },
+  {
+    "id": "region-EC-N",
+    "code": "EC-N",
+    "name": "Napo",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-N.webp",
+    "visualKey": "08f38394e8a803d1",
+    "source": "https://en.wikipedia.org/wiki/Napo_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-N.svg"
   },
   {
     "id": "region-JP-29",
@@ -7220,6 +7675,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/DK-81.svg"
   },
   {
+    "id": "region-ID-KU",
+    "code": "ID-KU",
+    "name": "Nordkalimantan",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KU.webp",
+    "visualKey": "9847ef973b8c39e4",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KU.svg"
+  },
+  {
     "id": "country-KP",
     "code": "KP",
     "name": "Nordkorea",
@@ -7263,6 +7731,19 @@ export const flagCatalog = [
     "visualKey": "0beaf058570b60c3"
   },
   {
+    "id": "region-ID-MU",
+    "code": "ID-MU",
+    "name": "Nordmolukken",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-MU.webp",
+    "visualKey": "2a09d27c57eddb80",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-MU.svg"
+  },
+  {
     "id": "region-DE-NW",
     "code": "DE-NW",
     "name": "Nordrhein-Westfalen",
@@ -7274,6 +7755,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_North_Rhine-Westphalia",
     "parent": "Deutschland",
     "locationMap": "/assets/flags/maps/DE-NW.svg"
+  },
+  {
+    "id": "region-ID-SA",
+    "code": "ID-SA",
+    "name": "Nordsulawesi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SA.webp",
+    "visualKey": "ce859fa8c0b4af25",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SA.svg"
+  },
+  {
+    "id": "region-ID-SU",
+    "code": "ID-SU",
+    "name": "Nordsumatra",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SU.webp",
+    "visualKey": "594f27d0ba5ec5f7",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SU.svg"
   },
   {
     "id": "region-CA-NT",
@@ -7748,6 +8255,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-OR.svg"
   },
   {
+    "id": "region-EC-D",
+    "code": "EC-D",
+    "name": "Orellana",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-D.webp",
+    "visualKey": "421220b83789de95",
+    "source": "https://en.wikipedia.org/wiki/Orellana_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-D.svg"
+  },
+  {
     "id": "region-RU-ORE",
     "code": "RU-ORE",
     "name": "Orenburg Oblast",
@@ -7759,6 +8279,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Orenburg_Oblast",
     "parent": "Russland",
     "locationMap": "/assets/flags/maps/RU-ORE.svg"
+  },
+  {
+    "id": "region-BO-O",
+    "code": "BO-O",
+    "name": "Oruro",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-O.webp",
+    "visualKey": "0f6ddb3bada6ee9e",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-O.svg"
   },
   {
     "id": "region-RU-ORL",
@@ -7813,6 +8346,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/NO-03.svg"
   },
   {
+    "id": "region-ID-NT",
+    "code": "ID-NT",
+    "name": "Ost-Nusa-Tenggara",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-NT.webp",
+    "visualKey": "b1e100537f9097f6",
+    "source": "https://en.wikipedia.org/wiki/East_Nusa_Tenggara",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-NT.svg"
+  },
+  {
     "id": "region-SE-E",
     "code": "SE-E",
     "name": "Östergötland",
@@ -7847,6 +8393,32 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Flanders",
     "parent": "Belgien",
     "locationMap": "/assets/flags/maps/BE-VOV.svg"
+  },
+  {
+    "id": "region-ID-JI",
+    "code": "ID-JI",
+    "name": "Ostjava",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-JI.webp",
+    "visualKey": "63ea64ec4fe38297",
+    "source": "https://en.wikipedia.org/wiki/East_Java",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-JI.svg"
+  },
+  {
+    "id": "region-ID-KI",
+    "code": "ID-KI",
+    "name": "Ostkalimantan",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KI.webp",
+    "visualKey": "0686cded75837373",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KI.svg"
   },
   {
     "id": "region-FI-12",
@@ -7941,6 +8513,19 @@ export const flagCatalog = [
     "visualKey": "b619cebe2cf79b86"
   },
   {
+    "id": "region-BO-N",
+    "code": "BO-N",
+    "name": "Pando",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-N.webp",
+    "visualKey": "b8d094cd84022056",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-N.svg"
+  },
+  {
     "id": "region-LT-PN",
     "code": "LT-PN",
     "name": "Panevezys County",
@@ -7952,6 +8537,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Panev%C4%97%C5%BEys_County",
     "parent": "Litauen",
     "locationMap": "/assets/flags/maps/LT-PN.svg"
+  },
+  {
+    "id": "region-ID-PA",
+    "code": "ID-PA",
+    "name": "Papua",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-PA.webp",
+    "visualKey": "3514e81038a372dd",
+    "source": "https://en.wikipedia.org/wiki/Papua_(province)",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-PA.svg"
   },
   {
     "id": "country-PG",
@@ -8024,6 +8622,19 @@ export const flagCatalog = [
     "source": "https://www.crwflags.com/fotw/flags/cz-re.html",
     "parent": "Tschechien",
     "locationMap": "/assets/flags/maps/CZ-53.svg"
+  },
+  {
+    "id": "region-EC-Y",
+    "code": "EC-Y",
+    "name": "Pastaza",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-Y.webp",
+    "visualKey": "a28eb1eba4609081",
+    "source": "https://en.wikipedia.org/wiki/Pastaza_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-Y.svg"
   },
   {
     "id": "region-FR-PDL",
@@ -8176,6 +8787,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BR-PI.svg"
   },
   {
+    "id": "region-EC-P",
+    "code": "EC-P",
+    "name": "Pichincha",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-P.webp",
+    "visualKey": "ec7525df12113314",
+    "source": "https://en.wikipedia.org/wiki/Pichincha_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-P.svg"
+  },
+  {
     "id": "region-IT-21",
     "code": "IT-21",
     "name": "Piemont",
@@ -8323,6 +8947,19 @@ export const flagCatalog = [
     "visualKey": "ed872d800177ced6"
   },
   {
+    "id": "region-BO-P",
+    "code": "BO-P",
+    "name": "Potosí",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-P.webp",
+    "visualKey": "becf13c85860966c",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-P.svg"
+  },
+  {
     "id": "region-HR-11",
     "code": "HR-11",
     "name": "Požega-Slawonien",
@@ -8435,6 +9072,19 @@ export const flagCatalog = [
     "continent": "north-america",
     "image": "/assets/flags/countries/PR.svg",
     "visualKey": "ffb6f310f1b97e56"
+  },
+  {
+    "id": "region-CR-P",
+    "code": "CR-P",
+    "name": "Puntarenas",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-P.webp",
+    "visualKey": "fba84ff282e8ef78",
+    "source": "https://www.wikidata.org/wiki/Q502170",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-P.svg"
   },
   {
     "id": "region-MY-16",
@@ -8650,6 +9300,32 @@ export const flagCatalog = [
     "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Rhode_Island.svg",
     "parent": "USA",
     "locationMap": "/assets/flags/maps/US-RI.svg"
+  },
+  {
+    "id": "region-ID-RI",
+    "code": "ID-RI",
+    "name": "Riau",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-RI.webp",
+    "visualKey": "2b28f6c1b03a9681",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-RI.svg"
+  },
+  {
+    "id": "region-ID-KR",
+    "code": "ID-KR",
+    "name": "Riau-Inseln",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KR.webp",
+    "visualKey": "8954ee973ec6ef3b",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KR.svg"
   },
   {
     "id": "region-LV-RIX",
@@ -9089,6 +9765,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CO-SAP.svg"
   },
   {
+    "id": "region-CR-SJ",
+    "code": "CR-SJ",
+    "name": "San José",
+    "kind": "region",
+    "collection": "costa-rica",
+    "continent": "north-america",
+    "image": "/assets/flags/regions/CR-SJ.webp",
+    "visualKey": "ac8b187ba8c8fec4",
+    "source": "https://www.wikidata.org/wiki/Q647808",
+    "parent": "Costa Rica",
+    "locationMap": "/assets/flags/maps/CR-SJ.svg"
+  },
+  {
     "id": "region-AR-J",
     "code": "AR-J",
     "name": "San Juan",
@@ -9164,6 +9853,32 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/AR-Z.svg"
   },
   {
+    "id": "region-BO-S",
+    "code": "BO-S",
+    "name": "Santa Cruz",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-S.webp",
+    "visualKey": "a93892473f7994da",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-S.svg"
+  },
+  {
+    "id": "region-EC-SE",
+    "code": "EC-SE",
+    "name": "Santa Elena",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-SE.webp",
+    "visualKey": "06b0b1b622d84904",
+    "source": "https://en.wikipedia.org/wiki/Santa_Elena_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-SE.svg"
+  },
+  {
     "id": "region-AR-S",
     "code": "AR-S",
     "name": "Santa Fe",
@@ -9201,6 +9916,19 @@ export const flagCatalog = [
     "source": "https://en.wikipedia.org/wiki/Flag_of_Santiago_del_Estero_Province",
     "parent": "Argentinien",
     "locationMap": "/assets/flags/maps/AR-G.svg"
+  },
+  {
+    "id": "region-EC-SD",
+    "code": "EC-SD",
+    "name": "Santo Domingo de los Tsáchilas",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-SD.webp",
+    "visualKey": "79d4123db02ec7c8",
+    "source": "https://en.wikipedia.org/wiki/Santo_Domingo_de_los_Ts%C3%A1chilas_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-SD.svg"
   },
   {
     "id": "region-BR-SP",
@@ -10112,6 +10840,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CO-SUC.svg"
   },
   {
+    "id": "region-EC-U",
+    "code": "EC-U",
+    "name": "Sucumbíos",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-U.webp",
+    "visualKey": "fa7c1009c342c16f",
+    "source": "https://en.wikipedia.org/wiki/Sucumb%C3%ADos_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-U.svg"
+  },
+  {
     "id": "country-ZA",
     "code": "ZA",
     "name": "Südafrika",
@@ -10155,6 +10896,19 @@ export const flagCatalog = [
     "visualKey": "0c8e6055d1f6e478"
   },
   {
+    "id": "region-ID-KS",
+    "code": "ID-KS",
+    "name": "Südkalimantan",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KS.webp",
+    "visualKey": "4af5a1d2e90669c0",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KS.svg"
+  },
+  {
     "id": "country-KR",
     "code": "KR",
     "name": "Südkorea",
@@ -10178,6 +10932,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/CZ-64.svg"
   },
   {
+    "id": "region-ID-SG",
+    "code": "ID-SG",
+    "name": "Südostsulawesi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SG.webp",
+    "visualKey": "2ccb69433e91d980",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SG.svg"
+  },
+  {
     "id": "country-SS",
     "code": "SS",
     "name": "Südsudan",
@@ -10186,6 +10953,32 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/SS.svg",
     "visualKey": "b9f71332a189a405"
+  },
+  {
+    "id": "region-ID-SN",
+    "code": "ID-SN",
+    "name": "Südsulawesi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SN.webp",
+    "visualKey": "161df5cd4dec2ab4",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SN.svg"
+  },
+  {
+    "id": "region-ID-SS",
+    "code": "ID-SS",
+    "name": "Südsumatra",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SS.webp",
+    "visualKey": "87d8dce998aa0b30",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SS.svg"
   },
   {
     "id": "region-UA-59",
@@ -10392,6 +11185,19 @@ export const flagCatalog = [
     "source": "https://www.wikidata.org/wiki/Q2114",
     "parent": "Chile",
     "locationMap": "/assets/flags/maps/CL-TA.svg"
+  },
+  {
+    "id": "region-BO-T",
+    "code": "BO-T",
+    "name": "Tarija",
+    "kind": "region",
+    "collection": "bolivia",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/BO-T.webp",
+    "visualKey": "b06388fab35c1080",
+    "source": "https://www.crwflags.com/fotw/flags/bo-.html",
+    "parent": "Bolivien",
+    "locationMap": "/assets/flags/maps/BO-T.svg"
   },
   {
     "id": "region-AU-TAS",
@@ -10908,6 +11714,19 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/TN.svg",
     "visualKey": "3232c5720e7a1110"
+  },
+  {
+    "id": "region-EC-T",
+    "code": "EC-T",
+    "name": "Tungurahua",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-T.webp",
+    "visualKey": "6efbce72830abced",
+    "source": "https://en.wikipedia.org/wiki/Tungurahua_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-T.svg"
   },
   {
     "id": "country-TR",
@@ -11856,6 +12675,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/US-WV.svg"
   },
   {
+    "id": "region-ID-NB",
+    "code": "ID-NB",
+    "name": "West-Nusa-Tenggara",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-NB.webp",
+    "visualKey": "b0c5c6dd70bdb13f",
+    "source": "https://en.wikipedia.org/wiki/West_Nusa_Tenggara",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-NB.svg"
+  },
+  {
     "id": "region-AU-WA",
     "code": "AU-WA",
     "name": "Western Australia",
@@ -11882,6 +12714,45 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/BE-VWV.svg"
   },
   {
+    "id": "region-ID-JB",
+    "code": "ID-JB",
+    "name": "Westjava",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-JB.webp",
+    "visualKey": "832602a57627c8d7",
+    "source": "https://en.wikipedia.org/wiki/West_Java",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-JB.svg"
+  },
+  {
+    "id": "region-ID-KB",
+    "code": "ID-KB",
+    "name": "Westkalimantan",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KB.webp",
+    "visualKey": "5f797ea578969149",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KB.svg"
+  },
+  {
+    "id": "region-ID-PB",
+    "code": "ID-PB",
+    "name": "Westpapua",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-PB.webp",
+    "visualKey": "cf689485a7e6b7ce",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-PB.svg"
+  },
+  {
     "id": "region-PL-32",
     "code": "PL-32",
     "name": "Westpommern",
@@ -11903,6 +12774,32 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/EH.svg",
     "visualKey": "8247c2836d742630"
+  },
+  {
+    "id": "region-ID-SR",
+    "code": "ID-SR",
+    "name": "Westsulawesi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SR.webp",
+    "visualKey": "df3ebc7811986ab4",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_West_Sulawesi.svg",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SR.svg"
+  },
+  {
+    "id": "region-ID-SB",
+    "code": "ID-SB",
+    "name": "Westsumatra",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-SB.webp",
+    "visualKey": "e61becc373af3a2e",
+    "source": "https://en.wikipedia.org/wiki/West_Sumatra",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-SB.svg"
   },
   {
     "id": "region-AT-9",
@@ -11996,6 +12893,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/RU-YAR.svg"
   },
   {
+    "id": "region-ID-YO",
+    "code": "ID-YO",
+    "name": "Yogyakarta",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-YO.webp",
+    "visualKey": "365d067ef9de9757",
+    "source": "https://en.wikipedia.org/wiki/Yogyakarta",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-YO.svg"
+  },
+  {
     "id": "region-MX-YUC",
     "code": "MX-YUC",
     "name": "Yucatán",
@@ -12074,6 +12984,19 @@ export const flagCatalog = [
     "locationMap": "/assets/flags/maps/HU-ZE.svg"
   },
   {
+    "id": "region-EC-Z",
+    "code": "EC-Z",
+    "name": "Zamora Chinchipe",
+    "kind": "region",
+    "collection": "ecuador",
+    "continent": "south-america",
+    "image": "/assets/flags/regions/EC-Z.webp",
+    "visualKey": "6958007367e14ccf",
+    "source": "https://en.wikipedia.org/wiki/Zamora-Chinchipe_Province",
+    "parent": "Ecuador",
+    "locationMap": "/assets/flags/maps/EC-Z.svg"
+  },
+  {
     "id": "region-UA-23",
     "code": "UA-23",
     "name": "Zaporizhia Oblast",
@@ -12108,6 +13031,45 @@ export const flagCatalog = [
     "continent": "africa",
     "image": "/assets/flags/countries/CF.svg",
     "visualKey": "825cab4a60fedafe"
+  },
+  {
+    "id": "region-ID-JT",
+    "code": "ID-JT",
+    "name": "Zentraljava",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-JT.webp",
+    "visualKey": "6e47656ff33986ab",
+    "source": "https://en.wikipedia.org/wiki/Central_Java",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-JT.svg"
+  },
+  {
+    "id": "region-ID-KT",
+    "code": "ID-KT",
+    "name": "Zentralkalimantan",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-KT.webp",
+    "visualKey": "9c1f8979acd3820c",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-KT.svg"
+  },
+  {
+    "id": "region-ID-ST",
+    "code": "ID-ST",
+    "name": "Zentralsulawesi",
+    "kind": "region",
+    "collection": "indonesia",
+    "continent": "asia",
+    "image": "/assets/flags/regions/ID-ST.webp",
+    "visualKey": "ba136be97d031a19",
+    "source": "https://commons.wikimedia.org/wiki/Category:Flags_of_provinces_of_Indonesia",
+    "parent": "Indonesien",
+    "locationMap": "/assets/flags/maps/ID-ST.svg"
   },
   {
     "id": "region-UA-18",

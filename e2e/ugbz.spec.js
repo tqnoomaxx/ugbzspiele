@@ -37,7 +37,7 @@ test('alle Produktrouten und alte Imposter-Links funktionieren', async ({ page }
 test('Flaggenkunde startet eine Runde und speichert die erste Antwort lokal', async ({ page }) => {
   await page.goto('/flaggen')
   await expect(page.getByRole('heading', { name: 'Was möchtest du lernen?' })).toBeVisible()
-  await expect(page.locator('.fq-learning-progress')).toContainText('von 997 Flaggen')
+  await expect(page.locator('.fq-learning-progress')).toContainText('von 1071 Flaggen')
   await expect(page.locator('.fq-start-panel')).toHaveAttribute('aria-busy', 'false')
 
   const germany = page.getByRole('button', { name: /Deutsche Bundesländer/ })
@@ -268,6 +268,38 @@ test('Hauptstädte, Stadtbilder und UNESCO-Orte lassen sich natürlich filtern u
   })
   await page.locator('.fq-answer-grid button').nth(correctIndex).click()
   await expect(page.locator('.fq-feedback')).toContainText('Richtig erkannt!')
+})
+
+test('regionale Hauptstädte und der auswählbare Hypermodus sind spielbar', async ({ page }) => {
+  await page.goto('/flaggen')
+  await page.getByRole('tab', { name: /Regionale Hauptstädte/ }).click()
+  const regionalWorld = page.getByRole('button', { name: /Provinz- & Landeshauptstädte/ })
+  await expect(regionalWorld).toContainText('189')
+  await page.getByLabel('Nach Land filtern').selectOption('DE')
+  const germany = page.getByRole('button', { name: /Regionale Hauptstädte: Deutschland/ })
+  await germany.click()
+  await expect(page.getByRole('button', { name: /Region → Hauptstadt/ })).toHaveAttribute('aria-pressed', 'true')
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  await expect(page.getByText('Region → Hauptstadt')).toBeVisible()
+  await expect(page.locator('.fq-regional-capital-stage img')).toBeVisible()
+  await expect(page.locator('.fq-answer-grid button')).toHaveCount(4)
+
+  await page.goto('/flaggen')
+  await page.getByRole('tab', { name: /Hypermodus/ }).click()
+  const categoryButtons = page.locator('.fq-hyper-category-grid button')
+  await expect(categoryButtons).toHaveCount(6)
+  await expect(page.getByRole('button', { name: /Provinzflaggen/ })).toContainText('817')
+  for (const index of [0, 1, 2, 4, 5]) await categoryButtons.nth(index).click()
+  await expect(categoryButtons.nth(3)).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('.fq-hyper-builder')).toContainText('189 unterschiedliche Lernkarten')
+  await page.getByRole('button', { name: /10 Fragen/ }).click()
+  await page.getByRole('button', { name: 'Quiz starten' }).click()
+  const stored = await page.evaluate(() => JSON.parse(sessionStorage.getItem('ugbz:flaggenkunde:quiz:v3')))
+  expect(stored.quizMode).toBe('mixed')
+  expect(stored.hyperCategories).toEqual(['regional-capitals'])
+  expect(stored.questions).toHaveLength(10)
+  expect(stored.questions.every((question) => ['region-capital', 'capital-region'].includes(question.quizMode))).toBe(true)
+  await expect(page.locator('.fq-answer-grid button')).toHaveCount(4)
 })
 
 test('die neuen Fragetypen starten über die Auswahl und bleiben mobil bedienbar', async ({ page }) => {

@@ -43,13 +43,17 @@ const baseFlagCollections = [
   { id: 'colombia', title: 'Kolumbianische Departamentos', shortTitle: 'Kolumbien', group: 'Amerika regional', symbol: 'CO', description: 'Alle 32 Departamentos plus Bogotá.' },
   { id: 'chile', title: 'Chilenische Regionen', shortTitle: 'Chile', group: 'Amerika regional', symbol: 'CL', description: 'Alle 16 Regionen des Landes.' },
   { id: 'malaysia', title: 'Malaysische Gliedstaaten', shortTitle: 'Malaysia', group: 'Asien regional', symbol: 'MY', description: '13 Gliedstaaten und drei Bundesterritorien.' },
+  { id: 'indonesia', title: 'Indonesische Provinzen', shortTitle: 'Indonesien', group: 'Asien regional', symbol: 'ID', description: '34 Provinzen nach dem Verwaltungsstand vor den Papua-Neugliederungen.' },
+  { id: 'ecuador', title: 'Provinzen Ecuadors', shortTitle: 'Ecuador', group: 'Amerika regional', symbol: 'EC', description: 'Alle 24 Provinzen Ecuadors.' },
+  { id: 'bolivia', title: 'Departamentos Boliviens', shortTitle: 'Bolivien', group: 'Amerika regional', symbol: 'BO', description: 'Alle neun Departamentos Boliviens.' },
+  { id: 'costa-rica', title: 'Provinzen Costa Ricas', shortTitle: 'Costa Rica', group: 'Amerika regional', symbol: 'CR', description: 'Alle sieben Provinzen Costa Ricas.' },
   { id: 'australia', title: 'Australische Staaten', shortTitle: 'Australien', group: 'Pazifik regional', symbol: 'AU', description: 'Bundesstaaten und große Territorien.' },
   { id: 'japan', title: 'Japanische Präfekturen', shortTitle: 'Japan', group: 'Pazifik regional', symbol: 'JP', description: 'Alle 47 Präfekturen.' },
 ]
 
 const regionalCountryCodes = {
   germany: 'DE', austria: 'AT', netherlands: 'NL', switzerland: 'CH', spain: 'ES', italy: 'IT', poland: 'PL', belgium: 'BE', czechia: 'CZ', croatia: 'HR', slovakia: 'SK', sweden: 'SE', 'united-kingdom': 'GB',
-  'us-states': 'US', canada: 'CA', mexico: 'MX', brazil: 'BR', argentina: 'AR', colombia: 'CO', chile: 'CL', malaysia: 'MY', australia: 'AU', japan: 'JP',
+  'us-states': 'US', canada: 'CA', mexico: 'MX', brazil: 'BR', argentina: 'AR', colombia: 'CO', chile: 'CL', malaysia: 'MY', indonesia: 'ID', ecuador: 'EC', bolivia: 'BO', 'costa-rica': 'CR', australia: 'AU', japan: 'JP',
 }
 
 const expandedEuropeCollections = [...groupBy(flagCatalog.filter((flag) => flag.collection.startsWith('europe-')), (flag) => flag.collection)].map(([id, flags]) => ({
@@ -71,10 +75,39 @@ export const flagCollections = [...baseFlagCollections.map((collection) => ({
   continent: collection.continent ?? (collection.group === 'Europa regional' ? 'europe' : undefined),
 })), ...expandedEuropeCollections]
 
-export const learningCollections = [...flagCollections, ...geographyCollections]
+export const hyperCategoryDefinitions = [
+  { id: 'country-flags', mark: '◉', title: 'Länderflaggen', description: 'Flaggen von Ländern und Gebieten.', filter: (item) => item.kind === 'country' },
+  { id: 'region-flags', mark: '⚑', title: 'Provinzflaggen', description: 'Bundesländer, Provinzen, Kantone und Regionen.', filter: (item) => item.kind === 'region' },
+  { id: 'national-capitals', mark: '◎', title: 'Hauptstädte', description: 'Länder und ihre nationalen Hauptstädte.', filter: (item) => item.kind === 'city' && item.capital },
+  { id: 'regional-capitals', mark: '⌖', title: 'Regionale Hauptstädte', description: 'Hauptstädte von Staaten, Provinzen und Bundesländern.', filter: (item) => item.kind === 'regional-capital' },
+  { id: 'city-images', mark: '▣', title: 'Städtebilder', description: 'Bekannte Städte anhand echter Bilder.', filter: (item) => item.kind === 'city' && item.image },
+  { id: 'landmarks', mark: '◇', title: 'Sehenswürdigkeiten', description: 'Wahrzeichen und UNESCO-Welterbe weltweit.', filter: (item) => item.kind === 'landmark' },
+]
+
+const hyperCollection = {
+  id: 'knowledge-hyper',
+  title: 'Geografie-Hypermodus',
+  shortTitle: 'Hypermodus',
+  topic: 'hyper',
+  group: 'Komplett',
+  symbol: '⚡',
+  description: 'Du stellst den Themenmix selbst zusammen; die Fragetypen wechseln automatisch.',
+  quizMode: 'mixed',
+  featured: true,
+}
+
+export const learningCollections = [...flagCollections, ...geographyCollections, hyperCollection]
 
 const collectionById = new Map(learningCollections.map((collection) => [collection.id, collection]))
 export const flagById = new Map([...europeMapTargets, ...flagCatalog, ...geographyCatalog].map((flag) => [flag.id, flag]))
+
+export function getHyperItems(categoryIds = hyperCategoryDefinitions.map((category) => category.id)) {
+  const selected = new Set(categoryIds)
+  const definitions = hyperCategoryDefinitions.filter((category) => selected.has(category.id))
+  return [...new Map([...flagCatalog, ...geographyCatalog]
+    .filter((item) => definitions.some((category) => category.filter(item)))
+    .map((item) => [item.id, item])).values()]
+}
 
 export function getCollection(id) {
   return collectionById.get(id) ?? collectionById.get('countries')
@@ -82,7 +115,8 @@ export function getCollection(id) {
 
 export function getFlagsForCollection(id) {
   const collection = getCollection(id)
-  if (collection.topic === 'cities' || collection.topic === 'landmarks') return getGeographyItems(collection)
+  if (collection.topic === 'cities' || collection.topic === 'landmarks' || collection.topic === 'regional-capitals') return getGeographyItems(collection)
+  if (collection.topic === 'hyper') return getHyperItems()
   if (collection.id === 'all' || collection.id === 'random') return flagCatalog
   if (collection.id === 'europe-hyper') return europeMapTargets.map((target) => flagById.get(target.id))
   const regionalItems = flagCatalog.filter((flag) => flag.collection === collection.id)

@@ -13,6 +13,9 @@ export const QUIZ_MODES = {
   CITY_REVERSE: 'city-reverse',
   LANDMARK_COUNTRY: 'landmark-country',
   LANDMARK_NAME: 'landmark-name',
+  REGION_CAPITAL: 'region-capital',
+  CAPITAL_REGION: 'capital-region',
+  MIXED: 'mixed',
 }
 
 export function shuffle(items, random = Math.random) {
@@ -26,7 +29,33 @@ export function shuffle(items, random = Math.random) {
 
 function optionAnswerKey(flag, quizMode) {
   if ([QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.LANDMARK_COUNTRY].includes(quizMode)) return flag.parent
+  if (quizMode === QUIZ_MODES.CAPITAL_REGION) return flag.region
   return flag.name ?? flag.id
+}
+
+function compatiblePool(pool, quizMode) {
+  if ([QUIZ_MODES.CHOICE, QUIZ_MODES.REVERSE].includes(quizMode)) return pool.filter((item) => item.kind === 'country' || item.kind === 'region')
+  if ([QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL].includes(quizMode)) return pool.filter((item) => item.kind === 'city' && item.capital)
+  if (quizMode === QUIZ_MODES.CITY_COUNTRY) return pool.filter((item) => item.kind === 'city')
+  if ([QUIZ_MODES.CITY_NAME, QUIZ_MODES.CITY_REVERSE].includes(quizMode)) return pool.filter((item) => item.kind === 'city' && item.image)
+  if ([QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME].includes(quizMode)) return pool.filter((item) => item.kind === 'landmark')
+  if ([QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION].includes(quizMode)) return pool.filter((item) => item.kind === 'regional-capital')
+  return pool
+}
+
+function hyperModesFor(answer, categoryIds) {
+  const selected = new Set(categoryIds)
+  if (answer.kind === 'country' && selected.has('country-flags')) return [QUIZ_MODES.CHOICE, QUIZ_MODES.REVERSE]
+  if (answer.kind === 'region' && selected.has('region-flags')) return [QUIZ_MODES.CHOICE, QUIZ_MODES.REVERSE]
+  if (answer.kind === 'regional-capital' && selected.has('regional-capitals')) return [QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION]
+  if (answer.kind === 'landmark' && selected.has('landmarks')) return [QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME]
+  if (answer.kind === 'city') {
+    return [
+      ...(answer.capital && selected.has('national-capitals') ? [QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CAPITAL_COUNTRY] : []),
+      ...(answer.image && selected.has('city-images') ? [QUIZ_MODES.CITY_NAME, QUIZ_MODES.CITY_REVERSE] : []),
+    ]
+  }
+  return []
 }
 
 function getDistractorPool(answer, pool, quizMode) {
@@ -49,7 +78,35 @@ function makeQuestion(answer, pool, random, quizMode) {
   }
 }
 
-export function createQuiz(flags, { collectionId = 'countries', roundLength = 20, repeatMistakes = false, quizMode = QUIZ_MODES.CHOICE, random = Math.random } = {}) {
+export function createQuiz(flags, { collectionId = 'countries', roundLength = 20, repeatMistakes = false, quizMode = QUIZ_MODES.CHOICE, hyperCategories = [], random = Math.random } = {}) {
+  if (quizMode === QUIZ_MODES.MIXED) {
+    const prepared = flags.map((answer) => {
+      const modes = hyperModesFor(answer, hyperCategories).filter((mode) => getDistractorPool(answer, compatiblePool(flags, mode), mode).length >= 3)
+      return modes.length ? { answer, mode: modes[Math.floor(random() * modes.length)] } : null
+    }).filter(Boolean)
+    if (prepared.length < 4) throw new Error('Für den Hypermodus werden mindestens vier passende Lernkarten benötigt.')
+    const requestedLength = roundLength === 'all' ? prepared.length : Number(roundLength)
+    const length = Math.max(1, Math.min(prepared.length, Number.isFinite(requestedLength) ? requestedLength : 20))
+    const selected = shuffle(prepared, random).slice(0, length)
+    return {
+      version: FLAG_QUIZ_VERSION,
+      collectionId,
+      quizMode,
+      hyperCategories,
+      poolIds: flags.map((item) => item.id),
+      repeatMistakes,
+      phase: 'question',
+      questionIndex: 0,
+      questions: selected.map(({ answer, mode }) => ({ ...makeQuestion(answer, compatiblePool(flags, mode), random, mode), quizMode: mode })),
+      baseQuestionCount: selected.length,
+      repeatCount: 0,
+      answers: [],
+      score: 0,
+      streak: 0,
+      bestStreak: 0,
+      startedAt: new Date().toISOString(),
+    }
+  }
   const needsOptions = ![QUIZ_MODES.TYPE, QUIZ_MODES.MAP, QUIZ_MODES.EUROPE_MAP].includes(quizMode)
   const minimum = needsOptions ? 4 : 1
   if (!Array.isArray(flags) || flags.length < minimum) throw new Error(needsOptions ? 'Für diesen Fragetyp werden mindestens vier Lernkarten benötigt.' : 'Für ein Quiz wird mindestens eine Lernkarte benötigt.')

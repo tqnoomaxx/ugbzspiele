@@ -1860,7 +1860,7 @@
 
 .fq-topic-options {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 10px;
 }
 
@@ -1904,6 +1904,34 @@
 .fq-library-filters select { min-width: 190px; min-height: 46px; padding: 0 38px 0 13px; color: var(--fq-navy); border: 1px solid #d2cabb; border-radius: 9px; background: #fffdf7; font: 750 .86rem var(--sans); cursor: pointer; }
 .fq-library-empty { margin: 30px 0 0; padding: 25px; color: var(--fq-muted); border: 1px dashed #c9bfae; border-radius: 10px; text-align: center; }
 
+.fq-hyper-builder {
+  display: grid;
+  gap: 22px;
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid #c9b98f;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fffaf0, #f3ead9);
+}
+
+.fq-hyper-builder__intro { display: flex; align-items: center; gap: 16px; }
+.fq-hyper-builder__intro > span { display: grid; width: 54px; height: 54px; flex: 0 0 auto; color: #fff7e5; border-radius: 50%; background: var(--fq-coral-dark); font-size: 1.45rem; place-items: center; }
+.fq-hyper-builder__intro > div { display: grid; gap: 5px; }
+.fq-hyper-builder__intro strong { color: var(--fq-navy); font: 600 1.35rem/1.1 var(--serif); }
+.fq-hyper-builder__intro small { max-width: 720px; color: var(--fq-muted); font-size: .82rem; line-height: 1.5; }
+.fq-hyper-category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.fq-hyper-category-grid button { display: grid; min-height: 108px; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 16px; color: var(--fq-navy); border: 1px solid #d0c6b5; border-radius: 10px; background: #fffdf7; text-align: left; cursor: pointer; }
+.fq-hyper-category-grid button > span:first-child { display: grid; width: 40px; height: 40px; color: var(--fq-coral-dark); border: 1px solid #d8bd84; border-radius: 50%; background: #fff7e8; place-items: center; }
+.fq-hyper-category-grid button > span:nth-child(2) { display: grid; gap: 5px; }
+.fq-hyper-category-grid button strong { font-size: .88rem; }
+.fq-hyper-category-grid button small { color: var(--fq-muted); font-size: .69rem; line-height: 1.35; }
+.fq-hyper-category-grid button > b { min-width: 30px; padding: 5px 7px; color: #6e5c3f; border-radius: 999px; background: #eee3cc; font-size: .7rem; text-align: center; }
+.fq-hyper-category-grid button.is-selected { color: #fff9ec; border-color: var(--fq-navy); background: var(--fq-navy); box-shadow: inset 4px 0 0 var(--fq-coral); }
+.fq-hyper-category-grid button.is-selected small { color: #c1cdce; }
+.fq-hyper-category-grid button.is-selected > b { color: #fff5df; background: #284555; }
+.fq-hyper-builder > p { margin: 0; color: var(--fq-muted); font-size: .78rem; }
+.fq-hyper-builder > p strong { color: var(--fq-coral-dark); font-size: 1.05rem; }
+
 .fq-collection__image {
   width: 74px;
   height: 68px;
@@ -1939,6 +1967,7 @@
 
 .fq-city-stage > span { color: var(--fq-coral); font-size: 3rem; }
 .fq-city-stage > strong { margin-top: 10px; font-family: var(--serif); font-size: 1.5rem; font-weight: 600; }
+.fq-regional-capital-stage img { width: min(190px, 100%); max-height: 105px; margin: 0 auto 8px; filter: drop-shadow(0 7px 8px rgb(16 35 46 / 14%)); object-fit: contain; }
 .fq-photo-stage { min-height: 310px; padding: 0; overflow: hidden; background: #ded7ca; }
 .fq-photo-stage .fq-quiz-photo { width: 100%; max-width: none; height: 100%; max-height: 360px; object-fit: cover; }
 .fq-answer-grid--flags .fq-quiz-photo { object-fit: cover; }
@@ -1976,6 +2005,7 @@
   .fq-answer-grid--flags { grid-template-columns: 1fr 1fr; }
   .fq-flag-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .fq-topic-options { grid-template-columns: 1fr; }
+  .fq-hyper-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fq-library-heading { align-items: start; flex-direction: column; }
   .fq-library-filters { width: 100%; }
   .fq-library-filters label { flex: 1; }
@@ -2030,6 +2060,8 @@
   .fq-learning-intro h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
   .fq-learning-progress { width: 100%; }
   .fq-topic-options button { min-height: 94px; }
+  .fq-hyper-builder { padding: 18px; }
+  .fq-hyper-category-grid { grid-template-columns: 1fr; }
   .fq-library-heading { margin-top: 34px; padding-top: 30px; }
   .fq-library-filters { flex-direction: column; }
   .fq-start-panel__heading { align-items: start; flex-direction: column; gap: 14px; }

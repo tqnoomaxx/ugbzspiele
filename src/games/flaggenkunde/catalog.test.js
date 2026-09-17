@@ -2,16 +2,16 @@ import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import { describe, expect, it } from 'vitest'
-import { flagCatalog, getFlagsForCollection } from './catalog.js'
-import { cityCatalog, landmarkCatalog } from './geographyCatalog.js'
+import { flagCatalog, getFlagsForCollection, getHyperItems, hyperCategoryDefinitions } from './catalog.js'
+import { cityCatalog, landmarkCatalog, regionalCapitalCatalog } from './geographyCatalog.js'
 import { europeMapTargets, mapSetByFlagId } from './mapManifest.generated.js'
 
 const loadMap = (id) => JSON.parse(readFileSync(path.join(process.cwd(), 'public/assets/flags/interactive', `${id}.json`), 'utf8'))
 
 describe('Flaggenkunde-Katalog', () => {
-  it('enthält 997 eindeutige und vollständig lokale Flaggen', () => {
-    expect(flagCatalog).toHaveLength(997)
-    expect(new Set(flagCatalog.map((flag) => flag.id)).size).toBe(997)
+  it('enthält 1071 eindeutige und vollständig lokale Flaggen', () => {
+    expect(flagCatalog).toHaveLength(1071)
+    expect(new Set(flagCatalog.map((flag) => flag.id)).size).toBe(1071)
     for (const flag of flagCatalog) {
       expect(flag.name).toBeTruthy()
       expect(flag.image).toMatch(/^\/assets\/flags\//)
@@ -42,6 +42,10 @@ describe('Flaggenkunde-Katalog', () => {
     expect(getFlagsForCollection('chile')).toHaveLength(16)
     expect(getFlagsForCollection('malaysia')).toHaveLength(16)
     expect(getFlagsForCollection('japan')).toHaveLength(47)
+    expect(getFlagsForCollection('indonesia')).toHaveLength(34)
+    expect(getFlagsForCollection('ecuador')).toHaveLength(24)
+    expect(getFlagsForCollection('bolivia')).toHaveLength(9)
+    expect(getFlagsForCollection('costa-rica')).toHaveLength(7)
     expect(getFlagsForCollection('europe-hyper').length).toBeGreaterThan(800)
     expect(getFlagsForCollection('europe-fr')).toHaveLength(13)
     expect(getFlagsForCollection('europe-bg')).toHaveLength(1)
@@ -50,7 +54,11 @@ describe('Flaggenkunde-Katalog', () => {
   it('liefert Städte, Hauptstädte und Welterbe mit vollständig lokalen Quizbildern', async () => {
     expect(cityCatalog.filter((city) => city.capital).length).toBeGreaterThan(75)
     expect(cityCatalog.filter((city) => city.image)).toHaveLength(38)
-    expect(landmarkCatalog).toHaveLength(34)
+    expect(landmarkCatalog).toHaveLength(78)
+    expect(regionalCapitalCatalog).toHaveLength(189)
+    expect(getFlagsForCollection('regional-capitals-world')).toHaveLength(189)
+    expect(getFlagsForCollection('regional-capitals-country-de')).toHaveLength(16)
+    expect(getFlagsForCollection('regional-capitals-country-us')).toHaveLength(50)
     expect(getFlagsForCollection('heritage-country-es')).toHaveLength(5)
     for (const item of [...cityCatalog.filter((city) => city.image), ...landmarkCatalog]) {
       const imagePath = path.join(process.cwd(), 'public', item.image.replace(/^\//, ''))
@@ -66,7 +74,7 @@ describe('Flaggenkunde-Katalog', () => {
     const europeHyperMap = loadMap('europe')
     const interactiveRegionIds = new Set(regionMaps.flatMap((map) => map.shapes.map((shape) => shape.flagId)))
     const regionalFlagIds = new Set(flagCatalog.filter((flag) => flag.kind === 'region').map((flag) => flag.id))
-    expect(Object.keys(mapSetByFlagId)).toHaveLength(743)
+    expect(Object.keys(mapSetByFlagId)).toHaveLength(817)
     expect(new Set(Object.keys(mapSetByFlagId))).toEqual(regionalFlagIds)
     expect(interactiveRegionIds).toEqual(regionalFlagIds)
     expect(new Set(europeHyperMap.shapes.map((shape) => shape.flagId)).size).toBe(europeMapTargets.length)
@@ -92,6 +100,21 @@ describe('Flaggenkunde-Katalog', () => {
       })
       expect(Math.max(...areas), `${shape.flagId}: anklickbare Fläche`).toBeGreaterThan(0.000001)
     }
+  })
+
+  it('stellt jede Hypermodus-Kategorie einzeln zusammen und entfernt Überschneidungen', () => {
+    const counts = Object.fromEntries(hyperCategoryDefinitions.map((category) => [category.id, getHyperItems([category.id]).length]))
+    expect(counts).toEqual({
+      'country-flags': 254,
+      'region-flags': 817,
+      'national-capitals': 81,
+      'regional-capitals': 189,
+      'city-images': 38,
+      landmarks: 78,
+    })
+    const combined = getHyperItems(['national-capitals', 'city-images'])
+    expect(new Set(combined.map((item) => item.id)).size).toBe(combined.length)
+    expect(combined.length).toBeLessThan(counts['national-capitals'] + counts['city-images'])
   })
 
   it('rendert die zuvor beschädigten SVG-Quellen als vollwertige Bilddateien', async () => {

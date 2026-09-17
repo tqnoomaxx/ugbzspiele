@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import { cityCatalog, landmarkCatalog } from '../src/games/flaggenkunde/geographyCatalog.js'
@@ -8,6 +8,8 @@ const outputDirectory = path.join(root, 'public/assets/geography/landmarks')
 const cityOutputDirectory = path.join(root, 'public/assets/geography/cities')
 const attributionFile = path.join(root, 'public/assets/geography/ATTRIBUTION.md')
 const userAgent = 'UGBZ-Geography-Quiz/1.0 (https://github.com/tqnoomaxx/ugbzspiele)'
+const missingOnly = process.env.GEOGRAPHY_MISSING_ONLY === '1'
+const forcedIds = new Set((process.env.GEOGRAPHY_FORCE_IDS ?? '').split(',').filter(Boolean))
 
 mkdirSync(outputDirectory, { recursive: true })
 mkdirSync(cityOutputDirectory, { recursive: true })
@@ -57,9 +59,17 @@ async function commonsMetadata(source) {
   }
 }
 
+const previousSourcesFile = path.join(outputDirectory, 'SOURCES.json')
+const previousSources = existsSync(previousSourcesFile) ? JSON.parse(readFileSync(previousSourcesFile, 'utf8')) : []
+const previousSourceById = new Map(previousSources.map((source) => [source.id, source]))
 const sources = []
 for (const [index, landmark] of landmarkCatalog.entries()) {
-  const image = await wikipediaImage(landmark.wikipediaTitle)
+  const outputFile = path.join(outputDirectory, `${landmark.id.replace('landmark-', '')}.webp`)
+  if (missingOnly && !forcedIds.has(landmark.id) && existsSync(outputFile) && previousSourceById.has(landmark.id)) {
+    sources.push(previousSourceById.get(landmark.id))
+    continue
+  }
+  const image = await wikipediaImage(landmark.wikipediaTitle, landmark.wikiLanguage)
   const metadata = await commonsMetadata(image.source).catch(() => ({ commonsPage: null, artist: 'Siehe Wikipedia', license: 'Siehe Bildquelle', licenseUrl: null }))
   const response = await fetch(image.source, { headers: { 'user-agent': userAgent }, signal: AbortSignal.timeout(60_000) })
   if (!response.ok) throw new Error(`${response.status}: ${image.source}`)
@@ -67,13 +77,18 @@ for (const [index, landmark] of landmarkCatalog.entries()) {
     .rotate()
     .resize(1200, 750, { fit: 'cover', position: 'attention' })
     .webp({ quality: 84, effort: 5 })
-    .toFile(path.join(outputDirectory, `${landmark.id.replace('landmark-', '')}.webp`))
+    .toFile(outputFile)
   sources.push({ id: landmark.id, name: landmark.name, wikipedia: image.pageUrl, original: image.source, ...metadata })
   console.log(`${index + 1}/${landmarkCatalog.length}: ${landmark.name}`)
 }
 
 const picturedCities = cityCatalog.filter((city) => city.image)
 for (const [index, city] of picturedCities.entries()) {
+  const outputFile = path.join(root, 'public', city.image.replace(/^\//, ''))
+  if (missingOnly && existsSync(outputFile) && previousSourceById.has(city.id)) {
+    sources.push(previousSourceById.get(city.id))
+    continue
+  }
   const image = await wikipediaImage(city.wikipediaTitle, city.wikiLanguage)
   const metadata = await commonsMetadata(image.source).catch(() => ({ commonsPage: null, artist: 'Siehe Wikipedia', license: 'Siehe Bildquelle', licenseUrl: null }))
   const response = await fetch(image.source, { headers: { 'user-agent': userAgent }, signal: AbortSignal.timeout(60_000) })
@@ -82,7 +97,7 @@ for (const [index, city] of picturedCities.entries()) {
     .rotate()
     .resize(1200, 750, { fit: 'cover', position: 'attention' })
     .webp({ quality: 84, effort: 5 })
-    .toFile(path.join(root, 'public', city.image.replace(/^\//, '')))
+    .toFile(outputFile)
   sources.push({ id: city.id, name: `${city.name} (${city.parent})`, wikipedia: image.pageUrl, original: image.source, ...metadata })
   console.log(`${index + 1}/${picturedCities.length}: Stadt ${city.name}`)
 }

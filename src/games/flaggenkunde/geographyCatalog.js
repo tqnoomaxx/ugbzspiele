@@ -162,6 +162,214 @@ NZ|Auckland|Neuseeland|oceania|0
   }
 })
 
+const regionalCapitalRows = `
+DE|europe|germany|DE-BW|Baden-Württemberg|Stuttgart
+DE|europe|germany|DE-BY|Bayern|München
+DE|europe|germany|DE-BE|Berlin|Berlin
+DE|europe|germany|DE-BB|Brandenburg|Potsdam
+DE|europe|germany|DE-HB|Bremen|Bremen
+DE|europe|germany|DE-HH|Hamburg|Hamburg
+DE|europe|germany|DE-HE|Hessen|Wiesbaden
+DE|europe|germany|DE-MV|Mecklenburg-Vorpommern|Schwerin
+DE|europe|germany|DE-NI|Niedersachsen|Hannover
+DE|europe|germany|DE-NW|Nordrhein-Westfalen|Düsseldorf
+DE|europe|germany|DE-RP|Rheinland-Pfalz|Mainz
+DE|europe|germany|DE-SL|Saarland|Saarbrücken
+DE|europe|germany|DE-SN|Sachsen|Dresden
+DE|europe|germany|DE-ST|Sachsen-Anhalt|Magdeburg
+DE|europe|germany|DE-SH|Schleswig-Holstein|Kiel
+DE|europe|germany|DE-TH|Thüringen|Erfurt
+AT|europe|austria|AT-1|Burgenland|Eisenstadt
+AT|europe|austria|AT-2|Kärnten|Klagenfurt
+AT|europe|austria|AT-3|Niederösterreich|St. Pölten
+AT|europe|austria|AT-4|Oberösterreich|Linz
+AT|europe|austria|AT-5|Salzburg|Salzburg
+AT|europe|austria|AT-6|Steiermark|Graz
+AT|europe|austria|AT-7|Tirol|Innsbruck
+AT|europe|austria|AT-8|Vorarlberg|Bregenz
+AT|europe|austria|AT-9|Wien|Wien
+NL|europe|netherlands|NL-DR|Drenthe|Assen
+NL|europe|netherlands|NL-FL|Flevoland|Lelystad
+NL|europe|netherlands|NL-FR|Friesland|Leeuwarden
+NL|europe|netherlands|NL-GE|Gelderland|Arnhem
+NL|europe|netherlands|NL-GR|Groningen|Groningen
+NL|europe|netherlands|NL-LI|Limburg|Maastricht
+NL|europe|netherlands|NL-NB|Noord-Brabant|'s-Hertogenbosch
+NL|europe|netherlands|NL-NH|Noord-Holland|Haarlem
+NL|europe|netherlands|NL-OV|Overijssel|Zwolle
+NL|europe|netherlands|NL-UT|Utrecht|Utrecht
+NL|europe|netherlands|NL-ZE|Zeeland|Middelburg
+NL|europe|netherlands|NL-ZH|Zuid-Holland|Den Haag
+CH|europe|switzerland|CH-AG|Aargau|Aarau
+CH|europe|switzerland|CH-AI|Appenzell Innerrhoden|Appenzell
+CH|europe|switzerland|CH-AR|Appenzell Ausserrhoden|Herisau
+CH|europe|switzerland|CH-BE|Bern|Bern
+CH|europe|switzerland|CH-BL|Basel-Landschaft|Liestal
+CH|europe|switzerland|CH-BS|Basel-Stadt|Basel
+CH|europe|switzerland|CH-FR|Freiburg|Freiburg
+CH|europe|switzerland|CH-GE|Genf|Genf
+CH|europe|switzerland|CH-GL|Glarus|Glarus
+CH|europe|switzerland|CH-GR|Graubünden|Chur
+CH|europe|switzerland|CH-JU|Jura|Delsberg
+CH|europe|switzerland|CH-LU|Luzern|Luzern
+CH|europe|switzerland|CH-NE|Neuenburg|Neuenburg
+CH|europe|switzerland|CH-NW|Nidwalden|Stans
+CH|europe|switzerland|CH-OW|Obwalden|Sarnen
+CH|europe|switzerland|CH-SG|St. Gallen|St. Gallen
+CH|europe|switzerland|CH-SH|Schaffhausen|Schaffhausen
+CH|europe|switzerland|CH-SO|Solothurn|Solothurn
+CH|europe|switzerland|CH-SZ|Schwyz|Schwyz
+CH|europe|switzerland|CH-TG|Thurgau|Frauenfeld
+CH|europe|switzerland|CH-TI|Tessin|Bellinzona
+CH|europe|switzerland|CH-UR|Uri|Altdorf
+CH|europe|switzerland|CH-VD|Waadt|Lausanne
+CH|europe|switzerland|CH-VS|Wallis|Sitten
+CH|europe|switzerland|CH-ZG|Zug|Zug
+CH|europe|switzerland|CH-ZH|Zürich|Zürich
+ES|europe|spain|ES-AN|Andalusien|Sevilla
+ES|europe|spain|ES-AR|Aragón|Zaragoza
+ES|europe|spain|ES-AS|Asturien|Oviedo
+ES|europe|spain|ES-CB|Kantabrien|Santander
+ES|europe|spain|ES-CL|Kastilien und León|Valladolid
+ES|europe|spain|ES-CM|Kastilien-La Mancha|Toledo
+ES|europe|spain|ES-CT|Katalonien|Barcelona
+ES|europe|spain|ES-EX|Extremadura|Mérida
+ES|europe|spain|ES-GA|Galicien|Santiago de Compostela
+ES|europe|spain|ES-IB|Balearische Inseln|Palma
+ES|europe|spain|ES-CN|Kanarische Inseln|Las Palmas / Santa Cruz de Tenerife
+ES|europe|spain|ES-MC|Murcia|Murcia
+ES|europe|spain|ES-MD|Madrid|Madrid
+ES|europe|spain|ES-NC|Navarra|Pamplona
+ES|europe|spain|ES-PV|Baskenland|Vitoria-Gasteiz
+ES|europe|spain|ES-RI|La Rioja|Logroño
+ES|europe|spain|ES-VC|Valencianische Gemeinschaft|Valencia
+ES|europe|spain|ES-CE|Ceuta|Ceuta
+ES|europe|spain|ES-ML|Melilla|Melilla
+IT|europe|italy|IT-21|Piemont|Turin
+IT|europe|italy|IT-23|Aostatal|Aosta
+IT|europe|italy|IT-25|Lombardei|Mailand
+IT|europe|italy|IT-32|Trentino-Südtirol|Trient
+IT|europe|italy|IT-34|Venetien|Venedig
+IT|europe|italy|IT-36|Friaul-Julisch Venetien|Triest
+IT|europe|italy|IT-42|Ligurien|Genua
+IT|europe|italy|IT-45|Emilia-Romagna|Bologna
+IT|europe|italy|IT-52|Toskana|Florenz
+IT|europe|italy|IT-55|Umbrien|Perugia
+IT|europe|italy|IT-57|Marken|Ancona
+IT|europe|italy|IT-62|Latium|Rom
+IT|europe|italy|IT-65|Abruzzen|L’Aquila
+IT|europe|italy|IT-67|Molise|Campobasso
+IT|europe|italy|IT-72|Kampanien|Neapel
+IT|europe|italy|IT-75|Apulien|Bari
+IT|europe|italy|IT-77|Basilikata|Potenza
+IT|europe|italy|IT-78|Kalabrien|Catanzaro
+IT|europe|italy|IT-82|Sizilien|Palermo
+IT|europe|italy|IT-88|Sardinien|Cagliari
+PL|europe|poland|PL-02|Niederschlesien|Wrocław
+PL|europe|poland|PL-04|Kujawien-Pommern|Bydgoszcz / Toruń
+PL|europe|poland|PL-06|Lublin|Lublin
+PL|europe|poland|PL-08|Lebus|Gorzów / Zielona Góra
+PL|europe|poland|PL-10|Łódź|Łódź
+PL|europe|poland|PL-12|Kleinpolen|Krakau
+PL|europe|poland|PL-14|Masowien|Warschau
+PL|europe|poland|PL-16|Oppeln|Opole
+PL|europe|poland|PL-18|Karpatenvorland|Rzeszów
+PL|europe|poland|PL-20|Podlachien|Białystok
+PL|europe|poland|PL-22|Pommern|Danzig
+PL|europe|poland|PL-24|Schlesien|Katowice
+PL|europe|poland|PL-26|Heiligkreuz|Kielce
+PL|europe|poland|PL-28|Ermland-Masuren|Olsztyn
+PL|europe|poland|PL-30|Großpolen|Poznań
+PL|europe|poland|PL-32|Westpommern|Szczecin
+US|north-america|us-states|US-AL|Alabama|Montgomery
+US|north-america|us-states|US-AK|Alaska|Juneau
+US|north-america|us-states|US-AZ|Arizona|Phoenix
+US|north-america|us-states|US-AR|Arkansas|Little Rock
+US|north-america|us-states|US-CA|Kalifornien|Sacramento
+US|north-america|us-states|US-CO|Colorado|Denver
+US|north-america|us-states|US-CT|Connecticut|Hartford
+US|north-america|us-states|US-DE|Delaware|Dover
+US|north-america|us-states|US-FL|Florida|Tallahassee
+US|north-america|us-states|US-GA|Georgia|Atlanta
+US|north-america|us-states|US-HI|Hawaii|Honolulu
+US|north-america|us-states|US-ID|Idaho|Boise
+US|north-america|us-states|US-IL|Illinois|Springfield
+US|north-america|us-states|US-IN|Indiana|Indianapolis
+US|north-america|us-states|US-IA|Iowa|Des Moines
+US|north-america|us-states|US-KS|Kansas|Topeka
+US|north-america|us-states|US-KY|Kentucky|Frankfort
+US|north-america|us-states|US-LA|Louisiana|Baton Rouge
+US|north-america|us-states|US-ME|Maine|Augusta
+US|north-america|us-states|US-MD|Maryland|Annapolis
+US|north-america|us-states|US-MA|Massachusetts|Boston
+US|north-america|us-states|US-MI|Michigan|Lansing
+US|north-america|us-states|US-MN|Minnesota|Saint Paul
+US|north-america|us-states|US-MS|Mississippi|Jackson
+US|north-america|us-states|US-MO|Missouri|Jefferson City
+US|north-america|us-states|US-MT|Montana|Helena
+US|north-america|us-states|US-NE|Nebraska|Lincoln
+US|north-america|us-states|US-NV|Nevada|Carson City
+US|north-america|us-states|US-NH|New Hampshire|Concord
+US|north-america|us-states|US-NJ|New Jersey|Trenton
+US|north-america|us-states|US-NM|New Mexico|Santa Fe
+US|north-america|us-states|US-NY|New York|Albany
+US|north-america|us-states|US-NC|North Carolina|Raleigh
+US|north-america|us-states|US-ND|North Dakota|Bismarck
+US|north-america|us-states|US-OH|Ohio|Columbus
+US|north-america|us-states|US-OK|Oklahoma|Oklahoma City
+US|north-america|us-states|US-OR|Oregon|Salem
+US|north-america|us-states|US-PA|Pennsylvania|Harrisburg
+US|north-america|us-states|US-RI|Rhode Island|Providence
+US|north-america|us-states|US-SC|South Carolina|Columbia
+US|north-america|us-states|US-SD|South Dakota|Pierre
+US|north-america|us-states|US-TN|Tennessee|Nashville
+US|north-america|us-states|US-TX|Texas|Austin
+US|north-america|us-states|US-UT|Utah|Salt Lake City
+US|north-america|us-states|US-VT|Vermont|Montpelier
+US|north-america|us-states|US-VA|Virginia|Richmond
+US|north-america|us-states|US-WA|Washington|Olympia
+US|north-america|us-states|US-WV|West Virginia|Charleston
+US|north-america|us-states|US-WI|Wisconsin|Madison
+US|north-america|us-states|US-WY|Wyoming|Cheyenne
+CA|north-america|canada|CA-AB|Alberta|Edmonton
+CA|north-america|canada|CA-BC|Britisch-Kolumbien|Victoria
+CA|north-america|canada|CA-MB|Manitoba|Winnipeg
+CA|north-america|canada|CA-NB|New Brunswick|Fredericton
+CA|north-america|canada|CA-NL|Neufundland und Labrador|St. John’s
+CA|north-america|canada|CA-NS|Nova Scotia|Halifax
+CA|north-america|canada|CA-NT|Nordwest-Territorien|Yellowknife
+CA|north-america|canada|CA-NU|Nunavut|Iqaluit
+CA|north-america|canada|CA-ON|Ontario|Toronto
+CA|north-america|canada|CA-PE|Prince Edward Island|Charlottetown
+CA|north-america|canada|CA-QC|Québec|Québec
+CA|north-america|canada|CA-SK|Saskatchewan|Regina
+CA|north-america|canada|CA-YT|Yukon|Whitehorse
+AU|oceania|australia|AU-ACT|Australian Capital Territory|Canberra
+AU|oceania|australia|AU-NSW|New South Wales|Sydney
+AU|oceania|australia|AU-NT|Northern Territory|Darwin
+AU|oceania|australia|AU-QLD|Queensland|Brisbane
+AU|oceania|australia|AU-SA|South Australia|Adelaide
+AU|oceania|australia|AU-TAS|Tasmanien|Hobart
+AU|oceania|australia|AU-VIC|Victoria|Melbourne
+AU|oceania|australia|AU-WA|Western Australia|Perth
+`.trim().split('\n').map((row) => {
+  const [countryCode, continent, flagCollection, regionCode, region, name] = row.split('|')
+  const parentNames = { DE: 'Deutschland', AT: 'Österreich', NL: 'Niederlande', CH: 'Schweiz', ES: 'Spanien', IT: 'Italien', PL: 'Polen', US: 'USA', CA: 'Kanada', AU: 'Australien' }
+  return {
+    id: `regional-capital-${regionCode}`,
+    code: regionCode,
+    name,
+    region,
+    parent: parentNames[countryCode],
+    countryCode,
+    continent,
+    flagCollection,
+    regionFlagId: `region-${regionCode}`,
+    kind: 'regional-capital',
+    topic: 'regional-capitals',
+  }
+})
+
 const landmarkRows = [
   ['alhambra', 'Alhambra', 'Granada', 'Spanien', 'ES', 'europe', 'Alhambra, Generalife und Albayzín', 'Alhambra'],
   ['sagrada-familia', 'Sagrada Família', 'Barcelona', 'Spanien', 'ES', 'europe', 'Werke von Antoni Gaudí', 'Sagrada Família'],
@@ -197,9 +405,53 @@ const landmarkRows = [
   ['opera-house', 'Sydney Opera House', 'Sydney', 'Australien', 'AU', 'oceania', 'Sydney Opera House', 'Sydney Opera House'],
   ['liberty', 'Freiheitsstatue', 'New York City', 'USA', 'US', 'north-america', 'Freiheitsstatue', 'Statue of Liberty'],
   ['grand-canyon', 'Grand Canyon', 'Arizona', 'USA', 'US', 'north-america', 'Grand-Canyon-Nationalpark', 'Grand Canyon'],
+  ['eiffel-tower', 'Eiffelturm', 'Paris', 'Frankreich', 'FR', 'europe', 'Paris, Ufer der Seine', 'Eiffel Tower'],
+  ['carcassonne', 'Festungsstadt Carcassonne', 'Carcassonne', 'Frankreich', 'FR', 'europe', 'Historische Festungsstadt Carcassonne', 'Cité de Carcassonne'],
+  ['pont-du-gard', 'Pont du Gard', 'Okzitanien', 'Frankreich', 'FR', 'europe', 'Pont du Gard', 'Pont du Gard'],
+  ['chartres', 'Kathedrale von Chartres', 'Chartres', 'Frankreich', 'FR', 'europe', 'Kathedrale von Chartres', 'Chartres Cathedral'],
+  ['pompeii', 'Pompeji', 'Kampanien', 'Italien', 'IT', 'europe', 'Archäologische Stätten von Pompeji, Herculaneum und Torre Annunziata', 'Pompeii'],
+  ['florence-cathedral', 'Kathedrale von Florenz', 'Florenz', 'Italien', 'IT', 'europe', 'Historisches Zentrum von Florenz', 'Florence Cathedral'],
+  ['castel-del-monte', 'Castel del Monte', 'Apulien', 'Italien', 'IT', 'europe', 'Castel del Monte', 'Castel del Monte, Apulia'],
+  ['cinque-terre', 'Cinque Terre', 'Ligurien', 'Italien', 'IT', 'europe', 'Portovenere, Cinque Terre und die Inseln', 'Cinque Terre'],
+  ['wartburg', 'Wartburg', 'Eisenach', 'Deutschland', 'DE', 'europe', 'Wartburg', 'Wartburg'],
+  ['museum-island', 'Museumsinsel Berlin', 'Berlin', 'Deutschland', 'DE', 'europe', 'Museumsinsel Berlin', 'Museum Island'],
+  ['luebeck', 'Lübecker Altstadt', 'Lübeck', 'Deutschland', 'DE', 'europe', 'Hansestadt Lübeck', 'Lübeck'],
+  ['aachen-cathedral', 'Aachener Dom', 'Aachen', 'Deutschland', 'DE', 'europe', 'Aachener Dom', 'Aachen Cathedral'],
+  ['westminster', 'Westminster Abbey', 'London', 'Vereinigtes Königreich', 'GB', 'europe', 'Palace of Westminster und Westminster Abbey', 'Westminster Abbey'],
+  ['edinburgh-castle', 'Edinburgh Castle', 'Edinburgh', 'Vereinigtes Königreich', 'GB', 'europe', 'Altstadt und Neustadt von Edinburgh', 'Edinburgh Castle'],
+  ['roman-baths', 'Römische Bäder von Bath', 'Bath', 'Vereinigtes Königreich', 'GB', 'europe', 'Stadt Bath', 'Roman Baths (Bath)'],
+  ['forth-bridge', 'Forth Bridge', 'Schottland', 'Vereinigtes Königreich', 'GB', 'europe', 'Forth Bridge', 'Forth Bridge'],
+  ['jeronimos', 'Hieronymitenkloster', 'Lissabon', 'Portugal', 'PT', 'europe', 'Hieronymitenkloster und Turm von Belém', 'Jerónimos Monastery'],
+  ['pena-palace', 'Palácio Nacional da Pena', 'Sintra', 'Portugal', 'PT', 'europe', 'Kulturlandschaft Sintra', 'Pena Palace'],
+  ['coimbra', 'Universität Coimbra', 'Coimbra', 'Portugal', 'PT', 'europe', 'Universität Coimbra – Alta und Sofia', 'Biblioteca Joanina'],
+  ['evora', 'Historisches Zentrum von Évora', 'Évora', 'Portugal', 'PT', 'europe', 'Historisches Zentrum von Évora', 'Évora'],
+  ['delphi', 'Orakelstätte Delphi', 'Delphi', 'Griechenland', 'GR', 'europe', 'Archäologische Stätte von Delphi', 'Delphi'],
+  ['olympia', 'Antikes Olympia', 'Olympia', 'Griechenland', 'GR', 'europe', 'Archäologische Stätte von Olympia', 'Olympia, Greece'],
+  ['mycenae', 'Mykene', 'Peloponnes', 'Griechenland', 'GR', 'europe', 'Archäologische Stätten von Mykene und Tiryns', 'Mycenae'],
+  ['knossos', 'Palast von Knossos', 'Kreta', 'Griechenland', 'GR', 'europe', 'Minoische Palastzentren', 'Knossos', 'de'],
+  ['ephesus', 'Ephesos', 'İzmir', 'Türkei', 'TR', 'asia', 'Ephesos', 'Ephesus'],
+  ['pamukkale', 'Pamukkale', 'Denizli', 'Türkei', 'TR', 'asia', 'Hierapolis–Pamukkale', 'Pamukkale'],
+  ['troy', 'Troja', 'Çanakkale', 'Türkei', 'TR', 'asia', 'Archäologische Stätte von Troja', 'Troy'],
+  ['goebekli-tepe', 'Göbekli Tepe', 'Şanlıurfa', 'Türkei', 'TR', 'asia', 'Göbekli Tepe', 'Göbekli Tepe'],
+  ['victoria-falls', 'Victoriafälle', 'Sambia / Simbabwe', 'Sambia', 'ZM', 'africa', 'Mosi-oa-Tunya / Victoria Falls', 'Victoria Falls'],
+  ['kilimanjaro', 'Kilimandscharo', 'Kilimandscharo', 'Tansania', 'TZ', 'africa', 'Kilimandscharo-Nationalpark', 'Mount Kilimanjaro'],
+  ['lalibela', 'Felsenkirchen von Lalibela', 'Lalibela', 'Äthiopien', 'ET', 'africa', 'Felsenkirchen von Lalibela', 'Rock-Hewn Churches, Lalibela'],
+  ['robben-island', 'Robben Island', 'Kapstadt', 'Südafrika', 'ZA', 'africa', 'Robben Island', 'Robben Island'],
+  ['petra', 'Petra', 'Ma’an', 'Jordanien', 'JO', 'asia', 'Petra', 'Petra'],
+  ['borobudur', 'Borobudur', 'Java', 'Indonesien', 'ID', 'asia', 'Tempelanlagen von Borobudur', 'Borobudur'],
+  ['ha-long', 'Hạ-Long-Bucht', 'Quảng Ninh', 'Vietnam', 'VN', 'asia', 'Hạ-Long-Bucht–Cát-Bà-Archipel', 'Hạ Long Bay'],
+  ['mount-fuji', 'Fuji', 'Honshū', 'Japan', 'JP', 'asia', 'Fuji-san, heiliger Ort und Quelle künstlerischer Inspiration', 'Mount Fuji'],
+  ['iguazu', 'Iguazú-Wasserfälle', 'Misiones', 'Argentinien', 'AR', 'south-america', 'Iguazú-Nationalpark', 'Iguazu Falls'],
+  ['galapagos', 'Galápagos-Inseln', 'Galápagos', 'Ecuador', 'EC', 'south-america', 'Galápagos-Inseln', 'Galápagos Islands'],
+  ['rapa-nui', 'Moai von Rapa Nui', 'Osterinsel', 'Chile', 'CL', 'south-america', 'Nationalpark Rapa Nui', 'Easter Island'],
+  ['cartagena', 'Altstadt von Cartagena', 'Cartagena', 'Kolumbien', 'CO', 'south-america', 'Hafen, Festungen und Baudenkmäler von Cartagena', 'Cartagena, Colombia'],
+  ['great-barrier-reef', 'Great Barrier Reef', 'Queensland', 'Australien', 'AU', 'oceania', 'Great Barrier Reef', 'Great Barrier Reef Marine Park'],
+  ['uluru', 'Uluṟu', 'Northern Territory', 'Australien', 'AU', 'oceania', 'Uluṟu-Kata-Tjuṯa-Nationalpark', 'Uluṟu'],
+  ['te-wahipounamu', 'Milford Sound', 'Südinsel', 'Neuseeland', 'NZ', 'oceania', 'Te Wāhipounamu', 'Milford Sound'],
+  ['tongariro', 'Tongariro-Nationalpark', 'Nordinsel', 'Neuseeland', 'NZ', 'oceania', 'Tongariro-Nationalpark', 'Tongariro National Park'],
 ]
 
-export const landmarkCatalog = landmarkRows.map(([slug, name, city, parent, countryCode, continent, unescoName, wikipediaTitle]) => ({
+export const landmarkCatalog = landmarkRows.map(([slug, name, city, parent, countryCode, continent, unescoName, wikipediaTitle, wikiLanguage]) => ({
   id: `landmark-${slug}`,
   code: countryCode,
   name,
@@ -209,13 +461,15 @@ export const landmarkCatalog = landmarkRows.map(([slug, name, city, parent, coun
   continent,
   unescoName,
   wikipediaTitle,
+  wikiLanguage: wikiLanguage ?? 'en',
   image: `/assets/geography/landmarks/${slug}.webp`,
   kind: 'landmark',
   topic: 'landmarks',
 }))
 
 export const cityCatalog = cityRows
-export const geographyCatalog = [...cityCatalog, ...landmarkCatalog]
+export const regionalCapitalCatalog = regionalCapitalRows
+export const geographyCatalog = [...cityCatalog, ...regionalCapitalCatalog, ...landmarkCatalog]
 
 function groupBy(items, getKey) {
   const groups = new Map()
@@ -232,6 +486,7 @@ const geographyCollections = [
   { id: 'cities-world', title: 'Städte der Welt', shortTitle: 'Städte', topic: 'cities', group: 'Global', symbol: '⌂', description: 'Bekannte Metropolen dem richtigen Land zuordnen.', filter: (item) => item.kind === 'city', defaultQuizMode: 'city-country' },
   { id: 'city-images-world', title: 'Städte im Bild', shortTitle: 'Städtebilder', topic: 'cities', group: 'Global', symbol: '▣', description: 'Stadtansichten erkennen und den richtigen Namen finden.', filter: (item) => item.kind === 'city' && item.image, defaultQuizMode: 'city-name', featured: true },
   { id: 'heritage-world', title: 'UNESCO-Welterbe weltweit', shortTitle: 'Welterbe', topic: 'landmarks', group: 'Global', symbol: '◇', description: 'Berühmte Kultur- und Naturstätten anhand echter Bilder erkennen.', filter: (item) => item.kind === 'landmark', defaultQuizMode: 'landmark-country', featured: true },
+  { id: 'regional-capitals-world', title: 'Provinz- & Landeshauptstädte', shortTitle: 'Regionale Hauptstädte', topic: 'regional-capitals', group: 'Global', symbol: '⌖', description: `${regionalCapitalRows.length} Bundesländer, Kantone, Staaten und ihre Hauptstädte.`, filter: (item) => item.kind === 'regional-capital', defaultQuizMode: 'region-capital', featured: true },
 ]
 
 for (const [continent, title] of Object.entries(continentNames)) {
@@ -260,6 +515,40 @@ for (const [continent, title] of Object.entries(continentNames)) {
     continent,
     filter: (item) => item.kind === 'landmark' && item.continent === continent,
     defaultQuizMode: 'landmark-country',
+  })
+}
+
+for (const [continent, title] of Object.entries(continentNames)) {
+  const capitals = regionalCapitalRows.filter((item) => item.continent === continent)
+  if (capitals.length < 4) continue
+  geographyCollections.push({
+    id: `regional-capitals-${continent}`,
+    title: `Regionale Hauptstädte in ${title}`,
+    shortTitle: title,
+    topic: 'regional-capitals',
+    group: title,
+    symbol: '⌖',
+    description: `${capitals.length} Verwaltungseinheiten und ihre Hauptstädte.`,
+    continent,
+    filter: (item) => item.kind === 'regional-capital' && item.continent === continent,
+    defaultQuizMode: 'region-capital',
+  })
+}
+
+for (const [countryCode, items] of groupBy(regionalCapitalRows, (item) => item.countryCode)) {
+  const { parent, continent } = items[0]
+  geographyCollections.push({
+    id: `regional-capitals-country-${countryCode.toLowerCase()}`,
+    title: `Regionale Hauptstädte: ${parent}`,
+    shortTitle: parent,
+    topic: 'regional-capitals',
+    group: continentNames[continent],
+    symbol: countryCode,
+    description: `${items.length} Regionen und ihre Verwaltungssitze.`,
+    countryCode,
+    continent,
+    filter: (item) => item.kind === 'regional-capital' && item.countryCode === countryCode,
+    defaultQuizMode: 'region-capital',
   })
 }
 

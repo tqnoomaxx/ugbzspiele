@@ -9,7 +9,14 @@ import { advanceQuiz, answerMapGuess, answerQuestion, answerTypedQuestion, creat
 import { loadQuizSession, recordFlagAnswer, saveQuizSession } from '../games/flaggenkunde/progressRepository.js'
 
 const RegionQuizMap = lazy(() => import('../components/RegionQuizMap.jsx'))
-const OPTION_MODES = new Set([QUIZ_MODES.CHOICE, QUIZ_MODES.REVERSE, QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.CITY_NAME, QUIZ_MODES.CITY_REVERSE, QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME])
+const OPTION_MODES = new Set([QUIZ_MODES.CHOICE, QUIZ_MODES.REVERSE, QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.CITY_NAME, QUIZ_MODES.CITY_REVERSE, QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME, QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION])
+const PARENT_ANSWER_MODES = new Set([QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.LANDMARK_COUNTRY])
+
+function answerLabel(item, mode) {
+  if (PARENT_ANSWER_MODES.has(mode)) return item.parent
+  if (mode === QUIZ_MODES.CAPITAL_REGION) return item.region
+  return item.name
+}
 
 function FlagPicture({ flag, revealed = false }) {
   return (
@@ -38,6 +45,11 @@ function RegionLocation({ flag }) {
 
 function QuestionPresentation({ answered, collection, flag, mode, question }) {
   const repeated = question.repeated ? 'Wiederholung · ' : ''
+  if ([QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION].includes(mode)) {
+    const regionFirst = mode === QUIZ_MODES.REGION_CAPITAL
+    const regionFlag = flagById.get(flag.regionFlagId)
+    return <><div className="fq-question-copy"><span className="fq-kicker">{repeated}{regionFirst ? 'Region → Hauptstadt' : 'Hauptstadt → Region'}</span><h1>{regionFirst ? flag.region : flag.name}</h1><p>{answered ? `${flag.name} ist die Hauptstadt von ${flag.region} (${flag.parent}).` : regionFirst ? 'Welche Hauptstadt gehört zu dieser Region?' : 'Zu welcher Region gehört diese Hauptstadt?'}</p></div><div className="fq-city-stage fq-regional-capital-stage" aria-hidden="true">{regionFlag ? <img alt="" src={appPath(regionFlag.image)} /> : <span>⌖</span>}<strong>{answered ? (regionFirst ? flag.name : flag.region) : '?'}</strong></div></>
+  }
   if ([QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CITY_COUNTRY].includes(mode)) {
     const countryFirst = mode === QUIZ_MODES.COUNTRY_CAPITAL
     return <><div className="fq-question-copy"><span className="fq-kicker">{repeated}{countryFirst ? 'Land → Hauptstadt' : mode === QUIZ_MODES.CAPITAL_COUNTRY ? 'Hauptstadt → Land' : 'Stadt → Land'}</span><h1>{countryFirst ? flag.parent : flag.name}</h1><p>{answered ? `${flag.name} liegt in ${flag.parent}.` : countryFirst ? 'Welche Hauptstadt gehört zu diesem Land?' : 'Zu welchem Land gehört diese Stadt?'}</p></div><div className="fq-city-stage" aria-hidden="true"><span>⌖</span><strong>{answered ? (countryFirst ? flag.name : flag.parent) : '?'}</strong></div></>
@@ -105,7 +117,8 @@ function ResultScreen({ quiz, onRestart }) {
   const result = getQuizResult(quiz)
   const collection = getCollection(quiz.collectionId)
   const hyper = quiz.quizMode === QUIZ_MODES.EUROPE_MAP
-  const message = hyper ? 'Europa gemeistert!' : result.accuracy >= 90 ? 'Weltklasse!' : result.accuracy >= 70 ? 'Starke Reise!' : result.accuracy >= 50 ? 'Gute Grundlage!' : 'Jede Reise beginnt mit dem ersten Schritt.'
+  const mixed = quiz.quizMode === QUIZ_MODES.MIXED
+  const message = hyper ? 'Europa gemeistert!' : mixed ? 'Wissensmix geschafft!' : result.accuracy >= 90 ? 'Weltklasse!' : result.accuracy >= 70 ? 'Starke Reise!' : result.accuracy >= 50 ? 'Gute Grundlage!' : 'Jede Reise beginnt mit dem ersten Schritt.'
   return (
     <main className="fq-result-shell">
       <section className="fq-result-card">
@@ -148,16 +161,17 @@ export default function FlagQuizGamePage() {
   const options = useMemo(() => question?.optionIds?.map((id) => flagById.get(id)).filter(Boolean) ?? [], [question])
   const latestAnswer = quiz?.answers.at(-1)
   const quizMode = quiz?.quizMode ?? QUIZ_MODES.CHOICE
-  const isMapMode = quizMode === QUIZ_MODES.MAP || quizMode === QUIZ_MODES.EUROPE_MAP
+  const activeMode = question?.quizMode ?? quizMode
+  const isMapMode = activeMode === QUIZ_MODES.MAP || activeMode === QUIZ_MODES.EUROPE_MAP
   const isHyperMode = quizMode === QUIZ_MODES.EUROPE_MAP
   const completedMapIds = useMemo(() => quiz?.answers.filter((answer) => answer.correct).map((answer) => answer.flagId) ?? [], [quiz?.answers])
 
   useEffect(() => {
     if (quiz?.phase === 'question') {
       setTypedAnswer('')
-      if (quizMode === QUIZ_MODES.TYPE) inputRef.current?.focus({ preventScroll: true })
+      if (activeMode === QUIZ_MODES.TYPE) inputRef.current?.focus({ preventScroll: true })
     }
-  }, [quiz?.questionIndex, quiz?.phase, quizMode])
+  }, [quiz?.questionIndex, quiz?.phase, activeMode])
 
   useEffect(() => {
     if (!quiz || quiz.quizMode !== QUIZ_MODES.EUROPE_MAP || quiz.phase !== 'feedback') return undefined
@@ -167,7 +181,7 @@ export default function FlagQuizGamePage() {
 
   useEffect(() => {
     function handleKeyDown(event) {
-      if (quiz?.phase === 'question' && OPTION_MODES.has(quizMode) && /^[1-4]$/.test(event.key)) {
+      if (quiz?.phase === 'question' && OPTION_MODES.has(activeMode) && /^[1-4]$/.test(event.key)) {
         document.querySelector(`[data-fq-option="${Number(event.key) - 1}"]`)?.click()
       } else if (quiz?.phase === 'feedback' && (event.key === 'Enter' || event.key === ' ')) {
         event.preventDefault()
@@ -176,7 +190,7 @@ export default function FlagQuizGamePage() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [quiz?.phase, quiz?.questionIndex, quizMode])
+  }, [quiz?.phase, quiz?.questionIndex, activeMode])
 
   function choose(optionId) {
     if (!quiz || quiz.phase !== 'question') return
@@ -212,12 +226,13 @@ export default function FlagQuizGamePage() {
   }
 
   function restart() {
-    const pool = getFlagsForCollection(quiz.collectionId)
+    const pool = quiz.quizMode === QUIZ_MODES.MIXED ? quiz.poolIds.map((id) => flagById.get(id)).filter(Boolean) : getFlagsForCollection(quiz.collectionId)
     const nextQuiz = createQuiz(pool, {
       collectionId: quiz.collectionId,
       roundLength: quiz.quizMode === QUIZ_MODES.EUROPE_MAP ? 'all' : quiz.baseQuestionCount,
       repeatMistakes: quiz.repeatMistakes,
       quizMode: quiz.quizMode,
+      hyperCategories: quiz.hyperCategories,
     })
     saveQuizSession(nextQuiz)
     setTypedAnswer('')
@@ -228,7 +243,7 @@ export default function FlagQuizGamePage() {
     return <div className="flag-page"><div className="fq-loading"><span>◉</span>Flaggen werden sortiert …</div></div>
   }
 
-  const needsOptions = OPTION_MODES.has(quizMode)
+  const needsOptions = OPTION_MODES.has(activeMode)
   if (!quiz || !flag || (needsOptions && options.length < 4)) {
     return (
       <div className="flag-page">
@@ -252,7 +267,7 @@ export default function FlagQuizGamePage() {
   const wrongMapRegion = quiz.lastMapGuessId ? flagById.get(quiz.lastMapGuessId) : null
   const questionCardClass = [
     'fq-question-card',
-    quizMode === QUIZ_MODES.REVERSE || quizMode === QUIZ_MODES.CITY_REVERSE ? 'fq-question-card--reverse' : '',
+    activeMode === QUIZ_MODES.REVERSE || activeMode === QUIZ_MODES.CITY_REVERSE ? 'fq-question-card--reverse' : '',
     flag.kind === 'landmark' || (flag.kind === 'city' && flag.image) ? 'fq-question-card--photo' : '',
     isMapMode ? 'fq-question-card--map' : '',
     isHyperMode ? 'fq-question-card--hyper' : '',
@@ -278,11 +293,11 @@ export default function FlagQuizGamePage() {
         </div>
 
         <section className={questionCardClass}>
-          <QuestionPresentation answered={answered} collection={collection} flag={flag} mode={quizMode} question={question} />
+          <QuestionPresentation answered={answered} collection={collection} flag={flag} mode={activeMode} question={question} />
         </section>
 
         <section className={`fq-answer-area ${isMapMode ? 'fq-answer-area--map' : ''}`} aria-label="Antwortbereich">
-          {[QUIZ_MODES.CHOICE, QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.CITY_NAME, QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME].includes(quizMode) ? (
+          {[QUIZ_MODES.CHOICE, QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.COUNTRY_CAPITAL, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.CITY_NAME, QUIZ_MODES.LANDMARK_COUNTRY, QUIZ_MODES.LANDMARK_NAME, QUIZ_MODES.REGION_CAPITAL, QUIZ_MODES.CAPITAL_REGION].includes(activeMode) ? (
             <div className="fq-answer-grid">
               {options.map((option, index) => {
                 const isCorrect = answered && option.id === question.flagId
@@ -297,7 +312,7 @@ export default function FlagQuizGamePage() {
                     type="button"
                   >
                     <span>{index + 1}</span>
-                    <strong>{[QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.LANDMARK_COUNTRY].includes(quizMode) ? option.parent : option.name}</strong>
+                    <strong>{answerLabel(option, activeMode)}</strong>
                     {isCorrect ? <CheckIcon size={22} /> : null}
                   </button>
                 )
@@ -305,7 +320,7 @@ export default function FlagQuizGamePage() {
             </div>
           ) : null}
 
-          {quizMode === QUIZ_MODES.REVERSE || quizMode === QUIZ_MODES.CITY_REVERSE ? (
+          {activeMode === QUIZ_MODES.REVERSE || activeMode === QUIZ_MODES.CITY_REVERSE ? (
             <div className="fq-answer-grid fq-answer-grid--flags">
               {options.map((option, index) => {
                 const isCorrect = answered && option.id === question.flagId
@@ -330,7 +345,7 @@ export default function FlagQuizGamePage() {
             </div>
           ) : null}
 
-          {quizMode === QUIZ_MODES.TYPE ? (
+          {activeMode === QUIZ_MODES.TYPE ? (
             <form className="fq-type-answer" onSubmit={submitTyped}>
               <label htmlFor="fq-typed-answer">Deine Antwort</label>
               <div>
@@ -373,11 +388,11 @@ export default function FlagQuizGamePage() {
               <>
                 <div>
                   <SparkIcon size={21} />
-                  <p><strong>{latestAnswer.skipped ? 'Übersprungen' : isMapMode ? 'Richtig gefunden!' : latestAnswer.correct ? 'Richtig erkannt!' : 'Fast – jetzt sitzt sie besser.'}</strong><span>{latestAnswer.correct ? `${flag.name} · +${100 + Math.min(quiz.streak - 1, 10) * 15} Punkte` : latestAnswer.skipped ? `${flag.name} liegt in ${flag.parent}.` : `Die richtige Antwort ist ${[QUIZ_MODES.CAPITAL_COUNTRY, QUIZ_MODES.CITY_COUNTRY, QUIZ_MODES.LANDMARK_COUNTRY].includes(quizMode) ? flag.parent : flag.name}.${quiz.repeatMistakes ? ' Sie kommt später noch einmal.' : ''}`}</span></p>
+                  <p><strong>{latestAnswer.skipped ? 'Übersprungen' : isMapMode ? 'Richtig gefunden!' : latestAnswer.correct ? 'Richtig erkannt!' : 'Fast – jetzt sitzt sie besser.'}</strong><span>{latestAnswer.correct ? `${answerLabel(flag, activeMode)} · +${100 + Math.min(quiz.streak - 1, 10) * 15} Punkte` : latestAnswer.skipped ? `${flag.name} liegt in ${flag.parent}.` : `Die richtige Antwort ist ${answerLabel(flag, activeMode)}.${quiz.repeatMistakes ? ' Sie kommt später noch einmal.' : ''}`}</span></p>
                 </div>
                 {isHyperMode ? <span className="fq-hyper-advance">Nächstes Ziel …</span> : <button data-fq-next onClick={next} type="button">{quiz.questionIndex === quiz.questions.length - 1 ? 'Ergebnis ansehen' : isMapMode ? 'Nächste Region' : 'Nächste Flagge'} <ArrowRightIcon size={21} /></button>}
               </>
-            ) : !isMapMode ? <span className="fq-keyhint">{quizMode === QUIZ_MODES.TYPE ? 'Mit Enter prüfst du deine Eingabe.' : 'Tipp: Antworte auch mit den Tasten 1–4.'}</span> : null}
+            ) : !isMapMode ? <span className="fq-keyhint">{activeMode === QUIZ_MODES.TYPE ? 'Mit Enter prüfst du deine Eingabe.' : 'Tipp: Antworte auch mit den Tasten 1–4.'}</span> : null}
           </div>
         </section>
       </main>

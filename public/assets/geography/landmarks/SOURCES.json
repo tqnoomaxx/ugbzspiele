@@ -340,6 +340,446 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
   },
   {
+    "id": "landmark-eiffel-tower",
+    "name": "Eiffelturm",
+    "wikipedia": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+    "artist": "Benh LIEU SONG",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  {
+    "id": "landmark-carcassonne",
+    "name": "Festungsstadt Carcassonne",
+    "wikipedia": "https://en.wikipedia.org/wiki/Cit%C3%A9_de_Carcassonne",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/1_carcassonne_aerial_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:1_carcassonne_aerial_2016.jpg",
+    "artist": "Chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-pont-du-gard",
+    "name": "Pont du Gard",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pont_du_Gard",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pont_du_Gard_BLS.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_BLS.jpg",
+    "artist": "Benh LIEU SONG ( Flickr )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-chartres",
+    "name": "Kathedrale von Chartres",
+    "wikipedia": "https://en.wikipedia.org/wiki/Chartres_Cathedral",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/28/Notre_Dame_de_Chartres.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Notre_Dame_de_Chartres.jpg",
+    "artist": "Olvr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-pompeii",
+    "name": "Pompeji",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pompeii",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aerial_image_of_Pompeii_and_Mount_Vesuvius_%28view_from_the_southeast%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Pompeii_and_Mount_Vesuvius_(view_from_the_southeast).jpg",
+    "artist": "Carsten Steger",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-florence-cathedral",
+    "name": "Kathedrale von Florenz",
+    "wikipedia": "https://en.wikipedia.org/wiki/Florence_Cathedral",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg",
+    "artist": "Gary Campbell-Hall",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-castel-del-monte",
+    "name": "Castel del Monte",
+    "wikipedia": "https://en.wikipedia.org/wiki/Castel_del_Monte%2C_Apulia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/63/Castel_del_Monte_-_Andria.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Castel_del_Monte_-_Andria.jpg",
+    "artist": "ParisTaras",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-cinque-terre",
+    "name": "Cinque Terre",
+    "wikipedia": "https://en.wikipedia.org/wiki/Cinque_Terre",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/70/Cinque_Terre_%28Italy%2C_October_2020%29_-_24_%2850543603956%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Cinque_Terre_(Italy,_October_2020)_-_24_(50543603956).jpg",
+    "artist": "Bruno Rijsman",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "landmark-wartburg",
+    "name": "Wartburg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Wartburg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg",
+    "artist": "A.Savin",
+    "license": "FAL",
+    "licenseUrl": "http://artlibre.org/licence/lal/en"
+  },
+  {
+    "id": "landmark-museum-island",
+    "name": "Museumsinsel Berlin",
+    "wikipedia": "https://en.wikipedia.org/wiki/Museum_Island",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Berlin_Museumsinsel_Fernsehturm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Berlin_Museumsinsel_Fernsehturm.jpg",
+    "artist": "Thomas Wolf , www.foto-tw.de",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-luebeck",
+    "name": "Lübecker Altstadt",
+    "wikipedia": "https://en.wikipedia.org/wiki/L%C3%BCbeck",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/75/L%C3%BCbeck_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:L%C3%BCbeck_-_panoramio.jpg",
+    "artist": "Oleg Dejan",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  {
+    "id": "landmark-aachen-cathedral",
+    "name": "Aachener Dom",
+    "wikipedia": "https://en.wikipedia.org/wiki/Aachen_Cathedral",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Aachen_Germany_Imperial-Cathedral-01.jpg",
+    "artist": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-westminster",
+    "name": "Westminster Abbey",
+    "wikipedia": "https://en.wikipedia.org/wiki/Westminster_Abbey",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/47/Westminster_Abbey%2C_Westminster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey,_Westminster.jpg",
+    "artist": "Antiquary",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "id": "landmark-edinburgh-castle",
+    "name": "Edinburgh Castle",
+    "wikipedia": "https://en.wikipedia.org/wiki/Edinburgh_Castle",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/59/City_of_Edinburgh_-_Edinburgh_Castle_-_20140421004403.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:City_of_Edinburgh_-_Edinburgh_Castle_-_20140421004403.jpg",
+    "artist": "Enric",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-roman-baths",
+    "name": "Römische Bäder von Bath",
+    "wikipedia": "https://en.wikipedia.org/wiki/Roman_Baths_(Bath)",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/08/Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Roman_Baths_in_Bath_Spa,_England_-_July_2006.jpg",
+    "artist": "Diliff",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  {
+    "id": "landmark-forth-bridge",
+    "name": "Forth Bridge",
+    "wikipedia": "https://en.wikipedia.org/wiki/Forth_Bridge",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Forth_Bridge_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Forth_Bridge_2022.jpg",
+    "artist": "MrMasterKeyboard",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-jeronimos",
+    "name": "Hieronymitenkloster",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jer%C3%B3nimos_Monastery",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d6/The_Jer%C3%B3nimos_Monastery_or_Hieronymites_Monastery.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:The_Jer%C3%B3nimos_Monastery_or_Hieronymites_Monastery.png",
+    "artist": "Heartshade",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "id": "landmark-pena-palace",
+    "name": "Palácio Nacional da Pena",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pena_Palace",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/74/Sintra_Portugal_Pal%C3%A1cio_da_Pena-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Sintra_Portugal_Pal%C3%A1cio_da_Pena-01.jpg",
+    "artist": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-coimbra",
+    "name": "Universität Coimbra",
+    "wikipedia": "https://en.wikipedia.org/wiki/Biblioteca_Joanina",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/50/Coimbra_November_2012-7.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Coimbra_November_2012-7.jpg",
+    "artist": "Alvesgaspar",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-evora",
+    "name": "Historisches Zentrum von Évora",
+    "wikipedia": "https://en.wikipedia.org/wiki/%C3%89vora",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Pra%C3%A7a_de_Giraldo%2C_Evora_%2810250693386%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_de_Giraldo,_Evora_(10250693386)_(cropped).jpg",
+    "artist": "François Philipp from Darmstadt, Germany",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-delphi",
+    "name": "Orakelstätte Delphi",
+    "wikipedia": "https://en.wikipedia.org/wiki/Delphi",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Delphi%2C_Greece_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Delphi,_Greece_-_panoramio.jpg",
+    "artist": "tamara semina",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-olympia",
+    "name": "Antikes Olympia",
+    "wikipedia": "https://en.wikipedia.org/wiki/Olympia%2C_Greece",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ancient_Olympia%2C_Greece2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Ancient_Olympia,_Greece2.jpg",
+    "artist": "John Karakatsanis from Athens, Greece",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "landmark-mycenae",
+    "name": "Mykene",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mycenae",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Path_upto_the_Lion_Gate%2C_Mycenae_%2828693130016%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Path_upto_the_Lion_Gate,_Mycenae_(28693130016).jpg",
+    "artist": "Andy Hay from UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-knossos",
+    "name": "Palast von Knossos",
+    "wikipedia": "https://de.wikipedia.org/wiki/Knossos",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Knossos_-_North_Portico_02.jpg?utm_source=de.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Knossos_-_North_Portico_02.jpg",
+    "artist": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-ephesus",
+    "name": "Ephesos",
+    "wikipedia": "https://en.wikipedia.org/wiki/Ephesus",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg",
+    "artist": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-pamukkale",
+    "name": "Pamukkale",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pamukkale",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Pamukkale%2C_Denizli_2026_68.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pamukkale,_Denizli_2026_68.jpg",
+    "artist": "Biologg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-troy",
+    "name": "Troja",
+    "wikipedia": "https://en.wikipedia.org/wiki/Troy",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Walls_of_Troy_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Walls_of_Troy_(2).jpg",
+    "artist": "CherryX",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-goebekli-tepe",
+    "name": "Göbekli Tepe",
+    "wikipedia": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+    "artist": "Teomancimit",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-victoria-falls",
+    "name": "Victoriafälle",
+    "wikipedia": "https://en.wikipedia.org/wiki/Victoria_Falls",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-kilimanjaro",
+    "name": "Kilimandscharo",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Kilimanjaro_from_Amboseli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Kilimanjaro_from_Amboseli.jpg",
+    "artist": "Sergey Pesterev",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-lalibela",
+    "name": "Felsenkirchen von Lalibela",
+    "wikipedia": "https://en.wikipedia.org/wiki/Rock-Hewn_Churches%2C_Lalibela",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Lalibela%2C_san_giorgio%2C_esterno_24.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Lalibela,_san_giorgio,_esterno_24.jpg",
+    "artist": "Sailko",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  {
+    "id": "landmark-robben-island",
+    "name": "Robben Island",
+    "wikipedia": "https://en.wikipedia.org/wiki/Robben_Island",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/24/Robben_Island_-_Cape_Town%2C_South_Africa_%283883849594%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Robben_Island_-_Cape_Town,_South_Africa_(3883849594).jpg",
+    "artist": "South African Tourism from South Africa",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "landmark-petra",
+    "name": "Petra",
+    "wikipedia": "https://en.wikipedia.org/wiki/Petra",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Al_Deir_Petra.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Al_Deir_Petra.JPG",
+    "artist": "Azurfrog",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-borobudur",
+    "name": "Borobudur",
+    "wikipedia": "https://en.wikipedia.org/wiki/Borobudur",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Pradaksina.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Pradaksina.jpg",
+    "artist": "Heri nugroho",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-ha-long",
+    "name": "Hạ-Long-Bucht",
+    "wikipedia": "https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/79/Ha_Long_Bay_in_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Ha_Long_Bay_in_2019.jpg",
+    "artist": "Taewangkorea",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-mount-fuji",
+    "name": "Fuji",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mount_Fuji",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+    "artist": "Suicasmo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-iguazu",
+    "name": "Iguazú-Wasserfälle",
+    "wikipedia": "https://en.wikipedia.org/wiki/Iguazu_Falls",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/91/Aerial_Foz_de_Igua%C3%A7u_26_Nov_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Aerial_Foz_de_Igua%C3%A7u_26_Nov_2005.jpg",
+    "artist": "Mariordo (Mario Roberto Durán Ortiz)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-galapagos",
+    "name": "Galápagos-Inseln",
+    "wikipedia": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/64/Lobo_marino_%28Zalophus_californianus_wollebaeki%29%2C_Punta_Pitt%2C_isla_de_San_Crist%C3%B3bal%2C_islas_Gal%C3%A1pagos%2C_Ecuador%2C_2015-07-24%2C_DD_11.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Lobo_marino_(Zalophus_californianus_wollebaeki),_Punta_Pitt,_isla_de_San_Crist%C3%B3bal,_islas_Gal%C3%A1pagos,_Ecuador,_2015-07-24,_DD_11.JPG",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-rapa-nui",
+    "name": "Moai von Rapa Nui",
+    "wikipedia": "https://en.wikipedia.org/wiki/Easter_Island",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Easter_Island_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Easter_Island_5.jpg",
+    "artist": "kallerna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-cartagena",
+    "name": "Altstadt von Cartagena",
+    "wikipedia": "https://en.wikipedia.org/wiki/Cartagena%2C_Colombia",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/30/Museo_Naval_del_Caribe.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Museo_Naval_del_Caribe.JPG",
+    "artist": "Sgonzalezb",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "id": "landmark-great-barrier-reef",
+    "name": "Great Barrier Reef",
+    "wikipedia": "https://en.wikipedia.org/wiki/Great_Barrier_Reef_Marine_Park",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/de/Part_of_Great_Barrier_Reef_from_Helicopter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Part_of_Great_Barrier_Reef_from_Helicopter.jpg",
+    "artist": "Unbekannt",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "landmark-uluru",
+    "name": "Uluṟu",
+    "wikipedia": "https://en.wikipedia.org/wiki/Uluru",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a8/ULURU.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:ULURU.jpg",
+    "artist": "Ek2030372672",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "landmark-te-wahipounamu",
+    "name": "Milford Sound",
+    "wikipedia": "https://en.wikipedia.org/wiki/Milford_Sound",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Milford_Sound_%28New_Zealand%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Milford_Sound_(New_Zealand).JPG",
+    "artist": "Maros M r a z ( Maros )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "landmark-tongariro",
+    "name": "Tongariro-Nationalpark",
+    "wikipedia": "https://en.wikipedia.org/wiki/Tongariro_National_Park",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Tongariro_Mahuia_River_n.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "commonsPage": "https://commons.wikimedia.org/wiki/File:Tongariro_Mahuia_River_n.jpg",
+    "artist": "Unbekannt",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5"
+  },
+  {
     "id": "city-FR-14",
     "name": "Paris (Frankreich)",
     "wikipedia": "https://de.wikipedia.org/wiki/Eiffelturm",

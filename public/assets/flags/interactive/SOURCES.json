@@ -173,6 +173,34 @@
       "year": "2015",
       "license": "Open Data Commons Open Database License 1.0"
     },
+    "CR-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/CRI/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CRI/ADM1/geoBoundaries-CRI-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
+    "EC-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/ECU/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ECU/ADM1/geoBoundaries-ECU-ADM1_simplified.geojson",
+      "year": "2011",
+      "license": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+    },
+    "BO-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/BOL/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BOL/ADM1/geoBoundaries-BOL-ADM1_simplified.geojson",
+      "year": "2015",
+      "license": "Public Domain"
+    },
+    "ID-ADM1": {
+      "source": "geoBoundaries gbOpen",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/IDN/ADM1/",
+      "geometry": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/IDN/ADM1/geoBoundaries-IDN-ADM1_simplified.geojson",
+      "year": "2017",
+      "license": "Open Data Commons Open Database License 1.0"
+    },
     "HU-fallback": {
       "source": "Natural Earth",
       "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
@@ -400,22 +428,12 @@
       "year": "2022",
       "license": "Public Domain"
     },
-    "VA-fallback": {
-      "source": "Natural Earth",
-      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
-      "license": "Public Domain"
-    },
-    "FO-fallback": {
-      "source": "Natural Earth",
-      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
-      "license": "Public Domain"
-    },
     "GI-fallback": {
       "source": "Natural Earth",
       "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
       "license": "Public Domain"
     },
-    "IM-fallback": {
+    "VA-fallback": {
       "source": "Natural Earth",
       "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
       "license": "Public Domain"
@@ -426,6 +444,16 @@
       "license": "Public Domain"
     },
     "JE-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "FO-fallback": {
+      "source": "Natural Earth",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "license": "Public Domain"
+    },
+    "IM-fallback": {
       "source": "Natural Earth",
       "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
       "license": "Public Domain"
